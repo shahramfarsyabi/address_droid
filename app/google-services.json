@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "711031845723",
+    "firebase_url": "https://iraddress-149423.firebaseio.com",
+    "project_id": "iraddress-149423",
+    "storage_bucket": "iraddress-149423.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:711031845723:android:0bd06b126c4ed2c7",
+        "android_client_info": {
+          "package_name": "ir.iraddress.www"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "711031845723-v6t0io89s5281ktk2nt16oll7ep76tsh.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "711031845723-hb8s2foi6diolul5rfovvdosf8h9csg1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjQLyxoXuTPtdjM4Xd3WpvTxbDHC1UwAI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

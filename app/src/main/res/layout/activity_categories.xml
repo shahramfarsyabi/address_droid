@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:background="@drawable/toolbar_address_gradiant"
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
+
+        <ir.iraddress.www.extend.TextViewIranSans
+            android:textColor="@color/colorWhite"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:layout_gravity="right"
+            android:text="دسته بندی ها"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:onClick="onBackPressed"
+            android:background="@drawable/ic_arrow_back_white_24dp"
+            android:layout_width="56dp"
+            android:layout_height="56dp" />
+
+    </android.support.v7.widget.Toolbar>
+
+    <android.support.v7.widget.RecyclerView
+        android:background="@color/colorGray"
+        android:id="@+id/recycler_view_categories"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView>
+</LinearLayout>

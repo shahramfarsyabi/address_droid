@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@color/colorWhite"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/toolbar_address_gradiant"
+        android:theme="?attr/actionBarTheme"
+        android:minHeight="?attr/actionBarSize"
+        android:id="@+id/toolbar_diractoris_list">
+
+        <Button
+            android:onClick="onBackPressed"
+            android:layout_gravity="start|left"
+            android:scaleX="0.6"
+            android:scaleY="0.6"
+            android:background="@drawable/ic_arrow_back_white_24dp"
+            android:layout_width="56dp"
+            android:layout_height="56dp" />
+
+        <Button
+            android:layout_gravity="right"
+            android:scaleX="0.6"
+            android:scaleY="0.6"
+            android:background="@drawable/logout"
+            android:layout_width="56dp"
+            android:layout_height="56dp" />
+
+    </android.support.v7.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="vertical"
+                android:background="@drawable/toolbar_address_gradiant"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_gravity="top|center"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/profile_image"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:src="@drawable/tehran"
+                    android:elevation="8dp"
+                    app:civ_border_width="5dp"
+                    app:civ_border_color="#FFFFFFFF"/>
+
+                <TextView
+                    android:id="@+id/client_name"
+                    android:textSize="20dp"
+                    android:padding="10dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorWhite"
+                    android:gravity="center"
+                    android:text="شهرام فرسیابی"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp">
+                        <ImageView
+                            android:scaleX="0.5"
+                            android:scaleY="0.5"
+                            android:src="@drawable/direction_white"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp" />
+
+                        <ir.iraddress.www.extend.TextViewIranSans
+                            android:textColor="@color/colorWhite"
+                            android:text="۲۴ سفر"
+                            android:id="@+id/trips_count"
+                            android:textSize="15dp"
+                            android:gravity="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp">
+                        <ImageView
+                            android:scaleX="0.5"
+                            android:scaleY="0.5"
+                            android:src="@drawable/comment_white"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp" />
+
+                        <ir.iraddress.www.extend.TextViewIranSans
+                            android:textColor="@color/colorWhite"
+                            android:text="۰ نظر"
+                            android:id="@+id/comments_count"
+                            android:textSize="15dp"
+                            android:gravity="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp">
+                        <ImageView
+                            android:scaleX="0.5"
+                            android:scaleY="0.5"
+                            android:src="@drawable/camera_white"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp" />
+
+                        <ir.iraddress.www.extend.TextViewIranSans
+                            android:textColor="@color/colorWhite"
+                            android:text="۸ عکس"
+                            android:id="@+id/photos_count"
+                            android:textSize="15dp"
+                            android:gravity="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp">
+                        <ImageView
+                            android:scaleX="0.5"
+                            android:scaleY="0.5"
+                            android:src="@drawable/file_white"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp" />
+
+                        <ir.iraddress.www.extend.TextViewIranSans
+                            android:textColor="@color/colorWhite"
+                            android:text="۳۱ آیتم"
+                            android:id="@+id/items_count"
+                            android:textSize="15dp"
+                            android:gravity="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="15dp"
+                android:background="@color/colorSilverLight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/followed"
+                    android:onClick="getConnections"
+                    android:layout_margin="10dp"
+                    android:elevation="10dp"
+                    android:textColor="@color/colorWhite"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:text="دنبال کننده ها"
+                    android:layout_gravity="center"
+                    android:background="@drawable/rounded_corners"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+                <Button
+                    android:id="@+id/followers"
+                    android:onClick="getConnections"
+                    android:layout_margin="10dp"
+                    android:elevation="10dp"
+                    android:textColor="@color/colorWhite"
+                    android:backgroundTint="#0DD0AE"
+                    android:text="دنبال شونده ها"
+                    android:layout_gravity="center"
+                    android:background="@drawable/rounded_corners"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <View
+                android:background="#CCC"
+                android:layout_width="match_parent"
+                android:layout_height="1dp" />
+
+
+            <LinearLayout
+                android:padding="20dp"
+                android:background="@color/colorWhite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:onClick="profileActions"
+                    android:id="@+id/myitems"
+                    android:tag="featured"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:src="@drawable/locations"
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp" />
+
+                    <ir.iraddress.www.extend.TextViewIranSans
+                        android:layout_margin="10dp"
+                        android:textAlignment="center"
+                        android:text="آیتم های من"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:onClick="profileActions"
+                    android:id="@+id/myphotos"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:src="@drawable/images"
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp" />
+
+                    <ir.iraddress.www.extend.TextViewIranSans
+                        android:layout_margin="10dp"
+                        android:textAlignment="center"
+                        android:text="عکس های من"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="20dp"
+                android:background="@color/colorWhite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:onClick="profileActions"
+                    android:id="@+id/mytrips"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:src="@drawable/trips"
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp" />
+
+                    <ir.iraddress.www.extend.TextViewIranSans
+                        android:layout_margin="10dp"
+                        android:textAlignment="center"
+                        android:text="سفرهای من"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:onClick="profileActions"
+                    android:id="@+id/mycomments"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:src="@drawable/comments"
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp" />
+
+                    <ir.iraddress.www.extend.TextViewIranSans
+                        android:layout_margin="10dp"
+                        android:textAlignment="center"
+                        android:text="نظرهای من"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

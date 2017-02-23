@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/toolbar_address_gradiant"
+        android:theme="?attr/actionBarTheme"
+        android:minHeight="?attr/actionBarSize"
+        android:id="@+id/toolbar_diractoris_list">
+
+        <Button
+            android:onClick="onBackPressed"
+            android:layout_gravity="left"
+            android:scaleX="0.6"
+            android:scaleY="0.6"
+            android:background="@drawable/ic_arrow_back_white_24dp"
+            android:layout_width="56dp"
+            android:layout_height="56dp" />
+
+        <ImageView
+            android:id="@+id/toolbar_image_page"
+            android:layout_gravity="right"
+            android:scaleX="0.5"
+            android:scaleY="0.5"
+            android:src="@drawable/thumbs_up_white"
+            android:layout_width="56dp"
+            android:layout_height="56dp" />
+
+        <ir.iraddress.www.extend.TextViewIranSans
+            android:layout_gravity="right"
+            android:gravity="center"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:text="بهترین های آدرس"
+            android:id="@+id/toolbar_title_page"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ir.iraddress.www.extend.TextViewIranSans
+            android:id="@+id/text_wrapper"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+</LinearLayout>

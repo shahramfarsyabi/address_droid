@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:id="@+id/viewholder_sub_categories_header"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.daimajia.slider.library.SliderLayout
+        android:background="@drawable/toolbar_address_gradiant"
+        android:layout_width="match_parent"
+        android:layout_height="250dp">
+
+    </com.daimajia.slider.library.SliderLayout>
+
+    <LinearLayout
+        android:background="#CCC"
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <Button
+            android:onClick="showMapActivity"
+            android:id="@+id/near_on_map"
+            android:backgroundTint="@color/colorPrimary"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_margin="20dp"
+            android:text="نزدیک ترین ها روی نقشه"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+</LinearLayout>
