@@ -63,7 +63,7 @@ public class SearchResultActivity extends MainController {
                 break;
         }
 
-        mSwipeRefreshLayout.setRefreshing(false);
+//        mSwipeRefreshLayout.setRefreshing(false);
 
     }
 }
