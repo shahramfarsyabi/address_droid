@@ -7,21 +7,27 @@
         android:id="@+id/toolbar_mapactivity"
         android:background="@drawable/toolbar_address_gradiant"
         android:layout_width="match_parent"
-        android:layout_height="56dp">
+        android:layout_height="56dp"
+        android:elevation="2dp"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        android:paddingLeft="0dp">
 
         <Button
             android:onClick="onBackPressed"
-            android:scaleY="0.7"
-            android:scaleX="0.7"
-            android:background="@drawable/ic_arrow_back_white_24dp"
+            android:scaleY="0.5"
+            android:scaleX="0.5"
+            android:background="@drawable/ic_arrow_pointing_to_left"
             android:layout_width="56dp"
             android:layout_height="56dp" />
 
         <Button
-            android:scaleY="0.7"
-            android:scaleX="0.7"
+            android:scaleY="0.5"
+            android:scaleX="0.5"
             android:onClick="changeTrafficeStatus"
-            android:background="@drawable/ic_traffic_white_24dp"
+            android:background="@drawable/ic_traffic_light"
             android:layout_width="56dp"
             android:layout_height="56dp" />
 
