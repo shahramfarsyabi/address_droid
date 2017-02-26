@@ -19,6 +19,7 @@ import org.w3c.dom.Text;
 import ir.iraddress.www.MainController;
 import ir.iraddress.www.R;
 import ir.iraddress.www.extend.TextViewIranSans;
+import ir.iraddress.www.extend.TextViewIranSansBold;
 
 
 public class DirectoriesActivity extends MainController {
@@ -52,7 +53,7 @@ public class DirectoriesActivity extends MainController {
 
         if(extras.containsKey("toolbar_title")){
 
-            TextViewIranSans toolbarTitle = (TextViewIranSans) findViewById(R.id.toolbar_title_directories);
+            TextViewIranSansBold toolbarTitle = (TextViewIranSansBold) findViewById(R.id.toolbar_title_directories);
             toolbarTitle.setText(extras.getString("toolbar_title"));
         }
 
