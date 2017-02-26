@@ -1,5 +1,6 @@
 package ir.iraddress.www.directories;
 
+import android.app.Dialog;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -7,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.Window;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
@@ -19,6 +21,7 @@ import org.w3c.dom.Text;
 import ir.iraddress.www.MainController;
 import ir.iraddress.www.R;
 import ir.iraddress.www.extend.TextViewIranSans;
+import ir.iraddress.www.extend.TextViewIranSansBold;
 
 
 public class DirectoriesActivity extends MainController {
@@ -52,7 +55,7 @@ public class DirectoriesActivity extends MainController {
 
         if(extras.containsKey("toolbar_title")){
 
-            TextViewIranSans toolbarTitle = (TextViewIranSans) findViewById(R.id.toolbar_title_directories);
+            TextViewIranSansBold toolbarTitle = (TextViewIranSansBold) findViewById(R.id.toolbar_title_directories);
             toolbarTitle.setText(extras.getString("toolbar_title"));
         }
 
@@ -93,16 +96,24 @@ public class DirectoriesActivity extends MainController {
                 break;
         }
 
-        mSwipeRefreshLayout.setRefreshing(false);
+//        mSwipeRefreshLayout.setRefreshing(false);
 
     }
 
     public void advanceFilter(View view){
-        System.out.println("START FILTER VIEW");
-        View filter = getLayoutInflater().inflate(R.layout.filter_layout, null);
 
-        RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.directories_list_view);
-        relativeLayout.addView(filter);
+        Dialog advanceFilter = new Dialog(this);
+        advanceFilter.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        advanceFilter.setContentView(R.layout.filter_layout);
+        advanceFilter.show();
+
+//        System.out.println("START FILTER VIEW");
+//        View filter = getLayoutInflater().inflate(R.layout.filter_layout, null);
+//
+//        RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.directories_list_view);
+//        relativeLayout.addView(filter);
+
+
 
 
     }
