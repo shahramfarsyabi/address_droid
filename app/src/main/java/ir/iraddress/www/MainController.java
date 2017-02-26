@@ -44,16 +44,16 @@ public abstract class MainController extends AppCompatActivity {
 
     public void render(){
 
-        mSwipeRefreshLayout = (SwipeRefreshLayout)findViewById(R.id.swifeRefresh);
-        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                collection.clear();
-                recyclerView.removeAllViewsInLayout();
-                fetchData(1, "", params);
-
-            }
-        });
+//        mSwipeRefreshLayout = (SwipeRefreshLayout)findViewById(R.id.swifeRefresh);
+//        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+//            @Override
+//            public void onRefresh() {
+//                collection.clear();
+//                recyclerView.removeAllViewsInLayout();
+//                fetchData(1, "", params);
+//
+//            }
+//        });
 
         EndlessRecyclerViewScrollListener endlessRecyclerViewScrollListener = new EndlessRecyclerViewScrollListener((LinearLayoutManager) layoutManager) {
             @Override

@@ -9,9 +9,9 @@
         <ImageView
             android:background="@drawable/tehran"
             android:scaleType="centerCrop"
-            android:elevation="8dp"
+            android:elevation="3dp"
             android:layout_width="match_parent"
-            android:layout_height="350dp" />
+            android:layout_height="200dp"/>
 
         <LinearLayout
             android:background="#f7f7f7"
@@ -19,13 +19,14 @@
             android:layout_height="wrap_content">
             <android.support.v7.widget.AppCompatEditText
                 android:layout_margin="20dp"
-                android:elevation="4dp"
+                android:elevation="2dp"
                 android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="#000000"
                 android:background="@drawable/rounded_corners"
                 android:layout_width="match_parent"
                 android:layout_gravity="center"
                 android:textColorHint="#c1c1c1"
-                android:textSize="15dp"
                 android:id="@+id/home_search_box"
                 android:hint="جستجوی شهر، رستوران، باشگاه ورزشی و ..."
                 android:layout_height="50dp" />

@@ -17,13 +17,15 @@
             android:layout_gravity="center"
             android:background="@drawable/thumbs_up"
             android:layout_width="50dp"
-            android:layout_height="50dp" />
+            android:layout_height="50dp"
+            android:layout_marginBottom="10dp"/>
 
         <ir.iraddress.www.extend.TextViewIranSans
             android:padding="10dp"
             android:layout_gravity="center"
             android:gravity="center"
             android:text="arta"
+            android:textColor="@color/mediumGray"
             android:id="@+id/main_category_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />

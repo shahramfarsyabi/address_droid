@@ -11,19 +11,19 @@ public class TextViewIranSansBold extends TextView {
 
     public TextViewIranSansBold(Context context) {
         super(context);
-        Typeface face=Typeface.createFromAsset(context.getAssets(), "fonts/ttf/IRANSansWeb.ttf");
+        Typeface face=Typeface.createFromAsset(context.getAssets(), "fonts/ttf/IRANSansBold.ttf");
         this.setTypeface(face);
     }
 
     public TextViewIranSansBold(Context context, AttributeSet attrs) {
         super(context, attrs);
-        Typeface face=Typeface.createFromAsset(context.getAssets(), "fonts/ttf/IRANSansWeb.ttf");
+        Typeface face=Typeface.createFromAsset(context.getAssets(), "fonts/ttf/IRANSansBold.ttf");
         this.setTypeface(face);
     }
 
     public TextViewIranSansBold(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        Typeface face=Typeface.createFromAsset(context.getAssets(), "fonts/ttf/IRANSansWeb.ttf");
+        Typeface face=Typeface.createFromAsset(context.getAssets(), "fonts/ttf/IRANSansBold.ttf");
         this.setTypeface(face);
     }
 
