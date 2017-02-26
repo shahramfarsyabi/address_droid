@@ -18,10 +18,8 @@ import java.util.List;
 
 import ir.iraddress.www.R;
 import ir.iraddress.www.extend.TextViewIranSans;
+import ir.iraddress.www.extend.TextViewIranSansBold;
 
-/**
- * Created by shahram on 2/20/17.
- */
 
 public class MapItemShowLinearAdapter extends RecyclerView.Adapter<MapItemShowLinearHolder>{
     LayoutInflater inflater;
@@ -52,7 +50,7 @@ public class MapItemShowLinearAdapter extends RecyclerView.Adapter<MapItemShowLi
         try {
             final JSONObject object = (JSONObject) collection.get(position);
 
-            TextViewIranSans title = (TextViewIranSans) holder.cardView.findViewById(R.id.directory_title);
+            TextViewIranSansBold title = (TextViewIranSansBold) holder.cardView.findViewById(R.id.directory_title);
             title.setText(object.getString("title"));
 
             TextViewIranSans address = (TextViewIranSans) holder.cardView.findViewById(R.id.directory_address);
