@@ -7,38 +7,30 @@ import android.graphics.Typeface;
 import android.location.Location;
 import android.preference.PreferenceManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import ir.iraddress.www.R;
 import ir.iraddress.www.extend.TextViewIranSans;
 
-/**
- * Created by shahram on 2/13/17.
- */
 
 public class DirectoriesAdapter extends RecyclerView.Adapter<DirectoryHolder> {
 
     public LayoutInflater inflater;
     public Context context;
     public List list;
-    public JSONArray jsonArray;
     public Typeface typeface;
     public JSONObject location;
-    public String locationString;
+    private String locationString;
 
     public DirectoriesAdapter(Context context, List list){
         inflater = LayoutInflater.from(context);
@@ -78,8 +70,6 @@ public class DirectoriesAdapter extends RecyclerView.Adapter<DirectoryHolder> {
             ImageView image = (ImageView) holder.linearLayout.findViewById(R.id.directory_image);
             if(!object.getString("image").isEmpty()){
                 Picasso.with(context).load(object.getString("image")).fit().centerCrop().into(image);
-            }else{
-
             }
 
             TextViewIranSans address = (TextViewIranSans) holder.linearLayout.findViewById(R.id.directory_address);
@@ -117,7 +107,7 @@ public class DirectoriesAdapter extends RecyclerView.Adapter<DirectoryHolder> {
                 public void onClick(View v) {
                     try {
                         Intent intent = new Intent(context, DirectoryActivity.class);
-                        intent.putExtra("city_id", object.getInt("id"));
+                        intent.putExtra("directory_id", object.getInt("id"));
                         context.startActivity(intent);
                     } catch (JSONException e) {
                         e.printStackTrace();

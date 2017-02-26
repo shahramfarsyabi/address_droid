@@ -1,25 +1,23 @@
 package ir.iraddress.www;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
+
 import android.graphics.Typeface;
-import android.os.Build;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -41,22 +39,8 @@ public abstract class MainController extends AppCompatActivity {
     public Typeface typeface;
     public RequestParams params = new RequestParams();
     public SwipeRefreshLayout mSwipeRefreshLayout;
-
-//    private boolean checkPermission() {
-//        if (Build.VERSION.SDK_INT >= 23) {
-//            if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
-//                    != PackageManager.PERMISSION_GRANTED
-//                    || ContextCompat.checkSelfPermission(this, Manifest.permission.DISABLE_KEYGUARD)
-//                    != PackageManager.PERMISSION_GRANTED
-//                    || ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-//                    != PackageManager.PERMISSION_GRANTED
-//                    || ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-//                    != PackageManager.PERMISSION_GRANTED) {
-//                return false;
-//            }
-//        }
-//        return true;
-//    }
+    public Button fileBrowser;
+    public ProgressBar loading;
 
     public void render(){
 
@@ -134,6 +118,10 @@ public abstract class MainController extends AppCompatActivity {
 
     }
 
+    public void uploaded(){
+
+    }
+
 
     public void fetchData(int page, String url, RequestParams params){
         System.out.println(page);
@@ -186,6 +174,31 @@ public abstract class MainController extends AppCompatActivity {
             @Override
             public void onFailure(int statusCode , cz.msebera.android.httpclient.Header[] headers, Throwable throwable , JSONObject response){
                 callback(response, statusCode);
+            }
+        });
+    }
+
+    public void upload(String url, RequestParams params){
+
+        fileBrowser.setVisibility(View.GONE);
+        loading.setVisibility(View.VISIBLE);
+
+        HttpRequest.post(url, params, new JsonHttpResponseHandler(){
+            @Override
+            public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, JSONObject response) {
+                System.out.println(response);
+                Toast.makeText(context, "فایل با موفقیت ارسال شد.", Toast.LENGTH_LONG).show();
+                uploaded();
+                fileBrowser.setVisibility(View.VISIBLE);
+                loading.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onFailure(int statusCode , cz.msebera.android.httpclient.Header[] headers, Throwable throwable , JSONObject response){
+                System.out.println(response);
+                Toast.makeText(context, "در ارسال فایل خطایی رخ داده است.", Toast.LENGTH_LONG).show();
+                fileBrowser.setVisibility(View.VISIBLE);
+                loading.setVisibility(View.GONE);
             }
         });
     }

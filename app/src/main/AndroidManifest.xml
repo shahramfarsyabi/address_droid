@@ -9,7 +9,8 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
-
+    <uses-permission android:name="android.permission.MANAGE_DOCUMENTS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="false"
@@ -24,13 +25,13 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDJ5mZv2XY1QKS0lIW3navLQEGNjcdNbO8" />
 
-        <service android:name=".services.MyFirebaseInstanceService">
+        <service android:exported="false" android:name=".services.MyFirebaseInstanceService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
 
-        <service android:name=".services.MyFirebaseMessagingService">
+        <service android:exported="false" android:name=".services.MyFirebaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT"/>
             </intent-filter>
