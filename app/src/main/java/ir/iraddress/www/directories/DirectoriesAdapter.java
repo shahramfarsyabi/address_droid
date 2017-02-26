@@ -65,21 +65,21 @@ public class DirectoriesAdapter extends RecyclerView.Adapter<DirectoryHolder> {
         try {
             final JSONObject object = (JSONObject) list.get(position);
 
-            TextViewIranSansBold title = (TextViewIranSansBold) holder.linearLayout.findViewById(R.id.directory_title);
+            TextViewIranSansBold title = (TextViewIranSansBold) holder.cardView.findViewById(R.id.directory_title);
             title.setText(object.getString("title"));
 
-            ImageView image = (ImageView) holder.linearLayout.findViewById(R.id.directory_image);
+            ImageView image = (ImageView) holder.cardView.findViewById(R.id.directory_image);
             if(!object.getString("image").isEmpty()){
                 Picasso.with(context).load(object.getString("image")).fit().centerCrop().into(image);
             }
 
-            TextViewIranSans address = (TextViewIranSans) holder.linearLayout.findViewById(R.id.directory_address);
+            TextViewIranSans address = (TextViewIranSans) holder.cardView.findViewById(R.id.directory_address);
             address.setText(object.getString("address").trim());
 
-            TextViewIranSans phone = (TextViewIranSans) holder.linearLayout.findViewById(R.id.directory_phone);
+            TextViewIranSans phone = (TextViewIranSans) holder.cardView.findViewById(R.id.directory_phone);
             phone.setText(object.getString("phone").trim());
 
-            TextViewIranSans distance = (TextViewIranSans) holder.linearLayout.findViewById(R.id.directory_distance);
+            TextViewIranSans distance = (TextViewIranSans) holder.cardView.findViewById(R.id.directory_distance);
 
 
             if(!locationString.isEmpty()){
@@ -103,7 +103,7 @@ public class DirectoriesAdapter extends RecyclerView.Adapter<DirectoryHolder> {
             }
 
 
-            holder.linearLayout.setOnClickListener(new View.OnClickListener() {
+            holder.cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     try {
