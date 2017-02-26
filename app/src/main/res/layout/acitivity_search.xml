@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorWhite"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -8,25 +9,28 @@
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:paddingRight="15dp"
         android:background="@drawable/toolbar_address_gradiant"
         android:theme="?attr/actionBarTheme"
         android:minHeight="?attr/actionBarSize"
         android:id="@+id/toolbar_diractoris_list"
-        android:elevation="2dp">
+        android:elevation="3dp">
 
         <Button
             android:onClick="onBackPressed"
             android:layout_gravity="left"
             android:background="@drawable/ic_arrow_pointing_to_left"
-            android:layout_width="26dp"
-            android:layout_height="26dp" />
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:scaleX="0.5"
+            android:scaleY="0.5"/>
 
         <ImageView
             android:layout_gravity="right"
             android:src="@drawable/ic_magnifying_glass"
-            android:layout_width="26dp"
-            android:layout_height="26dp"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:scaleY="0.5"
+            android:scaleX="0.5"
             android:layout_marginLeft="10dp"/>
 
         <ir.iraddress.www.extend.TextViewIranSansBold

@@ -12,7 +12,8 @@
         android:background="@drawable/toolbar_address_gradiant"
         android:theme="?attr/actionBarTheme"
         android:minHeight="?attr/actionBarSize"
-        android:id="@+id/toolbar_diractoris_list">
+        android:id="@+id/toolbar_diractoris_list"
+        android:elevation="2dp">
 
         <Button
             style="@style/Widget.AppCompat.Button.Colored"

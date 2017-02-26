@@ -21,6 +21,7 @@ import java.util.List;
 
 import ir.iraddress.www.R;
 import ir.iraddress.www.extend.TextViewIranSans;
+import ir.iraddress.www.extend.TextViewIranSansBold;
 
 
 public class DirectoriesAdapter extends RecyclerView.Adapter<DirectoryHolder> {
@@ -64,7 +65,7 @@ public class DirectoriesAdapter extends RecyclerView.Adapter<DirectoryHolder> {
         try {
             final JSONObject object = (JSONObject) list.get(position);
 
-            TextViewIranSans title = (TextViewIranSans) holder.linearLayout.findViewById(R.id.directory_title);
+            TextViewIranSansBold title = (TextViewIranSansBold) holder.linearLayout.findViewById(R.id.directory_title);
             title.setText(object.getString("title"));
 
             ImageView image = (ImageView) holder.linearLayout.findViewById(R.id.directory_image);

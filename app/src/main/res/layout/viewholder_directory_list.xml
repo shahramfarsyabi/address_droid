@@ -3,12 +3,16 @@
     android:background="@color/colorWhite"
     android:id="@+id/parent_holder"
     android:orientation="vertical"
+    android:layout_marginRight="10dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="10dp"
     android:layout_width="match_parent"
     android:layout_height="120dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="119dp">
+        android:layout_height="120dp"
+        android:elevation="2dp">
 
         <ImageView
             android:layout_marginRight="5dp"
@@ -16,10 +20,9 @@
             android:layout_gravity="center"
             android:padding="1dp"
             android:id="@+id/directory_image"
-            android:src="@drawable/logo_orange"
+            android:src="@drawable/ic_noimg"
             android:layout_alignParentRight="true"
             android:layout_width="110dp"
-            android:background="@drawable/image_border"
             android:layout_height="110dp" />
 
         <LinearLayout
@@ -29,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ir.iraddress.www.extend.TextViewIranSans
+            <ir.iraddress.www.extend.TextViewIranSansBold
                 android:gravity="center"
                 android:layout_gravity="right"
                 android:layout_marginRight="10dp"
