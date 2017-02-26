@@ -12,11 +12,11 @@
         <Button
             android:onClick="onBackPressed"
             android:layout_gravity="left"
-            android:scaleX="0.6"
-            android:scaleY="0.6"
-            android:background="@drawable/ic_arrow_back_white_24dp"
+            android:background="@drawable/ic_arrow_pointing_to_left"
             android:layout_width="56dp"
-            android:layout_height="56dp" />
+            android:layout_height="56dp"
+            android:scaleX="0.5"
+            android:scaleY="0.5"/>
 
         <ImageView
             android:scaleX="0.6"
@@ -26,11 +26,10 @@
             android:layout_width="56dp"
             android:layout_height="56dp" />
 
-        <ir.iraddress.www.extend.TextViewIranSans
+        <ir.iraddress.www.extend.TextViewIranSansBold
             android:layout_gravity="right"
             android:textColor="@color/colorWhite"
-            android:textStyle="bold"
-            android:textSize="20dp"
+            android:textSize="18dp"
             android:id="@+id/toolbar_sub_category_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />

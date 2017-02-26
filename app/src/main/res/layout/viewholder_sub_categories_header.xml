@@ -13,7 +13,7 @@
     </com.daimajia.slider.library.SliderLayout>
 
     <LinearLayout
-        android:background="#CCC"
+        android:background="@color/colorLightGray"
         android:layout_width="match_parent"
         android:layout_height="100dp">
 

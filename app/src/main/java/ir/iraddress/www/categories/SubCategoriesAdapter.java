@@ -17,6 +17,7 @@ import java.util.List;
 import ir.iraddress.www.R;
 import ir.iraddress.www.directories.DirectoriesActivity;
 import ir.iraddress.www.extend.TextViewIranSans;
+import ir.iraddress.www.extend.TextViewIranSansBold;
 
 public class SubCategoriesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
@@ -65,7 +66,7 @@ public class SubCategoriesAdapter extends RecyclerView.Adapter<RecyclerView.View
                 try {
                     final JSONObject object = (JSONObject) collection.get((position-1));
 
-                    TextViewIranSans title = (TextViewIranSans) subCategoryHolder.cardView.findViewById(R.id.sub_category_title);
+                    TextViewIranSansBold title = (TextViewIranSansBold) subCategoryHolder.cardView.findViewById(R.id.sub_category_title);
                     title.setText(object.getString("title"));
 
                     subCategoryHolder.cardView.setOnClickListener(new View.OnClickListener() {
