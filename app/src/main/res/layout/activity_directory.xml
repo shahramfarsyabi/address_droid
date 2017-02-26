@@ -451,13 +451,18 @@
                 android:id="@+id/toolbar"
                 app:layout_collapseMode="pin"
                 android:layout_height="?attr/actionBarSize"
-                android:layout_width="match_parent">
+                android:layout_width="match_parent"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                app:contentInsetLeft="0dp"
+                app:contentInsetStart="0dp"
+                android:paddingLeft="0dp">
 
                 <Button
                     android:onClick="onBackPressed"
-                    android:scaleX="0.6"
-                    android:scaleY="0.6"
-                    android:background="@drawable/ic_arrow_back_white_24dp"
+                    android:scaleX="0.5"
+                    android:scaleY="0.5"
+                    android:background="@drawable/ic_arrow_pointing_to_left"
                     android:layout_width="56dp"
                     android:layout_height="56dp" />
 
