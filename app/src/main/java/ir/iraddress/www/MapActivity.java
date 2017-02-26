@@ -63,7 +63,7 @@ public class MapActivity extends MainController implements OnMapReadyCallback {
         mapFragment.getMapAsync(this);
 
         try {
-            MyLocationServiceManager myLocationServiceManager = new MyLocationServiceManager(this);
+            MyLocationServiceManager myLocationServiceManager = new MyLocationServiceManager(this, this);
             location = myLocationServiceManager.getLocation();
         } catch (JSONException e) {
             e.printStackTrace();

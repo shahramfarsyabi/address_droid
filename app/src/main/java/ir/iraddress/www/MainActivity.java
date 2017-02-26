@@ -2,6 +2,7 @@ package ir.iraddress.www;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -26,6 +27,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -50,6 +52,8 @@ import static android.R.attr.typeface;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private String[] mainMenu = {"","بهترین های آدرس", "تازه ها", "تخفیف ها", "چی ؟ کجا ؟ چرا", "فستیوال عکس", "تا حالا اینجا بودین", "لاتاری", "سفرهای من" };
+    private static final int PERMISSIONS_REQUEST_CODE_FOR_FINE_LOCATION = 1001;
+    private MyLocationServiceManager myLocationServiceManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,16 +70,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 ////            w.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
 //        }
 
-        Intent intent = new Intent();
-        intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-        Uri uri = Uri.fromParts("package", getPackageName(), null);
-        intent.setData(uri);
-        startActivity(intent);
+//        Intent intent = new Intent();
+//        intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+//        Uri uri = Uri.fromParts("package", getPackageName(), null);
+//        intent.setData(uri);
+//        startActivity(intent);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        MyLocationServiceManager myLocationServiceManager = new MyLocationServiceManager(this);
+        myLocationServiceManager = new MyLocationServiceManager(this, this);
         myLocationServiceManager.connect();
         try {
 
@@ -212,5 +216,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void searchStack(View view){
         Intent intent = new Intent(this, SearchStackActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        switch (requestCode) {
+            case PERMISSIONS_REQUEST_CODE_FOR_FINE_LOCATION:
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // Permission Granted
+                    myLocationServiceManager.connect();
+                } else {
+                    // Permission Denied
+                    Toast.makeText(MainActivity.this, "Access Fine Location is Denied", Toast.LENGTH_SHORT)
+                            .show();
+                }
+                break;
+            default:
+                super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
     }
 }

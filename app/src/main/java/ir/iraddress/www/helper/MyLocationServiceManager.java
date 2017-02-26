@@ -2,6 +2,7 @@ package ir.iraddress.www.helper;
 
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -33,14 +34,18 @@ import static android.telephony.CellLocation.requestLocationUpdate;
 
 public class MyLocationServiceManager implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
 
+    private static final int PERMISSIONS_REQUEST_CODE_FOR_FINE_LOCATION = 1001;
+
     public int delay = 60000;
     private LocationRequest mLocationRequest;
     private GoogleApiClient mGoogleApiClient;
     public Context context;
+    private Activity activity;
     private SharedPreferences sharedPreferences;
 
-    public MyLocationServiceManager(Context context) {
+    public MyLocationServiceManager(Context context, Activity activity) {
         this.context = context;
+        this.activity = activity;
 
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
 
@@ -68,8 +73,16 @@ public class MyLocationServiceManager implements GoogleApiClient.ConnectionCallb
 
     private void startLocationUpdates() {
 
-        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, PERMISSIONS_REQUEST_CODE_FOR_FINE_LOCATION);
             return;
+
+        }else if(ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED){
+
+            ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, PERMISSIONS_REQUEST_CODE_FOR_FINE_LOCATION);
+            return;
+
         }
 
 
@@ -155,6 +168,7 @@ public class MyLocationServiceManager implements GoogleApiClient.ConnectionCallb
     private void lastLocation() {
 
         if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
             return;
         }
 
