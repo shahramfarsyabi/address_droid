@@ -23,6 +23,7 @@ import ir.iraddress.www.R;
 import ir.iraddress.www.directories.DirectoryActivity;
 import ir.iraddress.www.directories.DirectoryHolder;
 import ir.iraddress.www.extend.TextViewIranSans;
+import ir.iraddress.www.extend.TextViewIranSansBold;
 import ir.iraddress.www.helper.SharedPrefered;
 
 /**
@@ -92,23 +93,23 @@ public class SearchAdapter extends RecyclerView.Adapter {
 
                     final JSONObject object = (JSONObject) collection.get((position-1));
 
-                    TextViewIranSans title = (TextViewIranSans) directoryHolder.linearLayout.findViewById(R.id.directory_title);
+                    TextViewIranSansBold title = (TextViewIranSansBold) directoryHolder.cardView.findViewById(R.id.directory_title);
                     title.setText(object.getString("title"));
 
-                    ImageView image = (ImageView) directoryHolder.linearLayout.findViewById(R.id.directory_image);
+                    ImageView image = (ImageView) directoryHolder.cardView.findViewById(R.id.directory_image);
                     if(object.has("image") && !object.getString("image").isEmpty()){
                         Picasso.with(context).load(object.getString("image")).fit().centerCrop().into(image);
                     }else{
 
                     }
 
-                    TextViewIranSans address = (TextViewIranSans) directoryHolder.linearLayout.findViewById(R.id.directory_address);
+                    TextViewIranSans address = (TextViewIranSans) directoryHolder.cardView.findViewById(R.id.directory_address);
                     address.setText(object.getString("address").trim());
 
-                    TextViewIranSans phone = (TextViewIranSans) directoryHolder.linearLayout.findViewById(R.id.directory_phone);
+                    TextViewIranSans phone = (TextViewIranSans) directoryHolder.cardView.findViewById(R.id.directory_phone);
                     phone.setText(object.getString("phone").trim());
 
-                    TextViewIranSans distance = (TextViewIranSans) directoryHolder.linearLayout.findViewById(R.id.directory_distance);
+                    TextViewIranSans distance = (TextViewIranSans) directoryHolder.cardView.findViewById(R.id.directory_distance);
 
 
                     if(!locationString.isEmpty()){
@@ -131,7 +132,7 @@ public class SearchAdapter extends RecyclerView.Adapter {
                     }
 
 
-                    directoryHolder.linearLayout.setOnClickListener(new View.OnClickListener() {
+                    directoryHolder.cardView.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             try {
