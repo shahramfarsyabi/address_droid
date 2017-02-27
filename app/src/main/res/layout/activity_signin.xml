@@ -1,23 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:background="@color/colorWhite"
+    android:background="@color/colorLightGray"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="56dp"
         android:theme="?attr/actionBarTheme"
         android:minHeight="?attr/actionBarSize"
-        android:id="@+id/toolbar_diractoris_list">
+        android:id="@+id/toolbar_diractoris_list"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        android:paddingLeft="0dp">
 
         <Button
             android:onClick="onBackPressed"
             android:layout_gravity="left"
-            android:scaleX="0.6"
-            android:scaleY="0.6"
-            android:background="@drawable/ic_arrow_back_black_24dp"
+            android:scaleX="0.5"
+            android:scaleY="0.5"
+            android:background="@drawable/ic_arrow_pointing_to_left_gray"
             android:layout_width="56dp"
             android:layout_height="56dp" />
 
@@ -25,15 +30,15 @@
             android:layout_gravity="right"
             android:scaleX="0.5"
             android:scaleY="0.5"
-            android:src="@drawable/login"
+            android:src="@drawable/ic_sign_in"
+            android:rotation="180"
             android:layout_width="56dp"
             android:layout_height="56dp" />
 
-        <TextView
+        <ir.iraddress.www.extend.TextViewIranSansBold
             android:layout_gravity="right"
-            android:textColor="@color/colorGray"
-            android:textStyle="bold"
-            android:textSize="20dp"
+            android:textColor="@color/mediumGray"
+            android:textSize="18dp"
             android:text="ورود کاربر"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -48,35 +53,35 @@
         android:layout_width="match_parent"
         android:layout_height="0dp">
         <ImageView
-            android:padding="15dp"
             android:src="@drawable/signin"
             android:layout_width="match_parent"
-            android:layout_height="100dp" />
+            android:layout_height="100dp"
+            android:layout_marginBottom="20dp"/>
 
         <LinearLayout
-            android:padding="10dp"
+            android:padding="0dp"
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="122dp"
+            android:layout_marginBottom="20dp">
 
             <android.support.v7.widget.AppCompatEditText
                 android:layout_width="match_parent"
-                android:padding="10dp"
                 android:id="@+id/email"
-                android:layout_margin="10dp"
                 android:hint="پست الکترونیک"
-                android:background="@drawable/rounded_bordered"
-                android:layout_height="match_parent" />
+                android:layout_height="60dp"
+                android:textAlignment="center"
+                android:layout_marginBottom="2dp"
+                android:background="@color/colorWhite"/>
 
             <android.support.v7.widget.AppCompatEditText
                 android:layout_width="match_parent"
-                android:layout_margin="10dp"
                 android:id="@+id/password"
                 android:hint="کلمه عبور"
-                android:padding="10dp"
                 android:layout_weight="1"
-                android:background="@drawable/rounded_bordered"
-                android:layout_height="match_parent" />
+                android:background="@color/colorWhite"
+                android:textAlignment="center"
+                android:layout_height="60dp" />
         </LinearLayout>
 
         <Button
