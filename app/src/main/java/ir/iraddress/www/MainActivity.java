@@ -77,6 +77,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //        startActivity(intent);
 
         super.onCreate(savedInstanceState);
+//        getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
         setContentView(R.layout.activity_main);
 
         myLocationServiceManager = new MyLocationServiceManager(this, this);

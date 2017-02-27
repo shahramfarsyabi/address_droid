@@ -6,6 +6,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -42,6 +45,13 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoryHolder> {
         final JSONObject object = (JSONObject) collection.get(position);
 
         try {
+
+            ImageView imageView = (ImageView) holder.category.findViewById(R.id.main_category_image);
+            Picasso.with(context)
+                    .load(object.getString("icon_image"))
+                    .resize(50, 50)
+                    .error(R.drawable.ic_noimg)
+                    .into(imageView);
 
             TextViewIranSans textViewIranSans = (TextViewIranSans) holder.category.findViewById(R.id.main_category_title);
             textViewIranSans.setText(object.getString("title"));
