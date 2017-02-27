@@ -2,12 +2,15 @@ package ir.iraddress.www.authentication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.AppCompatEditText;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.loopj.android.http.RequestParams;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -23,6 +26,8 @@ import ir.iraddress.www.profile.ProfileActivity;
 public class SignInActivity extends MainController {
 
     public Button btnSignIn;
+    private AppCompatEditText email;
+    private AppCompatEditText password;
     public void onCreate(Bundle savedInstanceState){
 
         context = this;
@@ -37,8 +42,8 @@ public class SignInActivity extends MainController {
 
         btnSignIn.setVisibility(View.INVISIBLE);
 
-        TextView email = (TextView) findViewById(R.id.email);
-        TextView password = (TextView) findViewById(R.id.password);
+        email = (AppCompatEditText) findViewById(R.id.email);
+        password = (AppCompatEditText) findViewById(R.id.password);
 
 
         RequestParams params = new RequestParams();
@@ -51,6 +56,7 @@ public class SignInActivity extends MainController {
     @Override
     public void callback(JSONObject response, int statusCode) {
 
+        System.out.println(statusCode);
         switch(statusCode){
 
             case 200:
@@ -73,10 +79,28 @@ public class SignInActivity extends MainController {
                 break;
 
             case 422:
+
+                try {
+
+                    if(response.has("email")){
+                        JSONArray emailValidationError = response.getJSONArray("email");
+                        email.setError((CharSequence) emailValidationError.get(0));
+                    }
+
+                    if(response.has("password")){
+                        JSONArray passwordValidationError = response.getJSONArray("password");
+                        password.setError((CharSequence) passwordValidationError.get(0));
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
                 btnSignIn.setVisibility(View.VISIBLE);
                 break;
 
             default:
+                Toast.makeText(getApplicationContext(), "UnAuthorized", Toast.LENGTH_SHORT).show();
                 btnSignIn.setVisibility(View.VISIBLE);
                 break;
         }
