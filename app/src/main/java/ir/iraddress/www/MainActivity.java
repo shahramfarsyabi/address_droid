@@ -53,6 +53,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private String[] mainMenu = {"","بهترین های آدرس", "تازه ها", "تخفیف ها", "چی ؟ کجا ؟ چرا", "فستیوال عکس", "تا حالا اینجا بودین", "لاتاری", "سفرهای من" };
     private static final int PERMISSIONS_REQUEST_CODE_FOR_FINE_LOCATION = 1001;
+    private static final int CODE_FOR_LOGOUT = 0;
+    private static final int CODE_FOR_LOGIN = 1;
+    NavigationView navigationView;
+
     private MyLocationServiceManager myLocationServiceManager;
 
     @Override
@@ -108,7 +112,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         try {
@@ -203,10 +207,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             startActivity(intent);
         } else if (id == R.id.nav_signin){
             Intent intent = new Intent(this, SignInActivity.class);
-            startActivity(intent);
+            startActivityForResult(intent, CODE_FOR_LOGIN);
         } else if (id == R.id.nav_profile){
             Intent intent = new Intent(this, ProfileActivity.class);
-            startActivity(intent);
+            startActivityForResult(intent, CODE_FOR_LOGOUT);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -235,5 +239,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             default:
                 super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        switch(requestCode){
+            case CODE_FOR_LOGOUT:
+                if (resultCode == RESULT_OK) {
+                    navigationView.getMenu().clear();
+                    navigationView.inflateMenu(R.menu.activity_main_drawer_before_login);
+                }
+                break;
+
+            case CODE_FOR_LOGIN:
+                if (resultCode == RESULT_OK) {
+                    navigationView.getMenu().clear();
+                    navigationView.inflateMenu(R.menu.activity_main_drawer_after_login);
+                }
+                break;
+        }
+
     }
 }

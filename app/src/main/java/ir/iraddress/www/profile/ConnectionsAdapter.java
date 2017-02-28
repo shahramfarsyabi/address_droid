@@ -5,6 +5,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
+import java.util.List;
+
 import ir.iraddress.www.R;
 
 /**
@@ -15,10 +17,12 @@ public class ConnectionsAdapter extends RecyclerView.Adapter<ConnectionHolder> {
 
     public LayoutInflater inflater;
     public Context context;
+    public List collection;
 
-    public ConnectionsAdapter(Context context){
+    public ConnectionsAdapter(Context context, List collection){
         inflater = LayoutInflater.from(context);
         this.context = context;
+        this.collection = collection;
     }
 
     @Override
@@ -33,6 +37,6 @@ public class ConnectionsAdapter extends RecyclerView.Adapter<ConnectionHolder> {
 
     @Override
     public int getItemCount() {
-        return 10;
+        return collection.size();
     }
 }

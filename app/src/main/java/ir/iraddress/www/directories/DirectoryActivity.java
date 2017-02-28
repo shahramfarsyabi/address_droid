@@ -146,7 +146,7 @@ public class DirectoryActivity extends MainController {
 
 
             TextViewIranSans owner = (TextViewIranSans) findViewById(R.id.sent_by_owner);
-            owner.setText("ارسال شده توسط " + response.getJSONObject("owner").get("fullName"));
+            owner.setText(response.getJSONObject("owner").getString("fullName"));
 
             SharedPrefered sharedPrefered = new SharedPrefered(context, "last_viewed");
             sharedPrefered.store(response);

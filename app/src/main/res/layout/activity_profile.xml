@@ -31,7 +31,7 @@
 
 
         <ir.iraddress.www.extend.TextViewIranSansBold
-            android:onClick="onClickLogout"
+            android:id="@+id/btnLogout"
             android:layout_gravity="left"
             android:textColor="@color/colorWhite"
             android:text="خروج از حساب"

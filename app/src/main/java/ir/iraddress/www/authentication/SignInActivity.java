@@ -28,6 +28,9 @@ public class SignInActivity extends MainController {
     public Button btnSignIn;
     private AppCompatEditText email;
     private AppCompatEditText password;
+    private static final int CODE_FOR_LOGIN = 1;
+
+
     public void onCreate(Bundle savedInstanceState){
 
         context = this;
@@ -67,11 +70,14 @@ public class SignInActivity extends MainController {
                     sharedPrefered.empty();
                     sharedPrefered.store(response);
 
-                    finish();
+                    Intent returnIntent = getIntent();
+                    returnIntent.putExtra("resultCode", CODE_FOR_LOGIN);
+                    setResult(RESULT_OK,returnIntent);
 
                     Intent intent = new Intent(context, ProfileActivity.class);
                     startActivity(intent);
 
+                    finish();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

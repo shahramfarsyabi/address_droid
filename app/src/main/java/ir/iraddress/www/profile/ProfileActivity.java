@@ -17,14 +17,13 @@ import de.hdodenhof.circleimageview.CircleImageView;
 import ir.iraddress.www.MainController;
 import ir.iraddress.www.R;
 import ir.iraddress.www.extend.TextViewIranSans;
+import ir.iraddress.www.extend.TextViewIranSansBold;
 import ir.iraddress.www.helper.SharedPrefered;
 
-/**
- * Created by shahram on 2/14/17.
- */
 
 public class ProfileActivity extends ProfileMainActivity {
 
+    private static final int CODE_FOR_LOGOUT = 0;
 
 
     public void onCreate(Bundle savedInstanceState){
@@ -49,7 +48,13 @@ public class ProfileActivity extends ProfileMainActivity {
             e.printStackTrace();
         }
 
-
+        TextViewIranSansBold logout = (TextViewIranSansBold) findViewById(R.id.btnLogout);
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                signout(v);
+            }
+        });
 
     }
 
@@ -138,9 +143,17 @@ public class ProfileActivity extends ProfileMainActivity {
         startActivity(intent);
     }
 
-    public void onClickLogout(View view) throws JSONException {
-        sharedPrefered.empty();
-        finish();
-    }
 
+
+    public void signout(View view) {
+        try {
+            sharedPrefered.empty();
+            Intent returnIntent = getIntent();
+            returnIntent.putExtra("resultCode", CODE_FOR_LOGOUT);
+            setResult(RESULT_OK,returnIntent);
+            finish();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
 }
