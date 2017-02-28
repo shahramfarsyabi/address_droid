@@ -51,6 +51,20 @@
                     android:layout_height="match_parent"
                     android:layout_marginBottom="20dp"/>
 
+                <Button
+                    android:onClick="btnRating"
+                    android:elevation="3dp"
+                    android:textColor="@color/colorWhite"
+                    android:backgroundTint="@color/colorSecondary"
+                    android:text="امتیاز"
+                    android:layout_gravity="center"
+                    android:background="@drawable/rounded_corners"
+                    android:layout_width="wrap_content"
+                    android:paddingRight="20dp"
+                    android:paddingLeft="20dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="20dp"/>
+
                 <ProgressBar
                     android:visibility="gone"
                     style="?android:attr/progressBarStyleSmall"
