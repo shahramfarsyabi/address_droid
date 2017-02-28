@@ -31,6 +31,7 @@
 
 
         <ir.iraddress.www.extend.TextViewIranSansBold
+            android:onClick="onClickLogout"
             android:layout_gravity="left"
             android:textColor="@color/colorWhite"
             android:text="خروج از حساب"
@@ -98,7 +99,7 @@
 
                         <ir.iraddress.www.extend.TextViewIranSans
                             android:textColor="@color/colorWhite"
-                            android:text="۲۴ سفر"
+                            android:text="0 سفر"
                             android:id="@+id/trips_count"
                             android:textSize="15dp"
                             android:gravity="center"
@@ -122,7 +123,7 @@
 
                         <ir.iraddress.www.extend.TextViewIranSans
                             android:textColor="@color/colorWhite"
-                            android:text="۰ نظر"
+                            android:text="0 نظر"
                             android:id="@+id/comments_count"
                             android:textSize="15dp"
                             android:gravity="center"
@@ -145,7 +146,7 @@
 
                         <ir.iraddress.www.extend.TextViewIranSans
                             android:textColor="@color/colorWhite"
-                            android:text="۸ عکس"
+                            android:text="0 عکس"
                             android:id="@+id/photos_count"
                             android:textSize="15dp"
                             android:gravity="center"
@@ -168,7 +169,7 @@
 
                         <ir.iraddress.www.extend.TextViewIranSans
                             android:textColor="@color/colorWhite"
-                            android:text="۳۱ آیتم"
+                            android:text="0 آیتم"
                             android:id="@+id/items_count"
                             android:textSize="15dp"
                             android:gravity="center"
