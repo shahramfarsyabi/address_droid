@@ -34,13 +34,15 @@
 
                 <Button
                     android:id="@+id/file_browser"
-                    android:elevation="8dp"
+                    android:elevation="3dp"
                     android:textColor="@color/colorWhite"
                     android:backgroundTint="@color/colorSecondary"
                     android:text="ارسال تصویر"
                     android:layout_gravity="center"
                     android:background="@drawable/rounded_corners"
-                    android:layout_width="150dp"
+                    android:layout_width="wrap_content"
+                    android:paddingRight="20dp"
+                    android:paddingLeft="20dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="20dp"/>
 
@@ -110,7 +112,7 @@
                     android:layout_width="0dp"
                     android:layout_height="1dp" />
 
-                <ir.iraddress.www.extend.TextViewIranSans
+                <ir.iraddress.www.extend.TextViewIranSansBold
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:textColor="@color/colorPrimaryDark"
@@ -136,7 +138,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="56dp">
 
-                <ir.iraddress.www.extend.TextViewIranSans
+                <ir.iraddress.www.extend.TextViewIranSansBold
                     android:id="@+id/address"
                     android:layout_toLeftOf="@+id/icon_phone"
                     android:gravity="center|right"
@@ -147,7 +149,7 @@
                 <ImageView
                     android:scaleX="0.5"
                     android:scaleY="0.5"
-                    android:src="@drawable/ic_directions_black_24dp"
+                    android:src="@drawable/ic_map_marker"
                     android:gravity="center"
                     android:id="@+id/icon_phone"
                     android:text="ICON"
@@ -174,7 +176,6 @@
                     android:layout_height="match_parent" />
 
                 <ir.iraddress.www.extend.TextViewIranSans
-                    android:autoLink="phone"
                     android:id="@+id/directory_phone"
                     android:layout_toLeftOf="@+id/icon_phone"
                     android:gravity="center|right"
@@ -185,7 +186,7 @@
                 <ImageView
                     android:scaleX="0.5"
                     android:scaleY="0.5"
-                    android:src="@drawable/ic_local_phone_black_24dp"
+                    android:src="@drawable/ic_telephone"
                     android:gravity="center"
                     android:id="@+id/icon_phone"
                     android:text="ICON"
@@ -306,7 +307,7 @@
                     android:layout_width="0dp"
                     android:layout_height="1dp" />
 
-                <ir.iraddress.www.extend.TextViewIranSans
+                <ir.iraddress.www.extend.TextViewIranSansBold
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:textColor="@color/colorPrimaryDark"
@@ -340,25 +341,29 @@
                 <Button
                     android:id="@+id/directory_all_comments"
                     android:layout_margin="10dp"
-                    android:elevation="8dp"
+                    android:elevation="3dp"
                     android:textColor="@color/colorWhite"
                     android:backgroundTint="#0DD0AE"
                     android:text="مشاهده همه نظرات"
                     android:layout_gravity="center"
                     android:background="@drawable/rounded_corners"
-                    android:layout_width="150dp"
+                    android:layout_width="wrap_content"
+                    android:paddingRight="20dp"
+                    android:paddingLeft="20dp"
                     android:layout_height="match_parent" />
 
                 <Button
                     android:id="@+id/directory_first_comment"
                     android:layout_margin="10dp"
-                    android:elevation="8dp"
+                    android:elevation="3dp"
                     android:textColor="@color/colorWhite"
                     android:backgroundTint="#0DD0AE"
                     android:text="اولین نفری باشید که نظر ارسال می کنید"
                     android:layout_gravity="center"
                     android:background="@drawable/rounded_corners"
-                    android:layout_width="250dp"
+                    android:layout_width="wrap_content"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
                     android:layout_height="match_parent" />
 
             </LinearLayout>
@@ -389,7 +394,7 @@
                         android:layout_width="0dp"
                         android:layout_height="1dp" />
 
-                    <ir.iraddress.www.extend.TextViewIranSans
+                    <ir.iraddress.www.extend.TextViewIranSansBold
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:textColor="@color/colorPrimaryDark"
@@ -429,7 +434,7 @@
             android:id="@+id/collapsingToolbarLayout"
             android:layout_height="match_parent"
             app:toolbarId="@+id/toolbar1"
-            android:background="@color/colorPrimaryDark"
+            android:background="@color/colorSecondary"
             app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Title"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:layout_scrollInterpolator="@android:anim/decelerate_interpolator"
@@ -463,6 +468,8 @@
 
                 <Button
                     android:onClick="onBackPressed"
+                    android:layout_gravity="right"
+                    android:rotation="180"
                     android:scaleX="0.5"
                     android:scaleY="0.5"
                     android:background="@drawable/ic_arrow_pointing_to_left"
@@ -471,7 +478,7 @@
 
                 <Button
                     android:id="@+id/share_button"
-                    android:layout_gravity="right"
+                    android:layout_gravity="left"
                     android:scaleX="0.5"
                     android:scaleY="0.5"
                     android:background="@drawable/ic_share"

@@ -11,25 +11,34 @@
         android:background="@drawable/toolbar_address_gradiant"
         android:theme="?attr/actionBarTheme"
         android:minHeight="?attr/actionBarSize"
-        android:id="@+id/toolbar_diractoris_list">
+        android:id="@+id/toolbar_diractoris_list"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        android:paddingLeft="0dp">
 
         <Button
             android:onClick="onBackPressed"
-            android:layout_gravity="start|left"
-            android:scaleX="0.6"
-            android:scaleY="0.6"
-            android:background="@drawable/ic_arrow_back_white_24dp"
+            android:layout_gravity="right"
+            android:rotation="180"
+            android:scaleX="0.5"
+            android:scaleY="0.5"
+            android:background="@drawable/ic_arrow_pointing_to_left"
             android:layout_width="56dp"
             android:layout_height="56dp" />
 
-        <Button
-            android:onClick="onClickLogout"
-            android:layout_gravity="right"
-            android:scaleX="0.6"
-            android:scaleY="0.6"
-            android:background="@drawable/logout"
-            android:layout_width="56dp"
-            android:layout_height="56dp" />
+
+
+        <ir.iraddress.www.extend.TextViewIranSansBold
+            android:layout_gravity="left"
+            android:textColor="@color/colorWhite"
+            android:text="خروج از حساب"
+            android:textSize="15dp"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="56dp"
+            android:layout_marginLeft="20dp"/>
 
     </android.support.v7.widget.Toolbar>
 

@@ -37,6 +37,7 @@ import java.io.FileNotFoundException;
 import ir.iraddress.www.MainController;
 import ir.iraddress.www.R;
 import ir.iraddress.www.extend.TextViewIranSans;
+import ir.iraddress.www.extend.TextViewIranSansBold;
 import ir.iraddress.www.helper.SharedPrefered;
 
 public class DirectoryActivity extends MainController {
@@ -99,7 +100,7 @@ public class DirectoryActivity extends MainController {
                 }
             });
 
-            TextViewIranSans address = (TextViewIranSans) findViewById(R.id.address);
+            TextViewIranSansBold address = (TextViewIranSansBold) findViewById(R.id.address);
             address.setText(response.getString("address"));
             address.setTypeface(typeface);
 

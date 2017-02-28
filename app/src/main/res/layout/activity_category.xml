@@ -17,20 +17,15 @@
 
         <Button
             android:onClick="onBackPressed"
-            android:layout_gravity="left"
+            android:layout_gravity="right"
+            android:rotation="180"
             android:background="@drawable/ic_arrow_pointing_to_left"
             android:layout_width="56dp"
             android:layout_height="56dp"
             android:scaleX="0.5"
             android:scaleY="0.5"/>
 
-        <ImageView
-            android:scaleX="0.5"
-            android:scaleY="0.5"
-            android:layout_gravity="right"
-            android:src="@drawable/ic_search_white_24dp"
-            android:layout_width="56dp"
-            android:layout_height="56dp" />
+
 
         <ir.iraddress.www.extend.TextViewIranSansBold
             android:layout_gravity="right"
