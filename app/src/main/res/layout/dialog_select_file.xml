@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="200dp">
+
+
+        <ir.iraddress.www.extend.TextViewIranSansBold
+            android:text="انتخاب عکس"
+            android:textSize="20sp"
+            android:gravity="center|right"
+            android:paddingRight="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="56dp" />
+
+        <View
+            android:background="#CCC"
+            android:layout_width="match_parent"
+            android:layout_height="1dp" />
+
+        <LinearLayout
+            android:gravity="center|right"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/select_from_camera"
+                android:gravity="center|right"
+                android:paddingRight="30dp"
+                android:textSize="15sp"
+                android:text="دوربین"
+                android:layout_width="match_parent"
+                android:layout_height="56dp" />
+
+            <Button
+                android:id="@+id/select_from_gallery"
+                android:gravity="center|right"
+                android:paddingRight="30dp"
+                android:textSize="15sp"
+                android:text="گالری"
+                android:layout_width="match_parent"
+                android:layout_height="56dp" />
+
+        </LinearLayout>
+
+
+</LinearLayout>
+

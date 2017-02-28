@@ -4,6 +4,14 @@ import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+
+import com.squareup.picasso.Picasso;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.List;
 
 import ir.iraddress.www.R;
 
@@ -15,10 +23,12 @@ public class MyPhotosAdapter extends RecyclerView.Adapter<MyPhotosHolder> {
 
     public LayoutInflater inflater;
     public Context context;
+    public List collection;
 
-    public MyPhotosAdapter(Context context){
+    public MyPhotosAdapter(Context context, List collection){
         inflater = LayoutInflater.from(context);
         this.context = context;
+        this.collection = collection;
     }
 
     @Override
@@ -29,10 +39,18 @@ public class MyPhotosAdapter extends RecyclerView.Adapter<MyPhotosHolder> {
     @Override
     public void onBindViewHolder(MyPhotosHolder holder, int position) {
 
+
+        try {
+            JSONObject photo = (JSONObject) collection.get(position);
+            ImageView image = (ImageView) holder.image;
+            Picasso.with(context).load(photo.getString("href")).fit().centerCrop().into(image);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public int getItemCount() {
-        return 10;
+        return collection.size();
     }
 }

@@ -6,7 +6,7 @@
     android:layout_height="200dp">
     <ImageView
         android:scaleType="centerCrop"
-        android:id="@+id/viewholder_profile_photo"
+        android:id="@+id/my_photo"
         android:src="@drawable/tehran"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

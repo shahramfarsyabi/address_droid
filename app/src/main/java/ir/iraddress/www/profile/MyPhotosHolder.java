@@ -17,6 +17,6 @@ public class MyPhotosHolder extends RecyclerView.ViewHolder {
     public MyPhotosHolder(View itemView) {
         super(itemView);
 
-        image = (ImageView) itemView.findViewById(R.id.viewholder_profile_photo);
+        image = (ImageView) itemView.findViewById(R.id.my_photo);
     }
 }

@@ -41,11 +41,13 @@ public class ConnectionsActivity extends ProfileMainActivity {
 
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view_connections);
-        recyclerViewAdapter = new ConnectionsAdapter(this, collection);
+        recyclerViewAdapter = new ConnectionsAdapter(this, collection, extras.getString("type"));
         layoutManager = new LinearLayoutManager(this);
 
         recyclerView.setAdapter(recyclerViewAdapter);
         recyclerView.setLayoutManager(layoutManager);
+
+        render();
 
     }
 

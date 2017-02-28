@@ -46,7 +46,7 @@ public class SearchAdapter extends RecyclerView.Adapter {
         try {
 
             SharedPrefered sharedPrefered = new SharedPrefered(context, "last_viewed");
-            sharedPrefered.latest(10);
+            sharedPrefered.latest(5);
             collection = sharedPrefered.reverse();
 
             if(!locationString.isEmpty()){
