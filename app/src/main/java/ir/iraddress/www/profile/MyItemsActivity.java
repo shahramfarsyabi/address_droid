@@ -11,9 +11,7 @@ import ir.iraddress.www.MainController;
 import ir.iraddress.www.R;
 import ir.iraddress.www.directories.DirectoriesAdapter;
 
-/**
- * Created by shahram on 2/16/17.
- */
+
 
 public class MyItemsActivity extends MainController {
 

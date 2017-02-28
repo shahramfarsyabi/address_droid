@@ -15,6 +15,7 @@
             android:layout_height="149dp">
 
             <android.support.v7.widget.AppCompatButton
+                android:id="@+id/btn_remove_comment"
                 android:onClick="onClickRemove"
                 android:text="remove"
                 android:layout_gravity="left"
@@ -30,13 +31,13 @@
                 android:layout_height="match_parent">
 
                 <ir.iraddress.www.extend.TextViewIranSans
-                    android:text="رستوران پرپروک"
+                    android:id="@+id/comment_directory_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
                 <ir.iraddress.www.extend.TextViewIranSans
+                    android:id="@+id/comment_content"
                     android:textAlignment="gravity"
-                    android:text="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
 

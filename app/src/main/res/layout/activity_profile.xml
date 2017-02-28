@@ -23,6 +23,7 @@
             android:layout_height="56dp" />
 
         <Button
+            android:onClick="onClickLogout"
             android:layout_gravity="right"
             android:scaleX="0.6"
             android:scaleY="0.6"

@@ -23,22 +23,11 @@ import ir.iraddress.www.helper.SharedPrefered;
  * Created by shahram on 2/14/17.
  */
 
-public class ProfileActivity extends MainController {
+public class ProfileActivity extends ProfileMainActivity {
 
 
-    public JSONObject user = null;
+
     public void onCreate(Bundle savedInstanceState){
-
-        context = this;
-
-        try {
-            SharedPrefered sharedPrefered = new SharedPrefered(this, "user");
-            user = sharedPrefered.findByIndex(0);
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
@@ -54,7 +43,6 @@ public class ProfileActivity extends MainController {
             clientName.setTypeface(typeface);
 
 
-            RequestParams params = new RequestParams();
             getRequest("users/"+user.getInt("id")+"/profile", params);
 
         } catch (JSONException e) {
@@ -135,6 +123,7 @@ public class ProfileActivity extends MainController {
         Intent intent = new Intent(context, ConnectionsActivity.class);
 
         switch(id){
+
             case R.id.followed:
                 intent.putExtra("url", "users/"+user.getInt("id")+"/followed");
                 intent.putExtra("type", "followed");
@@ -147,6 +136,11 @@ public class ProfileActivity extends MainController {
         }
 
         startActivity(intent);
+    }
+
+    public void onClickLogout(View view) throws JSONException {
+        sharedPrefered.empty();
+        finish();
     }
 
 }
