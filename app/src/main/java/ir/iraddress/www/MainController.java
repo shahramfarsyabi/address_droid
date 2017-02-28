@@ -122,6 +122,10 @@ public abstract class MainController extends AppCompatActivity {
 
     }
 
+    public void destroy(JSONObject response, int statusCode){
+
+    }
+
 
     public void fetchData(int page, String url, RequestParams params){
         System.out.println(page);
@@ -174,6 +178,23 @@ public abstract class MainController extends AppCompatActivity {
             @Override
             public void onFailure(int statusCode , cz.msebera.android.httpclient.Header[] headers, Throwable throwable , JSONObject response){
                 callback(response, statusCode);
+            }
+        });
+    }
+
+
+
+    public void deleteRequest(String url, RequestParams params){
+        HttpRequest.delete(url, params, new JsonHttpResponseHandler(){
+            @Override
+            public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, JSONObject response) {
+                destroy(response, statusCode);
+            }
+
+            @Override
+            public void onFailure(int statusCode , cz.msebera.android.httpclient.Header[] headers, Throwable throwable , JSONObject response){
+                System.out.println(response);
+                destroy(response, statusCode);
             }
         });
     }
