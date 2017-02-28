@@ -5,6 +5,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
+import java.util.List;
+
 import ir.iraddress.www.R;
 
 /**
@@ -15,10 +17,12 @@ public class DirectoryCommentsAdapter extends RecyclerView.Adapter<DirectoryComm
 
     LayoutInflater inflater;
     Context context;
+    List collection;
 
-    public DirectoryCommentsAdapter(Context context){
+    public DirectoryCommentsAdapter(Context context, List collection){
         inflater = LayoutInflater.from(context);
         this.context = context;
+        this.collection = collection;
     }
 
     @Override
@@ -33,6 +37,6 @@ public class DirectoryCommentsAdapter extends RecyclerView.Adapter<DirectoryComm
 
     @Override
     public int getItemCount() {
-        return 3;
+        return collection.size();
     }
 }

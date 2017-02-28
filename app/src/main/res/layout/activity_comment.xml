@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/toolbar_address_gradiant"
+        android:theme="?attr/actionBarTheme"
+        android:minHeight="?attr/actionBarSize"
+        android:id="@+id/toolbar_diractoris_list">
+
+        <Button
+            android:onClick="onBackPressed"
+            android:scaleX="0.6"
+            android:scaleY="0.6"
+            android:background="@drawable/ic_arrow_back_white_24dp"
+            android:layout_width="56dp"
+            android:layout_height="56dp" />
+
+    </android.support.v7.widget.Toolbar>
+
+
+    <android.support.v7.widget.AppCompatEditText
+        android:hint="نظر خود را بنویسید"
+        android:gravity="top"
+        android:layout_width="match_parent"
+        android:layout_height="100dp" />
+
+    <Button
+        android:text="ارسال شود"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+</LinearLayout>

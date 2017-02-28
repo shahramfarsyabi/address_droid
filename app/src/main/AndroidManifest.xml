@@ -118,6 +118,13 @@
         <activity android:name=".categories.CategoryActivity"
             android:screenOrientation="portrait" />
 
+        <activity android:name=".directories.DirectoryCommentsActivity"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".directories.DirectoryCommentActivity"
+            android:screenOrientation="portrait" />
+
+
     </application>
 
 </manifest>

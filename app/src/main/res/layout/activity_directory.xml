@@ -65,6 +65,20 @@
                     android:layout_height="match_parent"
                     android:layout_marginBottom="20dp"/>
 
+                <Button
+                    android:onClick="btnGoogleDirection"
+                    android:elevation="3dp"
+                    android:textColor="@color/colorWhite"
+                    android:backgroundTint="@color/colorSecondary"
+                    android:text="مسیر یابی گوگل"
+                    android:layout_gravity="center"
+                    android:background="@drawable/rounded_corners"
+                    android:layout_width="wrap_content"
+                    android:paddingRight="20dp"
+                    android:paddingLeft="20dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="20dp"/>
+
                 <ProgressBar
                     android:visibility="gone"
                     style="?android:attr/progressBarStyleSmall"
@@ -358,6 +372,7 @@
                 android:layout_height="wrap_content">
 
                 <Button
+                    android:onClick="comments"
                     android:id="@+id/directory_all_comments"
                     android:layout_margin="10dp"
                     android:elevation="3dp"

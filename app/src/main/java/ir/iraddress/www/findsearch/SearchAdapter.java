@@ -137,7 +137,7 @@ public class SearchAdapter extends RecyclerView.Adapter {
                         public void onClick(View v) {
                             try {
                                 Intent intent = new Intent(context, DirectoryActivity.class);
-                                intent.putExtra("city_id", object.getInt("id"));
+                                intent.putExtra("directory_id", object.getInt("id"));
                                 context.startActivity(intent);
                             } catch (JSONException e) {
                                 e.printStackTrace();

@@ -37,16 +37,23 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 import ir.iraddress.www.MainController;
 import ir.iraddress.www.R;
 import ir.iraddress.www.extend.TextViewIranSans;
 import ir.iraddress.www.extend.TextViewIranSansBold;
+import ir.iraddress.www.helper.ArrayUtil;
+import ir.iraddress.www.helper.MyLocationServiceManager;
 import ir.iraddress.www.helper.SharedPrefered;
 
 public class DirectoryActivity extends MainController {
 
     public SupportMapFragment mapFragment;
+    public JSONObject directory;
+    private MyLocationServiceManager myLocationServiceManager;
 
     public void onCreate(Bundle savedInstanceState) {
 
@@ -59,6 +66,8 @@ public class DirectoryActivity extends MainController {
         typeface = Typeface.createFromAsset(context.getAssets(), "fonts/ttf/IRANSansWeb.ttf");
         loading = (ProgressBar) findViewById(R.id.loading_file_uploader);
 
+        myLocationServiceManager = new MyLocationServiceManager(this, this);
+
         fetchData(1, route, null);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -69,6 +78,7 @@ public class DirectoryActivity extends MainController {
     public void callback(final JSONObject response, int statusCode) {
         try {
 
+            directory = response;
 
             if(!response.getString("description").isEmpty()){
 
@@ -183,8 +193,8 @@ public class DirectoryActivity extends MainController {
             });
 
 
-            Button allComments = (Button) findViewById(R.id.directory_all_comments);
-            Button firstComment = (Button) findViewById(R.id.directory_first_comment);
+            Button btnAllComments = (Button) findViewById(R.id.directory_all_comments);
+            Button btnFirstComment = (Button) findViewById(R.id.directory_first_comment);
 
             if (response.getJSONArray("comments").length() > 0) {
 
@@ -192,19 +202,22 @@ public class DirectoryActivity extends MainController {
                 recyclerView = (RecyclerView) findViewById(R.id.directory_comments);
                 recyclerView.setVisibility(View.VISIBLE);
                 layoutManager = new LinearLayoutManager(this);
-                recyclerViewAdapter = new DirectoryCommentsAdapter(this);
+
+                ArrayList<Object> comments = ArrayUtil.convert(response.getJSONArray("comments"));
+
+                recyclerViewAdapter = new DirectoryCommentsAdapter(this, comments);
                 recyclerView.setAdapter(recyclerViewAdapter);
                 recyclerView.setLayoutManager(layoutManager);
 
-                allComments.setVisibility(View.VISIBLE);
-                firstComment.setVisibility(View.GONE);
+                btnAllComments.setVisibility(View.VISIBLE);
+                btnFirstComment.setVisibility(View.GONE);
 
             } else {
 
                 recyclerView = (RecyclerView) findViewById(R.id.directory_comments);
                 recyclerView.setVisibility(View.GONE);
-                allComments.setVisibility(View.GONE);
-                firstComment.setVisibility(View.VISIBLE);
+                btnAllComments.setVisibility(View.GONE);
+                btnFirstComment.setVisibility(View.VISIBLE);
             }
 
 //            Similars Recylerview
@@ -386,6 +399,16 @@ public class DirectoryActivity extends MainController {
                 dialog.cancel();
             }
         });
+    }
+
+    public void comments(View view){
+        Intent intent = new Intent(this, DirectoryCommentsActivity.class);
+        intent.putExtra("route", route+"/comments");
+        startActivity(intent);
+    }
+
+    public void btnGoogleDirection(View view) throws JSONException {
+        callGoogleMapDirection(myLocationServiceManager.getLocation() , directory);
     }
 
 }

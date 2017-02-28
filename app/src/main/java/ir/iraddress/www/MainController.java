@@ -26,6 +26,7 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
@@ -114,6 +115,18 @@ public abstract class MainController extends AppCompatActivity {
 
     }
 
+    public void callGoogleMapDirection(JSONObject start, JSONObject end) throws JSONException {
+
+        String googleURLQuery = "https://maps.google.com/?saddr="+start.getDouble("lat")+","+start.getDouble("lng")+"&daddr="+end.getDouble("latitude")+","+end.getDouble("longitude")+"&mode=d";
+        Uri gmmIntentUri = Uri.parse(googleURLQuery);
+        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+        mapIntent.setPackage("com.google.android.apps.maps");
+
+        if (mapIntent.resolveActivity(getPackageManager()) != null) {
+            startActivity(mapIntent);
+        }
+
+    }
 
     public void onBackPressed(View view) {
         super.onBackPressed();
@@ -125,6 +138,28 @@ public abstract class MainController extends AppCompatActivity {
 
     public void callback(JSONObject response, int statusCode){
 
+        switch (statusCode){
+            case 200:
+                try {
+
+                    jsonArray = response.getJSONArray("data");
+
+                    for(int i = 0; i < jsonArray.length(); i++ ){
+                        collection.add(jsonArray.get(i));
+                    }
+
+                    recyclerViewAdapter.notifyDataSetChanged();
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                break;
+
+            default:
+
+                break;
+        }
+//        mSwipeRefreshLayout.setRefreshing(false);
     }
 
     public void callback(JSONArray response, int statusCode){

@@ -28,6 +28,9 @@ public class DirectoriesActivity extends MainController {
 
     public void onCreate(Bundle savedInstanceState){
 
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_directories);
+
         route = "directories";
         extras = getIntent().getExtras();
 
@@ -37,12 +40,9 @@ public class DirectoriesActivity extends MainController {
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_directories);
         String locationString =  sharedPreferences.getString("location", "");
 
         if(!locationString.isEmpty()){
-
             try {
                 JSONObject location = new JSONObject(locationString);
                 if(location.has("city")){
@@ -73,49 +73,12 @@ public class DirectoriesActivity extends MainController {
     }
 
 
-    public void callback(JSONObject response, int statusCode){
-
-        switch (statusCode){
-            case 200:
-                    try {
-
-                        jsonArray = response.getJSONArray("data");
-
-                        for(int i = 0; i < jsonArray.length(); i++ ){
-                            collection.add(jsonArray.get(i));
-                        }
-
-                        recyclerViewAdapter.notifyDataSetChanged();
-
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                break;
-
-            default:
-
-                break;
-        }
-
-//        mSwipeRefreshLayout.setRefreshing(false);
-
-    }
-
     public void advanceFilter(View view){
 
         Dialog advanceFilter = new Dialog(this);
         advanceFilter.requestWindowFeature(Window.FEATURE_NO_TITLE);
         advanceFilter.setContentView(R.layout.filter_layout);
         advanceFilter.show();
-
-//        System.out.println("START FILTER VIEW");
-//        View filter = getLayoutInflater().inflate(R.layout.filter_layout, null);
-//
-//        RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.directories_list_view);
-//        relativeLayout.addView(filter);
-
-
-
 
     }
 

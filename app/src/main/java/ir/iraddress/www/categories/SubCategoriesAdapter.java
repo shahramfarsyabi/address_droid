@@ -77,6 +77,7 @@ public class SubCategoriesAdapter extends RecyclerView.Adapter<RecyclerView.View
                                 Intent intent = new Intent(context, DirectoriesActivity.class);
                                 intent.putExtra("route", "categories/"+object.getInt("id")+"/directories");
                                 intent.putExtra("toolbar_title", object.getString("title"));
+                                intent.putExtra("category_id", object.getInt("id"));
                                 context.startActivity(intent);
 
                             } catch (JSONException e) {
