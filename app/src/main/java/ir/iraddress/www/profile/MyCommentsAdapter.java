@@ -42,7 +42,12 @@ public class MyCommentsAdapter extends RecyclerView.Adapter<MyCommentsHolder> {
             JSONObject object = (JSONObject) collection.get(position);
 
             AppCompatButton btnRemove = (AppCompatButton) holder.comment.findViewById(R.id.btn_remove_comment);
-            btnRemove.setTag(position);
+            JSONObject comment = new JSONObject();
+
+            comment.put("comment_id", object.getInt("id"));
+            comment.put("position_id", position);
+
+            btnRemove.setTag(comment);
 
 
             TextViewIranSans directoryTitle = (TextViewIranSans) holder.comment.findViewById(R.id.comment_directory_title);

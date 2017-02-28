@@ -24,6 +24,8 @@ import ir.iraddress.www.R;
 
 public class MyCommentsActivity extends ProfileMainActivity {
 
+    private JSONObject comment;
+
     public void onCreate(Bundle savedInstanceState){
 
         context = this;
@@ -59,9 +61,14 @@ public class MyCommentsActivity extends ProfileMainActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 System.out.println("btn remove comment "+view.getTag());
-                collection.remove(view.getTag());
-                Toast.makeText(getApplicationContext(), "Removed", Toast.LENGTH_SHORT).show();
-                recyclerViewAdapter.notifyItemRemoved((Integer) view.getTag());
+
+                try {
+                    comment = (JSONObject) view.getTag();
+                    deleteRequest("users/"+user.getInt("id")+"/comments/"+comment.getInt("comment_id"), params);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
             }
         })
         .setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -70,6 +77,28 @@ public class MyCommentsActivity extends ProfileMainActivity {
                 Toast.makeText(getApplicationContext(), "cancel", Toast.LENGTH_SHORT).show();
             }
         }).show();
+    }
+
+    @Override
+    public void destroy(JSONObject response, int statusCode) {
+        switch(statusCode){
+            case 200:
+
+                try {
+
+                    collection.remove(comment.getInt("position_id"));
+
+                    recyclerViewAdapter.notifyItemRemoved(comment.getInt("position_id"));
+
+                    Toast.makeText(getApplicationContext(), "Removed", Toast.LENGTH_SHORT).show();
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+                break;
+        }
     }
 
     @Override
