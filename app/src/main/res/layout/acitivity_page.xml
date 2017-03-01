@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <android.support.v7.widget.Toolbar
@@ -11,7 +13,8 @@
         android:minHeight="?attr/actionBarSize"
         android:id="@+id/toolbar_diractoris_list">
 
-        <Button
+        <ir.iraddress.www.extend.AppButton
+            app:faFont="bold"
             android:onClick="onBackPressed"
             android:layout_gravity="left"
             android:background="@drawable/ic_arrow_pointing_to_left"
@@ -42,8 +45,10 @@
 
     <LinearLayout
         android:padding="16dp"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <ir.iraddress.www.extend.TextViewIranSans
             android:id="@+id/text_wrapper"
             android:layout_width="match_parent"
