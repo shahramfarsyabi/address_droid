@@ -36,6 +36,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ir.iraddress.www.helper.ConnectionDetector;
+import ir.iraddress.www.helper.ConnectivityReceiver;
 import ir.iraddress.www.helper.HttpRequest;
 
 public abstract class MainController extends AppCompatActivity {
@@ -282,15 +283,17 @@ public abstract class MainController extends AppCompatActivity {
         });
     }
 
+
+
     public void checkInternetConnection(){
         System.out.println("CHECK INTERNET CONNECTION - me");
-        Boolean check = new ConnectionDetector(context).isConnectedToInternet();
+        Boolean check = new ConnectionDetector(this).isConnectedToInternet();
         System.out.println(check);
 
         if(!check){
             System.out.println("is false");
 
-            Dialog dialog = new Dialog(getApplicationContext());
+            Dialog dialog = new Dialog(this);
             dialog.setContentView(R.layout.dialog_no_connection);
             dialog.show();
         }
