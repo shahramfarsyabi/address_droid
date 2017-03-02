@@ -49,7 +49,7 @@ import ir.iraddress.www.findsearch.SearchStackActivity;
 import static android.R.attr.id;
 import static android.R.attr.typeface;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends MainController implements NavigationView.OnNavigationItemSelectedListener {
 
     private String[] mainMenu = {"","بهترین های آدرس", "تازه ها", "تخفیف ها", "چی ؟ کجا ؟ چرا", "فستیوال عکس", "تا حالا اینجا بودین", "لاتاری", "سفرهای من" };
     private static final int PERMISSIONS_REQUEST_CODE_FOR_FINE_LOCATION = 1001;
@@ -59,8 +59,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private MyLocationServiceManager myLocationServiceManager;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
 
 //        getWindow().setStatusBarColor();
 //        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {

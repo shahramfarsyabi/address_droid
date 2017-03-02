@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.provider.MediaStore;
 import android.provider.OpenableColumns;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -34,6 +35,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
+import ir.iraddress.www.helper.ConnectionDetector;
 import ir.iraddress.www.helper.HttpRequest;
 
 public abstract class MainController extends AppCompatActivity {
@@ -55,6 +57,12 @@ public abstract class MainController extends AppCompatActivity {
 
     public final int READ_REQUEST_CODE = 42;
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        context = this;
+        checkInternetConnection();
+    }
 
     public void render(){
 
@@ -272,6 +280,20 @@ public abstract class MainController extends AppCompatActivity {
                 loading.setVisibility(View.GONE);
             }
         });
+    }
+
+    public void checkInternetConnection(){
+        System.out.println("CHECK INTERNET CONNECTION - me");
+        Boolean check = new ConnectionDetector(context).isConnectedToInternet();
+        System.out.println(check);
+
+        if(!check){
+            System.out.println("is false");
+
+            Dialog dialog = new Dialog(getApplicationContext());
+            dialog.setContentView(R.layout.dialog_no_connection);
+            dialog.show();
+        }
     }
 
 }

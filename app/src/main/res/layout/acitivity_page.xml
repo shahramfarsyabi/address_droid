@@ -13,8 +13,7 @@
         android:minHeight="?attr/actionBarSize"
         android:id="@+id/toolbar_diractoris_list">
 
-        <ir.iraddress.www.extend.AppButton
-            app:faFont="bold"
+        <Button
             android:onClick="onBackPressed"
             android:layout_gravity="left"
             android:background="@drawable/ic_arrow_pointing_to_left"

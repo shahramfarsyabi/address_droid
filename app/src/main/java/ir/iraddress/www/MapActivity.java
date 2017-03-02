@@ -36,9 +36,6 @@ import org.json.JSONObject;
 import ir.iraddress.www.helper.MyLocationServiceManager;
 import ir.iraddress.www.map.MapItemShowLinearAdapter;
 
-/**
- * Created by shahram on 2/18/17.
- */
 
 public class MapActivity extends MainController implements OnMapReadyCallback {
     private GoogleMap mMap;
@@ -49,7 +46,7 @@ public class MapActivity extends MainController implements OnMapReadyCallback {
     RequestParams params;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         context = this;
         extras = getIntent().getExtras();
         typeface = Typeface.createFromAsset(context.getAssets(), "fonts/ttf/IRANSansWeb.ttf");
