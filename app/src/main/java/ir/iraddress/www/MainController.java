@@ -62,6 +62,12 @@ public abstract class MainController extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = this;
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
         if(!checkInternetConnection()){
             return;
         }

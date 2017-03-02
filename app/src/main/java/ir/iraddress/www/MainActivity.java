@@ -83,10 +83,6 @@ public class MainActivity extends MainController implements NavigationView.OnNav
 //        getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
         setContentView(R.layout.activity_main);
 
-        if(!checkInternetConnection()){
-            return;
-        }
-
         myLocationServiceManager = new MyLocationServiceManager(this, this);
         myLocationServiceManager.connect();
         try {
