@@ -5,6 +5,66 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!--Image Slider-->
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_height="250dp"
+        android:layout_width="match_parent"
+        android:elevation="2dp">
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:id="@+id/collapsingToolbarLayout"
+            android:layout_height="match_parent"
+            app:toolbarId="@+id/toolbar1"
+            android:background="@color/colorSecondary"
+            app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Title"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:contentScrim="?attr/colorPrimary">
+            <ImageView
+                android:id="@+id/directory_image"
+                android:adjustViewBounds="true"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/logo_white"
+                android:scaleType="fitCenter" />
+            <View
+                android:alpha="0.5"
+                android:background="@drawable/top_to_bottom_gradiant_black"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                app:layout_collapseMode="pin"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_width="match_parent"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                app:contentInsetLeft="0dp"
+                app:contentInsetStart="0dp"
+                android:paddingLeft="0dp">
+                <Button
+                    android:onClick="onBackPressed"
+                    android:layout_gravity="right"
+                    android:rotation="180"
+                    android:scaleX="0.5"
+                    android:scaleY="0.5"
+                    android:background="@drawable/ic_arrow_pointing_to_left"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp" />
+                <Button
+                    android:id="@+id/share_button"
+                    android:layout_gravity="left"
+                    android:scaleX="0.5"
+                    android:scaleY="0.5"
+                    android:background="@drawable/ic_share"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp" />
+            </android.support.v7.widget.Toolbar>
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+    <!--Image Slider-->
+
+    <!--Page Content-->
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -16,6 +76,41 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
+            <!--Icons-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:padding="10dp"
+                android:background="@color/colorWhite">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="1">
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="1dp"
+                    android:layout_height="80dp"
+                    android:background="@color/borderGray"></LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"></LinearLayout>
+                <LinearLayout
+                    android:layout_width="1dp"
+                    android:layout_height="80dp"
+                    android:background="@color/borderGray"></LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"></LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/borderGray"></LinearLayout>
+
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recyclerview_directory_images"
@@ -163,9 +258,7 @@
                     android:layout_height="1dp" />
             </LinearLayout>
 
-
-
-
+            <!--Address-->
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
@@ -190,7 +283,9 @@
                     android:layout_height="match_parent" />
 
             </LinearLayout>
+            <!--Address-->
 
+            <!--Phone-->
             <LinearLayout
                 android:visibility="gone"
                 android:id="@+id/directory_box_phone"
@@ -227,7 +322,9 @@
                     android:layout_height="match_parent" />
 
             </LinearLayout>
+            <!--Phone-->
 
+            <!--Website-->
             <LinearLayout
                 android:visibility="gone"
                 android:id="@+id/directory_box_website"
@@ -265,7 +362,9 @@
                     android:layout_height="match_parent" />
 
             </LinearLayout>
+            <!--Website-->
 
+            <!--Author-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="56dp">
@@ -300,7 +399,9 @@
                     android:layout_height="match_parent" />
 
             </LinearLayout>
+            <!--Author-->
 
+            <!--Fax-->
             <LinearLayout
                 android:visibility="gone"
                 android:id="@+id/directory_box_fax"
@@ -328,7 +429,16 @@
                     android:layout_height="match_parent" />
 
             </LinearLayout>
+            <!--Fax-->
 
+            <!--Information-->
+
+
+
+
+
+
+            <!--Comments-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -357,19 +467,18 @@
                     android:layout_width="0dp"
                     android:layout_height="1dp" />
             </LinearLayout>
-
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/directory_comments"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-
             <LinearLayout
                 android:divider="?android:dividerHorizontal"
                 android:showDividers="end"
                 android:orientation="vertical"
                 android:gravity="center"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp">
 
                 <Button
                     android:onClick="comments"
@@ -401,17 +510,24 @@
                     android:layout_height="match_parent" />
 
             </LinearLayout>
+            <!--Comments-->
 
 
+
+
+            <!--Map-->
             <fragment
                 android:id="@+id/map"
-                android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_weight="1"
                 android:scrollbars="vertical"
                 class="com.google.android.gms.maps.SupportMapFragment"/>
+            <!--Map-->
 
+
+
+            <!--Related Items-->
             <LinearLayout
                 android:layout_marginTop="20dp"
                 android:orientation="vertical"
@@ -452,75 +568,12 @@
                     android:layout_height="match_parent" />
 
             </LinearLayout>
+            <!--Related Items-->
 
 
         </LinearLayout>
 
     </android.support.v4.widget.NestedScrollView>
-
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/appbar"
-        android:layout_height="250dp"
-        android:layout_width="match_parent">
-
-        <android.support.design.widget.CollapsingToolbarLayout
-            android:layout_width="match_parent"
-            android:id="@+id/collapsingToolbarLayout"
-            android:layout_height="match_parent"
-            app:toolbarId="@+id/toolbar1"
-            android:background="@color/colorSecondary"
-            app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Title"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            app:layout_scrollInterpolator="@android:anim/decelerate_interpolator"
-            app:contentScrim="?attr/colorPrimary">
-
-            <ImageView
-                android:id="@+id/directory_image"
-                android:adjustViewBounds="true"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/logo_white"
-                android:scaleType="fitCenter" />
-
-            <View
-                android:alpha="0.5"
-                android:background="@drawable/top_to_bottom_gradiant_black"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
-                app:layout_collapseMode="pin"
-                android:layout_height="?attr/actionBarSize"
-                android:layout_width="match_parent"
-                xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                app:contentInsetLeft="0dp"
-                app:contentInsetStart="0dp"
-                android:paddingLeft="0dp">
-
-                <Button
-                    android:onClick="onBackPressed"
-                    android:layout_gravity="right"
-                    android:rotation="180"
-                    android:scaleX="0.5"
-                    android:scaleY="0.5"
-                    android:background="@drawable/ic_arrow_pointing_to_left"
-                    android:layout_width="56dp"
-                    android:layout_height="56dp" />
-
-                <Button
-                    android:id="@+id/share_button"
-                    android:layout_gravity="left"
-                    android:scaleX="0.5"
-                    android:scaleY="0.5"
-                    android:background="@drawable/ic_share"
-                    android:layout_width="56dp"
-                    android:layout_height="56dp" />
-
-            </android.support.v7.widget.Toolbar>
-
-        </android.support.design.widget.CollapsingToolbarLayout>
-    </android.support.design.widget.AppBarLayout>
+    <!--Page Content-->
 
 </android.support.design.widget.CoordinatorLayout>

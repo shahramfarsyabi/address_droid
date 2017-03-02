@@ -1,49 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="200dp">
-
-
-        <ir.iraddress.www.extend.TextViewIranSansBold
-            android:text="انتخاب عکس"
-            android:textSize="20sp"
-            android:gravity="center|right"
-            android:paddingRight="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="56dp" />
-
-        <View
-            android:background="#CCC"
-            android:layout_width="match_parent"
-            android:layout_height="1dp" />
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
         <LinearLayout
-            android:gravity="center|right"
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <Button
-                android:id="@+id/select_from_camera"
-                android:gravity="center|right"
-                android:paddingRight="30dp"
-                android:textSize="15sp"
-                android:text="دوربین"
+            android:layout_height="200dp"
+            android:orientation="vertical">
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="56dp" />
-
-            <Button
-                android:id="@+id/select_from_gallery"
-                android:gravity="center|right"
-                android:paddingRight="30dp"
-                android:textSize="15sp"
-                android:text="گالری"
+                android:layout_height="56dp"
+                android:background="@color/colorWhite">
+                <ir.iraddress.www.extend.TextViewIranSans
+                    android:text="ارسال عکس"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="13dp"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="56dp" />
-
+                android:layout_height="1dp"
+                android:background="@color/colorLightGray"></LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="98dp"
+                android:background="@color/colorWhite">
+                <ir.iraddress.www.extend.TextViewIranSans
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="شما می توانید عکس مورد نظر را از میان عکس های موجود در گالری گوشی انتخاب کنید یا همین الآن عکس جدید بگیرید."
+                    android:textAlignment="center"
+                    android:textColor="@color/mediumGray"
+                    android:textSize="10dp"
+                    android:paddingLeft="30dp"
+                    android:paddingRight="30dp"
+                    android:gravity="center"/>
+            </LinearLayout>
+            <LinearLayout
+                android:gravity="center|right"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:background="@drawable/toolbar_address_gradiant">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <ir.iraddress.www.extend.AppButton
+                        android:id="@+id/select_from_camera"
+                        android:gravity="center"
+                        android:textSize="13dp"
+                        android:text="استفاده از دوربین"
+                        android:textColor="@color/colorWhite"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@color/colorLightGray"></LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <ir.iraddress.www.extend.AppButton
+                        android:id="@+id/select_from_gallery"
+                        android:gravity="center"
+                        android:textSize="13dp"
+                        android:text="رفتن به گالری"
+                        android:textColor="@color/colorWhite"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"/>
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
-
-
-</LinearLayout>
-
+    </LinearLayout>
+</RelativeLayout>
