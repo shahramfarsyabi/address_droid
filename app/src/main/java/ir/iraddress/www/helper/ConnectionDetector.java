@@ -14,17 +14,13 @@ public class ConnectionDetector {
 
     public boolean isConnectedToInternet() {
 
-        ConnectivityManager connectivity = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        if (connectivity != null) {
-            NetworkInfo[] info = connectivity.getAllNetworkInfo();
-            if (info != null)
-                for (int i = 0; i < info.length; i++)
-                    if (info[i].getState() == NetworkInfo.State.CONNECTED) {
-                        return true;
-                    }
+        ConnectivityManager cm =
+                (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
 
-        }
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        boolean isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
 
-        return false;
+        return isConnected;
+
     }
 }

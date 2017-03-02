@@ -83,6 +83,10 @@ public class MainActivity extends MainController implements NavigationView.OnNav
 //        getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
         setContentView(R.layout.activity_main);
 
+        if(!checkInternetConnection()){
+            return;
+        }
+
         myLocationServiceManager = new MyLocationServiceManager(this, this);
         myLocationServiceManager.connect();
         try {
@@ -100,7 +104,7 @@ public class MainActivity extends MainController implements NavigationView.OnNav
         final Context context = this;
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        toolbar.setTitle("آدرس");
+        toolbar.setTitle("");
         setSupportActionBar(toolbar);
 
 

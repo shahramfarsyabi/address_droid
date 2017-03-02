@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Typeface;
 import android.net.Uri;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.provider.MediaStore;
@@ -36,7 +37,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ir.iraddress.www.helper.ConnectionDetector;
-import ir.iraddress.www.helper.ConnectivityReceiver;
 import ir.iraddress.www.helper.HttpRequest;
 
 public abstract class MainController extends AppCompatActivity {
@@ -62,7 +62,16 @@ public abstract class MainController extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = this;
-        checkInternetConnection();
+        if(!checkInternetConnection()){
+            return;
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+
     }
 
     public void render(){
@@ -285,18 +294,39 @@ public abstract class MainController extends AppCompatActivity {
 
 
 
-    public void checkInternetConnection(){
+    public boolean checkInternetConnection(){
         System.out.println("CHECK INTERNET CONNECTION - me");
         Boolean check = new ConnectionDetector(this).isConnectedToInternet();
         System.out.println(check);
 
         if(!check){
-            System.out.println("is false");
 
             Dialog dialog = new Dialog(this);
             dialog.setContentView(R.layout.dialog_no_connection);
+
+            Button wifi = (Button) dialog.findViewById(R.id.wifi_intent);
+            wifi.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(WifiManager.ACTION_PICK_WIFI_NETWORK));
+                }
+            });
+
+            Button mobile = (Button) dialog.findViewById(R.id.mobile_intent);
+            mobile.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(Intent.ACTION_MAIN);
+                    intent.setClassName("com.android.phone","com.android.phone.NetworkSetting");
+                    startActivity(intent);
+                }
+            });
             dialog.show();
+
+            return false;
         }
+
+        return true;
     }
 
 }
