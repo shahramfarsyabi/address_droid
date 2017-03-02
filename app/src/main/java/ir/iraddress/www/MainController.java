@@ -55,6 +55,7 @@ public abstract class MainController extends AppCompatActivity {
     public SwipeRefreshLayout mSwipeRefreshLayout;
     public Button fileBrowser;
     public ProgressBar loading;
+    public Dialog loadingView;
 
     public final int READ_REQUEST_CODE = 42;
 
@@ -62,7 +63,8 @@ public abstract class MainController extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = this;
-
+        loadingView = new Dialog(this);
+        loadingView.setContentView(R.layout.dialog_loading);
     }
 
     @Override
@@ -207,29 +209,34 @@ public abstract class MainController extends AppCompatActivity {
         }
 
         System.out.println(url);
-
+        pageLoading(true);
         HttpRequest.get(url, params, new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, JSONObject response) {
+                pageLoading(false);
                 callback(response, statusCode);
             }
 
             @Override
             public void onFailure(int statusCode , cz.msebera.android.httpclient.Header[] headers, Throwable throwable , JSONObject response){
+                pageLoading(false);
 
             }
         });
     }
 
     public void getRequest(String url, RequestParams params){
+        pageLoading(true);
         HttpRequest.get(url, params, new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, JSONObject response) {
+                pageLoading(false);
                 callback(response, statusCode);
             }
 
             @Override
             public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, JSONArray response) {
+                pageLoading(false);
                 callback(response, statusCode);
             }
 
@@ -241,14 +248,17 @@ public abstract class MainController extends AppCompatActivity {
     }
 
     public void postRequest(String url, RequestParams params){
+        pageLoading(true);
         HttpRequest.post(url, params, new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, JSONObject response) {
+                pageLoading(false);
                 callback(response, statusCode);
             }
 
             @Override
             public void onFailure(int statusCode , cz.msebera.android.httpclient.Header[] headers, Throwable throwable , JSONObject response){
+                pageLoading(false);
                 callback(response, statusCode);
             }
         });
@@ -333,6 +343,18 @@ public abstract class MainController extends AppCompatActivity {
         }
 
         return true;
+    }
+
+    public void pageLoading(Boolean activation){
+
+        if(loadingView instanceof Dialog){
+
+            if(activation){
+                loadingView.show();
+            }else{
+                loadingView.cancel();
+            }
+        }
     }
 
 }

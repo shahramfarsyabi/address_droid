@@ -11,6 +11,7 @@
         android:layout_height="250dp"
         android:layout_width="match_parent"
         android:elevation="2dp">
+
         <android.support.design.widget.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:id="@+id/collapsingToolbarLayout"
@@ -20,13 +21,12 @@
             app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Title"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:contentScrim="?attr/colorPrimary">
-            <ImageView
-                android:id="@+id/directory_image"
-                android:adjustViewBounds="true"
+
+            <com.daimajia.slider.library.SliderLayout
+                android:id="@+id/slider"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/logo_white"
-                android:scaleType="fitCenter" />
+                android:layout_height="match_parent" />
+
             <View
                 android:alpha="0.5"
                 android:background="@drawable/top_to_bottom_gradiant_black"
@@ -89,33 +89,36 @@
                     android:layout_weight="1">
 
                 </LinearLayout>
-                <LinearLayout
+
+                <View
                     android:layout_width="1dp"
                     android:layout_height="80dp"
-                    android:background="@color/borderGray"></LinearLayout>
+                    android:background="@color/borderGray"/>
+
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="80dp"
-                    android:layout_weight="1"></LinearLayout>
-                <LinearLayout
+                    android:layout_weight="1">
+
+                </LinearLayout>
+
+                <View
                     android:layout_width="1dp"
                     android:layout_height="80dp"
-                    android:background="@color/borderGray"></LinearLayout>
+                    android:background="@color/borderGray" />
+
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="80dp"
-                    android:layout_weight="1"></LinearLayout>
+                    android:layout_weight="1">
+
+                </LinearLayout>
             </LinearLayout>
-            <LinearLayout
+
+            <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="@color/borderGray"></LinearLayout>
-
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recyclerview_directory_images"
-                android:layout_width="match_parent"
-                android:layout_height="120dp" />
+                android:background="@color/borderGray" />
 
             <LinearLayout
                 android:orientation="vertical"

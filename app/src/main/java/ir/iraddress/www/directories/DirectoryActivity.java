@@ -23,6 +23,9 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.daimajia.slider.library.SliderLayout;
+import com.daimajia.slider.library.SliderTypes.BaseSliderView;
+import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -107,24 +110,24 @@ public class DirectoryActivity extends MainController {
             address.setText(response.getString("address"));
             address.setTypeface(typeface);
 
-
+            SliderLayout slider = (SliderLayout) findViewById(R.id.slider);
             if(response.getJSONArray("images").length() > 0){
 
-                JSONObject firstImage = (JSONObject) response.getJSONArray("images").get(0);
+                for(int n = 0; n < response.getJSONArray("images").length(); n++){
 
-                ImageView image = (ImageView) findViewById(R.id.directory_image);
-                Picasso.with(getApplicationContext()).load(firstImage.getString("href")).fit().into(image);
+                    JSONObject photo = (JSONObject) response.getJSONArray("images").get(n);
+
+                    TextSliderView textSliderView = new TextSliderView(this);
+                    // initialize a SliderLayout
+                    textSliderView
+//                            .description(photo.getString("caption"))
+                            .image(photo.getString("href"))
+                            .setScaleType(BaseSliderView.ScaleType.Fit);
+
+                    slider.addSlider(textSliderView);
+                }
 
 
-                recyclerView = (RecyclerView) findViewById(R.id.recyclerview_directory_images);
-                recyclerViewAdapter = new DirectoryPhotosAdapter(this, response.getJSONArray("images"));
-                layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-
-                recyclerView.setLayoutManager(layoutManager);
-                recyclerView.setAdapter(recyclerViewAdapter);
-            }else{
-                recyclerView = (RecyclerView) findViewById(R.id.recyclerview_directory_images);
-                recyclerView.setVisibility(View.GONE);
             }
 
 
