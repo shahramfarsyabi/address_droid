@@ -11,6 +11,7 @@ import android.provider.MediaStore;
 import android.provider.OpenableColumns;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -179,6 +180,14 @@ public class DirectoryActivity extends MainController {
                     }
                 }
             });
+
+
+            recyclerView = (RecyclerView) findViewById(R.id.recycler_view_facilities);
+            recyclerViewAdapter = new DirectoryFacilitiesAdapter(this);
+            layoutManager = new GridLayoutManager(this, 2);
+
+            recyclerView.setAdapter(recyclerViewAdapter);
+            recyclerView.setLayoutManager(layoutManager);
 
 
             Button btnAllComments = (Button) findViewById(R.id.directory_all_comments);

@@ -21,8 +21,8 @@ public class TermsAndConditionsActivity extends MainController {
         TextView title = (TextView) findViewById(R.id.toolbar_title_page);
         title.setText("شرایط استفاده از سرویس");
 
-        ImageView image = (ImageView) findViewById(R.id.toolbar_image_page);
-        image.setImageResource(R.drawable.gift_box);
+//        ImageView image = (ImageView) findViewById(R.id.toolbar_image_page);
+//        image.setImageResource(R.drawable.gift_box);
 
         TextView text = (TextView) findViewById(R.id.text_wrapper);
         text.setText(Html.fromHtml("<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>"));
