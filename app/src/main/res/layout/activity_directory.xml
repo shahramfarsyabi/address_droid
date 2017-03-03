@@ -219,11 +219,54 @@
                         android:layout_weight="1">
 
                         <ir.iraddress.www.extend.AppButton
-                            android:onClick="btnGoogleDirection"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent"
-                            android:text="مسیریابی"
+                            android:text="موقعیت مکانی"
+                            android:paddingTop="15dp"
+                            android:drawableTop="@drawable/ic_map_marker"
+                             />
+                    </LinearLayout>
+                    <!--Divider-->
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="80dp"
+                        android:background="@color/borderGray"/>
+                    <!--Rate-->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="80dp"
+                        android:layout_weight="1">
+                        <ir.iraddress.www.extend.AppButton
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:text="شماره تماس"
+                            android:paddingTop="15dp"
+                            android:drawableTop="@drawable/ic_telephone"
+                            android:drawableTint="@color/dialerGreen"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <view
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/borderGray"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp">
+                    <!--Path Finder-->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="80dp"
+                        android:layout_weight="1">
+
+                        <ir.iraddress.www.extend.AppButton
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:text="پست الکترونیک"
                             android:paddingTop="15dp"
                             android:drawableTop="@drawable/ic_envelope"
                             android:id="@+id/appButton" />
@@ -239,59 +282,13 @@
                         android:layout_height="80dp"
                         android:layout_weight="1">
                         <ir.iraddress.www.extend.AppButton
-                            android:id="@+id/directory_box_phone"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent"
-                            android:text=""
+                            android:text="وب سایت"
                             android:paddingTop="15dp"
-                            android:drawableTop="@drawable/ic_telephone" />
-                    </LinearLayout>
-                </LinearLayout>
-                <view
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/borderGray"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"></view>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="80dp">
-                    <!--Path Finder-->
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="80dp"
-                        android:layout_weight="1">
-
-                        <ir.iraddress.www.extend.AppButton
-                            android:onClick="btnGoogleDirection"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@android:color/transparent"
-                            android:text="مسیریابی"
-                            android:paddingTop="15dp"
-                            android:drawableTop="@drawable/ic_road_perspective"
-                            android:drawableTint="@color/colorSecondary"
-                            android:id="@+id/appButton" />
-                    </LinearLayout>
-                    <!--Divider-->
-                    <View
-                        android:layout_width="1dp"
-                        android:layout_height="80dp"
-                        android:background="@color/borderGray"/>
-                    <!--Rate-->
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="80dp"
-                        android:layout_weight="1">
-                        <ir.iraddress.www.extend.AppButton
-                            android:onClick="btnRating"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@android:color/transparent"
-                            android:text="ثبت رای"
-                            android:paddingTop="15dp"
-                            android:drawableTop="@drawable/ic_star" />
+                            android:drawableTop="@drawable/ic_desktop_monitor"
+                            android:drawableTint="@color/colorSecondary"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -301,14 +298,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:background="@color/borderGray" />
-
-
-
-
-
-
-
-
 
 
 
@@ -341,7 +330,6 @@
                     android:layout_height="match_parent" />
 
             </LinearLayout>
-            <!--Address-->
 
             <!--Phone-->
             <LinearLayout
@@ -380,7 +368,6 @@
                     android:layout_height="match_parent" />
 
             </LinearLayout>
-            <!--Phone-->
 
             <!--Website-->
             <LinearLayout
@@ -420,7 +407,6 @@
                     android:layout_height="match_parent" />
 
             </LinearLayout>
-            <!--Website-->
 
             <!--Author-->
             <LinearLayout
@@ -457,39 +443,6 @@
                     android:layout_height="match_parent" />
 
             </LinearLayout>
-            <!--Author-->
-
-            <!--Fax-->
-            <LinearLayout
-                android:visibility="gone"
-                android:id="@+id/directory_box_fax"
-                android:orientation="horizontal"
-                android:background="@drawable/border"
-                android:layout_width="match_parent"
-                android:layout_height="56dp">
-
-                <ir.iraddress.www.extend.TextViewIranSans
-                    android:id="@+id/directory_fax"
-                    android:layout_toLeftOf="@+id/icon_phone"
-                    android:gravity="center|right"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent" />
-
-                <ImageView
-                    android:scaleX="0.5"
-                    android:scaleY="0.5"
-                    android:src="@drawable/ic_print_black_24dp"
-                    android:gravity="center"
-                    android:id="@+id/icon_phone"
-                    android:text="ICON"
-                    android:layout_width="56dp"
-                    android:layout_height="match_parent" />
-
-            </LinearLayout>
-            <!--Fax-->
-
-            <!--Information-->
 
 
 
@@ -573,7 +526,7 @@
 
 
 
-            <!--Map-->
+            <!--Map
             <fragment
                 android:id="@+id/map"
                 android:layout_width="match_parent"
@@ -581,7 +534,7 @@
                 android:layout_weight="1"
                 android:scrollbars="vertical"
                 class="com.google.android.gms.maps.SupportMapFragment"/>
-            <!--Map-->
+            Map-->
 
 
 
