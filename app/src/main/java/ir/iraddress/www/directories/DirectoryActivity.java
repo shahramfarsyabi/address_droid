@@ -182,12 +182,17 @@ public class DirectoryActivity extends MainController {
             });
 
 
-            recyclerView = (RecyclerView) findViewById(R.id.recycler_view_facilities);
-            recyclerViewAdapter = new DirectoryFacilitiesAdapter(this);
-            layoutManager = new GridLayoutManager(this, 2);
+            ArrayList<Object> facilities = ArrayUtil.convert(response.getJSONArray("facilities"));
 
-            recyclerView.setAdapter(recyclerViewAdapter);
-            recyclerView.setLayoutManager(layoutManager);
+            if(facilities.size() > 0){
+
+                recyclerView = (RecyclerView) findViewById(R.id.recycler_view_facilities);
+                recyclerViewAdapter = new DirectoryFacilitiesAdapter(this, facilities);
+                layoutManager = new GridLayoutManager(this, 2);
+
+                recyclerView.setAdapter(recyclerViewAdapter);
+                recyclerView.setLayoutManager(layoutManager);
+            }
 
 
             Button btnAllComments = (Button) findViewById(R.id.directory_all_comments);

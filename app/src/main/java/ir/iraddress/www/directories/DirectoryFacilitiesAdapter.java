@@ -5,6 +5,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import ir.iraddress.www.R;
 import ir.iraddress.www.extend.TextViewIranSans;
 
@@ -16,10 +22,12 @@ public class DirectoryFacilitiesAdapter extends RecyclerView.Adapter<DirectoryFa
 
     LayoutInflater inflater;
     Context context;
+    List collection;
 
-    public DirectoryFacilitiesAdapter(Context context){
+    public DirectoryFacilitiesAdapter(Context context, List facilities){
         inflater = LayoutInflater.from(context);
         this.context = context;
+        this.collection = facilities;
     }
 
     @Override
@@ -29,11 +37,22 @@ public class DirectoryFacilitiesAdapter extends RecyclerView.Adapter<DirectoryFa
 
     @Override
     public void onBindViewHolder(DirectoryFacilityHolder holder, int position) {
-        TextViewIranSans facility = (TextViewIranSans) holder.facility.findViewById(R.id.facility);
+
+
+        try {
+
+            JSONObject object = (JSONObject) collection.get(position);
+            TextViewIranSans facility = (TextViewIranSans) holder.facility.findViewById(R.id.facility);
+            facility.setText(object.getString("title"));
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override
     public int getItemCount() {
-        return 10;
+        return collection.size();
     }
 }

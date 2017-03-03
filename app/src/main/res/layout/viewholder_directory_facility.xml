@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
     <ir.iraddress.www.extend.TextViewIranSans
         android:id="@+id/facility"
-        android:text="Facility"
+        android:text="امکانات"
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

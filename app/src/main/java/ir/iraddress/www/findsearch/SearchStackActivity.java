@@ -55,7 +55,6 @@ public class SearchStackActivity extends MainController {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
                 timer.cancel();
-
             }
 
             @Override
@@ -134,7 +133,6 @@ public class SearchStackActivity extends MainController {
                 System.out.println("nearme");
                 url ="directories/nearme";
                 break;
-
         }
 
         Intent intent = new Intent(this, SearchResultActivity.class);

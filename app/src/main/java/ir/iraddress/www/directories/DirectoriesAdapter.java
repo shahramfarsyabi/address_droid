@@ -79,6 +79,19 @@ public class DirectoriesAdapter extends RecyclerView.Adapter<DirectoryHolder> {
             TextViewIranSans phone = (TextViewIranSans) holder.cardView.findViewById(R.id.directory_phone);
             phone.setText(object.getString("phone").trim());
 
+            holder.cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    try {
+                        Intent intent = new Intent(context, DirectoryActivity.class);
+                        intent.putExtra("directory_id", object.getInt("id"));
+                        context.startActivity(intent);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+
             TextViewIranSans distance = (TextViewIranSans) holder.cardView.findViewById(R.id.directory_distance);
 
 
@@ -101,20 +114,6 @@ public class DirectoriesAdapter extends RecyclerView.Adapter<DirectoryHolder> {
                     distance.setText("فاصله شما "+String.format("%.02f", distanceInMeter) + " کیلومتر");
                 }
             }
-
-
-            holder.cardView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    try {
-                        Intent intent = new Intent(context, DirectoryActivity.class);
-                        intent.putExtra("directory_id", object.getInt("id"));
-                        context.startActivity(intent);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-            });
 
         } catch (JSONException e) {
             e.printStackTrace();
