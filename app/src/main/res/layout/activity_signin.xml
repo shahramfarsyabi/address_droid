@@ -19,21 +19,13 @@
 
         <Button
             android:onClick="onBackPressed"
-            android:layout_gravity="left"
-            android:scaleX="0.5"
-            android:scaleY="0.5"
-            android:background="@drawable/ic_arrow_pointing_to_left_gray"
-            android:layout_width="56dp"
-            android:layout_height="56dp" />
-
-        <ImageView
             android:layout_gravity="right"
             android:scaleX="0.5"
             android:scaleY="0.5"
-            android:src="@drawable/ic_sign_in"
-            android:rotation="180"
+            android:background="@drawable/ic_arrow_pointing_to_right_grey"
             android:layout_width="56dp"
             android:layout_height="56dp" />
+
 
         <ir.iraddress.www.extend.TextViewIranSansBold
             android:layout_gravity="right"
@@ -90,7 +82,7 @@
 
         </LinearLayout>
 
-        <Button
+        <ir.iraddress.www.extend.AppButton
             android:onClick="singin"
             android:layout_margin="10dp"
             android:elevation="10dp"
@@ -113,15 +105,15 @@
         android:layout_width="match_parent"
         android:layout_height="130dp">
 
-        <TextView
+        <ir.iraddress.www.extend.TextViewIranSans
             android:gravity="center"
-            android:textSize="20dp"
+            android:textSize="14dp"
             android:textColor="@color/colorWhite"
             android:text="هنوز ثبت نام کرده اید ؟"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <Button
+        <ir.iraddress.www.extend.AppButton
             android:layout_margin="10dp"
             android:elevation="10dp"
             android:textColor="@color/colorPrimaryDark"
@@ -129,8 +121,10 @@
             android:text="ساخت حساب کاربری"
             android:layout_gravity="center"
             android:background="@drawable/rounded_corners"
-            android:layout_width="150dp"
-            android:layout_height="40dp" />
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"/>
 
     </LinearLayout>
 

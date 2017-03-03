@@ -2,39 +2,36 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:id="@+id/form_sigup"
-    android:background="@color/colorWhite"
+    android:background="@color/colorLightGray"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="56dp"
         android:theme="?attr/actionBarTheme"
         android:minHeight="?attr/actionBarSize"
-        android:id="@+id/toolbar_diractoris_list">
+        android:id="@+id/toolbar_diractoris_list"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        android:paddingLeft="0dp">
 
         <Button
             android:onClick="onBackPressed"
-            android:layout_gravity="left"
-            android:scaleX="0.6"
-            android:scaleY="0.6"
-            android:background="@drawable/ic_arrow_back_black_24dp"
-            android:layout_width="56dp"
-            android:layout_height="56dp" />
-
-        <ImageView
             android:layout_gravity="right"
             android:scaleX="0.5"
             android:scaleY="0.5"
-            android:src="@drawable/user_shape"
+            android:background="@drawable/ic_arrow_pointing_to_right_grey"
             android:layout_width="56dp"
             android:layout_height="56dp" />
 
-        <TextView
+
+        <ir.iraddress.www.extend.TextViewIranSansBold
             android:layout_gravity="right"
-            android:textColor="@color/colorGray"
-            android:textStyle="bold"
-            android:textSize="20dp"
+            android:textColor="@color/mediumGray"
+            android:textSize="18dp"
             android:text="ساخت حساب کاربری"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -45,106 +42,91 @@
     <LinearLayout
         android:gravity="center"
         android:orientation="vertical"
-        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="0dp">
-        <ImageView
-            android:padding="15dp"
-            android:src="@drawable/signup"
-            android:layout_width="match_parent"
-            android:layout_height="100dp" />
+        android:layout_height="800dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+
+            <ImageView
+                android:src="@drawable/signup"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginBottom="20dp"/>
 
             <android.support.v7.widget.AppCompatEditText
-                android:layout_width="0dp"
-                android:padding="10dp"
-                android:layout_margin="10dp"
-                android:hint="نام خانوادگی"
-                android:id="@+id/lastName"
-                android:background="@drawable/rounded_bordered"
-                android:layout_weight="1"
-                android:layout_height="match_parent" />
-
-            <android.support.v7.widget.AppCompatEditText
-                android:layout_width="0dp"
-                android:layout_margin="10dp"
-                android:hint="نام"
+                android:layout_width="match_parent"
                 android:id="@+id/firstName"
+                android:hint="نام"
+                android:layout_height="60dp"
+                android:textAlignment="center"
                 android:padding="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/rounded_bordered"
-                android:layout_height="match_parent" />
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                android:background="@color/colorWhite"
+                android:layout_marginBottom="2dp" />
 
             <android.support.v7.widget.AppCompatEditText
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
+                android:id="@+id/lastName"
+                android:hint="نام خانوادگی"
+                android:layout_height="60dp"
+                android:textAlignment="center"
                 android:padding="10dp"
-                android:layout_margin="10dp"
-                android:hint="موبایل"
-                android:id="@+id/mobile"
-                android:background="@drawable/rounded_bordered"
-                android:layout_weight="1"
-                android:layout_height="match_parent" />
+                android:background="@color/colorWhite"
+                android:layout_marginBottom="2dp"/>
 
             <android.support.v7.widget.AppCompatEditText
-                android:layout_width="0dp"
-                android:layout_margin="10dp"
+                android:layout_width="match_parent"
                 android:hint="پست الکترونیک"
                 android:id="@+id/email"
                 android:padding="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/rounded_bordered"
-                android:layout_height="match_parent" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                android:background="@color/colorWhite"
+                android:textAlignment="center"
+                android:layout_height="60dp"
+                android:layout_marginBottom="2dp"/>
 
             <android.support.v7.widget.AppCompatEditText
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:padding="10dp"
-                android:layout_margin="10dp"
+                android:hint="موبایل"
+                android:id="@+id/mobile"
+                android:background="@color/colorWhite"
+                android:layout_height="60dp"
+                android:textAlignment="center"
+                android:layout_marginBottom="2dp"/>
+
+            <android.support.v7.widget.AppCompatEditText
+                android:layout_width="match_parent"
+                android:padding="10dp"
                 android:hint="رمز عبور"
                 android:id="@+id/password"
-                android:background="@drawable/rounded_bordered"
-                android:layout_weight="1"
-                android:layout_height="match_parent" />
+                android:background="@color/colorWhite"
+                android:layout_height="60dp"
+                android:textAlignment="center"
+                android:layout_marginBottom="2dp"/>
 
             <android.support.v7.widget.AppCompatEditText
-                android:layout_width="0dp"
-                android:layout_margin="10dp"
+                android:layout_width="match_parent"
                 android:hint="تکرار رمز عبور"
                 android:id="@+id/password_confirmation"
                 android:padding="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/rounded_bordered"
-                android:layout_height="match_parent" />
-        </LinearLayout>
+                android:background="@color/colorWhite"
+                android:layout_height="60dp"
+                android:textAlignment="center"
+                android:layout_marginBottom="20dp"/>
 
-        <Button
-            android:onClick="singup"
-            android:layout_margin="10dp"
-            android:elevation="10dp"
-            android:textColor="@color/colorWhite"
-            android:backgroundTint="#0DD0AE"
-            android:text="ثبت نام"
-            android:layout_gravity="center"
-            android:id="@+id/btn_signup"
-            android:background="@drawable/rounded_corners"
-            android:layout_width="100dp"
-            android:layout_height="40dp" />
-
+            <Button
+                android:onClick="singup"
+                android:layout_margin="10dp"
+                android:elevation="10dp"
+                android:textColor="@color/colorWhite"
+                android:backgroundTint="#0DD0AE"
+                android:text="ثبت نام"
+                android:layout_gravity="center"
+                android:id="@+id/btn_signup"
+                android:background="@drawable/rounded_corners"
+                android:layout_width="100dp"
+                android:layout_height="40dp" />
 
     </LinearLayout>
+
 
     <LinearLayout
         android:gravity="center"
