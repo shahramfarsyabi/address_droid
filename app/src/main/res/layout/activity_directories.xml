@@ -18,7 +18,7 @@
         <Button
             style="@style/Widget.AppCompat.Button.Colored"
             android:onClick="onBackPressed"
-            android:layout_gravity="right"
+            android:layout_gravity="end"
             android:rotation="180"
             android:background="@drawable/ic_arrow_pointing_to_left"
             android:layout_width="56dp"
@@ -29,10 +29,12 @@
 
         <Button
             android:onClick="advanceFilter"
-            android:layout_gravity="left"
+            android:layout_gravity="start"
             android:background="@drawable/ic_filter_tool_black_shape"
-            android:layout_width="26dp"
-            android:layout_height="26dp" />
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:scaleX="0.5"
+            android:scaleY="0.5"/>
 
         <ir.iraddress.www.extend.TextViewIranSansBold
             android:id="@+id/toolbar_title_directories"

@@ -9,14 +9,23 @@
         android:background="@drawable/toolbar_address_gradiant"
         android:theme="?attr/actionBarTheme"
         android:minHeight="?attr/actionBarSize"
-        android:id="@+id/toolbar_diractoris_list">
+        android:id="@+id/toolbar_diractoris_list"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:elevation="2dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        android:paddingEnd="0dp"
+        android:paddingStart="0dp">
 
         <Button
             android:onClick="onBackPressed"
-            android:layout_gravity="top|left"
-            android:scaleX="0.6"
-            android:scaleY="0.6"
-            android:background="@drawable/ic_arrow_back_white_24dp"
+            android:layout_gravity="end"
+            android:scaleX="0.5"
+            android:scaleY="0.5"
+            android:background="@drawable/ic_arrow_pointing_to_right"
             android:layout_width="56dp"
             android:layout_height="56dp" />
 
@@ -30,20 +39,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView
-            android:scaleY="0.5"
-            android:scaleX="0.5"
             android:src="@drawable/logo_white"
             android:layout_width="180dp"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/destination_is_here"
+            android:layout_marginBottom="20dp"/>
 
         <ir.iraddress.www.extend.TextViewIranSans
             android:textStyle="bold"
             android:textColor="@color/colorWhite"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:gravity="center"
-            android:text="مقصد همینجاست ..."
+            android:text="@string/destination_is_here"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_marginBottom="20dp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -57,15 +67,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <Button
+        <ir.iraddress.www.extend.AppButton
             android:layout_gravity="center"
             android:elevation="10dp"
             android:textColor="@color/colorWhite"
             android:backgroundTint="#0DD0AE"
-            android:textSize="20dp"
+            android:textSize="13sp"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
-            android:text="شرایط استفاده از خدمات آدرس"
+            android:text="@string/ters_services"
             android:background="@drawable/rounded_corners"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />

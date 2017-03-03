@@ -3,6 +3,8 @@
     <string name="search_title">جستجو</string>
     <string name="search_hint">جستجوی رستوران ، شهر ، باشگاه ورزشی یا . . .</string>
     <string name="categories">دسته بندی ها</string>
+    <string name="destination_is_here">مقصد همینجاست </string>
+    <string name="ters_services">شرایط استفاده از خدمات آدرس</string>
     <string name="app_name">Address</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
