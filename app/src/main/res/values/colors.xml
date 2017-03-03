@@ -19,5 +19,6 @@
     <color name="colorGray">#616161</color>
     <color name="colorSilverLight">#F5F5F5</color>
     <color name="colorIcon">#05a7d1</color>
+    <color name="colorValidation">#ffebeb</color>
 
 </resources>

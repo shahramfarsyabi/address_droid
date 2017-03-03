@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.loopj.android.http.RequestParams;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -77,8 +79,12 @@ public class SearchStackActivity extends MainController {
             @Override
             public void afterTextChanged(final Editable s) {
                 collection.clear();
+                if(s.length() <= 0){
+                    return;
+                }
                 timer = new Timer();
-                params.add("query", s.toString());
+                params = new RequestParams();
+                params.put("query", s.toString());
                 route = "directories";
                 System.out.println(s.toString());
                 timer.schedule(new TimerTask() {

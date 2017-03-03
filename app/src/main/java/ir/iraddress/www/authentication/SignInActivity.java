@@ -1,6 +1,7 @@
 package ir.iraddress.www.authentication;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatEditText;
 import android.view.View;
@@ -18,10 +19,6 @@ import ir.iraddress.www.MainController;
 import ir.iraddress.www.R;
 import ir.iraddress.www.helper.SharedPrefered;
 import ir.iraddress.www.profile.ProfileActivity;
-
-/**
- * Created by shahram on 2/14/17.
- */
 
 public class SignInActivity extends MainController {
 
@@ -90,12 +87,17 @@ public class SignInActivity extends MainController {
 
                     if(response.has("email")){
                         JSONArray emailValidationError = response.getJSONArray("email");
-                        email.setError((CharSequence) emailValidationError.get(0));
+//                        email.setError((CharSequence) emailValidationError.get(0));
+                        email.setBackgroundColor(Color.parseColor("#ffebeb"));
+                        Toast.makeText(context, emailValidationError.get(0).toString(), Toast.LENGTH_SHORT).show();
                     }
 
                     if(response.has("password")){
                         JSONArray passwordValidationError = response.getJSONArray("password");
-                        password.setError((CharSequence) passwordValidationError.get(0));
+//                        password.setError((CharSequence) passwordValidationError.get(0));
+                        password.setBackgroundColor(Color.parseColor("#ffebeb"));
+                        Toast.makeText(context, passwordValidationError.get(0).toString(), Toast.LENGTH_SHORT).show();
+
                     }
 
                 } catch (JSONException e) {
