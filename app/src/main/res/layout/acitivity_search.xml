@@ -18,11 +18,14 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         app:contentInsetLeft="0dp"
         app:contentInsetStart="0dp"
-        android:paddingLeft="0dp">
+        android:paddingLeft="0dp"
+        android:paddingStart="0dp"
+        android:paddingRight="0dp"
+        android:paddingEnd="0dp">
 
         <Button
             android:onClick="onBackPressed"
-            android:layout_gravity="right"
+            android:layout_gravity="end"
             android:background="@drawable/ic_arrow_pointing_to_right"
             android:layout_width="56dp"
             android:layout_height="56dp"
@@ -30,11 +33,11 @@
             android:scaleY="0.5"/>
 
         <ir.iraddress.www.extend.TextViewIranSansBold
-            android:layout_gravity="right"
+            android:layout_gravity="end"
             android:textColor="@color/colorWhite"
             android:textStyle="bold"
-            android:textSize="18dp"
-            android:text="جستجو"
+            android:textSize="18sp"
+            android:text="@string/search_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
@@ -44,12 +47,12 @@
     <ir.iraddress.www.extend.TextInputEditTextIranSans
         android:id="@+id/search_input"
         android:textAlignment="center"
-        android:textSize="15dp"
+        android:textSize="15sp"
         android:padding="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginLeft="15dp"
         android:textColor="@color/colorBlack"
-        android:hint="جستجوی رستوران ، شهر ، باشگاه ورزشی یا ..."
+        android:hint="@string/search_hint"
         android:backgroundTint="@color/mediumGray"
         android:textColorHint="@color/mediumGray"
         android:layout_width="match_parent"

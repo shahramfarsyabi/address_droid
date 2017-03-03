@@ -11,30 +11,24 @@
         android:background="@drawable/toolbar_address_gradiant"
         android:theme="?attr/actionBarTheme"
         android:minHeight="?attr/actionBarSize"
-        android:id="@+id/toolbar_diractoris_list">
+        android:id="@+id/toolbar_diractoris_list"
+        android:elevation="2dp">
 
         <Button
             android:onClick="onBackPressed"
-            android:layout_gravity="left"
-            android:background="@drawable/ic_arrow_pointing_to_left"
-            android:layout_width="26dp"
-            android:layout_height="26dp" />
-
-        <ImageView
-            android:id="@+id/toolbar_image_page"
-            android:layout_gravity="right"
-            android:scaleX="0.5"
-            android:scaleY="0.5"
-            android:src="@drawable/thumbs_up_white"
+            android:layout_gravity="end"
+            android:background="@drawable/ic_arrow_pointing_to_right"
             android:layout_width="56dp"
-            android:layout_height="56dp" />
+            android:layout_height="56dp"
+            android:scaleX="0.5"
+            android:scaleY="0.5"/>
 
         <ir.iraddress.www.extend.TextViewIranSansBold
-            android:layout_gravity="right"
+            android:layout_gravity="end"
             android:gravity="center"
             android:textColor="@color/colorWhite"
-            android:textSize="18dp"
-            android:text="بهترین های آدرس"
+            android:textSize="18sp"
+            android:text="@string/best_of_address"
             android:id="@+id/toolbar_title_page"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />

@@ -13,11 +13,14 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         app:contentInsetLeft="0dp"
         app:contentInsetStart="0dp"
-        android:paddingLeft="0dp">
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        android:paddingEnd="0dp"
+        android:paddingStart="0dp">
 
         <Button
             android:onClick="onBackPressed"
-            android:layout_gravity="right"
+            android:layout_gravity="end"
             android:rotation="180"
             android:background="@drawable/ic_arrow_pointing_to_left"
             android:layout_width="56dp"
@@ -28,9 +31,9 @@
 
 
         <ir.iraddress.www.extend.TextViewIranSansBold
-            android:layout_gravity="right"
+            android:layout_gravity="end"
             android:textColor="@color/colorWhite"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:id="@+id/toolbar_sub_category_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />

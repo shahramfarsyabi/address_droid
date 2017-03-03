@@ -9,33 +9,33 @@
         android:background="@drawable/toolbar_address_gradiant"
         android:theme="?attr/actionBarTheme"
         android:minHeight="?attr/actionBarSize"
-        android:id="@+id/toolbar_diractoris_list">
+        android:id="@+id/toolbar_diractoris_list"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:elevation="2dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        android:paddingEnd="0dp"
+        android:paddingStart="0dp">
 
         <Button
             android:onClick="onBackPressed"
-            android:layout_gravity="left"
-            android:scaleX="0.6"
-            android:scaleY="0.6"
-            android:background="@drawable/ic_arrow_back_white_24dp"
-            android:layout_width="56dp"
-            android:layout_height="56dp" />
-
-        <ImageView
-            android:id="@+id/toolbar_image_page"
-            android:layout_gravity="right"
+            android:layout_gravity="end"
             android:scaleX="0.5"
             android:scaleY="0.5"
-            android:src="@drawable/thumbs_up_white"
+            android:background="@drawable/ic_arrow_pointing_to_right"
             android:layout_width="56dp"
             android:layout_height="56dp" />
 
-        <ir.iraddress.www.extend.TextViewIranSans
-            android:layout_gravity="right"
+
+        <ir.iraddress.www.extend.TextViewIranSansBold
+            android:layout_gravity="end"
             android:gravity="center"
             android:textColor="@color/colorWhite"
             android:textStyle="bold"
-            android:textSize="20dp"
-            android:text="بهترین های آدرس"
+            android:textSize="18sp"
             android:id="@+id/toolbar_title_connections"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
