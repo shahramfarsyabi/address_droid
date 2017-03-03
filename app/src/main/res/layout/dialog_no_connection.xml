@@ -1,17 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <Button
-        android:text="wifi"
-        android:id="@+id/wifi_intent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="200dp">
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <Button
-        android:id="@+id/mobile_intent"
-        android:text="mobile"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-</LinearLayout>
+        android:layout_height="200dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@color/colorWhite">
+                <ir.iraddress.www.extend.TextViewIranSans
+                    android:text="عدم اتصال به اینترنت"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="13dp"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorLightGray"></LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="98dp"
+                android:background="@color/colorWhite">
+                <ir.iraddress.www.extend.TextViewIranSans
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="متاسفانه اتصال شما به شبکه اینترنت برقرار نیست. برای استفاده از اپلیکیشن آدرس، به اینترنت نیازمندیم. به یکی از روش های زیر، بهاینترنت متصل شوید :"
+                    android:textAlignment="center"
+                    android:textColor="@color/mediumGray"
+                    android:textSize="10dp"
+                    android:paddingLeft="30dp"
+                    android:paddingRight="30dp"
+                    android:gravity="center"/>
+            </LinearLayout>
+            <LinearLayout
+                android:gravity="center|right"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:background="@drawable/toolbar_address_gradiant">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <ir.iraddress.www.extend.AppButton
+                        android:id="@+id/wifi_intent"
+                        android:gravity="center"
+                        android:textSize="13dp"
+                        android:text="اینترنت   WI-FI"
+                        android:textColor="@color/colorWhite"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@color/colorLightGray"></LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <ir.iraddress.www.extend.AppButton
+                        android:id="@+id/mobile_intent"
+                        android:gravity="center"
+                        android:textSize="13dp"
+                        android:text="اینترنت سیم کارت"
+                        android:textColor="@color/colorWhite"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

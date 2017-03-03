@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <android.support.v7.widget.CardView
-        android:layout_margin="10dp"
+        android:layout_margin="20dp"
         android:id="@+id/cardview_similar_item"
         android:layout_width="match_parent"
         android:layout_height="360dp">
@@ -22,13 +22,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
-                <TextView
+                <ir.iraddress.www.extend.TextViewIranSansBold
                     android:padding="10dp"
                     android:layout_alignParentBottom="true"
                     android:textColor="@color/colorWhite"
                     android:text="رستوران هاشم آقا"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"/>
 
             </RelativeLayout>
 
@@ -39,10 +39,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp">
 
-                <TextView
+                <ir.iraddress.www.extend.TextViewIranSans
                     android:text="تهران خیابان شماره یک کوچه شماره دو پلاک ۳"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:textSize="13dp" />
 
                 <RatingBar
                     android:layout_gravity="right"
