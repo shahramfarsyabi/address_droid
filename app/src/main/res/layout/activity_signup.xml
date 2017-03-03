@@ -57,21 +57,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="2dp">
-            <android.support.v7.widget.AppCompatEditText
+            <ir.iraddress.www.extend.TextInputEditTextIranSans
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:id="@+id/lastName"
                 android:hint="نام خانوادگی"
+                android:textSize="13dp"
                 android:layout_height="60dp"
                 android:textAlignment="center"
                 android:padding="10dp"
                 android:background="@color/colorWhite"
                 android:layout_marginRight="1dp" />
-            <android.support.v7.widget.AppCompatEditText
+            <ir.iraddress.www.extend.TextInputEditTextIranSans
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:id="@+id/firstName"
                 android:hint="نام"
+                android:textSize="13dp"
                 android:layout_height="60dp"
                 android:textAlignment="center"
                 android:padding="10dp"
@@ -83,10 +85,11 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="2dp">
 
-            <android.support.v7.widget.AppCompatEditText
+            <ir.iraddress.www.extend.TextInputEditTextIranSans
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:hint="پست الکترونیک"
+                android:textSize="13dp"
                 android:id="@+id/email"
                 android:padding="10dp"
                 android:background="@color/colorWhite"
@@ -94,11 +97,12 @@
                 android:layout_height="60dp"
                 android:layout_marginRight="1dp"/>
 
-            <android.support.v7.widget.AppCompatEditText
+            <ir.iraddress.www.extend.TextInputEditTextIranSans
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:padding="10dp"
                 android:hint="موبایل"
+                android:textSize="13dp"
                 android:id="@+id/mobile"
                 android:background="@color/colorWhite"
                 android:layout_height="60dp"
@@ -109,21 +113,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp">
-            <android.support.v7.widget.AppCompatEditText
+            <ir.iraddress.www.extend.TextInputEditTextIranSans
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:hint="تکرار رمز عبور"
+                android:textSize="13dp"
                 android:id="@+id/password_confirmation"
                 android:padding="10dp"
                 android:background="@color/colorWhite"
                 android:layout_height="60dp"
                 android:textAlignment="center"
                 android:layout_marginRight="1dp"/>
-            <android.support.v7.widget.AppCompatEditText
+            <ir.iraddress.www.extend.TextInputEditTextIranSans
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:padding="10dp"
                 android:hint="رمز عبور"
+                android:textSize="13dp"
                 android:id="@+id/password"
                 android:background="@color/colorWhite"
                 android:layout_height="60dp"
