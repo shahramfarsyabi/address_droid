@@ -58,6 +58,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="2dp">
             <ir.iraddress.www.extend.TextInputEditTextIranSans
+                android:maxLines="1"
+                android:inputType="text"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:id="@+id/lastName"
@@ -68,12 +70,16 @@
                 android:padding="10dp"
                 android:background="@color/colorWhite"
                 android:layout_marginRight="1dp" />
+
             <ir.iraddress.www.extend.TextInputEditTextIranSans
+                android:maxLines="1"
+                android:inputType="text"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:id="@+id/firstName"
                 android:hint="نام"
                 android:textSize="13dp"
+                android:focusable="true"
                 android:layout_height="60dp"
                 android:textAlignment="center"
                 android:padding="10dp"
@@ -86,6 +92,8 @@
             android:layout_marginBottom="2dp">
 
             <ir.iraddress.www.extend.TextInputEditTextIranSans
+                android:maxLines="1"
+                android:inputType="textEmailAddress"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:hint="پست الکترونیک"
@@ -98,6 +106,8 @@
                 android:layout_marginRight="1dp"/>
 
             <ir.iraddress.www.extend.TextInputEditTextIranSans
+                android:maxLines="1"
+                android:inputType="number"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:padding="10dp"
@@ -114,6 +124,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp">
             <ir.iraddress.www.extend.TextInputEditTextIranSans
+                android:maxLines="1"
+                android:inputType="textPassword"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:hint="تکرار رمز عبور"
@@ -125,6 +137,8 @@
                 android:textAlignment="center"
                 android:layout_marginRight="1dp"/>
             <ir.iraddress.www.extend.TextInputEditTextIranSans
+                android:maxLines="1"
+                android:inputType="textPassword"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:padding="10dp"
@@ -141,11 +155,10 @@
             android:layout_margin="10dp"
             android:elevation="10dp"
             android:textColor="@color/colorWhite"
-            android:backgroundTint="#0DD0AE"
             android:text="ثبت نام"
             android:layout_gravity="center"
             android:id="@+id/btn_signup"
-            android:background="@drawable/rounded_corners"
+            android:background="@drawable/rounded_corners_green"
             android:layout_width="100dp"
             android:layout_height="40dp" />
 

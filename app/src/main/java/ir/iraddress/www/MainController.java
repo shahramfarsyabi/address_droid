@@ -65,6 +65,7 @@ public abstract class MainController extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         context = this;
+        getWindow().getDecorView().setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
         loadingView = new Dialog(this);
         loadingView.setCancelable(false);
         loadingView.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));

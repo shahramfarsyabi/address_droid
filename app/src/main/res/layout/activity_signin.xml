@@ -87,11 +87,10 @@
             android:layout_margin="10dp"
             android:elevation="10dp"
             android:textColor="@color/colorWhite"
-            android:backgroundTint="#0DD0AE"
             android:text="ورود"
             android:id="@+id/btn_signin"
             android:layout_gravity="center"
-            android:background="@drawable/rounded_corners"
+            android:background="@drawable/rounded_corners_green"
             android:layout_width="100dp"
             android:layout_height="40dp" />
 
