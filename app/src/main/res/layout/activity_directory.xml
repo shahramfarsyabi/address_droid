@@ -23,6 +23,8 @@
             app:contentScrim="?attr/colorPrimary">
 
             <com.daimajia.slider.library.SliderLayout
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
                 android:id="@+id/slider"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />

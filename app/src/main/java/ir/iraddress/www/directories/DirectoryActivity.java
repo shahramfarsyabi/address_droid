@@ -14,6 +14,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Display;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -110,6 +111,13 @@ public class DirectoryActivity extends MainController {
             address.setTypeface(typeface);
 
             SliderLayout slider = (SliderLayout) findViewById(R.id.slider);
+
+            Display display =getWindowManager().getDefaultDisplay();
+            android.view.ViewGroup.LayoutParams layoutParams = slider.getLayoutParams();
+            layoutParams.width = display.getWidth();
+            layoutParams.height = (int) (display.getWidth()/(2.1875));
+            slider.setLayoutParams(layoutParams);
+
             if(response.getJSONArray("images").length() > 0){
 
                 for(int n = 0; n < response.getJSONArray("images").length(); n++){
