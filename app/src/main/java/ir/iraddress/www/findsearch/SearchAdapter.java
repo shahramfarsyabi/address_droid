@@ -5,11 +5,16 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.location.Location;
 import android.preference.PreferenceManager;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
@@ -18,6 +23,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import ir.iraddress.www.R;
 import ir.iraddress.www.directories.DirectoryActivity;
@@ -82,8 +89,6 @@ public class SearchAdapter extends RecyclerView.Adapter {
         switch (holder.getItemViewType()){
             case 0:
                 SearchHeaderHolder searchHeaderHolder = (SearchHeaderHolder) holder;
-
-
                 break;
 
             default :

@@ -10,20 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ir.iraddress.www.extend.TextInputEditTextIranSans
-            android:textAlignment="center"
-            android:textSize="15dp"
-            android:padding="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginLeft="15dp"
-            android:textColor="@color/colorBlack"
-            android:hint="جستجوی رستوران ، شهر ، باشگاه ورزشی یا ..."
-            android:backgroundTint="@color/mediumGray"
-            android:textColorHint="@color/mediumGray"
-            android:layout_width="match_parent"
-            android:layout_height="76dp" />
-
-
         <LinearLayout
             android:layout_marginTop="50dp"
             android:layout_width="match_parent"
