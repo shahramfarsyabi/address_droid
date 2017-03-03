@@ -64,6 +64,7 @@ public abstract class MainController extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         context = this;
         loadingView = new Dialog(this);
+        loadingView.setCancelable(false);
         loadingView.setContentView(R.layout.dialog_loading);
     }
 
@@ -311,6 +312,7 @@ public abstract class MainController extends AppCompatActivity {
 
 
     public boolean checkInternetConnection(){
+
         System.out.println("CHECK INTERNET CONNECTION - me");
         Boolean check = new ConnectionDetector(this).isConnectedToInternet();
         System.out.println(check);

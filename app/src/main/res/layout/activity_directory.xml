@@ -32,6 +32,7 @@
                 android:background="@drawable/top_to_bottom_gradiant_black"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
+
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 app:layout_collapseMode="pin"
@@ -40,11 +41,11 @@
                 xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 app:contentInsetLeft="0dp"
-                app:contentInsetStart="0dp"
-                android:paddingLeft="0dp">
+                app:contentInsetStart="0dp">
+
                 <Button
                     android:onClick="onBackPressed"
-                    android:layout_gravity="right"
+                    android:layout_gravity="end"
                     android:scaleX="0.5"
                     android:scaleY="0.5"
                     android:background="@drawable/ic_arrow_pointing_to_right"
@@ -52,7 +53,7 @@
                     android:layout_height="56dp" />
                 <Button
                     android:id="@+id/share_button"
-                    android:layout_gravity="left"
+                    android:layout_gravity="start"
                     android:scaleX="0.5"
                     android:scaleY="0.5"
                     android:background="@drawable/ic_share"
@@ -131,7 +132,8 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="80dp"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
                     <ir.iraddress.www.extend.AppButton
                         android:onClick="dialogFileBrowser"
                         android:id="@+id/file_browser"
@@ -148,7 +150,9 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/loading_file_uploader" />
                 </LinearLayout>
+
             </LinearLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
@@ -203,93 +207,87 @@
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:background="@color/borderGray" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="201dp"
                 android:padding="10dp"
                 android:background="@color/colorWhite"
                 android:orientation="vertical">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="80dp">
                     <!--Path Finder-->
-                    <LinearLayout
+                    <ir.iraddress.www.extend.AppButton
+                        app:faFont="normal"
+                        android:layout_weight="1"
                         android:layout_width="0dp"
-                        android:layout_height="80dp"
-                        android:layout_weight="1">
-
-                        <ir.iraddress.www.extend.AppButton
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@android:color/transparent"
-                            android:text="موقعیت مکانی"
-                            android:paddingTop="15dp"
-                            android:drawableTop="@drawable/ic_map_marker"
-                             />
-                    </LinearLayout>
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:text="موقعیت مکانی"
+                        android:paddingTop="15dp"
+                        android:drawableTop="@drawable/ic_map_marker"
+                         />
                     <!--Divider-->
                     <View
                         android:layout_width="1dp"
                         android:layout_height="80dp"
                         android:background="@color/borderGray"/>
                     <!--Rate-->
-                    <LinearLayout
+
+                    <ir.iraddress.www.extend.AppButton
+                        app:faFont="normal"
+                        android:id="@+id/directory_phone_dialer"
+                        android:layout_weight="1"
                         android:layout_width="0dp"
-                        android:layout_height="80dp"
-                        android:layout_weight="1">
-                        <ir.iraddress.www.extend.AppButton
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@android:color/transparent"
-                            android:text="شماره تماس"
-                            android:paddingTop="15dp"
-                            android:drawableTop="@drawable/ic_telephone"
-                            android:drawableTint="@color/dialerGreen"/>
-                    </LinearLayout>
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:text="شماره تماس"
+                        android:paddingTop="15dp"
+                        android:drawableTop="@drawable/ic_telephone"
+                        android:drawableTint="@color/dialerGreen"/>
+
                 </LinearLayout>
-                <view
+
+                <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="@color/borderGray"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="80dp">
                     <!--Path Finder-->
-                    <LinearLayout
+                    <ir.iraddress.www.extend.AppButton
+                        app:faFont="normal"
+                        android:layout_weight="1"
                         android:layout_width="0dp"
-                        android:layout_height="80dp"
-                        android:layout_weight="1">
-
-                        <ir.iraddress.www.extend.AppButton
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@android:color/transparent"
-                            android:text="پست الکترونیک"
-                            android:paddingTop="15dp"
-                            android:drawableTop="@drawable/ic_envelope"
-                            android:id="@+id/appButton" />
-                    </LinearLayout>
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:text="پست الکترونیک"
+                        android:paddingTop="15dp"
+                        android:drawableTop="@drawable/ic_envelope"
+                        android:id="@+id/appButton" />
                     <!--Divider-->
                     <View
                         android:layout_width="1dp"
                         android:layout_height="80dp"
                         android:background="@color/borderGray"/>
                     <!--Rate-->
-                    <LinearLayout
+                    <ir.iraddress.www.extend.AppButton
+                        app:faFont="normal"
+                        android:layout_weight="1"
                         android:layout_width="0dp"
-                        android:layout_height="80dp"
-                        android:layout_weight="1">
-                        <ir.iraddress.www.extend.AppButton
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@android:color/transparent"
-                            android:text="وب سایت"
-                            android:paddingTop="15dp"
-                            android:drawableTop="@drawable/ic_desktop_monitor"
-                            android:drawableTint="@color/colorSecondary"/>
-                    </LinearLayout>
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:text="وب سایت"
+                        android:paddingTop="15dp"
+                        android:drawableTop="@drawable/ic_desktop_monitor"
+                        android:drawableTint="@color/colorSecondary"/>
+
                 </LinearLayout>
 
 
@@ -313,8 +311,7 @@
 
                 <ir.iraddress.www.extend.TextViewIranSansBold
                     android:id="@+id/address"
-                    android:layout_toLeftOf="@+id/icon_phone"
-                    android:gravity="center|right"
+                    android:gravity="center|end"
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent" />
@@ -414,7 +411,6 @@
                 android:layout_height="56dp">
 
                 <Button
-                    android:layout_alignParentLeft="true"
                     android:layout_margin="10dp"
                     android:elevation="10dp"
                     android:textColor="@color/colorWhite"
@@ -426,8 +422,7 @@
 
                 <ir.iraddress.www.extend.TextViewIranSans
                     android:id="@+id/sent_by_owner"
-                    android:layout_toLeftOf="@+id/icon_phone"
-                    android:gravity="center|right"
+                    android:gravity="end|center"
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent" />
@@ -438,16 +433,10 @@
                     android:src="@drawable/ic_person_black_24dp"
                     android:id="@+id/icon_phone"
                     android:gravity="center"
-                    android:text="Test"
                     android:layout_width="56dp"
                     android:layout_height="match_parent" />
 
             </LinearLayout>
-
-
-
-
-
 
             <!--Comments-->
             <LinearLayout
@@ -522,21 +511,6 @@
 
             </LinearLayout>
             <!--Comments-->
-
-
-
-
-            <!--Map
-            <fragment
-                android:id="@+id/map"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_weight="1"
-                android:scrollbars="vertical"
-                class="com.google.android.gms.maps.SupportMapFragment"/>
-            Map-->
-
-
 
             <!--Related Items-->
             <LinearLayout

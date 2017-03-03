@@ -46,6 +46,7 @@ import java.util.List;
 
 import ir.iraddress.www.MainController;
 import ir.iraddress.www.R;
+import ir.iraddress.www.extend.AppButton;
 import ir.iraddress.www.extend.TextViewIranSans;
 import ir.iraddress.www.extend.TextViewIranSansBold;
 import ir.iraddress.www.helper.ArrayUtil;
@@ -72,9 +73,6 @@ public class DirectoryActivity extends MainController {
         myLocationServiceManager = new MyLocationServiceManager(this, this);
 
         fetchData(1, route, null);
-
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        mapFragment = (SupportMapFragment) fragmentManager.findFragmentById(R.id.map);
 
     }
 
@@ -131,16 +129,12 @@ public class DirectoryActivity extends MainController {
             }
 
 
-            LinearLayout boxPhone = (LinearLayout) findViewById(R.id.directory_box_phone);
+            AppButton btnPhoneDialer = (AppButton) findViewById(R.id.directory_phone_dialer);
 
             if (!response.getString("phone").isEmpty() && response.getString("phone") != "null") {
 
-                boxPhone.setVisibility(View.VISIBLE);
-                TextViewIranSans phone = (TextViewIranSans) findViewById(R.id.directory_phone);
-                phone.setText(response.getString("phone"));
-
-                Button phoneDialer = (Button) findViewById(R.id.dialer);
-                phoneDialer.setOnClickListener(new View.OnClickListener() {
+                btnPhoneDialer.setText(response.getString("phone"));
+                btnPhoneDialer.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         try {
@@ -159,15 +153,6 @@ public class DirectoryActivity extends MainController {
                 boxWebSite.setVisibility(View.VISIBLE);
                 TextViewIranSans webSite = (TextViewIranSans) findViewById(R.id.directory_website);
                 webSite.setText(response.getString("webSite"));
-            }
-
-
-            LinearLayout boxFax = (LinearLayout) findViewById(R.id.directory_box_fax);
-
-            if (!response.getString("fax").isEmpty() && response.getString("fax") != "null") {
-                boxFax.setVisibility(View.VISIBLE);
-                TextViewIranSans fax = (TextViewIranSans) findViewById(R.id.directory_fax);
-                fax.setText(response.getString("fax"));
             }
 
 
@@ -229,27 +214,6 @@ public class DirectoryActivity extends MainController {
             recyclerViewAdapter = new DirectorySimilarsAdapter(this);
             recyclerView.setAdapter(recyclerViewAdapter);
             recyclerView.setLayoutManager(layoutManager);
-
-
-            mapFragment.getMapAsync(new OnMapReadyCallback() {
-                @Override
-                public void onMapReady(GoogleMap googleMap) {
-
-                    try {
-                        LatLng location = new LatLng(Double.parseDouble(response.getString("latitude")), Double.parseDouble(response.getString("longitude")));
-
-                        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 16));
-
-                        googleMap.addMarker(new MarkerOptions()
-//                                .icon(BitmapDescriptorFactory.fromResource(R.drawable.marker))
-                                .position(location)
-                                .title(response.getString("title")));
-
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-            });
 
         } catch (JSONException e) {
             e.printStackTrace();
