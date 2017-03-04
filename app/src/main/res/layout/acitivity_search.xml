@@ -56,7 +56,8 @@
         android:backgroundTint="@color/mediumGray"
         android:textColorHint="@color/mediumGray"
         android:layout_width="match_parent"
-        android:layout_height="76dp" />
+        android:layout_height="76dp"
+        android:maxLines="1" />
 
     <LinearLayout
         android:visibility="gone"

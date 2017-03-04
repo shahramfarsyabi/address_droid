@@ -5,13 +5,15 @@
 
     <ImageView
         android:src="@drawable/logo_white"
+        android:contentDescription="@string/loading"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginBottom="20dp"/>
     <ir.iraddress.www.extend.TextViewIranSansBold
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="در حال بارگذاری ..."
+        android:text="@string/loading"
+        android:textColor="@color/colorWhite"
         android:textAlignment="center"/>
 
 </LinearLayout>

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorLightGray">
 
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
@@ -32,15 +33,26 @@
     </android.support.v7.widget.Toolbar>
 
 
-    <android.support.v7.widget.AppCompatEditText
-        android:hint="نظر خود را بنویسید"
+    <ir.iraddress.www.extend.TextInputEditTextIranSans
+        android:hint="@string/write_your_comment"
         android:gravity="top"
         android:layout_width="match_parent"
-        android:layout_height="100dp" />
-
-    <Button
-        android:text="ارسال شود"
+        android:layout_height="150dp"
+        android:background="@color/colorWhite"
+        android:padding="20dp"
+        android:textSize="13sp"/>
+    <view
         android:layout_width="match_parent"
-        android:layout_height="50dp" />
+        android:layout_height="2dp"
+        android:background="@color/borderGray" />
+
+    <ir.iraddress.www.extend.AppButton
+        android:text="@string/submit_comment"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="20dp"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/rounded_corners"
+        android:backgroundTint="@color/colorSecondary"/>
 
 </LinearLayout>
