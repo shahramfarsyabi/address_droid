@@ -132,6 +132,9 @@
         <activity android:name=".directories.DirectoryCommentActivity"
             android:screenOrientation="portrait" />
 
+        <activity android:name=".directories.DirectoryMapActivity"
+            android:screenOrientation="portrait" />
+
 
     </application>
 

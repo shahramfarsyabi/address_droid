@@ -403,6 +403,18 @@ public class DirectoryActivity extends MainController {
         callGoogleMapDirection(myLocationServiceManager.getLocation() , directory);
     }
 
+    public void btnSendEmail(View view) throws JSONException {
+        Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto",directory.getString("email"), null));
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Subject");
+        intent.putExtra(Intent.EXTRA_TEXT, "Body");
+        startActivity(Intent.createChooser(intent, "Send email..."));
+    }
+
+    public void btnMapLocation(View view){
+        Intent intent = new Intent(this, DirectoryMapActivity.class);
+        startActivity(intent);
+    }
+
     public void btnWriteReview(View view) throws JSONException {
         Intent intent = new Intent(this, DirectoryCommentActivity.class);
         intent.putExtra("directory_id", directory.getInt("id"));

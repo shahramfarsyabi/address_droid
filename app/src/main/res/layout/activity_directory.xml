@@ -268,6 +268,7 @@
                     android:layout_height="80dp">
                     <!--Path Finder-->
                     <ir.iraddress.www.extend.AppButton
+                        android:onClick="btnMapLocation"
                         app:faFont="normal"
                         android:layout_weight="1"
                         android:layout_width="0dp"
@@ -310,6 +311,7 @@
                     android:layout_height="80dp">
                     <!--Path Finder-->
                     <ir.iraddress.www.extend.AppButton
+                        android:onClick="btnSendEmail"
                         app:faFont="normal"
                         android:layout_weight="1"
                         android:layout_width="0dp"
