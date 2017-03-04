@@ -115,7 +115,7 @@ public class DirectoryActivity extends MainController {
             Display display =getWindowManager().getDefaultDisplay();
             android.view.ViewGroup.LayoutParams layoutParams = slider.getLayoutParams();
             layoutParams.width = display.getWidth();
-            layoutParams.height = (int) (display.getWidth()/(2.1875));
+            layoutParams.height = (int) ((display.getWidth()*56.25)/100);
             slider.setLayoutParams(layoutParams);
 
             if(response.getJSONArray("images").length() > 0){
@@ -200,6 +200,9 @@ public class DirectoryActivity extends MainController {
 
                 recyclerView.setAdapter(recyclerViewAdapter);
                 recyclerView.setLayoutManager(layoutManager);
+            }else{
+                LinearLayout facilitiesBox = (LinearLayout) findViewById(R.id.directory_facilities_box);
+                facilitiesBox.setVisibility(View.GONE);
             }
 
 
@@ -398,6 +401,12 @@ public class DirectoryActivity extends MainController {
 
     public void btnGoogleDirection(View view) throws JSONException {
         callGoogleMapDirection(myLocationServiceManager.getLocation() , directory);
+    }
+
+    public void btnWriteReview(View view) throws JSONException {
+        Intent intent = new Intent(this, DirectoryCommentActivity.class);
+        intent.putExtra("directory_id", directory.getInt("id"));
+        startActivity(intent);
     }
 
 }

@@ -63,6 +63,12 @@ public class SignUpActivity extends MainController {
 
     }
 
+    public void singin(View view){
+        finish();
+        Intent intent = new Intent(this, SignInActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     public void callback(JSONObject response, int statusCode) {
 

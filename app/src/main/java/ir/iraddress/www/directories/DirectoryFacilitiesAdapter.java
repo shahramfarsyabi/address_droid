@@ -8,21 +8,16 @@ import android.view.ViewGroup;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import ir.iraddress.www.R;
 import ir.iraddress.www.extend.TextViewIranSans;
 
-/**
- * Created by shahram on 3/4/17.
- */
-
 public class DirectoryFacilitiesAdapter extends RecyclerView.Adapter<DirectoryFacilityHolder> {
 
-    LayoutInflater inflater;
-    Context context;
-    List collection;
+    private LayoutInflater inflater;
+    private Context context;
+    private List collection;
 
     public DirectoryFacilitiesAdapter(Context context, List facilities){
         inflater = LayoutInflater.from(context);
