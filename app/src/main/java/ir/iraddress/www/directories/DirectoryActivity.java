@@ -421,4 +421,12 @@ public class DirectoryActivity extends MainController {
         startActivity(intent);
     }
 
+    public void btnWebSiteBrowser() throws JSONException {
+        String url = directory.getString("webSite");
+
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(url));
+        startActivity(intent);
+    }
+
 }

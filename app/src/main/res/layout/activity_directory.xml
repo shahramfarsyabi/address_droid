@@ -328,6 +328,7 @@
                         android:background="@color/borderGray"/>
                     <!--Rate-->
                     <ir.iraddress.www.extend.AppButton
+                        android:onClick="btnWebSiteBrowser"
                         app:faFont="normal"
                         android:layout_weight="1"
                         android:layout_width="0dp"
