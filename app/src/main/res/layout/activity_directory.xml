@@ -523,7 +523,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <Button
+                <ir.iraddress.www.extend.AppButton
                     android:onClick="comments"
                     android:id="@+id/directory_all_comments"
                     android:layout_margin="10dp"
