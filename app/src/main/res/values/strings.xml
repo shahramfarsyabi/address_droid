@@ -21,6 +21,8 @@
     <string name="profile">پروفایل</string>
     <string name="write_your_comment">نظر خود را بنویسید</string>
     <string name="submit_comment">ارسال نظر</string>
+    <string name="see_more_items">مشاهده موارد بیشتر</string>
+    <string name="facilities">امکانات</string>
     <string name="app_name">Address</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>

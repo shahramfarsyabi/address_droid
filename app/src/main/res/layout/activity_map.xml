@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar_mapactivity"
@@ -13,13 +14,17 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         app:contentInsetLeft="0dp"
         app:contentInsetStart="0dp"
-        android:paddingLeft="0dp">
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        android:paddingStart="0dp"
+        android:paddingEnd="0dp">
 
         <Button
             android:onClick="onBackPressed"
             android:scaleY="0.5"
             android:scaleX="0.5"
-            android:background="@drawable/ic_arrow_pointing_to_left"
+            android:background="@drawable/ic_arrow_pointing_to_right"
+            android:layout_gravity="end"
             android:layout_width="56dp"
             android:layout_height="56dp" />
 
@@ -42,16 +47,19 @@
         tools:context=".MapActivity"
         android:name="com.google.android.gms.maps.SupportMapFragment" />
 
-    <Button
+    <ir.iraddress.www.extend.AppButton
         android:onClick="loadMoreItemOnMap"
         android:gravity="center"
-        android:text="مشاهده موارد بیشتر"
+        android:text="@string/see_more_items"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:id="@+id/buttonLoadMoreItems"
         android:layout_below="@+id/toolbar_mapactivity"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/rounded_corners"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view_map_items"
