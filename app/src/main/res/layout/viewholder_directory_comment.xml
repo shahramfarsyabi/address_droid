@@ -2,53 +2,54 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:divider="?android:dividerHorizontal"
-    android:showDividers="end"
     android:id="@+id/directory_comment_holde"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
+    android:layout_marginBottom="2dp">
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <Button
-                android:layout_gravity="left"
+            android:layout_height="match_parent"
+            android:layoutDirection="rtl">
+            <ImageView
+                android:contentDescription="@string/comment"
+                android:layout_gravity="start"
                 android:padding="1dp"
                 android:id="@+id/directory_image"
-                android:src="@drawable/logo_orange"
-                android:layout_alignParentLeft="true"
+                android:src="@drawable/ic_comment_black_oval_bubble_shape"
                 android:layout_width="50dp"
-                android:background="@drawable/image_border"
-                android:layout_height="50dp" />
-
+                android:layout_height="50dp"
+                android:scaleX="0.7"
+                android:scaleY="0.7"
+            />
             <ir.iraddress.www.extend.TextViewIranSans
-                android:gravity="right|center"
-                android:layout_gravity="right"
+                android:gravity="start|top"
+                android:layout_gravity="start"
                 android:textColor="@color/colorPrimaryDark"
                 android:text="متن کامنت"
                 android:id="@+id/directory_title"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="match_parent" />
-
-            <ImageView
-                android:layout_gravity="center"
+                android:layout_height="match_parent"
+                android:paddingStart="10dp"
+                android:paddingLeft="10dp"
+                android:paddingEnd="0dp"
+                android:paddingRight="0dp"
+            />
+            <Button
+                android:layout_gravity="end"
                 android:padding="1dp"
                 android:id="@+id/directory_image"
-                android:src="@drawable/logo_orange"
-                android:layout_alignParentRight="true"
                 android:layout_width="50dp"
-                android:background="@drawable/image_border"
-                android:layout_height="50dp" />
-
-
+                android:layout_height="50dp"
+                android:background="@drawable/ic_heart_shape_outline"
+                android:scaleX="0.5"
+                android:scaleY="0.5"
+            />
         </LinearLayout>
-
     </android.support.v7.widget.CardView>
-
 </LinearLayout>

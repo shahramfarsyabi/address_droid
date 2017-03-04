@@ -16,6 +16,7 @@
     <string name="similar_items">موارد مشابه</string>
     <string name="be_first_to_comment">اولین نفری باشید که نظر ارسال می کنید</string>
     <string name="see_all_comments">مشاهده همه نظرات</string>
+    <string name="comment">نظر</string>
     <string name="comments">نظرات</string>
     <string name="loading">در حال بارگذاری</string>
     <string name="profile">پروفایل</string>
@@ -23,6 +24,7 @@
     <string name="submit_comment">ارسال نظر</string>
     <string name="see_more_items">مشاهده موارد بیشتر</string>
     <string name="facilities">امکانات</string>
+    <string name="call">تماس</string>
     <string name="app_name">Address</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>

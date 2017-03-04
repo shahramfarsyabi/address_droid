@@ -204,10 +204,42 @@
             </LinearLayout>
             <!--Description-->
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <View
+                    android:layout_gravity="center"
+                    android:background="#CCC"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp" />
+
+                <ir.iraddress.www.extend.TextViewIranSansBold
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:gravity="center"
+                    android:textSize="15sp"
+                    android:text="@string/facilities"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content" />
+
+                <View
+                    android:layout_gravity="center"
+                    android:background="#CCC"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp" />
+            </LinearLayout>
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recycler_view_facilities"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:layout_marginBottom="20dp"/>
 
             <!--Information-->
             <View
@@ -325,12 +357,13 @@
                     android:layout_height="match_parent" />
 
                 <ImageView
+                    android:contentDescription="@string/location"
                     android:scaleX="0.5"
                     android:scaleY="0.5"
                     android:src="@drawable/ic_map_marker"
                     android:gravity="center"
                     android:id="@+id/icon_phone"
-                    android:text="ICON"
+                    android:text=""
                     android:layout_width="56dp"
                     android:layout_height="match_parent" />
 
@@ -349,7 +382,7 @@
                     android:elevation="10dp"
                     android:textColor="@color/colorWhite"
                     android:backgroundTint="@color/colorPrimary"
-                    android:text="تماس"
+                    android:text="@string/call"
                     android:background="@drawable/rounded_corners"
                     android:layout_width="100dp"
                     android:layout_height="match_parent" />
@@ -363,12 +396,13 @@
                     android:layout_height="match_parent" />
 
                 <ImageView
+                    android:contentDescription="@string/phone_number"
                     android:scaleX="0.5"
                     android:scaleY="0.5"
                     android:src="@drawable/ic_telephone"
                     android:gravity="center"
                     android:id="@+id/icon_phone"
-                    android:text="ICON"
+                    android:text=""
                     android:layout_width="56dp"
                     android:layout_height="match_parent" />
 
@@ -438,6 +472,7 @@
                     android:layout_height="match_parent" />
 
                 <ImageView
+                    android:contentDescription="@string/phone_number"
                     android:scaleX="0.5"
                     android:scaleY="0.5"
                     android:src="@drawable/ic_person_black_24dp"
@@ -482,13 +517,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <LinearLayout
-                android:divider="?android:dividerHorizontal"
                 android:showDividers="end"
                 android:orientation="vertical"
                 android:gravity="center"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp">
+                android:layout_height="wrap_content">
 
                 <Button
                     android:onClick="comments"
@@ -505,7 +538,7 @@
                     android:paddingLeft="20dp"
                     android:layout_height="match_parent" />
 
-                <Button
+                <ir.iraddress.www.extend.AppButton
                     android:id="@+id/directory_first_comment"
                     android:layout_margin="10dp"
                     android:elevation="3dp"
