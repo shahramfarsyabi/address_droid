@@ -18,7 +18,6 @@
             android:id="@+id/nav_ads"
             android:icon="@drawable/ic_menu_manage"
             android:title="آگهی خود را به ما بسپارید" />
-
     </group>
 
     <item>
