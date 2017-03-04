@@ -127,9 +127,8 @@ public class DirectoryActivity extends MainController {
                     TextSliderView textSliderView = new TextSliderView(this);
                     // initialize a SliderLayout
                     textSliderView
-//                            .description(photo.getString("caption"))
                             .image(photo.getString("href"))
-                            .setScaleType(BaseSliderView.ScaleType.Fit);
+                            .setScaleType(BaseSliderView.ScaleType.FitCenterCrop);
 
                     slider.addSlider(textSliderView);
                 }
