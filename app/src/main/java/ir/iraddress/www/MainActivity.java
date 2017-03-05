@@ -57,9 +57,6 @@ import static android.R.attr.typeface;
 public class MainActivity extends MainController implements NavigationView.OnNavigationItemSelectedListener {
 
     private String[] mainMenu = {"","بهترین های آدرس", "تازه ها", "تخفیف ها", "چی ؟ کجا ؟ چرا", "فستیوال عکس", "تا حالا اینجا بودین", "لاتاری", "سفرهای من" };
-    private static final int PERMISSIONS_REQUEST_CODE_FOR_FINE_LOCATION = 1001;
-    private static final int CODE_FOR_LOGOUT = 0;
-    private static final int CODE_FOR_LOGIN = 1;
     NavigationView navigationView;
 
 
@@ -227,23 +224,7 @@ public class MainActivity extends MainController implements NavigationView.OnNav
         startActivity(intent);
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        switch (requestCode) {
-            case PERMISSIONS_REQUEST_CODE_FOR_FINE_LOCATION:
-                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    // Permission Granted
-                    myLocationServiceManager.connect();
-                } else {
-                    // Permission Denied
-                    Toast.makeText(MainActivity.this, "Access Fine Location is Denied", Toast.LENGTH_SHORT)
-                            .show();
-                }
-                break;
-            default:
-                super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        }
-    }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

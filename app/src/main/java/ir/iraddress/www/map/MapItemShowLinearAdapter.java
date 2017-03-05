@@ -1,5 +1,6 @@
 package ir.iraddress.www.map;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.location.Location;
@@ -19,6 +20,7 @@ import java.util.List;
 import ir.iraddress.www.R;
 import ir.iraddress.www.extend.TextViewIranSans;
 import ir.iraddress.www.extend.TextViewIranSansBold;
+import ir.iraddress.www.helper.MyLocationServiceManager;
 
 
 public class MapItemShowLinearAdapter extends RecyclerView.Adapter<MapItemShowLinearHolder>{
@@ -27,13 +29,13 @@ public class MapItemShowLinearAdapter extends RecyclerView.Adapter<MapItemShowLi
     Context context;
     public JSONObject location;
 
-    public MapItemShowLinearAdapter(Context context, List collection){
+    public MapItemShowLinearAdapter(Context context, Activity activity, List collection){
         inflater = LayoutInflater.from(context);
         this.collection = collection;
         this.context = context;
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        MyLocationServiceManager myLocationServiceManager = new MyLocationServiceManager(context, activity);
         try {
-            location = new JSONObject(sharedPreferences.getString("location", ""));
+            location = myLocationServiceManager.getLocation();
         } catch (JSONException e) {
             e.printStackTrace();
         }

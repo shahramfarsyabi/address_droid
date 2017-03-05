@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Context;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
@@ -59,7 +60,9 @@ public abstract class MainController extends AppCompatActivity {
     public ProgressBar loading;
     public Dialog loadingView;
     public MyLocationServiceManager myLocationServiceManager;
-
+    public static final int PERMISSIONS_REQUEST_CODE_FOR_FINE_LOCATION = 1001;
+    public static final int CODE_FOR_LOGOUT = 0;
+    public static final int CODE_FOR_LOGIN = 1;
     public final int READ_REQUEST_CODE = 42;
 
     @Override
@@ -89,6 +92,24 @@ public abstract class MainController extends AppCompatActivity {
         super.onResume();
 
 
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        switch (requestCode) {
+            case PERMISSIONS_REQUEST_CODE_FOR_FINE_LOCATION:
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // Permission Granted
+                    myLocationServiceManager.connect();
+                } else {
+                    // Permission Denied
+                    Toast.makeText(this, "Access Fine Location is Denied", Toast.LENGTH_SHORT)
+                            .show();
+                }
+                break;
+            default:
+                super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
     }
 
     public void render(){

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <android.support.v7.widget.Toolbar
@@ -38,35 +39,38 @@
 
     </android.support.v7.widget.Toolbar>
 
-    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_below="@+id/toolbar_mapactivity"
+    <RelativeLayout
+        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/map"
-        tools:context=".MapActivity"
-        android:name="com.google.android.gms.maps.SupportMapFragment" />
+        android:layout_height="0dp">
+        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_below="@+id/toolbar_mapactivity"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/map"
+            tools:context=".MapActivity"
+            android:name="com.google.android.gms.maps.SupportMapFragment" />
 
-    <ir.iraddress.www.extend.AppButton
-        android:onClick="loadMoreItemOnMap"
-        android:gravity="center"
-        android:text="@string/see_more_items"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:id="@+id/buttonLoadMoreItems"
-        android:layout_below="@+id/toolbar_mapactivity"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/rounded_corners"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"/>
+        <ir.iraddress.www.extend.AppButton
+            android:onClick="loadMoreItemOnMap"
+            android:gravity="center"
+            android:text="@string/see_more_items"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:id="@+id/buttonLoadMoreItems"
+            android:layout_below="@+id/toolbar_mapactivity"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/rounded_corners"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"/>
+    </RelativeLayout>
+
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view_map_items"
-        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
-        android:layout_height="130dp">
+        android:layout_height="130dp" />
 
-    </android.support.v7.widget.RecyclerView>
-
-</RelativeLayout>
+</LinearLayout>

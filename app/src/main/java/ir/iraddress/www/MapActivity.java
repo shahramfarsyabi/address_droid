@@ -1,5 +1,7 @@
 package ir.iraddress.www;
 
+import android.*;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -43,31 +45,30 @@ public class MapActivity extends MainController implements OnMapReadyCallback {
     public int traffic = 0;
     public int page = 0;
     public Button loadMore;
-    RequestParams params;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_map);
+
         context = this;
         extras = getIntent().getExtras();
         typeface = Typeface.createFromAsset(context.getAssets(), "fonts/ttf/IRANSansWeb.ttf");
 
-        params = new RequestParams();
-
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_map);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
         try {
-            MyLocationServiceManager myLocationServiceManager = new MyLocationServiceManager(this, this);
+            myLocationServiceManager = new MyLocationServiceManager(this, this);
             location = myLocationServiceManager.getLocation();
+            System.out.println(location);
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view_map_items);
-        recyclerViewAdapter = new MapItemShowLinearAdapter(this, collection);
+        recyclerViewAdapter = new MapItemShowLinearAdapter(this, this, collection);
         layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
 
         recyclerView.setLayoutManager(layoutManager);
@@ -94,35 +95,37 @@ public class MapActivity extends MainController implements OnMapReadyCallback {
             public void run() {
                 try {
 
-                    if (ActivityCompat.checkSelfPermission(context, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(context, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
-                        Toast.makeText(context, "Permisson is Disabled in your device", Toast.LENGTH_SHORT).show();
+                    if (ActivityCompat.checkSelfPermission(context, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
-                        Intent callGPSSettingIntent = new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-                        startActivity(callGPSSettingIntent);
+                        ActivityCompat.requestPermissions((Activity) context, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, PERMISSIONS_REQUEST_CODE_FOR_FINE_LOCATION);
+                        return;
 
+                    }else if(ActivityCompat.checkSelfPermission(context, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED){
 
-                    }else{
+                        ActivityCompat.requestPermissions((Activity) context, new String[]{android.Manifest.permission.ACCESS_COARSE_LOCATION}, PERMISSIONS_REQUEST_CODE_FOR_FINE_LOCATION);
+                        return;
+
+                    }
 
 //                    mMap.getUiSettings().setZoomControlsEnabled(true);
 //                    mMap.getUiSettings().setCompassEnabled(true);
-                        mMap.setMyLocationEnabled(true);
-                        mMap.getUiSettings().setMyLocationButtonEnabled(true);
+                    mMap.setMyLocationEnabled(true);
+                    mMap.getUiSettings().setMyLocationButtonEnabled(true);
 
-                        LatLng clientLocation = new LatLng(location.getDouble("lat"),location.getDouble("lng"));
-                        CameraPosition cameraPosition = new CameraPosition.Builder()
-                                .target(clientLocation)
-                                .bearing(45)
-                                .tilt(90)
-                                .zoom(15)
-                                .build();
+                    LatLng clientLocation = new LatLng(location.getDouble("lat"),location.getDouble("lng"));
+                    CameraPosition cameraPosition = new CameraPosition.Builder()
+                            .target(clientLocation)
+                            .bearing(45)
+                            .tilt(90)
+                            .zoom(15)
+                            .build();
 
-                        mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-                        mMap.clear();
-                        mMap.addMarker(new MarkerOptions().position(clientLocation).title(""));
+                    mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+                    mMap.clear();
+                    mMap.addMarker(new MarkerOptions().position(clientLocation).title(""));
 
-                        fetchMoreItems();
-                    }
+                    fetchMoreItems();
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -164,11 +167,9 @@ public class MapActivity extends MainController implements OnMapReadyCallback {
 
                 for(int n = 0; n < data.length(); n++) {
                     JSONObject object = (JSONObject) data.get(n);
-                    System.out.println("arta cheshm");
-                    System.out.println(object.getDouble("latitude"));
+                    System.out.println(object);
                     LatLng itemlatLng = new LatLng(object.getDouble("latitude"), object.getDouble("longitude"));
                     mMap.addMarker(new MarkerOptions().position(itemlatLng).title(object.getString("title")));
-
                     collection.add(object);
                 }
 
@@ -191,6 +192,7 @@ public class MapActivity extends MainController implements OnMapReadyCallback {
             params.put("page", ++page);
 
             try {
+//                Toast.makeText(context, location.getString("city"), Toast.LENGTH_LONG).show();
                 params.put("city_title", location.getString("city"));
             } catch (JSONException e) {
                 e.printStackTrace();
