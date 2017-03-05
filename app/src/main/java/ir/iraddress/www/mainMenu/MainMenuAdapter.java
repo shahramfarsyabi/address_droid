@@ -86,8 +86,6 @@ public class MainMenuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         switch (holder.getItemViewType()) {
             case 0:
                 HomeTopSectionHolder homeTopSectionHolder = (HomeTopSectionHolder) holder;
-                AppCompatEditText appCompatEditText = (AppCompatEditText) ((HomeTopSectionHolder) holder).linearLayout.findViewById(R.id.home_search_box);
-                appCompatEditText.setTypeface(typeface);
 
                 break;
 

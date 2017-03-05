@@ -45,7 +45,6 @@
         android:layout_height="0dp">
         <fragment xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
-            android:layout_below="@+id/toolbar_mapactivity"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/map"
@@ -60,11 +59,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:id="@+id/buttonLoadMoreItems"
-            android:layout_below="@+id/toolbar_mapactivity"
             android:layout_centerHorizontal="true"
             android:background="@drawable/rounded_corners"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"/>
+
     </RelativeLayout>
 
 

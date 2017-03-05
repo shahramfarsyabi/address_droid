@@ -38,6 +38,8 @@ public class SignUpActivity extends MainController {
         btnSignUp = (Button) findViewById(R.id.btn_signup);
 
         typeface = Typeface.createFromAsset(getAssets(), "fonts/ttf/IRANSansWeb.ttf");
+        TextView firstName = (TextView) findViewById(R.id.firstName);
+        firstName.requestFocus();
     }
 
     public void singup(View view){

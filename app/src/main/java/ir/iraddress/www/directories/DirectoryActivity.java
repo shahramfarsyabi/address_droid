@@ -27,6 +27,7 @@ import android.widget.Toast;
 
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
+import com.daimajia.slider.library.SliderTypes.DefaultSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -124,17 +125,20 @@ public class DirectoryActivity extends MainController {
 
                     JSONObject photo = (JSONObject) response.getJSONArray("images").get(n);
 
-                    TextSliderView textSliderView = new TextSliderView(this);
+                    DefaultSliderView textSliderView = new DefaultSliderView(this);
                     // initialize a SliderLayout
                     textSliderView
                             .image(photo.getString("href"))
                             .setScaleType(BaseSliderView.ScaleType.Fit);
 
                     slider.addSlider(textSliderView);
+
                 }
 
 
             }
+
+
 
 
             AppButton btnPhoneDialer = (AppButton) findViewById(R.id.directory_phone_dialer);
