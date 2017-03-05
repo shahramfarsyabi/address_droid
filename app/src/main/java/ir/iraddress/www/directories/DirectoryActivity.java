@@ -409,8 +409,12 @@ public class DirectoryActivity extends MainController {
         startActivity(Intent.createChooser(intent, "Send email..."));
     }
 
-    public void btnMapLocation(View view){
+    public void btnMapLocation(View view) throws JSONException {
+        System.out.println("MAP LOCATION ARTA");
         Intent intent = new Intent(this, DirectoryMapActivity.class);
+        intent.putExtra("lat", directory.getBoolean("latitude"));
+        intent.putExtra("lng", directory.getBoolean("longitude"));
+        intent.putExtra("title", directory.getString("title"));
         startActivity(intent);
     }
 
