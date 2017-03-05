@@ -57,7 +57,12 @@
         android:textColorHint="@color/mediumGray"
         android:layout_width="match_parent"
         android:layout_height="76dp"
-        android:maxLines="1" />
+        android:maxLines="1"
+        android:lines="1"
+        android:singleLine="true"
+        android:drawableRight="@drawable/ic_magnifying_glass_dddddd"
+        android:drawableEnd="@drawable/ic_magnifying_glass_dddddd"
+        android:textCursorDrawable="@drawable/ic_vertical_line"/>
 
     <LinearLayout
         android:visibility="gone"
