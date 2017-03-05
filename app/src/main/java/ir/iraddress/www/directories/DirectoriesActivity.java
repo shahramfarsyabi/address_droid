@@ -62,7 +62,7 @@ public class DirectoriesActivity extends MainController {
         fetchData(1, "", params);
 
         recyclerView = (RecyclerView) findViewById(R.id.directories_recyclerview);
-        recyclerViewAdapter = new DirectoriesAdapter(this, collection);
+        recyclerViewAdapter = new DirectoriesAdapter(this, this, collection);
         layoutManager = new LinearLayoutManager(this);
 
         recyclerView.setAdapter(recyclerViewAdapter);

@@ -39,6 +39,7 @@ import java.util.List;
 
 import ir.iraddress.www.helper.ConnectionDetector;
 import ir.iraddress.www.helper.HttpRequest;
+import ir.iraddress.www.helper.MyLocationServiceManager;
 
 public abstract class MainController extends AppCompatActivity {
 
@@ -57,6 +58,7 @@ public abstract class MainController extends AppCompatActivity {
     public Button fileBrowser;
     public ProgressBar loading;
     public Dialog loadingView;
+    public MyLocationServiceManager myLocationServiceManager;
 
     public final int READ_REQUEST_CODE = 42;
 
@@ -66,6 +68,7 @@ public abstract class MainController extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         extras = getIntent().getExtras();
         context = this;
+        myLocationServiceManager = new MyLocationServiceManager(this, this);
         getWindow().getDecorView().setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
         loadingView = new Dialog(this);
         loadingView.setCancelable(false);

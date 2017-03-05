@@ -48,7 +48,7 @@ public class SearchStackActivity extends MainController {
         final TextInputEditText searchInput = (TextInputEditText) findViewById(R.id.search_input);
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view_search_result);
-        recyclerViewAdapter = new DirectoriesAdapter(context, collection);
+        recyclerViewAdapter = new DirectoriesAdapter(context, this, collection);
         layoutManager = new LinearLayoutManager(context);
 
         searchInput.addTextChangedListener(new TextWatcher() {

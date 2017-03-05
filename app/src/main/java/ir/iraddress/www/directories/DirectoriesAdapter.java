@@ -1,5 +1,6 @@
 package ir.iraddress.www.directories;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -22,6 +23,7 @@ import java.util.List;
 import ir.iraddress.www.R;
 import ir.iraddress.www.extend.TextViewIranSans;
 import ir.iraddress.www.extend.TextViewIranSansBold;
+import ir.iraddress.www.helper.MyLocationServiceManager;
 
 
 public class DirectoriesAdapter extends RecyclerView.Adapter<DirectoryHolder> {
@@ -31,24 +33,18 @@ public class DirectoriesAdapter extends RecyclerView.Adapter<DirectoryHolder> {
     public List list;
     public Typeface typeface;
     public JSONObject location;
-    private String locationString;
+    public MyLocationServiceManager myLocationServiceManager;
 
-    public DirectoriesAdapter(Context context, List list){
+    public DirectoriesAdapter(Context context, Activity activity, List list){
         inflater = LayoutInflater.from(context);
         this.context = context;
         typeface = Typeface.createFromAsset(context.getAssets(), "fonts/ttf/IRANSansWeb.ttf");
         this.list = list;
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
-        locationString = sharedPreferences.getString("location", "");
-
-        if(!locationString.isEmpty()){
-            try {
-                location = new JSONObject(locationString);
-                System.out.println("Arta location object json");
-                System.out.println(location);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+        myLocationServiceManager = new MyLocationServiceManager(context, activity);
+        try {
+            location = myLocationServiceManager.getLocation();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
 
     }
@@ -95,24 +91,22 @@ public class DirectoriesAdapter extends RecyclerView.Adapter<DirectoryHolder> {
             TextViewIranSans distance = (TextViewIranSans) holder.cardView.findViewById(R.id.directory_distance);
 
 
-            if(!locationString.isEmpty()){
 
-                if(location.has("lat") && location.has("lng")){
+            if(location.has("lat") && location.has("lng")){
 
-                    Location locationA = new Location("A");
-                    locationA.setLatitude(object.getDouble("latitude"));
-                    locationA.setLongitude(object.getDouble("longitude"));
+                Location locationA = new Location("A");
+                locationA.setLatitude(object.getDouble("latitude"));
+                locationA.setLongitude(object.getDouble("longitude"));
 
 
-                    Location locationB = new Location("B");
-                    locationB.setLatitude(Double.parseDouble(location.getString("lat")));
-                    locationB.setLongitude(Double.parseDouble(location.getString("lng")));
+                Location locationB = new Location("B");
+                locationB.setLatitude(Double.parseDouble(location.getString("lat")));
+                locationB.setLongitude(Double.parseDouble(location.getString("lng")));
 
-                    float distanceInMeter = locationA.distanceTo(locationB);
-                    distanceInMeter = distanceInMeter / 1000;
+                float distanceInMeter = locationA.distanceTo(locationB);
+                distanceInMeter = distanceInMeter / 1000;
 
-                    distance.setText("فاصله شما "+String.format("%.02f", distanceInMeter) + " کیلومتر");
-                }
+                distance.setText("فاصله شما "+String.format("%.02f", distanceInMeter) + " کیلومتر");
             }
 
         } catch (JSONException e) {

@@ -42,7 +42,6 @@ import ir.iraddress.www.authentication.SignInActivity;
 import ir.iraddress.www.authentication.SignUpActivity;
 import ir.iraddress.www.contactus.ContactUsActivity;
 import ir.iraddress.www.findsearch.SearchStackActivity;
-import ir.iraddress.www.helper.CustomTypefaceSpan;
 import ir.iraddress.www.helper.FusedLocation;
 import ir.iraddress.www.helper.MyLocationServiceManager;
 import ir.iraddress.www.helper.SharedPrefered;
@@ -63,7 +62,6 @@ public class MainActivity extends MainController implements NavigationView.OnNav
     private static final int CODE_FOR_LOGIN = 1;
     NavigationView navigationView;
 
-    private MyLocationServiceManager myLocationServiceManager;
 
     public void onCreate(Bundle savedInstanceState) {
 
@@ -88,9 +86,8 @@ public class MainActivity extends MainController implements NavigationView.OnNav
         super.onCreate(savedInstanceState);
 //        getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
         setContentView(R.layout.activity_main);
-
-        myLocationServiceManager = new MyLocationServiceManager(this, this);
         myLocationServiceManager.connect();
+
         try {
 
             JSONObject locationObject = myLocationServiceManager.getLocation();

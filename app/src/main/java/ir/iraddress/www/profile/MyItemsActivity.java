@@ -25,7 +25,7 @@ public class MyItemsActivity extends MainController {
         fetchData(1, "", null);
 
         recyclerView = (RecyclerView) findViewById(R.id.profile_directories_recyclerview);
-        recyclerViewAdapter = new DirectoriesAdapter(this, collection);
+        recyclerViewAdapter = new DirectoriesAdapter(this, this, collection);
         layoutManager = new LinearLayoutManager(this);
 
         recyclerView.setAdapter(recyclerViewAdapter);
