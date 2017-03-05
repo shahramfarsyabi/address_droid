@@ -25,6 +25,18 @@
     <string name="see_more_items">مشاهده موارد بیشتر</string>
     <string name="facilities">امکانات</string>
     <string name="call">تماس</string>
+    <string name="signout">خروج از حساب</string>
+    <string name="edit_account">ویرایش حساب</string>
+    <string name="user_name">نام کاربر</string>
+    <string name="trip">سفر</string>
+    <string name="item">آیتم</string>
+    <string name="photo">عکس</string>
+    <string name="followers">دنبال کننده ها</string>
+    <string name="followings">دنبال شونده ها</string>
+    <string name="myitems">آیتم های من</string>
+    <string name="myphotos">عکس های من</string>
+    <string name="mytrips">سفرهای من</string>
+    <string name="mycomments">نظرهای من</string>
     <string name="app_name">Address</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>

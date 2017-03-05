@@ -16,11 +16,14 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         app:contentInsetLeft="0dp"
         app:contentInsetStart="0dp"
-        android:paddingLeft="0dp">
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        android:paddingEnd="0dp"
+        android:paddingStart="0dp">
 
         <Button
             android:onClick="onBackPressed"
-            android:layout_gravity="right"
+            android:layout_gravity="end"
             android:rotation="180"
             android:scaleX="0.5"
             android:scaleY="0.5"
@@ -32,14 +35,15 @@
 
         <ir.iraddress.www.extend.TextViewIranSansBold
             android:id="@+id/btnLogout"
-            android:layout_gravity="left"
+            android:layout_gravity="start"
             android:textColor="@color/colorWhite"
-            android:text="خروج از حساب"
-            android:textSize="15dp"
+            android:text="@string/signout"
+            android:textSize="15sp"
             android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="56dp"
-            android:layout_marginLeft="20dp"/>
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"/>
 
     </android.support.v7.widget.Toolbar>
 
@@ -71,18 +75,19 @@
 
                 <TextView
                     android:id="@+id/client_name"
-                    android:textSize="20dp"
+                    android:textSize="20sp"
                     android:padding="10dp"
                     android:textStyle="bold"
                     android:textColor="@color/colorWhite"
                     android:gravity="center"
-                    android:text="شهرام فرسیابی"
+                    android:text="@string/user_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false">
 
                     <LinearLayout
                         android:orientation="vertical"
@@ -91,6 +96,7 @@
                         android:layout_width="0dp"
                         android:layout_height="100dp">
                         <ImageView
+                            android:contentDescription="@string/trip"
                             android:scaleX="0.5"
                             android:scaleY="0.5"
                             android:src="@drawable/direction_white"
@@ -99,9 +105,9 @@
 
                         <ir.iraddress.www.extend.TextViewIranSans
                             android:textColor="@color/colorWhite"
-                            android:text="0 سفر"
+                            android:text="@string/trip"
                             android:id="@+id/trips_count"
-                            android:textSize="15dp"
+                            android:textSize="15sp"
                             android:gravity="center"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
@@ -115,6 +121,7 @@
                         android:layout_width="0dp"
                         android:layout_height="100dp">
                         <ImageView
+                            android:contentDescription="@string/comment"
                             android:scaleX="0.5"
                             android:scaleY="0.5"
                             android:src="@drawable/comment_white"
@@ -123,9 +130,9 @@
 
                         <ir.iraddress.www.extend.TextViewIranSans
                             android:textColor="@color/colorWhite"
-                            android:text="0 نظر"
+                            android:text="@string/comment"
                             android:id="@+id/comments_count"
-                            android:textSize="15dp"
+                            android:textSize="15sp"
                             android:gravity="center"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
@@ -138,6 +145,7 @@
                         android:layout_width="0dp"
                         android:layout_height="100dp">
                         <ImageView
+                            android:contentDescription="@string/photo"
                             android:scaleX="0.5"
                             android:scaleY="0.5"
                             android:src="@drawable/camera_white"
@@ -146,9 +154,9 @@
 
                         <ir.iraddress.www.extend.TextViewIranSans
                             android:textColor="@color/colorWhite"
-                            android:text="0 عکس"
+                            android:text="@string/photo"
                             android:id="@+id/photos_count"
-                            android:textSize="15dp"
+                            android:textSize="15sp"
                             android:gravity="center"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
@@ -161,6 +169,7 @@
                         android:layout_width="0dp"
                         android:layout_height="100dp">
                         <ImageView
+                            android:contentDescription="@string/item"
                             android:scaleX="0.5"
                             android:scaleY="0.5"
                             android:src="@drawable/file_white"
@@ -169,9 +178,9 @@
 
                         <ir.iraddress.www.extend.TextViewIranSans
                             android:textColor="@color/colorWhite"
-                            android:text="0 آیتم"
+                            android:text="@string/item"
                             android:id="@+id/items_count"
-                            android:textSize="15dp"
+                            android:textSize="15sp"
                             android:gravity="center"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
@@ -194,7 +203,7 @@
                     android:elevation="10dp"
                     android:textColor="@color/colorWhite"
                     android:backgroundTint="@color/colorPrimary"
-                    android:text="دنبال کننده ها"
+                    android:text="@string/followers"
                     android:layout_gravity="center"
                     android:background="@drawable/rounded_corners"
                     android:layout_width="0dp"
@@ -208,7 +217,7 @@
                     android:elevation="10dp"
                     android:textColor="@color/colorWhite"
                     android:backgroundTint="#0DD0AE"
-                    android:text="دنبال شونده ها"
+                    android:text="@string/followings"
                     android:layout_gravity="center"
                     android:background="@drawable/rounded_corners"
                     android:layout_width="0dp"
@@ -227,7 +236,8 @@
                 android:padding="20dp"
                 android:background="@color/colorWhite"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:baselineAligned="false">
 
                 <LinearLayout
                     android:onClick="profileActions"
@@ -239,6 +249,7 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
+                        android:contentDescription="@string/myitems"
                         android:src="@drawable/locations"
                         android:layout_width="match_parent"
                         android:layout_height="120dp" />
@@ -246,7 +257,7 @@
                     <ir.iraddress.www.extend.TextViewIranSans
                         android:layout_margin="10dp"
                         android:textAlignment="center"
-                        android:text="آیتم های من"
+                        android:text="@string/myitems"
                         android:textStyle="bold"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
@@ -262,6 +273,7 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
+                        android:contentDescription="@string/myphotos"
                         android:src="@drawable/images"
                         android:layout_width="match_parent"
                         android:layout_height="120dp" />
@@ -269,7 +281,7 @@
                     <ir.iraddress.www.extend.TextViewIranSans
                         android:layout_margin="10dp"
                         android:textAlignment="center"
-                        android:text="عکس های من"
+                        android:text="@string/myphotos"
                         android:textStyle="bold"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
@@ -282,7 +294,8 @@
                 android:padding="20dp"
                 android:background="@color/colorWhite"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:baselineAligned="false">
 
                 <LinearLayout
                     android:onClick="profileActions"
@@ -293,6 +306,7 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
+                        android:contentDescription="@string/mytrips"
                         android:src="@drawable/trips"
                         android:layout_width="match_parent"
                         android:layout_height="120dp" />
@@ -300,7 +314,7 @@
                     <ir.iraddress.www.extend.TextViewIranSans
                         android:layout_margin="10dp"
                         android:textAlignment="center"
-                        android:text="سفرهای من"
+                        android:text="@string/mytrips"
                         android:textStyle="bold"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
@@ -316,6 +330,7 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
+                        android:contentDescription="@string/mycomments"
                         android:src="@drawable/comments"
                         android:layout_width="match_parent"
                         android:layout_height="120dp" />
@@ -323,14 +338,12 @@
                     <ir.iraddress.www.extend.TextViewIranSans
                         android:layout_margin="10dp"
                         android:textAlignment="center"
-                        android:text="نظرهای من"
+                        android:text="@string/mycomments"
                         android:textStyle="bold"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
-
                 </LinearLayout>
             </LinearLayout>
-
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
