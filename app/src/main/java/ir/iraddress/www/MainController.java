@@ -64,6 +64,7 @@ public abstract class MainController extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+        extras = getIntent().getExtras();
         context = this;
         getWindow().getDecorView().setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
         loadingView = new Dialog(this);

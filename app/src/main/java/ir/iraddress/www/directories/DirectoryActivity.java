@@ -412,8 +412,8 @@ public class DirectoryActivity extends MainController {
     public void btnMapLocation(View view) throws JSONException {
         System.out.println("MAP LOCATION ARTA");
         Intent intent = new Intent(this, DirectoryMapActivity.class);
-        intent.putExtra("lat", directory.getBoolean("latitude"));
-        intent.putExtra("lng", directory.getBoolean("longitude"));
+        intent.putExtra("lat", directory.getDouble("latitude"));
+        intent.putExtra("lng", directory.getDouble("longitude"));
         intent.putExtra("title", directory.getString("title"));
         startActivity(intent);
     }
