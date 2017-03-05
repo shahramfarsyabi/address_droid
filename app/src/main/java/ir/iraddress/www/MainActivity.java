@@ -14,6 +14,10 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.TypefaceSpan;
+import android.view.SubMenu;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -23,6 +27,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -37,6 +42,7 @@ import ir.iraddress.www.authentication.SignInActivity;
 import ir.iraddress.www.authentication.SignUpActivity;
 import ir.iraddress.www.contactus.ContactUsActivity;
 import ir.iraddress.www.findsearch.SearchStackActivity;
+import ir.iraddress.www.helper.CustomTypefaceSpan;
 import ir.iraddress.www.helper.FusedLocation;
 import ir.iraddress.www.helper.MyLocationServiceManager;
 import ir.iraddress.www.helper.SharedPrefered;
@@ -120,6 +126,7 @@ public class MainActivity extends MainController implements NavigationView.OnNav
 
                 navigationView.getMenu().clear();
                 navigationView.inflateMenu(R.menu.activity_main_drawer_after_login);
+
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -141,6 +148,7 @@ public class MainActivity extends MainController implements NavigationView.OnNav
                 return 1;
             }
         });
+
         recyclerView.setLayoutManager(gridLayoutManager);
 
         Button searchBtnStack = (Button) findViewById(R.id.search_page_button);
