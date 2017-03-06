@@ -12,7 +12,6 @@
         android:id="@+id/toolbar_diractoris_list"
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:elevation="2dp"
         app:contentInsetLeft="0dp"
         app:contentInsetStart="0dp"
         android:paddingLeft="0dp"
@@ -67,6 +66,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
+
+
         <ir.iraddress.www.extend.AppButton
             android:layout_gravity="center"
             android:elevation="10dp"
@@ -81,5 +82,9 @@
             android:layout_height="wrap_content" />
 
     </LinearLayout>
+
+    <ViewSwitcher
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </LinearLayout>

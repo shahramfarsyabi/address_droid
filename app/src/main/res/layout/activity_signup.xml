@@ -16,11 +16,14 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         app:contentInsetLeft="0dp"
         app:contentInsetStart="0dp"
-        android:paddingLeft="0dp">
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        android:paddingStart="0dp"
+        android:paddingEnd="0dp">
 
         <Button
             android:onClick="onBackPressed"
-            android:layout_gravity="right"
+            android:layout_gravity="end"
             android:scaleX="0.5"
             android:scaleY="0.5"
             android:background="@drawable/ic_arrow_pointing_to_right_grey"
@@ -29,10 +32,10 @@
 
 
         <ir.iraddress.www.extend.TextViewIranSansBold
-            android:layout_gravity="right"
+            android:layout_gravity="end"
             android:textColor="@color/mediumGray"
-            android:textSize="18dp"
-            android:text="ساخت حساب کاربری"
+            android:textSize="18sp"
+            android:text="@string/create_account"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
@@ -44,10 +47,12 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:elevation="2dp">
 
 
         <ImageView
+            android:contentDescription="@string/create_account"
             android:src="@drawable/signup"
             android:layout_width="match_parent"
             android:layout_height="100dp"
@@ -63,13 +68,14 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:id="@+id/lastName"
-                android:hint="نام خانوادگی"
-                android:textSize="13dp"
+                android:hint="@string/familyname"
+                android:textSize="13sp"
                 android:layout_height="60dp"
                 android:textAlignment="center"
                 android:padding="10dp"
                 android:background="@color/colorWhite"
-                android:layout_marginRight="1dp" />
+                android:layout_marginRight="1dp"
+                android:layout_marginEnd="1dp"/>
 
             <ir.iraddress.www.extend.TextInputEditTextIranSans
                 android:maxLines="1"
@@ -77,14 +83,15 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:id="@+id/firstName"
-                android:hint="نام"
-                android:textSize="13dp"
+                android:hint="@string/name"
+                android:textSize="13sp"
                 android:focusable="true"
                 android:layout_height="60dp"
                 android:textAlignment="center"
                 android:padding="10dp"
                 android:background="@color/colorWhite"
-                android:layout_marginLeft="1dp" />
+                android:layout_marginLeft="1dp"
+                android:layout_marginStart="1dp"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -96,14 +103,15 @@
                 android:inputType="textEmailAddress"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:hint="پست الکترونیک"
-                android:textSize="13dp"
+                android:hint="@string/Email"
+                android:textSize="13sp"
                 android:id="@+id/email"
                 android:padding="10dp"
                 android:background="@color/colorWhite"
                 android:textAlignment="center"
                 android:layout_height="60dp"
-                android:layout_marginRight="1dp"/>
+                android:layout_marginRight="1dp"
+                android:layout_marginEnd="1dp"/>
 
             <ir.iraddress.www.extend.TextInputEditTextIranSans
                 android:maxLines="1"
@@ -111,13 +119,14 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:padding="10dp"
-                android:hint="موبایل"
-                android:textSize="13dp"
+                android:hint="@string/mobile"
+                android:textSize="13sp"
                 android:id="@+id/mobile"
                 android:background="@color/colorWhite"
                 android:layout_height="60dp"
                 android:textAlignment="center"
-                android:layout_marginLeft="1dp"/>
+                android:layout_marginLeft="1dp"
+                android:layout_marginStart="1dp"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -128,34 +137,37 @@
                 android:inputType="textPassword"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:hint="تکرار رمز عبور"
-                android:textSize="13dp"
+                android:hint="@string/repassword"
+                android:textSize="13sp"
                 android:id="@+id/password_confirmation"
                 android:padding="10dp"
                 android:background="@color/colorWhite"
                 android:layout_height="60dp"
                 android:textAlignment="center"
-                android:layout_marginRight="1dp"/>
+                android:layout_marginRight="1dp"
+                android:layout_marginEnd="1dp"/>
+
             <ir.iraddress.www.extend.TextInputEditTextIranSans
                 android:maxLines="1"
                 android:inputType="textPassword"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:padding="10dp"
-                android:hint="رمز عبور"
-                android:textSize="13dp"
+                android:hint="@string/password"
+                android:textSize="13sp"
                 android:id="@+id/password"
                 android:background="@color/colorWhite"
                 android:layout_height="60dp"
                 android:textAlignment="center"
-                android:layout_marginLeft="1dp"/>
+                android:layout_marginLeft="1dp"
+                android:layout_marginStart="1dp"/>
         </LinearLayout>
         <ir.iraddress.www.extend.AppButton
             android:onClick="singup"
             android:layout_margin="10dp"
             android:elevation="10dp"
             android:textColor="@color/colorWhite"
-            android:text="ثبت نام"
+            android:text="@string/signup"
             android:layout_gravity="center"
             android:id="@+id/btn_signup"
             android:background="@drawable/rounded_corners_green"
@@ -174,9 +186,9 @@
 
         <ir.iraddress.www.extend.TextViewIranSans
             android:gravity="center"
-            android:textSize="13dp"
+            android:textSize="13sp"
             android:textColor="@color/colorWhite"
-            android:text="قبلا ثبت نام کرده اید ؟"
+            android:text="@string/already_have_account"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -186,7 +198,7 @@
             android:elevation="10dp"
             android:textColor="@color/colorPrimaryDark"
             android:backgroundTint="@color/colorWhite"
-            android:text="ورود به حساب کاربری"
+            android:text="@string/signin"
             android:layout_gravity="center"
             android:background="@drawable/rounded_corners"
             android:layout_width="150dp"
