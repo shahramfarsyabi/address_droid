@@ -50,6 +50,7 @@
     <string name="signin">ورود به حساب کاربری</string>
     <string name="no_account_yet">هنوز ثبت نام کرده اید ؟</string>
     <string name="login">ورود</string>
+    <string name="send_comment">ارسال نظر</string>
     <string name="app_name">Address</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
