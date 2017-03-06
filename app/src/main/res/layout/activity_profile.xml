@@ -37,7 +37,7 @@
             android:id="@+id/btnLogout"
             android:layout_gravity="start"
             android:textColor="@color/colorWhite"
-            android:text="@string/signout"
+            android:text="@string/edit_account"
             android:textSize="15sp"
             android:gravity="center"
             android:layout_width="wrap_content"
@@ -97,9 +97,9 @@
                         android:layout_height="100dp">
                         <ImageView
                             android:contentDescription="@string/trip"
-                            android:scaleX="0.5"
-                            android:scaleY="0.5"
-                            android:src="@drawable/direction_white"
+                            android:scaleX="0.6"
+                            android:scaleY="0.6"
+                            android:src="@drawable/ic_briefcase"
                             android:layout_width="56dp"
                             android:layout_height="56dp" />
 
@@ -122,9 +122,9 @@
                         android:layout_height="100dp">
                         <ImageView
                             android:contentDescription="@string/comment"
-                            android:scaleX="0.5"
-                            android:scaleY="0.5"
-                            android:src="@drawable/comment_white"
+                            android:scaleX="0.6"
+                            android:scaleY="0.6"
+                            android:src="@drawable/ic_chat"
                             android:layout_width="56dp"
                             android:layout_height="56dp" />
 
@@ -172,7 +172,7 @@
                             android:contentDescription="@string/item"
                             android:scaleX="0.5"
                             android:scaleY="0.5"
-                            android:src="@drawable/file_white"
+                            android:src="@drawable/ic_file"
                             android:layout_width="56dp"
                             android:layout_height="56dp" />
 
@@ -344,6 +344,32 @@
                         android:layout_height="wrap_content" />
                 </LinearLayout>
             </LinearLayout>
+
+            <View
+                android:background="#CCC"
+                android:layout_width="match_parent"
+                android:layout_height="1dp" />
+
+            <LinearLayout
+                android:padding="15dp"
+                android:background="@color/colorSilverLight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ir.iraddress.www.extend.AppButton
+                    android:layout_margin="10dp"
+                    android:elevation="10dp"
+                    android:textColor="@color/colorWhite"
+                    android:backgroundTint="@color/colorRed"
+                    android:text="@string/signout"
+                    android:layout_gravity="center"
+                    android:background="@drawable/rounded_corners"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

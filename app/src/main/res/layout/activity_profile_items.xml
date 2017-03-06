@@ -4,38 +4,38 @@
     android:layout_height="match_parent">
 
     <android.support.v7.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:background="@drawable/toolbar_address_gradiant"
-        android:theme="?attr/actionBarTheme"
-        android:minHeight="?attr/actionBarSize"
-        android:id="@+id/toolbar_diractoris_list">
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:elevation="2dp"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        android:paddingStart="0dp"
+        android:paddingEnd="0dp">
+
 
         <Button
             android:onClick="onBackPressed"
-            android:layout_gravity="left"
-            android:scaleX="0.6"
-            android:scaleY="0.6"
-            android:background="@drawable/ic_arrow_back_white_24dp"
+            android:layout_gravity="end"
+            android:background="@drawable/ic_arrow_pointing_to_left"
             android:layout_width="56dp"
-            android:layout_height="56dp" />
+            android:layout_height="56dp"
+            android:rotation="180"
+            android:scaleX="0.5"
+            android:scaleY="0.5"/>
 
-        <ImageView
-            android:layout_gravity="right"
-            android:scaleX="0.8"
-            android:scaleY="0.8"
-            android:src="@drawable/files_white"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <ir.iraddress.www.extend.TextViewIranSans
-            android:layout_gravity="right"
+        <ir.iraddress.www.extend.TextViewIranSansBold
             android:textColor="@color/colorWhite"
-            android:textStyle="bold"
-            android:textSize="20dp"
-            android:text="آیتم های من"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:layout_gravity="end"
+            android:text="@string/myitems"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent" />
 
     </android.support.v7.widget.Toolbar>
 
