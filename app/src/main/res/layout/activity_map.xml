@@ -66,10 +66,15 @@
 
     </RelativeLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/borderGray"/>
+
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view_map_items"
         android:layout_width="match_parent"
-        android:layout_height="130dp" />
+        android:layout_height="140dp" />
 
 </LinearLayout>

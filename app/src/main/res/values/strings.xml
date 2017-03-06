@@ -37,6 +37,7 @@
     <string name="myphotos">عکس های من</string>
     <string name="mytrips">سفرهای من</string>
     <string name="mycomments">نظرهای من</string>
+    <string name="near_items_on_map">نزدیک ترین ها روی نقشه</string>
     <string name="app_name">Address</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>

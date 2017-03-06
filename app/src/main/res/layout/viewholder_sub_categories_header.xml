@@ -6,26 +6,29 @@
     android:layout_height="wrap_content">
 
     <com.daimajia.slider.library.SliderLayout
-        android:background="@drawable/toolbar_address_gradiant"
+        android:background="@color/colorLightGray"
         android:layout_width="match_parent"
-        android:layout_height="250dp">
+        android:layout_height="250dp"
+        android:elevation="2dp">
 
     </com.daimajia.slider.library.SliderLayout>
 
     <LinearLayout
-        android:background="@color/colorLightGray"
+        android:background="@drawable/toolbar_address_gradiant"
         android:layout_width="match_parent"
-        android:layout_height="100dp">
+        android:layout_height="wrap_content">
 
-        <Button
+        <ir.iraddress.www.extend.AppButton
             android:onClick="showMapActivity"
             android:id="@+id/near_on_map"
-            android:backgroundTint="@color/colorPrimary"
+            android:background="@drawable/rounded_corners"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_margin="20dp"
-            android:text="نزدیک ترین ها روی نقشه"
+            android:text="@string/near_items_on_map"
+            android:textColor="@color/colorBlack"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="50dp"
+            />
 
     </LinearLayout>
 
