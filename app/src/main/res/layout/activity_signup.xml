@@ -58,10 +58,13 @@
             android:layout_height="100dp"
             android:layout_marginBottom="20dp"/>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/borderGray" />
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="2dp">
+            android:layout_height="wrap_content">
             <ir.iraddress.www.extend.TextInputEditTextIranSans
                 android:maxLines="1"
                 android:inputType="text"
@@ -93,10 +96,15 @@
                 android:layout_marginLeft="1dp"
                 android:layout_marginStart="1dp"/>
         </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/borderGray" />
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="2dp">
+            android:layout_height="wrap_content">
 
             <ir.iraddress.www.extend.TextInputEditTextIranSans
                 android:maxLines="1"
@@ -128,10 +136,13 @@
                 android:layout_marginLeft="1dp"
                 android:layout_marginStart="1dp"/>
         </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/borderGray" />
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp">
+            android:layout_height="wrap_content">
             <ir.iraddress.www.extend.TextInputEditTextIranSans
                 android:maxLines="1"
                 android:inputType="textPassword"
@@ -162,9 +173,13 @@
                 android:layout_marginLeft="1dp"
                 android:layout_marginStart="1dp"/>
         </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/borderGray"
+        android:layout_marginBottom="20dp"/>
         <ir.iraddress.www.extend.AppButton
             android:onClick="singup"
-            android:layout_margin="10dp"
             android:elevation="10dp"
             android:textColor="@color/colorWhite"
             android:text="@string/signup"

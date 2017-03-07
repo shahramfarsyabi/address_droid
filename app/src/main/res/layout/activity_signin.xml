@@ -59,8 +59,13 @@
             android:padding="0dp"
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="122dp"
+            android:layout_height="123dp"
             android:layout_marginBottom="20dp">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/borderGray" />
 
             <ir.iraddress.www.extend.TextInputEditTextIranSans
                 android:layout_width="match_parent"
@@ -70,8 +75,12 @@
                 android:inputType="textEmailAddress"
                 android:layout_height="60dp"
                 android:textAlignment="center"
-                android:layout_marginBottom="2dp"
                 android:background="@color/colorWhite"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/borderGray" />
 
             <ir.iraddress.www.extend.TextInputEditTextIranSans
                 android:layout_width="match_parent"
@@ -83,6 +92,11 @@
                 android:background="@color/colorWhite"
                 android:textAlignment="center"
                 android:layout_height="0dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/borderGray" />
 
 
         </LinearLayout>
