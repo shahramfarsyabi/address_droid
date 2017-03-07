@@ -258,11 +258,39 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="201dp"
+                android:layout_height="wrap_content"
                 android:padding="10dp"
                 android:background="@color/colorWhite"
                 android:orientation="vertical"
                 android:layoutDirection="rtl">
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <!--Path Finder-->
+                    <ir.iraddress.www.extend.TextViewIranSansBold
+                        android:id="@+id/address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="آدرس این آیتم"
+                        android:textColor="@color/colorBlack"
+                        android:textAlignment="center"
+                        android:padding="5dp"
+                    />
+
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/borderGray"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp" />
+
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -354,32 +382,6 @@
 
 
 
-
-            <!--Address-->
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="56dp">
-
-                <ir.iraddress.www.extend.TextViewIranSansBold
-                    android:id="@+id/address"
-                    android:gravity="center|end"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent" />
-
-                <ImageView
-                    android:contentDescription="@string/location"
-                    android:scaleX="0.5"
-                    android:scaleY="0.5"
-                    android:src="@drawable/ic_map_marker"
-                    android:gravity="center"
-                    android:id="@+id/icon_phone"
-                    android:text=""
-                    android:layout_width="56dp"
-                    android:layout_height="match_parent" />
-
-            </LinearLayout>
 
             <!--Phone-->
             <LinearLayout
