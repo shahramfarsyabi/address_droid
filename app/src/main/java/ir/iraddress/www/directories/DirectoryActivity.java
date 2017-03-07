@@ -55,6 +55,7 @@ import ir.iraddress.www.extend.TextViewIranSansBold;
 import ir.iraddress.www.helper.ArrayUtil;
 import ir.iraddress.www.helper.MyLocationServiceManager;
 import ir.iraddress.www.helper.SharedPrefered;
+import ir.iraddress.www.profile.PublicProfileActivity;
 
 public class DirectoryActivity extends MainController {
 
@@ -435,6 +436,11 @@ public class DirectoryActivity extends MainController {
         }
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse(url));
+        startActivity(intent);
+    }
+
+    public void btnShowProfile(View view){
+        Intent intent = new Intent(this, PublicProfileActivity.class);
         startActivity(intent);
     }
 

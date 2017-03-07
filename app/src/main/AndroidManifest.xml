@@ -47,6 +47,7 @@
 
         <activity
             android:name=".MainActivity"
+            android:screenOrientation="portrait"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden">
@@ -133,6 +134,15 @@
             android:screenOrientation="portrait" />
 
         <activity android:name=".directories.DirectoryMapActivity"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".profile.PublicProfileActivity"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".lottory.LottoryActivity"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".festival.ImageFestivalActivity"
             android:screenOrientation="portrait" />
 
 

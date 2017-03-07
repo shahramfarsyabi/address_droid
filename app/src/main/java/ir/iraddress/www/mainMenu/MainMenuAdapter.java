@@ -23,6 +23,8 @@ import cz.msebera.android.httpclient.client.cache.Resource;
 import ir.iraddress.www.R;
 import ir.iraddress.www.categories.CategoriesActivity;
 import ir.iraddress.www.directories.DirectoriesActivity;
+import ir.iraddress.www.festival.ImageFestivalActivity;
+import ir.iraddress.www.lottory.LottoryActivity;
 
 /**
  * Created by shahram on 2/13/17.
@@ -133,10 +135,20 @@ public class MainMenuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 mainMenuHolder.menu.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
+                        Intent intent = null;
                         switch(position){
                             case 1:
-                                Intent intent = new Intent(context, CategoriesActivity.class);
+                                intent = new Intent(context, CategoriesActivity.class);
+                                context.startActivity(intent);
+                                break;
+
+                            case 5:
+                                intent = new Intent(context, ImageFestivalActivity.class);
+                                context.startActivity(intent);
+                                break;
+
+                            case 7:
+                                intent = new Intent(context, LottoryActivity.class);
                                 context.startActivity(intent);
                                 break;
 
