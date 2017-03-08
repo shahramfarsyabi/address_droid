@@ -177,15 +177,6 @@ public class DirectoryActivity extends MainController {
                 });
             }
 
-            LinearLayout boxWebSite = (LinearLayout) findViewById(R.id.directory_box_website);
-
-            if (!response.getString("webSite").isEmpty() && response.getString("webSite") != "null") {
-                boxWebSite.setVisibility(View.VISIBLE);
-                TextViewIranSans webSite = (TextViewIranSans) findViewById(R.id.directory_website);
-                webSite.setText(response.getString("webSite"));
-            }
-
-
             TextViewIranSans owner = (TextViewIranSans) findViewById(R.id.sent_by_owner);
             owner.setText(response.getJSONObject("owner").getString("fullName"));
 

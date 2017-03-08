@@ -2,17 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:id="@+id/home_top_section"
-    android:layout_columnSpan="2"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-        <ImageView
-            android:contentDescription="@string/app_name"
-            android:background="@drawable/tehran"
-            android:scaleType="centerCrop"
-            android:elevation="3dp"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"/>
+    <com.daimajia.slider.library.SliderLayout
+        android:id="@+id/slider"
+        android:background="@color/colorLightGray"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="2dp"/>
 
         <LinearLayout
             android:background="@drawable/toolbar_address_gradiant"

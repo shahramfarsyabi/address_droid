@@ -1,9 +1,11 @@
 package ir.iraddress.www.mainMenu;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +13,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+
+import com.daimajia.slider.library.SliderLayout;
+import com.daimajia.slider.library.SliderTypes.BaseSliderView;
+import com.daimajia.slider.library.SliderTypes.DefaultSliderView;
 
 import ir.iraddress.www.R;
 import ir.iraddress.www.categories.CategoriesActivity;
@@ -22,12 +28,14 @@ public class MainMenuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     public Context context;
     public String[] collection;
     public Typeface typeface;
+    Activity activity;
 
-    public MainMenuAdapter(Context context, String[] menus){
+    public MainMenuAdapter(Context context, Activity activity, String[] menus){
         inflater = LayoutInflater.from(context);
         this.context = context;
         typeface = Typeface.createFromAsset(context.getAssets(), "fonts/ttf/IRANSansWeb.ttf");
         this.collection = menus;
+        this.activity = activity;
     }
 
     public class HomeTopSectionHolder extends RecyclerView.ViewHolder {
@@ -70,12 +78,31 @@ public class MainMenuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         }
     }
 
+
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
         switch (holder.getItemViewType()) {
             case 0:
                 HomeTopSectionHolder homeTopSectionHolder = (HomeTopSectionHolder) holder;
+                SliderLayout sliderLayout = (SliderLayout) homeTopSectionHolder.linearLayout.findViewById(R.id.slider);
+                Display display = activity.getWindowManager().getDefaultDisplay();
+                android.view.ViewGroup.LayoutParams layoutParams = sliderLayout.getLayoutParams();
+                layoutParams.width = display.getWidth();
+                layoutParams.height = (int) ((display.getWidth()*56.25)/100);
+                sliderLayout.setLayoutParams(layoutParams);
+                String[] fakePhoto = {"http://www.iraddress.ir/files/sliders/Slide1.jpg", "http://www.iraddress.ir/files/sliders/Slide2.jpg", "http://www.iraddress.ir/files/sliders/Slide3.jpg", "http://www.iraddress.ir/files/sliders/Slide4.jpg"};
 
+                for(int n = 0; n < fakePhoto.length; n++){
+
+                    DefaultSliderView textSliderView = new DefaultSliderView(context);
+                    // initialize a SliderLayout
+                    textSliderView
+                            .image(fakePhoto[n])
+                            .setScaleType(BaseSliderView.ScaleType.Fit);
+
+                    sliderLayout.addSlider(textSliderView);
+
+                }
                 break;
 
             default:

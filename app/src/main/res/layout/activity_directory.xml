@@ -499,46 +499,6 @@
 
             </LinearLayout>
 
-            <!--Website-->
-            <LinearLayout
-                android:visibility="gone"
-                android:id="@+id/directory_box_website"
-                android:layout_width="match_parent"
-                android:layout_height="56dp">
-
-                <Button
-                    android:layout_alignParentLeft="true"
-                    android:layout_margin="10dp"
-                    android:elevation="10dp"
-                    android:textColor="@color/colorWhite"
-                    android:backgroundTint="@color/colorPrimary"
-                    android:text="مشاهده"
-                    android:background="@drawable/rounded_corners"
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent" />
-
-                <ir.iraddress.www.extend.TextViewIranSans
-                    android:autoLink="web"
-                    android:layout_toLeftOf="@+id/icon_phone"
-                    android:gravity="center|right"
-                    android:id="@+id/directory_website"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent" />
-
-                <ImageView
-                    android:scaleX="0.5"
-                    android:scaleY="0.5"
-                    android:src="@drawable/ic_computer_black_24dp"
-                    android:id="@+id/icon_phone"
-                    android:gravity="center"
-                    android:text="Test"
-                    android:layout_width="56dp"
-                    android:layout_height="match_parent" />
-
-            </LinearLayout>
-
-
             <!--Author-->
             <LinearLayout
                 android:visibility="visible"

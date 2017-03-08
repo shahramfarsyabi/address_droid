@@ -2,58 +2,36 @@ package ir.iraddress.www;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.res.Resources;
-import android.graphics.Color;
 import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.Spannable;
-import android.text.SpannableString;
-import android.text.style.TypefaceSpan;
-import android.view.SubMenu;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
+
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import ir.iraddress.www.authentication.SignInActivity;
 import ir.iraddress.www.authentication.SignUpActivity;
 import ir.iraddress.www.categories.CategoriesActivity;
 import ir.iraddress.www.contactus.ContactUsActivity;
 import ir.iraddress.www.findsearch.SearchStackActivity;
-import ir.iraddress.www.helper.FusedLocation;
-import ir.iraddress.www.helper.MyLocationServiceManager;
+
 import ir.iraddress.www.helper.SharedPrefered;
 import ir.iraddress.www.mainMenu.MainMenuAdapter;
 import ir.iraddress.www.pages.AdvertisingActivity;
 import ir.iraddress.www.pages.TermsAndConditionsActivity;
 import ir.iraddress.www.profile.ProfileActivity;
-import ir.iraddress.www.findsearch.SearchStackActivity;
 
-import static android.R.attr.id;
-import static android.R.attr.typeface;
 
 public class MainActivity extends MainController implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -131,7 +109,7 @@ public class MainActivity extends MainController implements NavigationView.OnNav
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.main_menu);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
-        MainMenuAdapter mainMenuAdapter = new MainMenuAdapter(this, mainMenu);
+        MainMenuAdapter mainMenuAdapter = new MainMenuAdapter(this, this, mainMenu);
 
         recyclerView.setAdapter(mainMenuAdapter);
         gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
@@ -156,6 +134,8 @@ public class MainActivity extends MainController implements NavigationView.OnNav
         });
 
     }
+
+
 
     @Override
     public void onBackPressed() {

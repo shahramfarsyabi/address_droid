@@ -68,16 +68,16 @@ public class ProfileActivity extends ProfileMainActivity {
                 try {
 
                     TextViewIranSans itemsCount = (TextViewIranSans) findViewById(R.id.items_count);
-                    itemsCount.setText(response.getJSONArray("directories").length() + " آیتم");
+                    itemsCount.setText(response.getInt("directories") + " آیتم");
 
                     TextViewIranSans tripsCount = (TextViewIranSans) findViewById(R.id.trips_count);
-                    tripsCount.setText(response.getJSONArray("trips").length() + " سفر");
+                    tripsCount.setText(response.getInt("trips") + " سفر");
 
                     TextViewIranSans commentsCount = (TextViewIranSans) findViewById(R.id.comments_count);
-                    commentsCount.setText(response.getJSONArray("comments").length() + " نظر");
+                    commentsCount.setText(response.getInt("comments") + " نظر");
 
                     TextViewIranSans photosCount = (TextViewIranSans) findViewById(R.id.photos_count);
-                    photosCount.setText(response.getJSONArray("images").length() + " عکس");
+                    photosCount.setText(response.getInt("images") + " عکس");
 
 
                 } catch (JSONException e) {
@@ -114,7 +114,6 @@ public class ProfileActivity extends ProfileMainActivity {
 
             case R.id.myitems:
                 intent = new Intent(this, MyItemsActivity.class);
-
                 break;
         }
 
