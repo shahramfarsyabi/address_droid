@@ -1,6 +1,319 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorWhite"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/toolbar_address_gradiant"
+        android:theme="?attr/actionBarTheme"
+        android:minHeight="?attr/actionBarSize"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        android:paddingEnd="0dp"
+        android:paddingStart="0dp">
+
+        <Button
+            android:onClick="onBackPressed"
+            android:layout_gravity="end"
+            android:rotation="180"
+            android:scaleX="0.5"
+            android:scaleY="0.5"
+            android:background="@drawable/ic_arrow_pointing_to_left"
+            android:layout_width="56dp"
+            android:layout_height="56dp" />
+
+
+    </android.support.v7.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="vertical"
+                android:background="@drawable/toolbar_address_gradiant"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="2dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_gravity="top|center"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:src="@drawable/tehran"
+                    android:elevation="8dp"
+                    app:civ_border_width="5dp"
+                    app:civ_border_color="#FFFFFFFF"/>
+
+                <TextView
+                    android:textSize="20sp"
+                    android:padding="10dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorWhite"
+                    android:gravity="center"
+                    android:text="@string/user_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp">
+                        <ImageView
+                            android:contentDescription="@string/trip"
+                            android:scaleX="0.6"
+                            android:scaleY="0.6"
+                            android:src="@drawable/ic_briefcase"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp" />
+
+                        <ir.iraddress.www.extend.TextViewIranSans
+                            android:textColor="@color/colorWhite"
+                            android:text="@string/trip"
+                            android:textSize="15sp"
+                            android:gravity="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp">
+                        <ImageView
+                            android:contentDescription="@string/comment"
+                            android:scaleX="0.6"
+                            android:scaleY="0.6"
+                            android:src="@drawable/ic_chat"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp" />
+
+                        <ir.iraddress.www.extend.TextViewIranSans
+                            android:textColor="@color/colorWhite"
+                            android:text="@string/comment"
+                            android:textSize="15sp"
+                            android:gravity="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp">
+                        <ImageView
+                            android:contentDescription="@string/photo"
+                            android:scaleX="0.5"
+                            android:scaleY="0.5"
+                            android:src="@drawable/camera_white"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp" />
+
+                        <ir.iraddress.www.extend.TextViewIranSans
+                            android:textColor="@color/colorWhite"
+                            android:text="@string/photo"
+                            android:textSize="15sp"
+                            android:gravity="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp">
+                        <ImageView
+                            android:contentDescription="@string/item"
+                            android:scaleX="0.5"
+                            android:scaleY="0.5"
+                            android:src="@drawable/ic_file"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp" />
+
+                        <ir.iraddress.www.extend.TextViewIranSans
+                            android:textColor="@color/colorWhite"
+                            android:text="@string/item"
+                            android:textSize="15sp"
+                            android:gravity="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="15dp"
+                android:background="@color/colorSilverLight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ir.iraddress.www.extend.AppButton
+                    android:layout_margin="10dp"
+                    android:elevation="10dp"
+                    android:textColor="@color/colorBlack"
+                    android:backgroundTint="@color/colorWhite"
+                    android:text="ارسال پیام"
+                    android:layout_gravity="center"
+                    android:background="@drawable/rounded_corners"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+                <ir.iraddress.www.extend.AppButton
+                    android:layout_margin="10dp"
+                    android:elevation="10dp"
+                    android:textColor="@color/colorBlack"
+                    android:backgroundTint="@color/colorWhite"
+                    android:text="دنبال کردن"
+                    android:layout_gravity="center"
+                    android:background="@drawable/rounded_corners"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <View
+                android:background="#CCC"
+                android:layout_width="match_parent"
+                android:layout_height="1dp" />
+
+
+            <LinearLayout
+                android:padding="20dp"
+                android:background="@color/colorWhite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false">
+
+                <LinearLayout
+                    android:tag="featured"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:contentDescription="@string/myitems"
+                        android:src="@drawable/locations"
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp" />
+
+                    <ir.iraddress.www.extend.TextViewIranSans
+                        android:layout_margin="10dp"
+                        android:textAlignment="center"
+                        android:text="آیتم ها"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:contentDescription="@string/myphotos"
+                        android:src="@drawable/images"
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp" />
+
+                    <ir.iraddress.www.extend.TextViewIranSans
+                        android:layout_margin="10dp"
+                        android:textAlignment="center"
+                        android:text="عکس ها"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="20dp"
+                android:background="@color/colorWhite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:contentDescription="@string/mytrips"
+                        android:src="@drawable/trips"
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp" />
+
+                    <ir.iraddress.www.extend.TextViewIranSans
+                        android:layout_margin="10dp"
+                        android:textAlignment="center"
+                        android:text="سفر ها"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:contentDescription="@string/mycomments"
+                        android:src="@drawable/comments"
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp" />
+
+                    <ir.iraddress.www.extend.TextViewIranSans
+                        android:layout_margin="10dp"
+                        android:textAlignment="center"
+                        android:text="نظر ها"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
