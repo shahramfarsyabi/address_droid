@@ -100,6 +100,7 @@
                     android:layout_weight="1">
 
                     <ir.iraddress.www.extend.TextViewIranSansBold
+                        android:id="@+id/category_type"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="مراکز خرید"
@@ -119,6 +120,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1">
                     <ir.iraddress.www.extend.TextViewIranSansBold
+                        android:id="@+id/directory_rate"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="امتیاز: 4.5 از 5"
@@ -138,6 +140,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1">
                     <ir.iraddress.www.extend.TextViewIranSansBold
+                        android:id="@+id/created_at"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="3 روز پیش"

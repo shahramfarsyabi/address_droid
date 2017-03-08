@@ -2,33 +2,20 @@ package ir.iraddress.www.mainMenu;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
-import android.support.v7.widget.AppCompatAutoCompleteTextView;
-import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import java.util.List;
 
-import cz.msebera.android.httpclient.client.cache.Resource;
 import ir.iraddress.www.R;
 import ir.iraddress.www.categories.CategoriesActivity;
-import ir.iraddress.www.directories.DirectoriesActivity;
 import ir.iraddress.www.festival.ImageFestivalActivity;
 import ir.iraddress.www.lottory.LottoryActivity;
-
-/**
- * Created by shahram on 2/13/17.
- */
 
 public class MainMenuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public LayoutInflater inflater;

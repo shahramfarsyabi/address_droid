@@ -38,6 +38,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.loopj.android.http.RequestParams;
 import com.squareup.picasso.Picasso;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -110,7 +111,19 @@ public class DirectoryActivity extends MainController {
 
             TextViewIranSansBold address = (TextViewIranSansBold) findViewById(R.id.address);
             address.setText(response.getString("address"));
-            address.setTypeface(typeface);
+
+            TextView createdAt = (TextView) findViewById(R.id.created_at);
+            createdAt.setText(response.getString("created_at"));
+
+            TextView directoryRate = (TextView) findViewById(R.id.directory_rate);
+            directoryRate.setText("امتیاز "+response.getString("rate")+" از ۵");
+
+            TextView category = (TextView) findViewById(R.id.category_type);
+
+            if(response.getJSONArray("categories") instanceof JSONArray){
+                JSONObject firstCategory = (JSONObject) response.getJSONArray("categories").get(0);
+                category.setText(firstCategory.getString("title"));
+            }
 
             SliderLayout slider = (SliderLayout) findViewById(R.id.slider);
 
