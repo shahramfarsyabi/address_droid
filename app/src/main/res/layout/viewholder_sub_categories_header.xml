@@ -6,12 +6,11 @@
     android:layout_height="wrap_content">
 
     <com.daimajia.slider.library.SliderLayout
+        android:id="@+id/slider"
         android:background="@color/colorLightGray"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:elevation="2dp">
-
-    </com.daimajia.slider.library.SliderLayout>
+        android:elevation="2dp"/>
 
     <LinearLayout
         android:background="@drawable/toolbar_address_gradiant"

@@ -40,6 +40,7 @@ import org.w3c.dom.Text;
 
 import ir.iraddress.www.authentication.SignInActivity;
 import ir.iraddress.www.authentication.SignUpActivity;
+import ir.iraddress.www.categories.CategoriesActivity;
 import ir.iraddress.www.contactus.ContactUsActivity;
 import ir.iraddress.www.findsearch.SearchStackActivity;
 import ir.iraddress.www.helper.FusedLocation;
@@ -245,5 +246,10 @@ public class MainActivity extends MainController implements NavigationView.OnNav
                 break;
         }
 
+    }
+
+    public void btnOnClickCategories(View view){
+        Intent intent = new Intent(this, CategoriesActivity.class);
+        startActivity(intent);
     }
 }

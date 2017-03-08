@@ -125,7 +125,7 @@ public class MapActivity extends MainController implements OnMapReadyCallback {
 
                     mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
                     mMap.clear();
-                    Marker marker = mMap.addMarker(new MarkerOptions().position(clientLocation).title(""));
+//                    Marker marker = mMap.addMarker(new MarkerOptions().position(clientLocation).title(""));
 
                     fetchMoreItems();
 
@@ -174,19 +174,21 @@ public class MapActivity extends MainController implements OnMapReadyCallback {
                     LatLng itemlatLng = new LatLng(object.getDouble("latitude"), object.getDouble("longitude"));
                     Marker marker = mMap.addMarker(new MarkerOptions().position(itemlatLng).title(object.getString("title")));
                     marker.setTag(object);
+
                     mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
                         @Override
                         public boolean onMarkerClick(Marker marker) {
                             try {
                                 JSONObject markerData = (JSONObject) marker.getTag();
-//                                Toast.makeText(context, markerData.getString("title"), Toast.LENGTH_SHORT).show();
 
                                 for(int n = 0; n < collection.size(); n++){
                                     JSONObject findItem = (JSONObject) collection.get(n);
 
                                     if(findItem.getInt("id") == markerData.getInt("id")){
+                                        Toast.makeText(context, markerData.getString("id"), Toast.LENGTH_SHORT).show();
 //                                        layoutManager.scrollToPosition(n);
                                         recyclerView.scrollToPosition(n);
+                                        return false;
                                     }
                                 }
 
@@ -215,11 +217,15 @@ public class MapActivity extends MainController implements OnMapReadyCallback {
     }
 
     public void showSelectedItem(View view) throws JSONException {
-        JSONObject item = (JSONObject) view.getTag();
 
-        Intent intent = new Intent(context, DirectoryActivity.class);
-        intent.putExtra("directory_id", item.getInt("id"));
-        context.startActivity(intent);
+        JSONObject markerData = (JSONObject) view.getTag();
+
+        Intent intent = new Intent(this, DirectoryActivity.class);
+        intent.putExtra("directory_id", markerData.getString("id"));
+        System.out.println("SHAHRAM DIRECTORY");
+        System.out.println(markerData);
+        System.out.println(markerData.getString("id"));
+        startActivity(intent);
     }
 
     public void fetchMoreItems(){

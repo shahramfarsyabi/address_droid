@@ -2,11 +2,13 @@ package ir.iraddress.www.map;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.location.Location;
 import android.preference.PreferenceManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
@@ -18,6 +20,7 @@ import org.json.JSONObject;
 import java.util.List;
 
 import ir.iraddress.www.R;
+import ir.iraddress.www.directories.DirectoryActivity;
 import ir.iraddress.www.extend.TextViewIranSans;
 import ir.iraddress.www.extend.TextViewIranSansBold;
 import ir.iraddress.www.helper.MyLocationServiceManager;
@@ -51,7 +54,6 @@ public class MapItemShowLinearAdapter extends RecyclerView.Adapter<MapItemShowLi
 
         try {
             final JSONObject object = (JSONObject) collection.get(position);
-
             holder.cardView.setTag(object);
 
             TextViewIranSansBold title = (TextViewIranSansBold) holder.cardView.findViewById(R.id.directory_title);

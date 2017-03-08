@@ -19,6 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <ir.iraddress.www.extend.AppButton
+                android:onClick="btnOnClickCategories"
                 android:layout_margin="20dp"
                 android:elevation="2dp"
                 android:gravity="center"

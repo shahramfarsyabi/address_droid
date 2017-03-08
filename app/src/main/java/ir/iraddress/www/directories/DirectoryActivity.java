@@ -71,13 +71,17 @@ public class DirectoryActivity extends MainController {
 
         extras = getIntent().getExtras();
         route = "directories/" + extras.get("directory_id");
+        System.out.println("solmaz route ");
+        System.out.println(route);
+        System.out.println("solmaz route ");
+
         context = this;
         typeface = Typeface.createFromAsset(context.getAssets(), "fonts/ttf/IRANSansWeb.ttf");
         loading = (ProgressBar) findViewById(R.id.loading_file_uploader);
 
         myLocationServiceManager = new MyLocationServiceManager(this, this);
 
-        fetchData(1, route, null);
+        getRequest(route, params);
 
     }
 
