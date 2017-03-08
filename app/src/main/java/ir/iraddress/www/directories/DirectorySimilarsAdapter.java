@@ -1,8 +1,10 @@
 package ir.iraddress.www.directories;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RatingBar;
@@ -42,7 +44,7 @@ public class DirectorySimilarsAdapter extends RecyclerView.Adapter<DirectorySimi
     public void onBindViewHolder(DirectorySimilarHolder holder, int position) {
 
         try {
-            JSONObject item = (JSONObject) similars.get(position);
+            final JSONObject item = (JSONObject) similars.get(position);
 
             TextView address = (TextView) holder.cardView.findViewById(R.id.similiar_address);
             address.setText(item.getString("address"));
@@ -60,6 +62,19 @@ public class DirectorySimilarsAdapter extends RecyclerView.Adapter<DirectorySimi
                     .centerCrop()
                     .error(R.drawable.ic_noimg)
                     .into(image);
+
+            holder.cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    try {
+                        Intent intent = new Intent(context, DirectoryActivity.class);
+                        intent.putExtra("directory_id", item.getInt("id"));
+                        context.startActivity(intent);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
 
 
         } catch (JSONException e) {

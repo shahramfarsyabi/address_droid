@@ -185,7 +185,8 @@ public abstract class MainController extends AppCompatActivity {
     }
 
     public void onBackPressed(View view) {
-        super.onBackPressed();
+        finish();
+//        super.onBackPressed();
     }
 
     public void loadNextDataFromApi(int offset) {
