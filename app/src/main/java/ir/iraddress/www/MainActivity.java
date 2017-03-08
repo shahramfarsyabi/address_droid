@@ -18,6 +18,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 
+import com.loopj.android.http.RequestParams;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -136,6 +138,9 @@ public class MainActivity extends MainController implements NavigationView.OnNav
                 startActivity(intent);
             }
         });
+
+//        RequestParams params = new RequestParams();
+//        getRequest("settings", params);
 
     }
 

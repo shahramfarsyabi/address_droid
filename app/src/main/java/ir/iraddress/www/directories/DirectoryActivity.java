@@ -248,7 +248,10 @@ public class DirectoryActivity extends MainController {
 //            Similars Recylerview
             recyclerView = (RecyclerView) findViewById(R.id.directory_similar);
             layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-            recyclerViewAdapter = new DirectorySimilarsAdapter(this);
+
+            ArrayList<Object> similars = ArrayUtil.convert(response.getJSONArray("related"));
+
+            recyclerViewAdapter = new DirectorySimilarsAdapter(this, similars);
             recyclerView.setAdapter(recyclerViewAdapter);
             recyclerView.setLayoutManager(layoutManager);
 
@@ -276,8 +279,7 @@ public class DirectoryActivity extends MainController {
                 Uri selectedImage = resultData.getData();
                 String[] filePathColumn = { MediaStore.Images.Media.DATA };
 
-                Cursor cursor = getContentResolver().query(selectedImage,
-                        filePathColumn, null, null, null);
+                Cursor cursor = getContentResolver().query(selectedImage, filePathColumn, null, null, null);
                 cursor.moveToFirst();
 
                 int columnIndex = cursor.getColumnIndex(filePathColumn[0]);

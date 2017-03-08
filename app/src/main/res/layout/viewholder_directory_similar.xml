@@ -18,16 +18,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="300dp">
                 <ImageView
+                    android:id="@+id/similiar_image"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/tehran"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="300dp" />
+
+                <View
+                    android:alpha="0.4"
+                    android:background="@drawable/bottom_to_top_gradiant_black"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
 
                 <ir.iraddress.www.extend.TextViewIranSansBold
                     android:padding="10dp"
+                    android:id="@+id/similiar_title"
                     android:layout_alignParentBottom="true"
                     android:textColor="@color/colorWhite"
-                    android:text="رستوران هاشم آقا"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 
@@ -44,6 +50,7 @@
                 android:layout_height="wrap_content">
 
                 <ir.iraddress.www.extend.TextViewIranSans
+                    android:id="@+id/similiar_address"
                     android:text="تهران خیابان شماره یک کوچه شماره دو پلاک ۳"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -57,39 +64,27 @@
                     android:layoutDirection="rtl">
 
                     <RatingBar
-                        android:id="@+id/ratingBar2"
+                        android:id="@+id/similiar_rate"
                         style="@style/Widget.AppCompat.RatingBar.Small"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="start"
                         android:progressTint="#FFFFCC00"
-                        android:rating="3"
-                        android:stepSize="5" />
+                        android:numStars="5"
+                        android:rating="3" />
 
-                    <ir.iraddress.www.extend.TextViewIranSansBold
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity=""
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginStart="10dp"
-                        android:text="/"
-                        android:textAlignment="textStart"
-                        android:gravity="center_vertical"
-                        android:textSize="12sp"
-                        />
-
-                    <ir.iraddress.www.extend.TextViewIranSansBold
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_gravity=""
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginStart="10dp"
-                        android:text="23 نظر"
-                        android:textAlignment="textStart"
-                        android:gravity="center_vertical"
-                        android:textSize="12sp"
-                        />
+                    <!--<ir.iraddress.www.extend.TextViewIranSansBold-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:layout_gravity=""-->
+                        <!--android:layout_marginLeft="10dp"-->
+                        <!--android:layout_marginStart="10dp"-->
+                        <!--android:text="23 نظر"-->
+                        <!--android:textAlignment="textStart"-->
+                        <!--android:gravity="center_vertical"-->
+                        <!--android:textSize="12sp"-->
+                        <!--/>-->
 
                 </LinearLayout>
 
