@@ -12,7 +12,7 @@ import org.json.JSONObject;
 import ir.iraddress.www.MainController;
 import ir.iraddress.www.R;
 import ir.iraddress.www.extend.TextViewIranSans;
-
+import ir.iraddress.www.extend.TextViewIranSansBold;
 
 
 public class ConnectionsActivity extends ProfileMainActivity {
@@ -26,14 +26,14 @@ public class ConnectionsActivity extends ProfileMainActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_connections);
 
-        TextViewIranSans textViewIranSans = (TextViewIranSans) findViewById(R.id.toolbar_title_connections);
+        TextViewIranSansBold textViewIranSansBold = (TextViewIranSansBold) findViewById(R.id.toolbar_title_connections);
         switch(extras.getString("type")){
             case "followers":
-                textViewIranSans.setText("دنبال شونده ها");
+                textViewIranSansBold.setText("دنبال شونده ها");
                 break;
 
             default :
-                textViewIranSans.setText("دنبال کننده ها");
+                textViewIranSansBold.setText("دنبال کننده ها");
                 break;
         }
 

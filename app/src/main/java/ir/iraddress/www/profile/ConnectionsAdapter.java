@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
@@ -54,7 +55,7 @@ public class ConnectionsAdapter extends RecyclerView.Adapter<ConnectionHolder> {
             }
 
             ImageView avatar = (ImageView) holder.person.findViewById(R.id.person_image);
-            TextViewIranSans name = (TextViewIranSans) holder.person.findViewById(R.id.person_name);
+            TextView name = (TextView) holder.person.findViewById(R.id.person_name);
 
 
             Picasso.with(context).load(personData.getString("avatar")).fit().centerCrop().into(avatar);

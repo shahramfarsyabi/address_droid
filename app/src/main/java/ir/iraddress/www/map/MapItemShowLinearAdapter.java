@@ -52,6 +52,8 @@ public class MapItemShowLinearAdapter extends RecyclerView.Adapter<MapItemShowLi
         try {
             final JSONObject object = (JSONObject) collection.get(position);
 
+            holder.cardView.setTag(object);
+
             TextViewIranSansBold title = (TextViewIranSansBold) holder.cardView.findViewById(R.id.directory_title);
             title.setText(object.getString("title"));
 
@@ -74,6 +76,7 @@ public class MapItemShowLinearAdapter extends RecyclerView.Adapter<MapItemShowLi
 
             float distanceInMeter = locationA.distanceTo(locationB);
             distanceInMeter = distanceInMeter / 1000;
+
 
             distance.setText("فاصله شما "+String.format("%.02f", distanceInMeter) + " کیلومتر");
 

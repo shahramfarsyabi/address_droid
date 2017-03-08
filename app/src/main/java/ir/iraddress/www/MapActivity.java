@@ -28,6 +28,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.loopj.android.http.RequestParams;
 
@@ -35,6 +36,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import ir.iraddress.www.directories.DirectoryActivity;
 import ir.iraddress.www.helper.MyLocationServiceManager;
 import ir.iraddress.www.map.MapItemShowLinearAdapter;
 
@@ -123,7 +125,7 @@ public class MapActivity extends MainController implements OnMapReadyCallback {
 
                     mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
                     mMap.clear();
-                    mMap.addMarker(new MarkerOptions().position(clientLocation).title(""));
+                    Marker marker = mMap.addMarker(new MarkerOptions().position(clientLocation).title(""));
 
                     fetchMoreItems();
 
@@ -166,10 +168,36 @@ public class MapActivity extends MainController implements OnMapReadyCallback {
                 JSONArray data = response.getJSONArray("data");
 
                 for(int n = 0; n < data.length(); n++) {
+
                     JSONObject object = (JSONObject) data.get(n);
                     System.out.println(object);
                     LatLng itemlatLng = new LatLng(object.getDouble("latitude"), object.getDouble("longitude"));
-                    mMap.addMarker(new MarkerOptions().position(itemlatLng).title(object.getString("title")));
+                    Marker marker = mMap.addMarker(new MarkerOptions().position(itemlatLng).title(object.getString("title")));
+                    marker.setTag(object);
+                    mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+                        @Override
+                        public boolean onMarkerClick(Marker marker) {
+                            try {
+                                JSONObject markerData = (JSONObject) marker.getTag();
+//                                Toast.makeText(context, markerData.getString("title"), Toast.LENGTH_SHORT).show();
+
+                                for(int n = 0; n < collection.size(); n++){
+                                    JSONObject findItem = (JSONObject) collection.get(n);
+
+                                    if(findItem.getInt("id") == markerData.getInt("id")){
+//                                        layoutManager.scrollToPosition(n);
+                                        recyclerView.scrollToPosition(n);
+                                    }
+                                }
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
+                            return false;
+                        }
+                    });
+
                     collection.add(object);
                 }
 
@@ -184,6 +212,14 @@ public class MapActivity extends MainController implements OnMapReadyCallback {
     public void loadMoreItemOnMap(View view){
         loadMore.setText("در حال بارگزاری ...");
         fetchMoreItems();
+    }
+
+    public void showSelectedItem(View view) throws JSONException {
+        JSONObject item = (JSONObject) view.getTag();
+
+        Intent intent = new Intent(context, DirectoryActivity.class);
+        intent.putExtra("directory_id", item.getInt("id"));
+        context.startActivity(intent);
     }
 
     public void fetchMoreItems(){
