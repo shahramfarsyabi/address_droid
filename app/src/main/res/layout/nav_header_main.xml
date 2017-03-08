@@ -2,13 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:gravity="center"
+    android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingTop="24dp"
+    android:gravity="center"
     android:paddingBottom="0dp"
-    android:theme="@style/ThemeOverlay.AppCompat.Dark"
-    android:background="@drawable/toolbar_address_gradiant">
+    android:background="@drawable/toolbar_address_gradiant"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
     <ImageView
         android:contentDescription="@string/app_name"
         android:layout_width="220dp"
@@ -18,4 +18,5 @@
         android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp"
         android:src="@drawable/ic_main_logo"/>
+
 </LinearLayout>

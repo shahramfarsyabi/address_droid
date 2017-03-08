@@ -15,10 +15,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.TextView;
 
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.Timer;
 
 import ir.iraddress.www.authentication.SignInActivity;
 import ir.iraddress.www.authentication.SignUpActivity;
@@ -74,7 +77,7 @@ public class MainActivity extends MainController implements NavigationView.OnNav
             e.printStackTrace();
         }
 
-        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/ttf/IRANSansWeb.ttf");
+        typeface = Typeface.createFromAsset(getAssets(), "fonts/ttf/IRANSansWeb.ttf");
 
         final Context context = this;
 
