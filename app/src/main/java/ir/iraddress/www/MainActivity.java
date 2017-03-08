@@ -23,6 +23,7 @@ import org.json.JSONObject;
 
 import java.util.Timer;
 
+import ir.iraddress.www.about.AboutUsActivity;
 import ir.iraddress.www.authentication.SignInActivity;
 import ir.iraddress.www.authentication.SignUpActivity;
 import ir.iraddress.www.categories.CategoriesActivity;
@@ -177,24 +178,25 @@ public class MainActivity extends MainController implements NavigationView.OnNav
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        Intent intent = null;
 
         if (id == R.id.nav_contactus) {
-            Intent intent = new Intent(this, ContactUsActivity.class);
+            intent = new Intent(this, ContactUsActivity.class);
+            startActivity(intent);
+        } else if(id == R.id.nav_about){
+            intent = new Intent(this, AboutUsActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_terms) {
-            Intent intent = new Intent(this, TermsAndConditionsActivity.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_ads) {
-            Intent intent = new Intent(this, AdvertisingActivity.class);
+            intent = new Intent(this, TermsAndConditionsActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_signup){
-            Intent intent = new Intent(this, SignUpActivity.class);
+            intent = new Intent(this, SignUpActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_signin){
-            Intent intent = new Intent(this, SignInActivity.class);
+            intent = new Intent(this, SignInActivity.class);
             startActivityForResult(intent, CODE_FOR_LOGIN);
         } else if (id == R.id.nav_profile){
-            Intent intent = new Intent(this, ProfileActivity.class);
+            intent = new Intent(this, ProfileActivity.class);
             startActivityForResult(intent, CODE_FOR_LOGOUT);
         }
 

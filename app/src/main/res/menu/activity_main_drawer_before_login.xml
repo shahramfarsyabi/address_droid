@@ -3,7 +3,7 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_contactus"
+            android:id="@+id/nav_about"
             android:icon="@drawable/ic_menu_camera"
             android:title="درباره ما" />
         <item
@@ -11,13 +11,9 @@
             android:icon="@drawable/ic_menu_gallery"
             android:title="شرایط استفاده از خدمات" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_contactus"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="ارتباط با ما" />
-        <item
-            android:id="@+id/nav_ads"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="آگهی خود را به ما بسپارید" />
     </group>
 
     <item>
