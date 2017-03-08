@@ -388,4 +388,13 @@ public abstract class MainController extends AppCompatActivity {
         }
     }
 
+    public void advanceFilter(View view){
+
+        Dialog advanceFilter = new Dialog(this);
+        advanceFilter.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        advanceFilter.setContentView(R.layout.filter_layout);
+        advanceFilter.show();
+
+    }
+
 }

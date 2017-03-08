@@ -10,6 +10,7 @@ import org.json.JSONObject;
 import ir.iraddress.www.MainController;
 import ir.iraddress.www.R;
 import ir.iraddress.www.directories.DirectoriesAdapter;
+import ir.iraddress.www.extend.TextViewIranSansBold;
 
 /**
  * Created by shahram on 2/15/17.
@@ -33,6 +34,11 @@ public class SearchResultActivity extends MainController {
 
         recyclerView.setAdapter(recyclerViewAdapter);
         recyclerView.setLayoutManager(layoutManager);
+
+        if(extras.containsKey("toolbar_title")){
+            TextViewIranSansBold textViewIranSansBold = (TextViewIranSansBold) findViewById(R.id.toolbar_title_directories);
+            textViewIranSansBold.setText(extras.getString("toolbar_title"));
+        }
 
         render();
 
