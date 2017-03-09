@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -29,36 +30,107 @@
             android:scaleY="0.5"/>
     </android.support.v7.widget.Toolbar>
 
+
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/lottery_gradient">
+        android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:background="@drawable/lottery_gradient"
+                android:layout_marginBottom="30dp">
+
+                <ir.iraddress.www.extend.TextViewIranSansBold
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lottery_welcome"
+                    android:textColor="@color/colorWhite"
+                    android:textAlignment="center"
+                    android:textSize="26sp"
+                    android:paddingStart="30dp"
+                    android:paddingEnd="30dp"
+                    android:paddingRight="30dp"
+                    android:paddingLeft="30dp"
+                    android:layout_marginBottom="20dp"/>
+                <ir.iraddress.www.extend.TextViewIranSans
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="زمان باقی مانده تا اعلام برنده ها"
+                    android:textAlignment="center"
+                    android:textColor="@color/borderGray"
+                    android:layout_marginBottom="5dp"/>
+                <ir.iraddress.www.extend.TextViewIranSansBold
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="2 روز و 4 ساعت و 5 ثانیه"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorWhite"
+                    android:layout_marginBottom="30dp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginBottom="20dp">
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:layout_gravity="top|center"
+                    android:layout_gravity="center"
                     xmlns:app="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/profile_image"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:src="@drawable/tehran"
                     android:elevation="8dp"
                     app:civ_border_width="5dp"
-                    app:civ_border_color="#FFFFFFFF"/>
-                <ir.iraddress.www.extend.TextViewIranSansBold
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/destination_is_here"
-                    android:textColor="@color/colorWhite"
-                    android:textAlignment="center"
-                    android:textSize="24dp"/>
+                    app:civ_border_color="@color/borderGray"
+                    />
             </LinearLayout>
+            <ir.iraddress.www.extend.TextViewIranSansBold
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="خشایار پورادبی عزیز"
+                android:textAlignment="center"
+                android:textSize="18dp"
+                android:textColor="@color/colorBlack"
+                android:layout_marginBottom="10dp"/>
+            <ir.iraddress.www.extend.TextViewIranSans
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="برای شرکت در قرعه کشی آدرس، باید کد اختصاصی قرعه کشی را از یکی از روش های زیر دریافت نمایید."
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+                android:paddingStart="30dp"
+                android:paddingEnd="30dp"
+                android:textAlignment="center"
+                android:layout_marginBottom="30dp"/>
+            <ir.iraddress.www.extend.AppButton
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="15dp"
+                android:elevation="10dp"
+                android:textColor="@color/colorBlack"
+                android:backgroundTint="@color/colorWhite"
+                android:text="دریافت کد از طریق ایمیل"
+                android:layout_gravity="center"
+                android:background="@drawable/rounded_corners"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+            <ir.iraddress.www.extend.AppButton
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="30dp"
+                android:elevation="10dp"
+                android:textColor="@color/colorBlack"
+                android:backgroundTint="@color/colorWhite"
+                android:text="دریافت کد از طریق پیام کوتاه"
+                android:layout_gravity="center"
+                android:background="@drawable/rounded_corners"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
-
 </LinearLayout>
