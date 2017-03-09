@@ -4,15 +4,15 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_about"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_information_button"
             android:title="درباره ما" />
         <item
             android:id="@+id/nav_terms"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_text_file"
             android:title="شرایط استفاده از خدمات" />
         <item
             android:id="@+id/nav_contactus"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_telephone_handle_silhouette"
             android:title="ارتباط با ما" />
     </group>
 
@@ -20,11 +20,11 @@
         <menu>
             <item
                 android:id="@+id/nav_signup"
-                android:icon="@drawable/ic_menu_manage"
+                android:icon="@drawable/ic_plus_black_symbol"
                 android:title="ساخت حساب کاربری" />
             <item
                 android:id="@+id/nav_signin"
-                android:icon="@drawable/ic_menu_manage"
+                android:icon="@drawable/ic_sign_in"
                 android:title="ورود کاربر" />
         </menu>
     </item>

@@ -3,4 +3,62 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@drawable/lottery_gradient"
+        android:theme="?attr/actionBarTheme"
+        android:minHeight="?attr/actionBarSize"
+        android:id="@+id/toolbar_diractoris_list"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        android:paddingLeft="0dp"
+        android:paddingStart="0dp"
+        android:paddingRight="0dp"
+        android:paddingEnd="0dp">
+
+        <Button
+            android:onClick="onBackPressed"
+            android:layout_gravity="end"
+            android:background="@drawable/ic_arrow_pointing_to_right"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:scaleX="0.5"
+            android:scaleY="0.5"/>
+    </android.support.v7.widget.Toolbar>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/lottery_gradient">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_gravity="top|center"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/profile_image"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:src="@drawable/tehran"
+                    android:elevation="8dp"
+                    app:civ_border_width="5dp"
+                    app:civ_border_color="#FFFFFFFF"/>
+                <ir.iraddress.www.extend.TextViewIranSansBold
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/destination_is_here"
+                    android:textColor="@color/colorWhite"
+                    android:textAlignment="center"
+                    android:textSize="24dp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
 </LinearLayout>
