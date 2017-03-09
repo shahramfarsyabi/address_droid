@@ -114,7 +114,7 @@ public class DirectoryActivity extends MainController {
             collapsingToolbarLayout.setExpandedTitleColor(Color.WHITE);
 
             TextViewIranSansBold address = (TextViewIranSansBold) findViewById(R.id.address);
-            address.setText(response.getString("address"));
+            address.setText(response.getString("address").trim());
 
             TextView createdAt = (TextView) findViewById(R.id.created_at);
             createdAt.setText(response.getString("created_at"));
