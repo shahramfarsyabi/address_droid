@@ -46,6 +46,12 @@
                 android:background="@drawable/lottery_gradient"
                 android:layout_marginBottom="30dp">
 
+                <ImageView
+                    android:src="@drawable/lottery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp"
+                    android:layout_marginBottom="30dp"/>
+
                 <ir.iraddress.www.extend.TextViewIranSansBold
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
