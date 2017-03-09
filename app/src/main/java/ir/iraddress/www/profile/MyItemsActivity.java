@@ -13,16 +13,23 @@ import ir.iraddress.www.directories.DirectoriesAdapter;
 
 
 
-public class MyItemsActivity extends MainController {
+public class MyItemsActivity extends ProfileActivity {
 
     public void onCreate(Bundle savedInstanceState){
 
-        route = "directories";
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_items);
 
-        fetchData(1, "", null);
+        if(extras.containsKey("user_id")){
+            route = "directories";
+
+        }else{
+            route = "directories";
+        }
+
+        fetchData(1, route, null);
 
         recyclerView = (RecyclerView) findViewById(R.id.profile_directories_recyclerview);
         recyclerViewAdapter = new DirectoriesAdapter(this, this, collection);

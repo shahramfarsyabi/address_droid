@@ -185,7 +185,7 @@ public class MainMenuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
                             case 6:
                                 intent = new Intent(context, DirectoryActivity.class);
-                                intent.putExtra("directory_id", 1);
+                                intent.putExtra("directory_id", "354730");
                                 context.startActivity(intent);
                                 break;
 

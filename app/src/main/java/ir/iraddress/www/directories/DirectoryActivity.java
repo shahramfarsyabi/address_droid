@@ -449,8 +449,9 @@ public class DirectoryActivity extends MainController {
         startActivity(intent);
     }
 
-    public void btnShowProfile(View view){
+    public void btnShowProfile(View view) throws JSONException {
         Intent intent = new Intent(this, PublicProfileActivity.class);
+        intent.putExtra("user_id", directory.getJSONObject("owner").getInt("id"));
         startActivity(intent);
     }
 

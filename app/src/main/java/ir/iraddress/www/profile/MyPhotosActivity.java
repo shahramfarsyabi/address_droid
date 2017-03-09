@@ -20,15 +20,18 @@ public class MyPhotosActivity extends ProfileMainActivity {
     public void onCreate(Bundle savedInstanceState){
 
         super.onCreate(savedInstanceState);
-
-        try {
-            route = "users/"+user.getInt("id")+"/photos";
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-
         setContentView(R.layout.activity_profile_photos);
+
+        if(extras.containsKey("user_id")){
+            route = "users/"+extras.getInt("user_id")+"/photos";
+        }else{
+
+            try {
+                route = "users/"+user.getInt("id")+"/photos";
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
 
         fetchData(1, route, params);
 

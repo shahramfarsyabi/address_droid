@@ -33,22 +33,25 @@ public class MyCommentsActivity extends ProfileMainActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_comments);
 
-        try {
+        if(extras.containsKey("user_id")){
+            route = "users/"+extras.getInt("user_id")+"/comments";
+        }else{
 
-            getRequest("users/"+user.getInt("id")+"/comments", params);
-
-            recyclerView = (RecyclerView) findViewById(R.id.recycler_view_comments);
-            recyclerViewAdapter = new MyCommentsAdapter(this, collection);
-            layoutManager = new LinearLayoutManager(this);
-
-            recyclerView.setAdapter(recyclerViewAdapter);
-            recyclerView.setLayoutManager(layoutManager);
-
-
-        } catch (JSONException e) {
-            e.printStackTrace();
+            try {
+                route = "users/"+user.getInt("id")+"/comments";
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
 
+        getRequest(route, params);
+
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_view_comments);
+        recyclerViewAdapter = new MyCommentsAdapter(this, collection);
+        layoutManager = new LinearLayoutManager(this);
+
+        recyclerView.setAdapter(recyclerViewAdapter);
+        recyclerView.setLayoutManager(layoutManager);
 
 
     }
