@@ -33,7 +33,7 @@ public class MyCommentsActivity extends ProfileMainActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_comments);
 
-        if(extras.containsKey("user_id")){
+        if(extras != null && extras.containsKey("user_id")){
             route = "users/"+extras.getInt("user_id")+"/comments";
         }else{
 

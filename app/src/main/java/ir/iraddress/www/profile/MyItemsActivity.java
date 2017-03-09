@@ -22,7 +22,7 @@ public class MyItemsActivity extends ProfileActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_items);
 
-        if(extras.containsKey("user_id")){
+        if(extras.is != null && extras.containsKey("user_id")){
             route = "directories";
 
         }else{

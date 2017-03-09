@@ -22,7 +22,7 @@ public class MyPhotosActivity extends ProfileMainActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_photos);
 
-        if(extras.containsKey("user_id")){
+        if(extras != null && extras.containsKey("user_id")){
             route = "users/"+extras.getInt("user_id")+"/photos";
         }else{
 
