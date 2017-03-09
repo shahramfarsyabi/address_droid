@@ -41,6 +41,7 @@ import java.util.List;
 import ir.iraddress.www.helper.ConnectionDetector;
 import ir.iraddress.www.helper.HttpRequest;
 import ir.iraddress.www.helper.MyLocationServiceManager;
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 public abstract class MainController extends AppCompatActivity {
 
@@ -69,6 +70,13 @@ public abstract class MainController extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                .setDefaultFontPath("fonts/ttf/IRANSansWeb.ttf")
+                .setFontAttrId(R.attr.fontPath)
+                .build()
+        );
+
         extras = getIntent().getExtras();
         context = this;
         myLocationServiceManager = new MyLocationServiceManager(this, this);

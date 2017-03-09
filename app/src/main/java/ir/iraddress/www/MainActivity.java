@@ -6,6 +6,9 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.view.SubMenu;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -32,6 +35,7 @@ import ir.iraddress.www.categories.CategoriesActivity;
 import ir.iraddress.www.contactus.ContactUsActivity;
 import ir.iraddress.www.findsearch.SearchStackActivity;
 
+import ir.iraddress.www.helper.CustomTypefaceSpan;
 import ir.iraddress.www.helper.SharedPrefered;
 import ir.iraddress.www.mainMenu.MainMenuAdapter;
 import ir.iraddress.www.pages.AdvertisingActivity;
@@ -111,7 +115,24 @@ public class MainActivity extends MainController implements NavigationView.OnNav
             e.printStackTrace();
         }
 
+        Menu m = navigationView.getMenu();
+        for (int i=0;i<m.size();i++) {
+            MenuItem mi = m.getItem(i);
 
+            //for aapplying a font to subMenu ...
+            SubMenu subMenu = mi.getSubMenu();
+            if (subMenu!=null && subMenu.size() >0 ) {
+                for (int j=0; j <subMenu.size();j++) {
+                    MenuItem subMenuItem = subMenu.getItem(j);
+                    applyFontToMenuItem(subMenuItem);
+                }
+            }else{
+
+                //the method we have create in activity
+                applyFontToMenuItem(mi);
+            }
+
+        }
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.main_menu);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
@@ -144,7 +165,12 @@ public class MainActivity extends MainController implements NavigationView.OnNav
 
     }
 
-
+    private void applyFontToMenuItem(MenuItem mi) {
+        Typeface font = Typeface.createFromAsset(getAssets(), "fonts/ttf/IRANSansWeb.ttf");
+        SpannableString mNewTitle = new SpannableString(mi.getTitle());
+        mNewTitle.setSpan(new CustomTypefaceSpan("" , font), 0 , mNewTitle.length(),  Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+        mi.setTitle(mNewTitle);
+    }
 
     @Override
     public void onBackPressed() {
