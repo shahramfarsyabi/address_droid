@@ -32,6 +32,7 @@ import ir.iraddress.www.about.AboutUsActivity;
 import ir.iraddress.www.authentication.SignInActivity;
 import ir.iraddress.www.authentication.SignUpActivity;
 import ir.iraddress.www.categories.CategoriesActivity;
+import ir.iraddress.www.clients.ClientsActivity;
 import ir.iraddress.www.contactus.ContactUsActivity;
 import ir.iraddress.www.findsearch.SearchStackActivity;
 
@@ -229,6 +230,15 @@ public class MainActivity extends MainController implements NavigationView.OnNav
         } else if (id == R.id.nav_profile){
             intent = new Intent(this, ProfileActivity.class);
             startActivityForResult(intent, CODE_FOR_LOGOUT);
+        } else if (id == R.id.nav_new_directory){
+            intent = new Intent(this, ProfileActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_trip) {
+            intent = new Intent(this, ProfileActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_findclients){
+            intent = new Intent(this, ClientsActivity.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

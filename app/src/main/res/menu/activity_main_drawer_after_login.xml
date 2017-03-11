@@ -23,6 +23,18 @@
                 android:id="@+id/nav_profile"
                 android:icon="@drawable/user_shape"
                 android:title="پروفایل" />
+            <item
+                android:id="@+id/nav_new_directory"
+                android:icon="@drawable/user_shape"
+                android:title="ثبت مکان جدید" />
+            <item
+                android:id="@+id/nav_trip"
+                android:icon="@drawable/user_shape"
+                android:title="ثبت سفر" />
+            <item
+                android:id="@+id/nav_findclients"
+                android:icon="@drawable/user_shape"
+                android:title="جستجوی کاربر" />
         </menu>
     </item>
 

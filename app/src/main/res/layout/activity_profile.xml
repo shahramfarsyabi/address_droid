@@ -34,7 +34,6 @@
 
 
         <ir.iraddress.www.extend.TextViewIranSansBold
-            android:id="@+id/btnLogout"
             android:layout_gravity="start"
             android:textColor="@color/colorWhite"
             android:text="@string/edit_account"
@@ -68,7 +67,6 @@
                     android:id="@+id/profile_image"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
-                    android:src="@drawable/tehran"
                     android:elevation="8dp"
                     app:civ_border_width="5dp"
                     app:civ_border_color="#FFFFFFFF"/>
@@ -357,6 +355,7 @@
                 android:layout_height="wrap_content">
 
                 <ir.iraddress.www.extend.AppButton
+                    android:id="@+id/btnLogout"
                     android:layout_margin="10dp"
                     android:elevation="10dp"
                     android:textColor="@color/colorWhite"

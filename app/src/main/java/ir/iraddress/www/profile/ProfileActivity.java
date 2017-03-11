@@ -16,6 +16,7 @@ import org.json.JSONObject;
 import de.hdodenhof.circleimageview.CircleImageView;
 import ir.iraddress.www.MainController;
 import ir.iraddress.www.R;
+import ir.iraddress.www.extend.AppButton;
 import ir.iraddress.www.extend.TextViewIranSans;
 import ir.iraddress.www.extend.TextViewIranSansBold;
 import ir.iraddress.www.helper.SharedPrefered;
@@ -48,7 +49,7 @@ public class ProfileActivity extends ProfileMainActivity {
             e.printStackTrace();
         }
 
-        TextViewIranSansBold logout = (TextViewIranSansBold) findViewById(R.id.btnLogout);
+        AppButton logout = (AppButton) findViewById(R.id.btnLogout);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

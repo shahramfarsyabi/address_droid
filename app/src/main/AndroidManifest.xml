@@ -152,6 +152,10 @@
         <activity android:name=".about.AboutUsActivity"
             android:screenOrientation="portrait" />
 
+        <activity android:name=".clients.ClientsActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:screenOrientation="portrait" />
+
 
     </application>
 

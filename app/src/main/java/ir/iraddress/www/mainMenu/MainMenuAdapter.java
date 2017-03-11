@@ -20,6 +20,7 @@ import com.daimajia.slider.library.SliderTypes.DefaultSliderView;
 
 import ir.iraddress.www.R;
 import ir.iraddress.www.categories.CategoriesActivity;
+import ir.iraddress.www.directories.DirectoriesActivity;
 import ir.iraddress.www.directories.DirectoryActivity;
 import ir.iraddress.www.festival.ImageFestivalActivity;
 import ir.iraddress.www.findsearch.SearchResultActivity;
@@ -154,22 +155,22 @@ public class MainMenuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                         Intent intent = null;
                         switch(position){
                             case 1:
-                                intent = new Intent(context, SearchResultActivity.class);
-                                intent.putExtra("url", "directories/featured");
+                                intent = new Intent(context, DirectoriesActivity.class);
+                                intent.putExtra("route", "directories/featured");
                                 intent.putExtra("toolbar_title", "بهترین های آدرس");
                                 context.startActivity(intent);
                                 break;
 
                             case 2:
-                                intent = new Intent(context, SearchResultActivity.class);
-                                intent.putExtra("url", "directories/newest");
+                                intent = new Intent(context, DirectoriesActivity.class);
+                                intent.putExtra("route", "directories/newest");
                                 intent.putExtra("toolbar_title", "تازه ها");
                                 context.startActivity(intent);
                                 break;
 
                             case 3:
-                                intent = new Intent(context, SearchResultActivity.class);
-                                intent.putExtra("url", "directories/discount");
+                                intent = new Intent(context, DirectoriesActivity.class);
+                                intent.putExtra("route", "directories/discount");
                                 intent.putExtra("toolbar_title", "تخفیف ها");
                                 context.startActivity(intent);
                                 break;

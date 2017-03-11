@@ -1,8 +1,10 @@
 package ir.iraddress.www.profile;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -42,7 +44,7 @@ public class ConnectionsAdapter extends RecyclerView.Adapter<ConnectionHolder> {
 
         try {
             JSONObject person = (JSONObject) collection.get(position);
-            JSONObject personData;
+            final JSONObject personData;
 
             switch(type){
                 case "followers":
@@ -60,6 +62,19 @@ public class ConnectionsAdapter extends RecyclerView.Adapter<ConnectionHolder> {
 
             Picasso.with(context).load(personData.getString("avatar")).fit().centerCrop().into(avatar);
             name.setText(personData.getString("fullName"));
+
+            holder.person.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    try {
+                        Intent intent = new Intent(context, PublicProfileActivity.class);
+                        intent.putExtra("user_id", personData.getInt("id"));
+                        context.startActivity(intent);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
 
         } catch (JSONException e) {
             e.printStackTrace();

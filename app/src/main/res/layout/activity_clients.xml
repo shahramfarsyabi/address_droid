@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/toolbar_address_gradiant"
+        android:theme="?attr/actionBarTheme"
+        android:minHeight="?attr/actionBarSize"
+        android:id="@+id/toolbar_clients_list"
+        android:elevation="2dp">
+
+        <Button
+            android:onClick="onBackPressed"
+            android:layout_gravity="end"
+            android:background="@drawable/ic_arrow_pointing_to_right"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:scaleX="0.5"
+            android:scaleY="0.5"/>
+
+        <ir.iraddress.www.extend.TextViewIranSansBold
+            android:layout_gravity="end"
+            android:gravity="center"
+            android:textColor="@color/colorWhite"
+            android:textSize="18sp"
+            android:text="جستجوی کاربر"
+            android:id="@+id/toolbar_title_page"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </android.support.v7.widget.Toolbar>
+
+    <ir.iraddress.www.extend.TextInputEditTextIranSans
+        android:id="@+id/search_input"
+        android:layout_width="match_parent"
+        android:layout_height="76dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:backgroundTint="@color/mediumGray"
+        android:hint="بر اساس نام و نام خانوادگی"
+        android:inputType="text"
+        android:lines="1"
+        android:maxLines="1"
+        android:padding="15dp"
+        android:textAlignment="center"
+        android:textColor="@color/colorBlack"
+        android:textColorHint="@color/mediumGray"
+        android:textColorLink="@color/colorSecondary"
+        android:textSize="14sp" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view_clients"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>
