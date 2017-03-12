@@ -1,59 +1,229 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:id="@+id/filter_box"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:layout_height="300dp">
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+        android:layout_height="300dp">
         <LinearLayout
-            android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="0dp">
-            <ir.iraddress.www.extend.TextViewIranSansBold
-                android:gravity="center"
-                android:text="جستجوی پیشرفته"
+            android:layout_height="300dp"
+            android:orientation="vertical">
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_weight="6"
-            android:layout_width="match_parent"
-            android:layout_height="0dp">
-
-            <ExpandableListView
-                android:id="@+id/expandableListView"
-                android:layout_height="match_parent"
+                android:layout_height="56dp"
+                android:background="@color/colorWhite">
+                <ir.iraddress.www.extend.TextViewIranSans
+                    android:text="ارسال عکس"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="13dp"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft"
-                android:divider="@android:color/darker_gray"
-                android:dividerHeight="0.5dp" />
+                android:layout_height="1dp"
+                android:background="@color/borderGray"/>
 
-        </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp">
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="197dp"
+                android:layoutDirection="rtl">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layoutDirection="rtl">
 
-            <android.support.v7.widget.AppCompatButton
-                android:text="تایید"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
-            <android.support.v7.widget.AppCompatButton
-                android:text="انصراف"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent" />
+                        <android.support.v7.widget.AppCompatImageView
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            app:srcCompat="@drawable/ic_circle_shape_outline"
+                            android:scaleX="0.5"
+                            android:scaleY="0.5"/>
+                        <ir.iraddress.www.extend.TextViewIranSans
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="اسم دسته شماره یک"
+                            android:layout_gravity="center"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/borderGray"/>
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <android.support.v7.widget.AppCompatImageView
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            app:srcCompat="@drawable/ic_dot_and_circle"
+                            android:scaleX="0.5"
+                            android:scaleY="0.5"/>
+                        <ir.iraddress.www.extend.TextViewIranSans
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="اسم دسته شماره یک"
+                            android:layout_gravity="center"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/borderGray"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <android.support.v7.widget.AppCompatImageView
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            app:srcCompat="@drawable/ic_circle_shape_outline"
+                            android:scaleX="0.5"
+                            android:scaleY="0.5"/>
+
+                        <ir.iraddress.www.extend.TextViewIranSans
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="اسم دسته شماره یک"
+                            android:layout_gravity="center"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/borderGray"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <android.support.v7.widget.AppCompatImageView
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            app:srcCompat="@drawable/ic_circle_shape_outline"
+                            android:scaleX="0.5"
+                            android:scaleY="0.5"/>
+                        <ir.iraddress.www.extend.TextViewIranSans
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="اسم دسته شماره یک"
+                            android:layout_gravity="center"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/borderGray"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <android.support.v7.widget.AppCompatImageView
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            app:srcCompat="@drawable/ic_circle_shape_outline"
+                            android:scaleX="0.5"
+                            android:scaleY="0.5"/>
+                        <ir.iraddress.www.extend.TextViewIranSans
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="اسم دسته شماره یک"
+                            android:layout_gravity="center"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/borderGray"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <android.support.v7.widget.AppCompatImageView
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            app:srcCompat="@drawable/ic_circle_shape_outline"
+                            android:scaleX="0.5"
+                            android:scaleY="0.5"/>
+                        <ir.iraddress.www.extend.TextViewIranSans
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="اسم دسته شماره یک"
+                            android:layout_gravity="center"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/borderGray"/>
+
+
+
+
+
+
+
+                </LinearLayout>
+            </ScrollView>
+
+
+
+
+
+            <LinearLayout
+                android:gravity="center|right"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:background="@drawable/toolbar_address_gradiant">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <ir.iraddress.www.extend.AppButton
+                        android:gravity="center"
+                        android:textSize="13dp"
+                        android:text="اعمال فیلتر"
+                        android:textColor="@color/colorWhite"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@color/colorLightGray"></LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <ir.iraddress.www.extend.AppButton
+                        android:gravity="center"
+                        android:textSize="13dp"
+                        android:text="انصراف"
+                        android:textColor="@color/colorWhite"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"/>
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-
-
 </RelativeLayout>
