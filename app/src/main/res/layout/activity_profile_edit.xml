@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:id="@+id/form_sigup"
+    android:background="@color/colorLightGray"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:theme="?attr/actionBarTheme"
+        android:minHeight="?attr/actionBarSize"
+        android:id="@+id/toolbar_diractoris_list"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        android:paddingStart="0dp"
+        android:paddingEnd="0dp">
+
+        <Button
+            android:onClick="onBackPressed"
+            android:layout_gravity="end"
+            android:scaleX="0.5"
+            android:scaleY="0.5"
+            android:background="@drawable/ic_arrow_pointing_to_right_grey"
+            android:layout_width="56dp"
+            android:layout_height="56dp" />
+
+
+        <ir.iraddress.www.extend.TextViewIranSansBold
+            android:layout_gravity="end"
+            android:textColor="@color/mediumGray"
+            android:textSize="18sp"
+            android:text="ویرایش حساب کاربری"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:elevation="2dp">
+
+
+        <ImageView
+            android:contentDescription="@string/create_account"
+            android:src="@drawable/signup"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginBottom="20dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/borderGray" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ir.iraddress.www.extend.TextInputEditTextIranSans
+                android:maxLines="1"
+                android:inputType="text"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:id="@+id/lastName"
+                android:hint="@string/familyname"
+                android:textSize="13sp"
+                android:layout_height="60dp"
+                android:textAlignment="center"
+                android:padding="10dp"
+                android:background="@color/colorWhite"
+                android:layout_marginRight="1dp"
+                android:layout_marginEnd="1dp"/>
+
+            <ir.iraddress.www.extend.TextInputEditTextIranSans
+                android:maxLines="1"
+                android:inputType="text"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:id="@+id/firstName"
+                android:hint="@string/name"
+                android:textSize="13sp"
+                android:focusable="true"
+                android:layout_height="60dp"
+                android:textAlignment="center"
+                android:padding="10dp"
+                android:background="@color/colorWhite"
+                android:layout_marginLeft="1dp"
+                android:layout_marginStart="1dp"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/borderGray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ir.iraddress.www.extend.TextInputEditTextIranSans
+                android:focusable="false"
+                android:maxLines="1"
+                android:inputType="textEmailAddress"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:hint="@string/Email"
+                android:textSize="13sp"
+                android:id="@+id/email"
+                android:padding="10dp"
+                android:background="@color/colorWhite"
+                android:textAlignment="center"
+                android:layout_height="60dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginEnd="1dp"/>
+
+            <ir.iraddress.www.extend.TextInputEditTextIranSans
+                android:maxLines="1"
+                android:inputType="number"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:hint="@string/mobile"
+                android:textSize="13sp"
+                android:id="@+id/mobile"
+                android:background="@color/colorWhite"
+                android:layout_height="60dp"
+                android:textAlignment="center"
+                android:layout_marginLeft="1dp"
+                android:layout_marginStart="1dp"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/borderGray" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/borderGray"
+            android:layout_marginBottom="20dp"/>
+
+        <ir.iraddress.www.extend.AppButton
+            android:onClick="saveProfile"
+            android:elevation="10dp"
+            android:textColor="@color/colorWhite"
+            android:text="ذخیره شود"
+            android:layout_gravity="center"
+            android:id="@+id/btn_signup"
+            android:background="@drawable/rounded_corners_green"
+            android:layout_width="100dp"
+            android:layout_height="40dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

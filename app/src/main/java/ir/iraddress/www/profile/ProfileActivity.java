@@ -28,6 +28,7 @@ public class ProfileActivity extends ProfileMainActivity {
 
 
     public void onCreate(Bundle savedInstanceState){
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
@@ -54,6 +55,17 @@ public class ProfileActivity extends ProfileMainActivity {
             @Override
             public void onClick(View v) {
                 signout(v);
+            }
+        });
+
+
+        TextViewIranSansBold btnEditProfile = (TextViewIranSansBold) findViewById(R.id.editProfile);
+        btnEditProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                Intent intent = new Intent(context, ProfileEditActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -156,4 +168,5 @@ public class ProfileActivity extends ProfileMainActivity {
             e.printStackTrace();
         }
     }
+
 }

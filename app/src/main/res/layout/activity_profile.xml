@@ -34,6 +34,7 @@
 
 
         <ir.iraddress.www.extend.TextViewIranSansBold
+            android:id="@+id/editProfile"
             android:layout_gravity="start"
             android:textColor="@color/colorWhite"
             android:text="@string/edit_account"

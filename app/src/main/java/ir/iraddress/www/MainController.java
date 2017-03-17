@@ -16,6 +16,7 @@ import android.provider.MediaStore;
 import android.provider.OpenableColumns;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -38,6 +39,9 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
+import ir.iraddress.www.categories.AdapterFilterCategories;
+import ir.iraddress.www.extend.AppButton;
+import ir.iraddress.www.helper.ArrayUtil;
 import ir.iraddress.www.helper.ConnectionDetector;
 import ir.iraddress.www.helper.HttpRequest;
 import ir.iraddress.www.helper.MyLocationServiceManager;
@@ -65,6 +69,7 @@ public abstract class MainController extends AppCompatActivity {
     public static final int CODE_FOR_LOGOUT = 0;
     public static final int CODE_FOR_LOGIN = 1;
     public final int READ_REQUEST_CODE = 42;
+    public Dialog advanceFilter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -399,11 +404,75 @@ public abstract class MainController extends AppCompatActivity {
 
     public void advanceFilter(View view){
 
-        Dialog advanceFilter = new Dialog(this);
+        advanceFilter = new Dialog(this);
         advanceFilter.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        advanceFilter.setCancelable(false);
         advanceFilter.setContentView(R.layout.filter_layout);
+
+        final List categories = new ArrayList();
+
+        RecyclerView recyclerViewFilterCategories = (RecyclerView) advanceFilter.findViewById(R.id.filter_categories_list);
+        final AdapterFilterCategories adapterFilterCategories = new AdapterFilterCategories(this, categories);
+        LinearLayoutManager categoryLayoutManager = new LinearLayoutManager(this);
+
+        recyclerViewFilterCategories.setAdapter(adapterFilterCategories);
+        recyclerViewFilterCategories.setLayoutManager(categoryLayoutManager);
+
+        HttpRequest.get("categories", params, new JsonHttpResponseHandler(){
+
+            @Override
+            public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, JSONArray response) {
+                for(int n = 0;n < response.length(); n++){
+                    try {
+                        categories.add(response.get(n));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                if(categories.size() > 0){
+                    adapterFilterCategories.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode , cz.msebera.android.httpclient.Header[] headers, Throwable throwable , JSONObject response){
+
+            }
+        });
+
+        AppButton btnCloseFilter = (AppButton) advanceFilter.findViewById(R.id.btnHideFilterCategories);
+        btnCloseFilter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                advanceFilter.cancel();
+            }
+        });
+
         advanceFilter.show();
 
     }
+
+    public void selectedCategory(View view) throws JSONException {
+
+        AppCompatImageView appCompatImageView = (AppCompatImageView) view.findViewById(R.id.categoryItemCircleCheckbox);
+        appCompatImageView.setImageResource(R.drawable.ic_dot_and_circle);
+
+        JSONObject selectedCategory = (JSONObject) view.getTag();
+        params.put("category_id", selectedCategory.getInt("id"));
+
+        collection.clear();
+        recyclerView.removeAllViews();
+        recyclerViewAdapter.notifyDataSetChanged();
+
+        fetchData(1, "", params);
+
+        render();
+
+        advanceFilter.cancel();
+
+    }
+
+
 
 }

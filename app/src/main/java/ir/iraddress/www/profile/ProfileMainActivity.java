@@ -1,7 +1,9 @@
 package ir.iraddress.www.profile;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.view.View;
 
 import com.loopj.android.http.RequestParams;
 
@@ -36,8 +38,6 @@ public class ProfileMainActivity extends MainController {
             e.printStackTrace();
         }
     }
-
-
 }
 
 

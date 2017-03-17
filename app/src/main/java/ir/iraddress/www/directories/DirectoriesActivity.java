@@ -50,7 +50,7 @@ public class DirectoriesActivity extends MainController {
             try {
                 JSONObject location = new JSONObject(locationString);
                 if(location.has("city")){
-                    params.add("city_title", location.getString("city"));
+                    params.put("city_title", location.getString("city"));
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -99,5 +99,7 @@ public class DirectoriesActivity extends MainController {
         render();
 
     }
+
+
 
 }

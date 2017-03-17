@@ -143,6 +143,9 @@
         <activity android:name=".profile.PublicProfileActivity"
             android:screenOrientation="portrait" />
 
+        <activity android:name=".profile.ProfileEditActivity"
+            android:screenOrientation="portrait" />
+
         <activity android:name=".lottory.LottoryActivity"
             android:screenOrientation="portrait" />
 
