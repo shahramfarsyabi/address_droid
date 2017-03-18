@@ -363,6 +363,7 @@ public abstract class MainController extends AppCompatActivity {
         if(!check){
 
             Dialog dialog = new Dialog(this);
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             dialog.setContentView(R.layout.dialog_no_connection);
 
             Button wifi = (Button) dialog.findViewById(R.id.wifi_intent);

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -87,7 +88,12 @@ public class MainMenuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         switch (holder.getItemViewType()) {
             case 0:
                 HomeTopSectionHolder homeTopSectionHolder = (HomeTopSectionHolder) holder;
+
+                StaggeredGridLayoutManager.LayoutParams layoutParamsHeader = (StaggeredGridLayoutManager.LayoutParams) ((HomeTopSectionHolder) holder).linearLayout.getLayoutParams();
+                layoutParamsHeader.setFullSpan(true);
+
                 SliderLayout sliderLayout = (SliderLayout) homeTopSectionHolder.linearLayout.findViewById(R.id.slider);
+
                 Display display = activity.getWindowManager().getDefaultDisplay();
                 android.view.ViewGroup.LayoutParams layoutParams = sliderLayout.getLayoutParams();
                 layoutParams.width = display.getWidth();
@@ -117,34 +123,36 @@ public class MainMenuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 ImageView button = (ImageView) mainMenuHolder.menu.findViewById(R.id.menu_image);
                 switch (position){
                     case 1:
-                        button.setImageResource(R.drawable.menu_1);
+                        button.setImageResource(R.drawable.image1);
                         break;
                     case 2:
-                        button.setImageResource(R.drawable.menu_2);
+                        button.setImageResource(R.drawable.image2);
                         break;
 
                     case 3:
-                        button.setImageResource(R.drawable.menu_3);
+                        button.setImageResource(R.drawable.image3);
                         break;
 
                     case 4:
-                        button.setImageResource(R.drawable.menu_4);
+                        button.setImageResource(R.drawable.image4);
                         break;
 
                     case 5:
-                        button.setImageResource(R.drawable.menu_5);
+                        button.setImageResource(R.drawable.image5);
                         break;
 
                     case 6:
-                        button.setImageResource(R.drawable.menu_6);
+                        StaggeredGridLayoutManager.LayoutParams layoutParamsMenu = (StaggeredGridLayoutManager.LayoutParams) ((MainMenuHolder) holder).menu.getLayoutParams();
+                        layoutParamsMenu.setFullSpan(true);
+                        button.setImageResource(R.drawable.image6);
                         break;
 
                     case 7:
-                        button.setImageResource(R.drawable.menu_7);
+                        button.setImageResource(R.drawable.image7);
                         break;
 
                     case 8:
-                        button.setImageResource(R.drawable.menu_8);
+                        button.setImageResource(R.drawable.image8);
                         break;
 
                 }

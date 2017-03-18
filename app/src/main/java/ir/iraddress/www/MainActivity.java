@@ -6,6 +6,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.view.SubMenu;
@@ -136,21 +137,21 @@ public class MainActivity extends MainController implements NavigationView.OnNav
         }
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.main_menu);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
+        StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         MainMenuAdapter mainMenuAdapter = new MainMenuAdapter(this, this, mainMenu);
 
         recyclerView.setAdapter(mainMenuAdapter);
-        gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
-            @Override
-            public int getSpanSize(int position) {
-                if(position == 0){
-                    return 2;
-                }
-                return 1;
-            }
-        });
+//        staggeredGridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+//            @Override
+//            public int getSpanSize(int position) {
+//                if(position == 0){
+//                    return 2;
+//                }
+//                return 1;
+//            }
+//        });
 
-        recyclerView.setLayoutManager(gridLayoutManager);
+        recyclerView.setLayoutManager(staggeredGridLayoutManager);
 
         Button searchBtnStack = (Button) findViewById(R.id.search_page_button);
         searchBtnStack.setOnClickListener(new View.OnClickListener() {
