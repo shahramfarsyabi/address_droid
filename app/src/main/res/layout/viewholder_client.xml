@@ -2,22 +2,35 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_margin="0dp">
 
     <android.support.v7.widget.CardView
         android:onClick="btnShowProfile"
         android:id="@+id/client_card_view"
-        android:layout_margin="5dp"
         android:layout_width="match_parent"
-        android:layout_height="100dp">
+        android:layout_height="100dp"
+        android:layout_margin="0dp">
 
         <LinearLayout
             android:layoutDirection="rtl"
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_margin="0dp">
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_gravity="top|center"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_margin="15dp"
+                android:src="@drawable/tehran"
+                />
 
             <ImageView
+                android:visibility="gone"
                 android:id="@+id/client_avatar"
                 android:scaleType="centerCrop"
                 android:src="@drawable/tehran"
@@ -26,20 +39,42 @@
 
             <LinearLayout
                 android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:gravity="center">
 
                 <ir.iraddress.www.extend.TextViewIranSansBold
                     android:id="@+id/client_fullname"
-                    android:paddingStart="10dp"
+                    android:paddingStart="0dp"
                     android:paddingEnd="10dp"
                     android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
+                    android:paddingRight="0dp"
                     android:layout_gravity="start"
-                    android:text="شهرام فرسیابی"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:textAlignment="viewStart"
+                    />
 
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="90dp"
+                android:paddingStart="0dp"
+                android:paddingEnd="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="0dp"
+                android:layout_height="match_parent">
+                <ir.iraddress.www.extend.AppButton
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:background="@drawable/rounded_corners_green"
+                    android:text="@string/follow"
+                    android:textSize="12sp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textColor="@color/colorWhite"
+                    />
             </LinearLayout>
         </LinearLayout>
 

@@ -5,16 +5,15 @@
         <item
             android:id="@+id/nav_about"
             android:icon="@drawable/ic_information_button"
-            android:title="درباره ما" />
+            android:title="@string/about" />
         <item
             android:id="@+id/nav_terms"
             android:icon="@drawable/ic_text_file"
-            android:title="شرایط استفاده از خدمات" />
+            android:title="@string/terms" />
         <item
             android:id="@+id/nav_contactus"
             android:icon="@drawable/ic_telephone_handle_silhouette"
-            android:title="ارتباط با ما" />
-
+            android:title="@string/contact" />
     </group>
 
     <item>
@@ -22,20 +21,19 @@
             <item
                 android:id="@+id/nav_profile"
                 android:icon="@drawable/user_shape"
-                android:title="پروفایل" />
+                android:title="@string/profile" />
             <item
                 android:id="@+id/nav_new_directory"
-                android:icon="@drawable/user_shape"
-                android:title="ثبت مکان جدید" />
+                android:icon="@drawable/ic_plus_black_symbol"
+                android:title="@string/submit_item" />
             <item
                 android:id="@+id/nav_trip"
-                android:icon="@drawable/user_shape"
-                android:title="ثبت سفر" />
+                android:icon="@drawable/ic_plus_black_symbol"
+                android:title="@string/submit_trip" />
             <item
                 android:id="@+id/nav_findclients"
-                android:icon="@drawable/user_shape"
-                android:title="جستجوی کاربر" />
+                android:icon="@drawable/ic_magnifying_glass_dddddd"
+                android:title="@string/search_user" />
         </menu>
     </item>
-
 </menu>

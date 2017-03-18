@@ -201,10 +201,9 @@
                     android:layout_margin="10dp"
                     android:elevation="10dp"
                     android:textColor="@color/colorWhite"
-                    android:backgroundTint="@color/colorPrimary"
                     android:text="@string/followers"
                     android:layout_gravity="center"
-                    android:background="@drawable/rounded_corners"
+                    android:background="@drawable/rounded_corners_blue"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="match_parent" />
@@ -215,10 +214,9 @@
                     android:layout_margin="10dp"
                     android:elevation="10dp"
                     android:textColor="@color/colorWhite"
-                    android:backgroundTint="#0DD0AE"
                     android:text="@string/followings"
                     android:layout_gravity="center"
-                    android:background="@drawable/rounded_corners"
+                    android:background="@drawable/rounded_corners_green"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="match_parent" />
@@ -360,16 +358,13 @@
                     android:layout_margin="10dp"
                     android:elevation="10dp"
                     android:textColor="@color/colorWhite"
-                    android:backgroundTint="@color/colorRed"
                     android:text="@string/signout"
                     android:layout_gravity="center"
-                    android:background="@drawable/rounded_corners"
+                    android:background="@drawable/rounded_corners_red"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="match_parent" />
-
             </LinearLayout>
-
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

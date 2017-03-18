@@ -31,6 +31,7 @@
     <string name="trip">سفر</string>
     <string name="item">آیتم</string>
     <string name="photo">عکس</string>
+    <string name="follow">دنبال کردن</string>
     <string name="followers">دنبال کننده ها</string>
     <string name="followings">دنبال شونده ها</string>
     <string name="myitems">آیتم های من</string>
@@ -41,6 +42,7 @@
     <string name="create_account">ساخت حساب کاربری</string>
     <string name="name">نام</string>
     <string name="familyname">نام خانوادگی</string>
+    <string name="fullname">نام و نام خانوادگی</string>
     <string name="Email">پست الکترونیک</string>
     <string name="mobile">موبایل</string>
     <string name="password">کلمه عبور</string>
@@ -52,12 +54,17 @@
     <string name="login">ورود</string>
     <string name="send_comment">ارسال نظر</string>
     <string name="terms">شرایط استفاده از سرویس</string>
+    <string name="user_search">جستجوی کاربر</string>
+    <string name="about">درباره ما</string>
+    <string name="contact">ارتباط با ما</string>
+    <string name="search_user">جستجوی کاربر</string>
+    <string name="submit_item">ثبت مکان جدید</string>
+    <string name="submit_trip">ثبت سفر</string>
     <string name="app_name">Address</string>
     <string name="lottery_welcome">به سیستم قرعه کشی آدرس خوش آمدید.</string>
     <string name="lorem">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
     <string name="action_settings">Settings</string>
 </resources>
