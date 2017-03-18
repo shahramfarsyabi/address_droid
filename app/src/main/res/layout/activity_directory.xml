@@ -103,7 +103,6 @@
                         android:id="@+id/category_type"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="مراکز خرید"
                         android:textColor="@color/colorBlack"
                         android:textAlignment="center"
                         android:padding="5dp"
@@ -123,7 +122,6 @@
                         android:id="@+id/directory_rate"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="امتیاز: 4.5 از 5"
                         android:textColor="@color/colorBlack"
                         android:textAlignment="center"
                         android:padding="5dp"
@@ -143,7 +141,6 @@
                         android:id="@+id/created_at"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="3 روز پیش"
                         android:textColor="@color/colorBlack"
                         android:textAlignment="center"
                         android:padding="5dp"
@@ -180,6 +177,7 @@
                         android:background="@android:color/transparent"
                         android:text="@string/path_finder"
                         android:paddingTop="15dp"
+                        android:textSize="13sp"
                         android:drawableTop="@drawable/ic_road_perspective"
                         android:drawableTint="@color/colorSecondary"
                         android:id="@+id/appButton" />
@@ -200,6 +198,7 @@
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
                         android:text="@string/rate_item"
+                        android:textSize="13sp"
                         android:paddingTop="15dp"
                         android:drawableTop="@drawable/ic_star" />
                 </LinearLayout>
@@ -221,6 +220,7 @@
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
                         android:text="@string/send_image"
+                        android:textSize="13sp"
                         android:paddingTop="15dp"
                         android:drawableTop="@drawable/ic_photo_camera_primary" />
                     <ProgressBar
@@ -351,10 +351,10 @@
                         android:id="@+id/address"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="آدرس این آیتم"
                         android:textColor="@color/colorBlack"
                         android:textAlignment="center"
                         android:padding="5dp"
+                        android:textSize="13sp"
                     />
 
                 </LinearLayout>
@@ -381,6 +381,7 @@
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
                         android:text="@string/location"
+                        android:textSize="13sp"
                         android:paddingTop="15dp"
                         android:drawableTop="@drawable/ic_map_marker"
                         />
@@ -399,10 +400,9 @@
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
                         android:text="@string/phone_number"
+                        android:textSize="13sp"
                         android:paddingTop="15dp"
-                        android:drawableTop="@drawable/ic_telephone"
-                        android:drawableTint="@color/dialerGreen"/>
-
+                        android:drawableTop="@drawable/ic_telephone_green"/>
                 </LinearLayout>
 
                 <View
@@ -424,6 +424,7 @@
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
                         android:text="@string/email"
+                        android:textSize="13sp"
                         android:paddingTop="15dp"
                         android:drawableTop="@drawable/ic_envelope"
                         android:id="@+id/appButton" />
@@ -441,6 +442,7 @@
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
                         android:text="@string/website"
+                        android:textSize="13sp"
                         android:paddingTop="15dp"
                         android:drawableTop="@drawable/ic_desktop_monitor"
                         android:drawableTint="@color/colorSecondary"/>
@@ -480,8 +482,6 @@
 
                 <ir.iraddress.www.extend.TextViewIranSans
                     android:id="@+id/directory_phone"
-                    android:layout_toLeftOf="@+id/icon_phone"
-                    android:gravity="center|right"
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent" />
@@ -510,9 +510,8 @@
                     android:layout_margin="10dp"
                     android:elevation="10dp"
                     android:textColor="@color/colorWhite"
-                    android:backgroundTint="@color/colorPrimary"
                     android:text="@string/profile"
-                    android:background="@drawable/rounded_corners"
+                    android:background="@drawable/rounded_corners_blue"
                     android:layout_width="100dp"
                     android:layout_height="match_parent" />
 
@@ -581,10 +580,10 @@
                     android:layout_margin="10dp"
                     android:elevation="3dp"
                     android:textColor="@color/colorWhite"
-                    android:backgroundTint="#0DD0AE"
                     android:text="@string/see_all_comments"
+                    android:textSize="13sp"
                     android:layout_gravity="center"
-                    android:background="@drawable/rounded_corners"
+                    android:background="@drawable/rounded_corners_green"
                     android:layout_width="wrap_content"
                     android:paddingRight="20dp"
                     android:paddingLeft="20dp"
@@ -596,10 +595,10 @@
                     android:layout_margin="10dp"
                     android:elevation="3dp"
                     android:textColor="@color/colorWhite"
-                    android:backgroundTint="#0DD0AE"
+                    android:textSize="13sp"
                     android:text="@string/be_first_to_comment"
                     android:layout_gravity="center"
-                    android:background="@drawable/rounded_corners"
+                    android:background="@drawable/rounded_corners_green"
                     android:layout_width="wrap_content"
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp"
