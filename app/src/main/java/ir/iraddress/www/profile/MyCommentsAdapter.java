@@ -54,8 +54,8 @@ public class MyCommentsAdapter extends RecyclerView.Adapter<MyCommentsHolder> {
             TextViewIranSans commentContent = (TextViewIranSans) holder.comment.findViewById(R.id.comment_content);
 
 
-            directoryTitle.setText(object.getJSONObject("parent").getString("title"));
-            directoryTitle.append(" "+object.getString("created_at"));
+            directoryTitle.setText(object.getString("created_at"));
+            directoryTitle.append(" برای "+object.getJSONObject("parent").getString("title"));
             commentContent.setText(Html.fromHtml(object.getString("text")));
 
         } catch (JSONException e) {
