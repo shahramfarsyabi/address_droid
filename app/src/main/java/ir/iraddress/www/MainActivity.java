@@ -263,6 +263,7 @@ public class MainActivity extends MainController implements NavigationView.OnNav
                     navigationView.getMenu().clear();
                     navigationView.inflateMenu(R.menu.activity_main_drawer_before_login);
                 }
+
                 break;
 
             case CODE_FOR_LOGIN:
@@ -271,6 +272,25 @@ public class MainActivity extends MainController implements NavigationView.OnNav
                     navigationView.inflateMenu(R.menu.activity_main_drawer_after_login);
                 }
                 break;
+        }
+
+        Menu m = navigationView.getMenu();
+        for (int i=0;i<m.size();i++) {
+            MenuItem mi = m.getItem(i);
+
+            //for aapplying a font to subMenu ...
+            SubMenu subMenu = mi.getSubMenu();
+            if (subMenu!=null && subMenu.size() >0 ) {
+                for (int j=0; j <subMenu.size();j++) {
+                    MenuItem subMenuItem = subMenu.getItem(j);
+                    applyFontToMenuItem(subMenuItem);
+                }
+            }else{
+
+                //the method we have create in activity
+                applyFontToMenuItem(mi);
+            }
+
         }
 
     }
