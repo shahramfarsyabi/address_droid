@@ -48,13 +48,13 @@ public class ClientsAdapter extends RecyclerView.Adapter<ClientHolder> {
 
             JSONObject client = (JSONObject) collection.get(position);
 
-            ImageView avatar = (ImageView) holder.cardView.findViewById(R.id.client_avatar);
-            TextViewIranSansBold fullanem = (TextViewIranSansBold) holder.cardView.findViewById(R.id.client_fullname);
+            ImageView avatar = (ImageView) holder.linearLayout.findViewById(R.id.client_avatar);
+            TextViewIranSansBold fullanem = (TextViewIranSansBold) holder.linearLayout.findViewById(R.id.client_fullname);
 
             Picasso.with(context).load(client.getString("avatar")).fit().centerCrop().into(avatar);
             fullanem.setText(client.getString("fullName"));
 
-            holder.cardView.setTag(client);
+            holder.linearLayout.setTag(client);
 
         } catch (JSONException e) {
             e.printStackTrace();

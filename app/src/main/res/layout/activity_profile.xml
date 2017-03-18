@@ -195,7 +195,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <Button
+                <ir.iraddress.www.extend.AppButton
                     android:id="@+id/followed"
                     android:onClick="getConnections"
                     android:layout_margin="10dp"
@@ -208,7 +208,7 @@
                     android:layout_weight="1"
                     android:layout_height="match_parent" />
 
-                <Button
+                <ir.iraddress.www.extend.AppButton
                     android:id="@+id/followers"
                     android:onClick="getConnections"
                     android:layout_margin="10dp"

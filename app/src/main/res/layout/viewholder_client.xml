@@ -5,14 +5,9 @@
     android:layout_height="wrap_content"
     android:layout_margin="0dp">
 
-    <android.support.v7.widget.CardView
-        android:onClick="btnShowProfile"
-        android:id="@+id/client_card_view"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_margin="0dp">
-
         <LinearLayout
+            android:onClick="btnShowProfile"
+            android:id="@+id/client_card_view"
             android:layoutDirection="rtl"
             android:orientation="horizontal"
             android:layout_width="match_parent"
@@ -22,20 +17,12 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_gravity="top|center"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/client_avatar"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_margin="15dp"
                 android:src="@drawable/tehran"
                 />
-
-            <ImageView
-                android:visibility="gone"
-                android:id="@+id/client_avatar"
-                android:scaleType="centerCrop"
-                android:src="@drawable/tehran"
-                android:layout_width="100dp"
-                android:layout_height="match_parent" />
 
             <LinearLayout
                 android:orientation="vertical"
@@ -78,5 +65,8 @@
             </LinearLayout>
         </LinearLayout>
 
-    </android.support.v7.widget.CardView>
+        <View
+            android:background="@color/borderGray"
+            android:layout_width="match_parent"
+            android:layout_height="1dp" />
 </LinearLayout>

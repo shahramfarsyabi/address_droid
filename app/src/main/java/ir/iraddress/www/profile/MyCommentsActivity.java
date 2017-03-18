@@ -1,5 +1,6 @@
 package ir.iraddress.www.profile;
 
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -7,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
+import android.view.Window;
 import android.widget.Toast;
 
 import com.loopj.android.http.RequestParams;
@@ -57,29 +59,36 @@ public class MyCommentsActivity extends ProfileMainActivity {
     }
 
     public void onClickRemove(final View view){
-        AlertDialog confirmation = new AlertDialog.Builder(this)
-        .setTitle("Destroy")
-        .setMessage("Are you sure you want remove this item ?")
-        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                System.out.println("btn remove comment "+view.getTag());
 
-                try {
-                    comment = (JSONObject) view.getTag();
-                    deleteRequest("users/"+user.getInt("id")+"/comments/"+comment.getInt("comment_id"), params);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+        Dialog dialogRemove = new Dialog(this);
+        dialogRemove.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
-            }
-        })
-        .setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(getApplicationContext(), "cancel", Toast.LENGTH_SHORT).show();
-            }
-        }).show();
+        dialogRemove.setContentView(R.layout.dialog_confirm_remove);
+        dialogRemove.show();
+
+//        AlertDialog confirmation = new AlertDialog.Builder(this)
+//        .setTitle("Destroy")
+//        .setMessage("Are you sure you want remove this item ?")
+//        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//                System.out.println("btn remove comment "+view.getTag());
+//
+//                try {
+//                    comment = (JSONObject) view.getTag();
+//                    deleteRequest("users/"+user.getInt("id")+"/comments/"+comment.getInt("comment_id"), params);
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+//
+//            }
+//        })
+//        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//                Toast.makeText(getApplicationContext(), "cancel", Toast.LENGTH_SHORT).show();
+//            }
+//        }).show();
     }
 
     @Override
