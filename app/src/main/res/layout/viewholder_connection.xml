@@ -44,6 +44,7 @@
 
 
         <Button
+            android:onClick="onClickRemove"
             android:background="@drawable/ic_garbage"
             android:layout_width="50dp"
             android:scaleY="0.4"
