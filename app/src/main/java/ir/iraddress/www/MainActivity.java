@@ -40,6 +40,7 @@ import ir.iraddress.www.findsearch.SearchStackActivity;
 import ir.iraddress.www.helper.CustomTypefaceSpan;
 import ir.iraddress.www.helper.SharedPrefered;
 import ir.iraddress.www.mainMenu.MainMenuAdapter;
+import ir.iraddress.www.new_directory.NewDirectoryActivity;
 import ir.iraddress.www.pages.AdvertisingActivity;
 import ir.iraddress.www.pages.TermsAndConditionsActivity;
 import ir.iraddress.www.profile.ProfileActivity;
@@ -232,7 +233,7 @@ public class MainActivity extends MainController implements NavigationView.OnNav
             intent = new Intent(this, ProfileActivity.class);
             startActivityForResult(intent, CODE_FOR_LOGOUT);
         } else if (id == R.id.nav_new_directory){
-            intent = new Intent(this, ProfileActivity.class);
+            intent = new Intent(this, NewDirectoryActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_trip) {
             intent = new Intent(this, ProfileActivity.class);

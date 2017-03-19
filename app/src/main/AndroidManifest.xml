@@ -159,6 +159,11 @@
             android:windowSoftInputMode="stateAlwaysHidden"
             android:screenOrientation="portrait" />
 
+        <activity android:name=".new_directory.NewDirectoryActivity"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".new_directory.NewTripActivity"
+            android:screenOrientation="portrait" />
 
     </application>
 
