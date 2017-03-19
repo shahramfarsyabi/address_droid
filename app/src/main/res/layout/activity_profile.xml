@@ -106,7 +106,7 @@
                             android:textColor="@color/colorWhite"
                             android:text="@string/trip"
                             android:id="@+id/trips_count"
-                            android:textSize="15sp"
+                            android:textSize="12sp"
                             android:gravity="center"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
@@ -131,7 +131,7 @@
                             android:textColor="@color/colorWhite"
                             android:text="@string/comment"
                             android:id="@+id/comments_count"
-                            android:textSize="15sp"
+                            android:textSize="12sp"
                             android:gravity="center"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
@@ -155,7 +155,7 @@
                             android:textColor="@color/colorWhite"
                             android:text="@string/photo"
                             android:id="@+id/photos_count"
-                            android:textSize="15sp"
+                            android:textSize="12sp"
                             android:gravity="center"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
@@ -179,7 +179,7 @@
                             android:textColor="@color/colorWhite"
                             android:text="@string/item"
                             android:id="@+id/items_count"
-                            android:textSize="15sp"
+                            android:textSize="12sp"
                             android:gravity="center"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
@@ -202,6 +202,7 @@
                     android:elevation="10dp"
                     android:textColor="@color/colorWhite"
                     android:text="@string/followers"
+                    android:textSize="13sp"
                     android:layout_gravity="center"
                     android:background="@drawable/rounded_corners_blue"
                     android:layout_width="0dp"
@@ -215,6 +216,7 @@
                     android:elevation="10dp"
                     android:textColor="@color/colorWhite"
                     android:text="@string/followings"
+                    android:textSize="13sp"
                     android:layout_gravity="center"
                     android:background="@drawable/rounded_corners_green"
                     android:layout_width="0dp"
