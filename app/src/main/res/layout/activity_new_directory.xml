@@ -1,66 +1,212 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <ir.iraddress.www.extend.TextInputEditTextIranSans
-        android:hint="Title"
+    android:layout_height="wrap_content">
+    <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
-        android:layout_height="56dp" />
-
-    <ir.iraddress.www.extend.TextInputEditTextIranSans
-        android:hint="Description"
+        android:layout_height="56dp"
+        android:background="@drawable/toolbar_address_gradiant"
+        android:theme="?attr/actionBarTheme"
+        android:minHeight="?attr/actionBarSize"
+        android:id="@+id/toolbar_diractoris_list"
+        android:elevation="2dp"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        android:paddingLeft="0dp"
+        android:paddingStart="0dp"
+        android:paddingRight="0dp"
+        android:paddingEnd="0dp">
+        <Button
+            android:onClick="onBackPressed"
+            android:layout_gravity="end"
+            android:background="@drawable/ic_arrow_pointing_to_right"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:scaleX="0.5"
+            android:scaleY="0.5"/>
+        <ir.iraddress.www.extend.TextViewIranSansBold
+            android:layout_gravity="end"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:text="@string/add_item_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </android.support.v7.widget.Toolbar>
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="56dp" />
-
-    <ir.iraddress.www.extend.TextInputEditTextIranSans
-        android:hint="Address"
-        android:layout_width="match_parent"
-        android:layout_height="56dp" />
-
-    <ir.iraddress.www.extend.TextInputEditTextIranSans
-        android:hint="@string/Email"
-        android:layout_width="match_parent"
-        android:layout_height="56dp" />
-
-    <ir.iraddress.www.extend.TextInputEditTextIranSans
-        android:hint="Phone"
-        android:layout_width="match_parent"
-        android:layout_height="56dp" />
-
-    <ir.iraddress.www.extend.TextInputEditTextIranSans
-        android:hint="WebSite"
-        android:layout_width="match_parent"
-        android:layout_height="56dp" />
-
-
-    <ir.iraddress.www.extend.TextViewIranSans
-        android:onClick="showMapDialog"
-        android:drawableRight="@drawable/about"
-        android:text="Google Map"
-        android:gravity="center|right"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <ir.iraddress.www.extend.TextViewIranSans
-        android:onClick="showExpandableCategoriesList"
-        android:drawableRight="@drawable/about"
-        android:text="@string/categories"
-        android:gravity="center|right"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <ir.iraddress.www.extend.TextViewIranSans
-        android:onClick="showFacilitiesList"
-        android:drawableRight="@drawable/about"
-        android:text="@string/facilities"
-        android:gravity="center|right"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <ir.iraddress.www.extend.AppButton
-        android:text="Submit Request"
-        android:layout_width="match_parent"
-        android:layout_height="56dp" />
-
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layoutDirection="rtl">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/borderGray" />
+                <ir.iraddress.www.extend.TextInputEditTextIranSans
+                    android:hint="@string/name"
+                    android:layout_width="match_parent"
+                    android:textSize="13sp"
+                    android:inputType="text"
+                    android:layout_height="60dp"
+                    android:background="@color/colorWhite"
+                    android:textDirection="rtl"
+                    android:paddingStart="15dp"
+                    android:paddingLeft="15dp"
+                    android:paddingEnd="15dp"
+                    android:paddingRight="15dp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/borderGray" />
+                <ir.iraddress.www.extend.TextInputEditTextIranSans
+                    android:hint="@string/address"
+                    android:layout_width="match_parent"
+                    android:textSize="13sp"
+                    android:inputType="text"
+                    android:layout_height="60dp"
+                    android:background="@color/colorWhite"
+                    android:textDirection="rtl"
+                    android:paddingStart="15dp"
+                    android:paddingLeft="15dp"
+                    android:paddingEnd="15dp"
+                    android:paddingRight="15dp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/borderGray" />
+                <ir.iraddress.www.extend.TextInputEditTextIranSans
+                    android:hint="@string/phone_number"
+                    android:layout_width="match_parent"
+                    android:textSize="13sp"
+                    android:inputType="phone"
+                    android:layout_height="60dp"
+                    android:background="@color/colorWhite"
+                    android:textDirection="ltr"
+                    android:paddingStart="15dp"
+                    android:paddingLeft="15dp"
+                    android:paddingEnd="15dp"
+                    android:paddingRight="15dp"
+                    android:gravity="end|center"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/borderGray" />
+                <ir.iraddress.www.extend.TextInputEditTextIranSans
+                    android:hint="@string/website"
+                    android:layout_width="match_parent"
+                    android:textSize="13sp"
+                    android:inputType="text"
+                    android:layout_height="60dp"
+                    android:background="@color/colorWhite"
+                    android:textDirection="ltr"
+                    android:paddingStart="15dp"
+                    android:paddingLeft="15dp"
+                    android:paddingEnd="15dp"
+                    android:paddingRight="15dp"
+                    android:gravity="end|center"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/borderGray" />
+                <ir.iraddress.www.extend.TextInputEditTextIranSans
+                    android:hint="@string/email"
+                    android:layout_width="match_parent"
+                    android:textSize="13sp"
+                    android:inputType="text"
+                    android:layout_height="60dp"
+                    android:background="@color/colorWhite"
+                    android:textDirection="ltr"
+                    android:paddingStart="15dp"
+                    android:paddingLeft="15dp"
+                    android:paddingEnd="15dp"
+                    android:paddingRight="15dp"
+                    android:gravity="end|center"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/borderGray" />
+                <ir.iraddress.www.extend.TextInputEditTextIranSans
+                    android:hint="@string/description"
+                    android:layout_width="match_parent"
+                    android:textSize="13sp"
+                    android:inputType="text"
+                    android:layout_height="120dp"
+                    android:background="@color/colorWhite"
+                    android:gravity="top"
+                    android:textDirection="rtl"
+                    android:padding="15dp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/borderGray" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="15dp"
+                android:layoutDirection="rtl">
+                <ir.iraddress.www.extend.TextViewIranSans
+                    android:onClick="showExpandableCategoriesList"
+                    android:drawableTop="@drawable/ic_cats"
+                    android:drawablePadding="10dp"
+                    android:text="@string/categories"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"/>
+                <LinearLayout
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/borderGray"/>
+                <ir.iraddress.www.extend.TextViewIranSans
+                    android:onClick="showMapDialog"
+                    android:drawableTop="@drawable/ic_placeholder_on_map_paper_in_perspective"
+                    android:drawablePadding="10dp"
+                    android:text="@string/location"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"/>
+                <LinearLayout
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/borderGray"/>
+                <ir.iraddress.www.extend.TextViewIranSans
+                    android:onClick="showFacilitiesList"
+                    android:drawableTop="@drawable/ic_clipboard_verification_symbol"
+                    android:drawablePadding="10dp"
+                    android:text="@string/facilities"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ir.iraddress.www.extend.AppButton
+                    android:text="@string/submit_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:background="@drawable/rounded_corners_green"
+                    android:textSize="13sp"
+                    android:textColor="@color/colorWhite"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
