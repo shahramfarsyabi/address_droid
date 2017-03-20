@@ -8,12 +8,59 @@
         android:layout_width="match_parent"
         android:layout_height="56dp" />
 
+    <ir.iraddress.www.extend.TextInputEditTextIranSans
+        android:hint="Description"
+        android:layout_width="match_parent"
+        android:layout_height="56dp" />
+
+    <ir.iraddress.www.extend.TextInputEditTextIranSans
+        android:hint="Address"
+        android:layout_width="match_parent"
+        android:layout_height="56dp" />
+
+    <ir.iraddress.www.extend.TextInputEditTextIranSans
+        android:hint="@string/Email"
+        android:layout_width="match_parent"
+        android:layout_height="56dp" />
+
+    <ir.iraddress.www.extend.TextInputEditTextIranSans
+        android:hint="Phone"
+        android:layout_width="match_parent"
+        android:layout_height="56dp" />
+
+    <ir.iraddress.www.extend.TextInputEditTextIranSans
+        android:hint="WebSite"
+        android:layout_width="match_parent"
+        android:layout_height="56dp" />
+
+
     <ir.iraddress.www.extend.TextViewIranSans
-        android:onClick="showExpandableCategoriesList"
+        android:onClick="showMapDialog"
         android:drawableRight="@drawable/about"
-        android:text="انتخاب دسته"
+        android:text="Google Map"
         android:gravity="center|right"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    <ir.iraddress.www.extend.TextViewIranSans
+        android:onClick="showExpandableCategoriesList"
+        android:drawableRight="@drawable/about"
+        android:text="@string/categories"
+        android:gravity="center|right"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ir.iraddress.www.extend.TextViewIranSans
+        android:onClick="showFacilitiesList"
+        android:drawableRight="@drawable/about"
+        android:text="@string/facilities"
+        android:gravity="center|right"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ir.iraddress.www.extend.AppButton
+        android:text="Submit Request"
+        android:layout_width="match_parent"
+        android:layout_height="56dp" />
 
 </LinearLayout>

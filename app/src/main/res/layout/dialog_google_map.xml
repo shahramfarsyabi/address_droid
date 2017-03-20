@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/map"
+        tools:context=".MapsActivity"
+        android:name="com.google.android.gms.maps.SupportMapFragment" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ir.iraddress.www.extend.AppButton
+            android:id="@+id/btnSave"
+            android:text="save"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="56dp" />
+
+        <ir.iraddress.www.extend.AppButton
+            android:id="@+id/btnCancel"
+            android:text="cancel"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="56dp" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
