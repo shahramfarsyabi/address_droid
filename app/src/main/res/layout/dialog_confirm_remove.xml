@@ -54,7 +54,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1">
                     <ir.iraddress.www.extend.AppButton
-                        android:id="@+id/select_from_camera"
+                        android:id="@+id/yes"
                         android:gravity="center"
                         android:textSize="13sp"
                         android:text="@string/delete_comment_yes"
@@ -74,7 +74,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1">
                     <ir.iraddress.www.extend.AppButton
-                        android:id="@+id/select_from_gallery"
+                        android:id="@+id/no"
                         android:gravity="center"
                         android:textSize="13sp"
                         android:text="@string/delete_comment_no"

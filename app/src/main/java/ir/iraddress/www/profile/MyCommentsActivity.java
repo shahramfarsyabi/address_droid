@@ -19,6 +19,7 @@ import org.json.JSONObject;
 
 import ir.iraddress.www.MainController;
 import ir.iraddress.www.R;
+import ir.iraddress.www.extend.AppButton;
 
 /**
  * Created by shahram on 2/16/17.
@@ -60,35 +61,36 @@ public class MyCommentsActivity extends ProfileMainActivity {
 
     public void onClickRemove(final View view){
 
-        Dialog dialogRemove = new Dialog(this);
+        final Dialog dialogRemove = new Dialog(this);
         dialogRemove.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         dialogRemove.setContentView(R.layout.dialog_confirm_remove);
+
+        AppButton yes = (AppButton) dialogRemove.findViewById(R.id.yes);
+        AppButton no = (AppButton) dialogRemove.findViewById(R.id.no);
+
+        yes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    comment = (JSONObject) view.getTag();
+                    deleteRequest("users/"+user.getInt("id")+"/comments/"+comment.getInt("comment_id"), params);
+                    dialogRemove.cancel();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        no.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogRemove.cancel();
+            }
+        });
+
         dialogRemove.show();
 
-//        AlertDialog confirmation = new AlertDialog.Builder(this)
-//        .setTitle("Destroy")
-//        .setMessage("Are you sure you want remove this item ?")
-//        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-//                System.out.println("btn remove comment "+view.getTag());
-//
-//                try {
-//                    comment = (JSONObject) view.getTag();
-//                    deleteRequest("users/"+user.getInt("id")+"/comments/"+comment.getInt("comment_id"), params);
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
-//
-//            }
-//        })
-//        .setNegativeButton("No", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-//                Toast.makeText(getApplicationContext(), "cancel", Toast.LENGTH_SHORT).show();
-//            }
-//        }).show();
     }
 
     @Override
