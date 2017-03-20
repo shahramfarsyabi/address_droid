@@ -6,7 +6,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -16,8 +15,8 @@ import org.json.JSONObject;
 
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import ir.iraddress.www.R;
-import ir.iraddress.www.extend.TextViewIranSans;
 
 
 public class ConnectionsAdapter extends RecyclerView.Adapter<ConnectionHolder> {
@@ -56,7 +55,7 @@ public class ConnectionsAdapter extends RecyclerView.Adapter<ConnectionHolder> {
                     break;
             }
 
-            ImageView avatar = (ImageView) holder.person.findViewById(R.id.person_image);
+            CircleImageView avatar = (CircleImageView) holder.person.findViewById(R.id.person_image);
             TextView name = (TextView) holder.person.findViewById(R.id.person_name);
 
 

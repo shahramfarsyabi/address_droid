@@ -14,7 +14,7 @@
         >
 
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/person_image"
             android:src="@drawable/tehran"
             android:layout_gravity="center"
