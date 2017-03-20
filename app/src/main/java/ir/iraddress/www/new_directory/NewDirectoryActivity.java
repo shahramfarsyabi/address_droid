@@ -1,6 +1,7 @@
 package ir.iraddress.www.new_directory;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -24,13 +25,11 @@ import org.json.JSONObject;
 import ir.iraddress.www.ExpandableListAdapter;
 import ir.iraddress.www.MainController;
 import ir.iraddress.www.R;
+import ir.iraddress.www.extend.AppButton;
 import ir.iraddress.www.helper.HttpRequest;
 
 
 public class NewDirectoryActivity extends MainController {
-
-
-    private GoogleMap mMap;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -68,34 +67,8 @@ public class NewDirectoryActivity extends MainController {
     }
 
     public void showMapDialog(View view){
-
-        final Dialog googleMapDialog = new Dialog(this);
-        googleMapDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        googleMapDialog.setContentView(R.layout.dialog_google_map);
-
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
-
-        mapFragment.getMapAsync(new OnMapReadyCallback() {
-            @Override
-            public void onMapReady(GoogleMap googleMap) {
-
-                try {
-                    mMap = googleMap;
-                    myLocationServiceManager.connect();
-                    JSONObject clientLocation = (JSONObject) myLocationServiceManager.getLocation();
-
-                    LatLng sydney = new LatLng(clientLocation.getDouble("lat"), clientLocation.getDouble("lng"));
-
-//                    mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 16));
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-
-        googleMapDialog.show();
+        Intent intent = new Intent(this, NewMapDirectory.class);
+        startActivity(intent);
     }
 
     public void showFacilitiesList(View view){
