@@ -53,6 +53,7 @@
                     android:background="@color/borderGray" />
                 <ir.iraddress.www.extend.TextInputEditTextIranSans
                     android:hint="@string/name"
+                    android:tag="title"
                     android:layout_width="match_parent"
                     android:textSize="13sp"
                     android:inputType="text"
@@ -69,6 +70,7 @@
                     android:background="@color/borderGray" />
                 <ir.iraddress.www.extend.TextInputEditTextIranSans
                     android:hint="@string/address"
+                    android:tag="address"
                     android:layout_width="match_parent"
                     android:textSize="13sp"
                     android:inputType="text"
@@ -85,6 +87,7 @@
                     android:background="@color/borderGray" />
                 <ir.iraddress.www.extend.TextInputEditTextIranSans
                     android:hint="@string/phone_number"
+                    android:tag="phone"
                     android:layout_width="match_parent"
                     android:textSize="13sp"
                     android:inputType="phone"
@@ -102,6 +105,7 @@
                     android:background="@color/borderGray" />
                 <ir.iraddress.www.extend.TextInputEditTextIranSans
                     android:hint="@string/website"
+                    android:tag="webSite"
                     android:layout_width="match_parent"
                     android:textSize="13sp"
                     android:inputType="text"
@@ -119,6 +123,7 @@
                     android:background="@color/borderGray" />
                 <ir.iraddress.www.extend.TextInputEditTextIranSans
                     android:hint="@string/email"
+                    android:tag="email"
                     android:layout_width="match_parent"
                     android:textSize="13sp"
                     android:inputType="text"
@@ -136,6 +141,7 @@
                     android:background="@color/borderGray" />
                 <ir.iraddress.www.extend.TextInputEditTextIranSans
                     android:hint="@string/description"
+                    android:tag="description"
                     android:layout_width="match_parent"
                     android:textSize="13sp"
                     android:inputType="text"
@@ -195,6 +201,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <ir.iraddress.www.extend.AppButton
+                    android:onClick="submitDirectory"
                     android:text="@string/submit_item"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"

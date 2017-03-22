@@ -5,8 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ir.iraddress.www.extend.TextViewIranSans
+    <CheckBox
         android:id="@+id/facility_title"
+        android:textDirection="rtl"
+        android:layoutDirection="rtl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

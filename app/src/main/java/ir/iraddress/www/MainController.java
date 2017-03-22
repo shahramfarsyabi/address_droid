@@ -39,6 +39,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
+import cz.msebera.android.httpclient.Header;
 import ir.iraddress.www.categories.AdapterFilterCategories;
 import ir.iraddress.www.extend.AppButton;
 import ir.iraddress.www.helper.ArrayUtil;
@@ -303,7 +304,13 @@ public abstract class MainController extends AppCompatActivity {
             @Override
             public void onFailure(int statusCode , cz.msebera.android.httpclient.Header[] headers, Throwable throwable , JSONObject response){
                 pageLoading(false);
+                Toast.makeText(MainController.this, response.toString(), Toast.LENGTH_LONG).show();
                 callback(response, statusCode);
+            }
+
+            @Override
+            public void onFailure(int statusCode, cz.msebera.android.httpclient.Header[] headers, String data, Throwable throwable) {
+                Toast.makeText(context, data, Toast.LENGTH_LONG).show();
             }
         });
     }

@@ -5,7 +5,27 @@
 
     <ExpandableListView
         android:id="@+id/lvExp"
-        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0dp"
         android:layout_width="match_parent"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
+        <ir.iraddress.www.extend.AppButton
+            android:text="submit"
+            android:id="@+id/btnSubmitCategories"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <ir.iraddress.www.extend.AppButton
+            android:text="cancel"
+            android:id="@+id/btnCancel"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
 
 </LinearLayout>

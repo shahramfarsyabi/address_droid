@@ -1,12 +1,16 @@
 package ir.iraddress.www.new_directory;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -21,6 +25,7 @@ import ir.iraddress.www.R;
 public class NewMapDirectory extends MainController implements OnMapReadyCallback{
 
     private GoogleMap mMap;
+    JSONObject selectedPoint = new JSONObject();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,10 +48,40 @@ public class NewMapDirectory extends MainController implements OnMapReadyCallbac
             LatLng sydney = new LatLng(clientLocation.getDouble("lat"), clientLocation.getDouble("lng"));
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 16));
 
+            mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+                @Override
+                public void onMapClick(LatLng point) {
+                    selectedPoint = new JSONObject();
+                    try {
+
+                        selectedPoint.put("lat", point.latitude);
+                        selectedPoint.put("lng", point.longitude);
+                        mMap.clear();
+                        mMap.addMarker(new MarkerOptions().position(point));
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
 
+    }
+
+
+    public void submitMapLocation(View view){
+
+        Intent intent = getIntent();
+        intent.putExtra("point", selectedPoint.toString());
+        setResult(RESULT_OK, intent);
+        finish();
+    }
+
+    public void cancelMapLocation(View view){
+        finish();
     }
 }

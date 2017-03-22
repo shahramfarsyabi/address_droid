@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -38,8 +39,9 @@ public class FacilitiesAdapter extends RecyclerView.Adapter<FacilityHolder> {
         try {
             JSONObject facility = (JSONObject) _collection.get(position);
 
-            TextViewIranSans facilityTitle = (TextViewIranSans) holder.facility.findViewById(R.id.facility_title);
+            CheckBox facilityTitle = (CheckBox) holder.facility.findViewById(R.id.facility_title);
             facilityTitle.setText(facility.getString("title"));
+            facilityTitle.setTag(facility);
 
         } catch (JSONException e) {
             e.printStackTrace();

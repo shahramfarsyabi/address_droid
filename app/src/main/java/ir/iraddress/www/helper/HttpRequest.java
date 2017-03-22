@@ -12,7 +12,7 @@ public class HttpRequest {
 
     private static final String BASE_URL = "http://api.iraddress.ir/api/v1/";
 
-    private static AsyncHttpClient client = new AsyncHttpClient();
+    public static AsyncHttpClient client = new AsyncHttpClient();
 
     public static void get(String url, RequestParams params, JsonHttpResponseHandler responseHandler) {
         client.get(getAbsoluteUrl(url), params, responseHandler);

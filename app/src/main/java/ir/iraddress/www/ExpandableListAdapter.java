@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -142,9 +143,10 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                 convertView = infalInflater.inflate(R.layout.dialog_expandable_category_item, null);
             }
 
-            TextView txtListChild = (TextView) convertView.findViewById(R.id.lblListItem);
+            CheckBox txtListChild = (CheckBox) convertView.findViewById(R.id.lblListItem);
 
             txtListChild.setText(childText);
+            txtListChild.setTag(childCategory);
 
         } catch (JSONException e) {
             e.printStackTrace();
