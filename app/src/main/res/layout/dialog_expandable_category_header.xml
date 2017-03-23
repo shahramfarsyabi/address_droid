@@ -3,13 +3,19 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <ir.iraddress.www.extend.TextViewIranSans
         android:id="@+id/lblListHeader"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"
-        android:textSize="17dp"
+        android:textSize="13sp"
         android:text="@string/accept"
-        android:textColor="#000" />
+        android:textColor="@color/colorBlack"
+        android:padding="15dp"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorLightGray"/>
 
 </LinearLayout>
