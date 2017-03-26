@@ -17,7 +17,6 @@
     <string name="be_first_to_comment">اولین نفری باشید که نظر ارسال می کنید</string>
     <string name="see_all_comments">مشاهده همه نظرات</string>
     <string name="comment">نظر</string>
-    <string name="comments">نظرات</string>
     <string name="loading">در حال بارگذاری</string>
     <string name="profile">پروفایل</string>
     <string name="write_your_comment">نظر خود را بنویسید</string>
@@ -38,6 +37,10 @@
     <string name="myphotos">عکس های من</string>
     <string name="mytrips">سفرهای من</string>
     <string name="mycomments">نظرهای من</string>
+    <string name="items">آیتم ها</string>
+    <string name="photos">عکس ها</string>
+    <string name="trips">سفرها</string>
+    <string name="comments">نظر ها</string>
     <string name="near_items_on_map">نزدیک ترین ها روی نقشه</string>
     <string name="create_account">ساخت حساب کاربری</string>
     <string name="name">نام</string>

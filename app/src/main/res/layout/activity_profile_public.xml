@@ -39,7 +39,7 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:gravity="center"
@@ -184,26 +184,14 @@
                 android:layout_height="wrap_content">
 
                 <ir.iraddress.www.extend.AppButton
-                    android:layout_margin="10dp"
-                    android:elevation="10dp"
-                    android:textColor="@color/colorBlack"
-                    android:backgroundTint="@color/colorWhite"
-                    android:text="ارسال پیام"
-                    android:layout_gravity="center"
-                    android:background="@drawable/rounded_corners"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="match_parent" />
-
-                <ir.iraddress.www.extend.AppButton
                     android:onClick="btnSendRequestForFollow"
                     android:layout_margin="10dp"
                     android:elevation="10dp"
-                    android:textColor="@color/colorBlack"
-                    android:backgroundTint="@color/colorWhite"
-                    android:text="دنبال کردن"
+                    android:textColor="@color/colorWhite"
+                    android:text="@string/follow"
+                    android:textSize="13sp"
                     android:layout_gravity="center"
-                    android:background="@drawable/rounded_corners"
+                    android:background="@drawable/rounded_corners_blue"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="match_parent" />
@@ -241,7 +229,7 @@
                     <ir.iraddress.www.extend.TextViewIranSans
                         android:layout_margin="10dp"
                         android:textAlignment="center"
-                        android:text="آیتم ها"
+                        android:text="@string/items"
                         android:textStyle="bold"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
@@ -257,7 +245,7 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:contentDescription="@string/myphotos"
+                        android:contentDescription="@string/photos"
                         android:src="@drawable/images"
                         android:layout_width="match_parent"
                         android:layout_height="120dp" />
@@ -265,7 +253,7 @@
                     <ir.iraddress.www.extend.TextViewIranSans
                         android:layout_margin="10dp"
                         android:textAlignment="center"
-                        android:text="عکس ها"
+                        android:text="@string/photos"
                         android:textStyle="bold"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
@@ -290,7 +278,7 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:contentDescription="@string/mytrips"
+                        android:contentDescription="@string/trips"
                         android:src="@drawable/trips"
                         android:layout_width="match_parent"
                         android:layout_height="120dp" />
@@ -298,7 +286,7 @@
                     <ir.iraddress.www.extend.TextViewIranSans
                         android:layout_margin="10dp"
                         android:textAlignment="center"
-                        android:text="سفر ها"
+                        android:text="@string/trips"
                         android:textStyle="bold"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
@@ -314,7 +302,7 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:contentDescription="@string/mycomments"
+                        android:contentDescription="@string/comments"
                         android:src="@drawable/comments"
                         android:layout_width="match_parent"
                         android:layout_height="120dp" />
@@ -322,13 +310,12 @@
                     <ir.iraddress.www.extend.TextViewIranSans
                         android:layout_margin="10dp"
                         android:textAlignment="center"
-                        android:text="نظر ها"
+                        android:text="@string/comments"
                         android:textStyle="bold"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
                 </LinearLayout>
             </LinearLayout>
-
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
