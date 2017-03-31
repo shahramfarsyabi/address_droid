@@ -13,10 +13,8 @@
         android:background="@color/colorLightGray"
         >
 
-
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/person_image"
-            android:src="@drawable/tehran"
             android:layout_gravity="center"
             android:layout_width="60dp"
             android:layout_height="60dp"
@@ -33,7 +31,6 @@
 
             <ir.iraddress.www.extend.TextViewIranSans
                 android:id="@+id/person_name"
-                android:text="خشایار پور ادبی"
                 android:textColor="@color/colorBlack"
                 android:layout_width="match_parent"
                 android:layout_gravity="center"

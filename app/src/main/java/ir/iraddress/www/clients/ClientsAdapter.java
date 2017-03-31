@@ -61,6 +61,27 @@ public class ClientsAdapter extends RecyclerView.Adapter<ClientHolder> {
             AppButton btnFollowUnFollow = (AppButton) holder.linearLayout.findViewById(R.id.btnSendRequestFollowUnFollow);
             btnFollowUnFollow.setTag(client);
 
+            if(client.get("connected_with_me") != null){
+
+                switch(client.getJSONObject("connected_with_me").getString("status")){
+                    case "pending":
+                        btnFollowUnFollow.setText(R.string.connection_pending);
+                        break;
+
+                    case "accepted":
+                        btnFollowUnFollow.setText(R.string.connection_accepted);
+                        break;
+
+                    case "rejected":
+                        btnFollowUnFollow.setText(R.string.connection_rejected);
+                        break;
+
+                    default:
+                        btnFollowUnFollow.setText(R.string.follow);
+                        break;
+                }
+            }
+
 
 
         } catch (JSONException e) {

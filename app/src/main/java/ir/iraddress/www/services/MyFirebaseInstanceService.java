@@ -47,7 +47,6 @@ public class MyFirebaseInstanceService extends FirebaseInstanceIdService {
     private void sendRegistrationToServer(String refreshedToken) throws JSONException {
 
         sharedPrefered = new SharedPrefered(this, "user");
-        Toast.makeText(MyFirebaseInstanceService.this, "FCM need to be Update", Toast.LENGTH_LONG).show();
 
         if(sharedPrefered.count() > 0){
             user = sharedPrefered.findByIndex(0);
@@ -60,7 +59,7 @@ public class MyFirebaseInstanceService extends FirebaseInstanceIdService {
 
             syncHttpClient.put("http://app.iraddress.ir/api/v1/users/"+user.getInt("id")+"/profile", requestParams, new JsonHttpResponseHandler(){
                 public void onSuccess(int statusCode, Header[] headers, JSONObject responseBody) {
-                    Toast.makeText(MyFirebaseInstanceService.this, "FCM Updated", Toast.LENGTH_SHORT).show();
+
                 }
             });
         }

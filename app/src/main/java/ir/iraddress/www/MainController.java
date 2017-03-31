@@ -90,6 +90,7 @@ public abstract class MainController extends AppCompatActivity {
 
         extras = getIntent().getExtras();
         context = this;
+        HttpRequest.setHeader(context);
         myLocationServiceManager = new MyLocationServiceManager(this, this);
         getWindow().getDecorView().setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
         loadingView = new Dialog(this);
@@ -341,6 +342,12 @@ public abstract class MainController extends AppCompatActivity {
             public void onFailure(int statusCode , cz.msebera.android.httpclient.Header[] headers, Throwable throwable , JSONObject response){
                 pageLoading(false);
 
+            }
+
+            @Override
+            public void onFailure(int statusCode , cz.msebera.android.httpclient.Header[] headers, String data, Throwable throwable){
+                pageLoading(false);
+                System.out.println(data);
             }
         });
     }

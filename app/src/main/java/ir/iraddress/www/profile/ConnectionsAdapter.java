@@ -43,6 +43,7 @@ public class ConnectionsAdapter extends RecyclerView.Adapter<ConnectionHolder> {
     public void onBindViewHolder(ConnectionHolder holder, int position) {
 
         try {
+            
             JSONObject connection = (JSONObject) collection.get(position);
             final JSONObject personData;
 
@@ -63,7 +64,6 @@ public class ConnectionsAdapter extends RecyclerView.Adapter<ConnectionHolder> {
             CircleImageView avatar = (CircleImageView) holder.person.findViewById(R.id.person_image);
             TextView name = (TextView) holder.person.findViewById(R.id.person_name);
 
-
             Picasso.with(context).load(personData.getString("avatar")).fit().centerCrop().into(avatar);
             name.setText(personData.getString("fullName"));
 
@@ -81,8 +81,8 @@ public class ConnectionsAdapter extends RecyclerView.Adapter<ConnectionHolder> {
             });
 
 
-
             switch(connection.getString("status")){
+
                 case "accepted":
                     accept.setVisibility(View.GONE);
                     break;
