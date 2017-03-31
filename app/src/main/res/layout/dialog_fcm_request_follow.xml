@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@color/colorWhite"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:background="@drawable/toolbar_address_gradiant"
+        android:layout_width="match_parent"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:layout_height="56dp">
+        <ImageView
+            android:src="@drawable/ic_main_logo"
+            android:layout_width="56dp"
+            android:layout_height="56dp" />
+        <TextView
+            android:textColor="@color/colorWhite"
+            android:paddingStart="10dp"
+            android:text="FCM"
+            android:gravity="center|start"
+            android:id="@+id/notification_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:padding="10dp"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:minHeight="150dp"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:textColor="@color/colorBlack"
+            android:id="@+id/notification_body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:gravity="end"
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
+
+        <Button
+            android:id="@+id/btnCloseDialogFcm"
+            android:layout_gravity="end"
+            android:gravity="center"
+            android:text="close"
+            android:background="@color/colorWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+        <ir.iraddress.www.extend.AppButton
+            android:id="@+id/btn_reject_connection"
+            android:layout_gravity="end"
+            android:gravity="center"
+            android:text="Reject"
+            android:background="@color/colorWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+        <ir.iraddress.www.extend.AppButton
+            android:id="@+id/btn_accept_connection"
+            android:layout_gravity="end"
+            android:gravity="center"
+            android:text="Accept"
+            android:background="@color/colorWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+</LinearLayout>

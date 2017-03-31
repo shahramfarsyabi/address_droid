@@ -225,7 +225,7 @@ public class MainActivity extends MainController implements NavigationView.OnNav
             startActivity(intent);
         } else if (id == R.id.nav_signup){
             intent = new Intent(this, SignUpActivity.class);
-            startActivity(intent);
+            startActivityForResult(intent, CODE_FOR_LOGIN);
         } else if (id == R.id.nav_signin){
             intent = new Intent(this, SignInActivity.class);
             startActivityForResult(intent, CODE_FOR_LOGIN);

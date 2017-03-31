@@ -29,11 +29,11 @@ public class ConnectionsActivity extends ProfileMainActivity {
         TextViewIranSansBold textViewIranSansBold = (TextViewIranSansBold) findViewById(R.id.toolbar_title_connections);
         switch(extras.getString("type")){
             case "followers":
-                textViewIranSansBold.setText("دنبال شونده ها");
+                textViewIranSansBold.setText("دنبال کننده ها");
                 break;
 
             default :
-                textViewIranSansBold.setText("دنبال کننده ها");
+                textViewIranSansBold.setText("دنبال شونده ها");
                 break;
         }
 

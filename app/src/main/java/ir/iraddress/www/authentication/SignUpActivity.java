@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.loopj.android.http.RequestParams;
 
 import org.json.JSONArray;
@@ -60,6 +61,7 @@ public class SignUpActivity extends MainController {
         params.put("lastName", lastName.getText().toString());
         params.put("firstName", firstName.getText().toString());
         params.put("mobile", mobile.getText().toString());
+        params.put("fcm_token", FirebaseInstanceId.getInstance().getToken());
 
         postRequest("signup", params);
 
@@ -84,10 +86,14 @@ public class SignUpActivity extends MainController {
                     sharedPrefered.empty();
                     sharedPrefered.store(response);
 
-                    finish();
+                    Intent returnIntent = getIntent();
+                    returnIntent.putExtra("resultCode", CODE_FOR_LOGIN);
+                    setResult(RESULT_OK,returnIntent);
 
                     Intent intent = new Intent(context, ProfileActivity.class);
                     startActivity(intent);
+
+                    finish();
 
                 } catch (JSONException e) {
                     e.printStackTrace();

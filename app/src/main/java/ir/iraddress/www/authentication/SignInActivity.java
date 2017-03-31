@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.loopj.android.http.RequestParams;
 
 import org.json.JSONArray;
@@ -49,6 +50,8 @@ public class SignInActivity extends MainController {
         RequestParams params = new RequestParams();
         params.put("email", email.getText().toString());
         params.put("password", password.getText().toString());
+        params.put("fcm_token", FirebaseInstanceId.getInstance().getToken());
+
         postRequest("signin", params);
 
     }

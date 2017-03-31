@@ -15,6 +15,7 @@ import org.json.JSONObject;
 import java.util.List;
 
 import ir.iraddress.www.R;
+import ir.iraddress.www.extend.AppButton;
 import ir.iraddress.www.extend.TextViewIranSansBold;
 
 /**
@@ -54,7 +55,13 @@ public class ClientsAdapter extends RecyclerView.Adapter<ClientHolder> {
             Picasso.with(context).load(client.getString("avatar")).fit().centerCrop().into(avatar);
             fullanem.setText(client.getString("fullName"));
 
+            client.put("follow_type", "follow");
+
             holder.linearLayout.setTag(client);
+            AppButton btnFollowUnFollow = (AppButton) holder.linearLayout.findViewById(R.id.btnSendRequestFollowUnFollow);
+            btnFollowUnFollow.setTag(client);
+
+
 
         } catch (JSONException e) {
             e.printStackTrace();

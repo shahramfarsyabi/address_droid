@@ -23,13 +23,14 @@ import ir.iraddress.www.MainController;
 import ir.iraddress.www.R;
 import ir.iraddress.www.directories.DirectoriesAdapter;
 import ir.iraddress.www.extend.TextViewIranSansBold;
+import ir.iraddress.www.profile.ProfileMainActivity;
 import ir.iraddress.www.profile.PublicProfileActivity;
 
 /**
  * Created by shahram on 3/10/17.
  */
 
-public class ClientsActivity extends MainController {
+public class ClientsActivity extends ProfileMainActivity {
 
     Timer timer = new Timer();
 

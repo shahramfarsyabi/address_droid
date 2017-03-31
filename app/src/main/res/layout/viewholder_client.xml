@@ -53,6 +53,8 @@
                 android:paddingRight="0dp"
                 android:layout_height="match_parent">
                 <ir.iraddress.www.extend.AppButton
+                    android:id="@+id/btnSendRequestFollowUnFollow"
+                    android:onClick="requestFollowOrUnfollow"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:background="@drawable/rounded_corners_green"

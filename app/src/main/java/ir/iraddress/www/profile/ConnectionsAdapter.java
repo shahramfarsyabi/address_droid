@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -42,16 +43,20 @@ public class ConnectionsAdapter extends RecyclerView.Adapter<ConnectionHolder> {
     public void onBindViewHolder(ConnectionHolder holder, int position) {
 
         try {
-            JSONObject person = (JSONObject) collection.get(position);
+            JSONObject connection = (JSONObject) collection.get(position);
             final JSONObject personData;
+
+            Button accept = (Button) holder.person.findViewById(R.id.btnOnClickAcceptConnection);
+            Button reject = (Button) holder.person.findViewById(R.id.btnOnClickRejectConnection);
 
             switch(type){
                 case "followers":
-                    personData = person.getJSONObject("followers");
+                    personData = connection.getJSONObject("followers");
                     break;
 
                 default:
-                    personData = person.getJSONObject("followed");
+                    personData = connection.getJSONObject("followed");
+
                     break;
             }
 
@@ -74,6 +79,29 @@ public class ConnectionsAdapter extends RecyclerView.Adapter<ConnectionHolder> {
                     }
                 }
             });
+
+
+
+            switch(connection.getString("status")){
+                case "accepted":
+                    accept.setVisibility(View.GONE);
+                    break;
+
+                case "rejected":
+                    holder.person.setVisibility(View.GONE);
+                    break;
+
+                case "pending":
+                    if(type.equals("followed")){
+                        accept.setVisibility(View.GONE);
+                    }else{
+                        accept.setVisibility(View.VISIBLE);
+                    }
+                    break;
+            }
+
+            accept.setTag(connection);
+            reject.setTag(connection);
 
         } catch (JSONException e) {
             e.printStackTrace();

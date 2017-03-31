@@ -1,9 +1,11 @@
 package ir.iraddress.www;
 
 import android.app.Dialog;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Typeface;
@@ -25,6 +27,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.RatingBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -71,6 +74,8 @@ public abstract class MainController extends AppCompatActivity {
     public static final int CODE_FOR_LOGIN = 1;
     public final int READ_REQUEST_CODE = 42;
     public Dialog advanceFilter;
+    public BroadcastReceiver broadcastReceiver;
+    public IntentFilter intentFilter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -91,6 +96,83 @@ public abstract class MainController extends AppCompatActivity {
         loadingView.setCancelable(false);
         loadingView.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
         loadingView.setContentView(R.layout.dialog_loading);
+
+
+        broadcastReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, final Intent intent) {
+
+
+                final Dialog dialogFCM = new Dialog(context, R.style.MyDialogSize);
+                dialogFCM.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+
+                switch (intent.getExtras().getString("fcm_type")){
+                    case "request_follow":
+                        dialogFCM.setContentView(R.layout.dialog_fcm_request_follow);
+                        AppButton acceptConnection = (AppButton) dialogFCM.findViewById(R.id.btn_accept_connection);
+                        AppButton rejectConnection = (AppButton) dialogFCM.findViewById(R.id.btn_reject_connection);
+
+                        final RequestParams followParams = new RequestParams();
+
+                        acceptConnection.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                System.out.println(intent.getExtras().getString("accept"));
+                                HttpRequest.put(intent.getExtras().getString("accept"), followParams, new JsonHttpResponseHandler(){
+                                    @Override
+                                    public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, JSONObject response) {
+                                        dialogFCM.cancel();
+                                    }
+                                });
+
+
+                            }
+                        });
+
+                        rejectConnection.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                System.out.println(intent.getExtras().getString("reject"));
+                                HttpRequest.put(intent.getExtras().getString("reject"), followParams, new JsonHttpResponseHandler(){
+                                    @Override
+                                    public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, JSONObject response) {
+                                        dialogFCM.cancel();
+                                    }
+                                });
+                            }
+                        });
+
+                        break;
+
+                    default :
+                        dialogFCM.setContentView(R.layout.dialog_fcm);
+                        break;
+                }
+
+                TextView fcmBody = (TextView) dialogFCM.findViewById(R.id.notification_body);
+                TextView fcmTitle = (TextView) dialogFCM.findViewById(R.id.notification_title);
+                fcmBody.setText(intent.getExtras().getString("notification_body"));
+                fcmTitle.setText(intent.getExtras().getString("notification_title"));
+                Button btnCloseDialogFcm = (Button) dialogFCM.findViewById(R.id.btnCloseDialogFcm);
+                btnCloseDialogFcm.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialogFCM.cancel();
+                    }
+                });
+                dialogFCM.show();
+
+
+
+
+//                myNewActivity = new Intent(context, FirebaseMessageActivity.class);
+//                startActivity(myNewActivity);
+            }
+        };
+
+        intentFilter = new IntentFilter("OPEN_NEW_ACTIVITY");
+
     }
 
     @Override
@@ -99,13 +181,6 @@ public abstract class MainController extends AppCompatActivity {
         if(!checkInternetConnection()){
             return;
         }
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-
     }
 
     @Override
@@ -481,6 +556,20 @@ public abstract class MainController extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        registerReceiver(broadcastReceiver, intentFilter);
 
+    }
+
+    @Override
+    protected void onPause() {
+        if(broadcastReceiver != null){
+            unregisterReceiver(broadcastReceiver);
+            broadcastReceiver = null;
+        }
+        super.onPause();
+    }
 
 }
