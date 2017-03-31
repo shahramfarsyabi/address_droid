@@ -13,7 +13,7 @@
         <item
             android:id="@+id/nav_contactus"
             android:icon="@drawable/ic_telephone_handle_silhouette"
-            android:title="@string/contact" />
+            android:title="@string/support" />
 
         <item
             android:id="@+id/nav_profile"

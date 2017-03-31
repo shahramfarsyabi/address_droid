@@ -3,6 +3,7 @@ package ir.iraddress.www;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -215,7 +216,8 @@ public class MainActivity extends MainController implements NavigationView.OnNav
         Intent intent = null;
 
         if (id == R.id.nav_contactus) {
-            intent = new Intent(this, ContactUsActivity.class);
+            intent = new Intent(Intent.ACTION_DIAL);
+            intent.setData(Uri.parse("tel:0123456789"));
             startActivity(intent);
         } else if(id == R.id.nav_about){
             intent = new Intent(this, AboutUsActivity.class);
