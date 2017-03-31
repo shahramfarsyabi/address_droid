@@ -2,6 +2,7 @@ package ir.iraddress.www.new_directory;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.widget.LinearLayoutManager;
@@ -26,6 +27,8 @@ import com.loopj.android.http.RequestParams;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.Iterator;
 
 import ir.iraddress.www.ExpandableListAdapter;
 import ir.iraddress.www.MainController;
@@ -223,7 +226,6 @@ public class NewDirectoryActivity extends MainController {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                Toast.makeText(context, selectedLocation.toString() , Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -233,6 +235,17 @@ public class NewDirectoryActivity extends MainController {
     public void submitDirectory(View view) throws JSONException {
         newDirectory = new RequestParams();
         findFormText((ViewGroup) getWindow().getDecorView().getRootView(), formData);
+
+        if(selectedCategories.length() <= 0) {
+            Toast.makeText(context, "لطفا دسته های مرتبط را انتخاب نمایید .", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if(selectedLocation.length() <= 0) {
+            Toast.makeText(context, "لطفا موقعیت مکانی را مشخص کنید .", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         newDirectory.put("categories", selectedCategories);
         newDirectory.put("facilities", selectedFacilities);
         newDirectory.put("location", selectedLocation);
@@ -254,6 +267,44 @@ public class NewDirectoryActivity extends MainController {
 
                 } catch (JSONException e) {
                     e.printStackTrace();
+                }
+                break;
+
+            case 422:
+                Iterator<String> iter = response.keys();
+                while (iter.hasNext()) {
+                    String key = iter.next();
+                    System.out.println(key);
+
+                    int id = 0;
+                    switch(key){
+                        case "title":
+                            id = R.id.directory_title;
+                            break;
+                        case "address":
+                            id = R.id.directory_address;
+                            break;
+                        case "phone":
+                            id = R.id.directory_phone;
+                            break;
+                        case "email":
+                            id = R.id.directory_email;
+                            break;
+                        case "description":
+                            id = R.id.directory_description;
+                            break;
+                    }
+
+                    TextInputEditText textInputEditText = (TextInputEditText) findViewById(id);
+                    textInputEditText.setBackgroundColor(Color.parseColor("#ffebeb"));
+
+                    try {
+                        JSONArray errorValidation = response.getJSONArray(key);
+                        Toast.makeText(context, errorValidation.get(0).toString(), Toast.LENGTH_SHORT).show();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
                 }
                 break;
 

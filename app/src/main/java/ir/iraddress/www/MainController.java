@@ -379,13 +379,15 @@ public abstract class MainController extends AppCompatActivity {
             @Override
             public void onFailure(int statusCode , cz.msebera.android.httpclient.Header[] headers, Throwable throwable , JSONObject response){
                 pageLoading(false);
-                Toast.makeText(MainController.this, response.toString(), Toast.LENGTH_LONG).show();
+//                Toast.makeText(MainController.this, response.toString(), Toast.LENGTH_LONG).show();
                 callback(response, statusCode);
             }
 
             @Override
             public void onFailure(int statusCode, cz.msebera.android.httpclient.Header[] headers, String data, Throwable throwable) {
-                Toast.makeText(context, data, Toast.LENGTH_LONG).show();
+                pageLoading(false);
+//                System.out.println(data);
+//                Toast.makeText(context, data, Toast.LENGTH_LONG).show();
             }
         });
     }

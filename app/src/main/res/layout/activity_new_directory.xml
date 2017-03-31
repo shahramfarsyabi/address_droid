@@ -52,6 +52,7 @@
                     android:layout_height="1dp"
                     android:background="@color/borderGray" />
                 <ir.iraddress.www.extend.TextInputEditTextIranSans
+                    android:id="@+id/directory_title"
                     android:hint="@string/name"
                     android:tag="title"
                     android:layout_width="match_parent"
@@ -69,6 +70,7 @@
                     android:layout_height="1dp"
                     android:background="@color/borderGray" />
                 <ir.iraddress.www.extend.TextInputEditTextIranSans
+                    android:id="@+id/directory_address"
                     android:hint="@string/address"
                     android:tag="address"
                     android:layout_width="match_parent"
@@ -86,6 +88,7 @@
                     android:layout_height="1dp"
                     android:background="@color/borderGray" />
                 <ir.iraddress.www.extend.TextInputEditTextIranSans
+                    android:id="@+id/directory_phone"
                     android:hint="@string/phone_number"
                     android:tag="phone"
                     android:layout_width="match_parent"
@@ -122,6 +125,7 @@
                     android:layout_height="1dp"
                     android:background="@color/borderGray" />
                 <ir.iraddress.www.extend.TextInputEditTextIranSans
+                    android:id="@+id/directory_email"
                     android:hint="@string/email"
                     android:tag="email"
                     android:layout_width="match_parent"
@@ -140,6 +144,7 @@
                     android:layout_height="1dp"
                     android:background="@color/borderGray" />
                 <ir.iraddress.www.extend.TextInputEditTextIranSans
+                    android:id="@+id/directory_description"
                     android:hint="@string/description"
                     android:tag="description"
                     android:layout_width="match_parent"
