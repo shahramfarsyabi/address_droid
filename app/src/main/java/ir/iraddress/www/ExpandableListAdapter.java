@@ -1,6 +1,7 @@
 package ir.iraddress.www;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,11 +22,13 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     Context _context;
     JSONArray _collection;
     LayoutInflater _inflater;
+    Typeface typeface;
 
     public ExpandableListAdapter(Context context, JSONArray collection) {
         _inflater = LayoutInflater.from(context);
         _context = context;
         _collection = collection;
+        typeface = Typeface.createFromAsset(context.getAssets(),"fonts/ttf/IRANSansWeb.ttf");
 
     }
 
@@ -146,6 +149,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
             CheckBox txtListChild = (CheckBox) convertView.findViewById(R.id.lblListItem);
 
             txtListChild.setText(childText);
+            txtListChild.setTypeface(typeface);
             txtListChild.setTag(childCategory);
 
         } catch (JSONException e) {
