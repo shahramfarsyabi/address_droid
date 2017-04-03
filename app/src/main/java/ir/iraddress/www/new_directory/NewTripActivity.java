@@ -1,7 +1,9 @@
 package ir.iraddress.www.new_directory;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.design.widget.TextInputEditText;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -9,18 +11,24 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 
+import com.loopj.android.http.RequestParams;
 import com.mohamadamin.persianmaterialdatetimepicker.date.DatePickerDialog;
 import com.mohamadamin.persianmaterialdatetimepicker.utils.PersianCalendar;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Iterator;
+
 import ir.iraddress.www.MainController;
 import ir.iraddress.www.R;
+import ir.iraddress.www.directories.DirectoryActivity;
 import ir.iraddress.www.extend.TextViewIranSans;
+import ir.iraddress.www.profile.ProfileMainActivity;
 
 
-public class NewTripActivity extends MainController implements DatePickerDialog.OnDateSetListener {
+public class NewTripActivity extends ProfileMainActivity implements DatePickerDialog.OnDateSetListener {
 
     TextViewIranSans date;
     TextViewIranSans location;
@@ -74,11 +82,70 @@ public class NewTripActivity extends MainController implements DatePickerDialog.
         formData.put("title", title.getText());
         formData.put("description", description.getText());
         formData.put("date", date.getText());
-        formData.put("city_id", "");
 
-        Toast.makeText(context, "Test save", Toast.LENGTH_SHORT).show();
+        RequestParams trip = new RequestParams();
+        trip.put("title", title.getText());
+        trip.put("content", description.getText());
+        trip.put("date", date.getText());
+        trip.put("location", selectedLocation.toString());
+
+        postRequest("users/"+user.getInt("id")+"/trips", trip);
 
     }
+
+    public void callback(JSONObject response, int statusCode){
+
+        switch (statusCode){
+            case 200:
+//                Toast.makeText(context, response.toString(), Toast.LENGTH_LONG).show();
+                try {
+
+                    finish();
+                    Intent intent = new Intent(this, DirectoryActivity.class);
+                    intent.putExtra("directory_id", response.getInt("id"));
+                    startActivity(intent);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                break;
+
+            case 422:
+                Iterator<String> iter = response.keys();
+                while (iter.hasNext()) {
+                    String key = iter.next();
+                    System.out.println(key);
+
+                    int id = 0;
+                    switch(key){
+                        case "title":
+                            id = R.id.trip_title;
+                            break;
+                        case "content":
+                            id = R.id.trip_description;
+                            break;
+                    }
+
+                    TextInputEditText textInputEditText = (TextInputEditText) findViewById(id);
+                    textInputEditText.setBackgroundColor(Color.parseColor("#ffebeb"));
+
+                    try {
+                        JSONArray errorValidation = response.getJSONArray(key);
+                        Toast.makeText(context, errorValidation.get(0).toString(), Toast.LENGTH_SHORT).show();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+                break;
+
+            default:
+
+                break;
+        }
+
+    }
+
 
     public void showDatePicker(View view){
 

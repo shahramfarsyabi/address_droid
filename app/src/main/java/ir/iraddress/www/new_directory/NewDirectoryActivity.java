@@ -312,7 +312,7 @@ public class NewDirectoryActivity extends MainController {
 
                 break;
         }
-//        mSwipeRefreshLayout.setRefreshing(false);
+
     }
 
 }

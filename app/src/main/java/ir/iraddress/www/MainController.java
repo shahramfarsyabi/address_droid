@@ -393,7 +393,7 @@ public abstract class MainController extends AppCompatActivity {
             @Override
             public void onFailure(int statusCode, cz.msebera.android.httpclient.Header[] headers, String data, Throwable throwable) {
                 pageLoading(false);
-//                System.out.println(data);
+                System.out.println(data);
 //                Toast.makeText(context, data, Toast.LENGTH_LONG).show();
             }
         });

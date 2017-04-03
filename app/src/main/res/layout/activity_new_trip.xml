@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="56dp"
@@ -18,6 +19,7 @@
         android:paddingStart="0dp"
         android:paddingRight="0dp"
         android:paddingEnd="0dp">
+
         <Button
             android:onClick="onBackPressed"
             android:layout_gravity="end"
@@ -26,6 +28,7 @@
             android:layout_height="56dp"
             android:scaleX="0.5"
             android:scaleY="0.5"/>
+
         <ir.iraddress.www.extend.TextViewIranSansBold
             android:layout_gravity="end"
             android:textColor="@color/colorWhite"
@@ -34,10 +37,13 @@
             android:text="@string/submit_trip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
+
     </android.support.v7.widget.Toolbar>
+
     <LinearLayout
+        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:orientation="vertical"
         android:layoutDirection="rtl">
         <View
@@ -170,6 +176,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <ir.iraddress.www.extend.AppButton
             android:onClick="btnSubmitTrip"
             android:text="@string/submit_trip"
@@ -184,6 +191,7 @@
             android:layout_marginEnd="15dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"/>
+
     </LinearLayout>
 
 </LinearLayout>
