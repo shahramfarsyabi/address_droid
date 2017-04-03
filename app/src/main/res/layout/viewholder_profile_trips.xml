@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/colorWhite"
+    android:id="@+id/parent_holder"
+    android:orientation="vertical"
+    android:layout_marginRight="10dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:elevation="1dp">
+
+    <android.support.v7.widget.CardView
+        android:onClick="btnShowTrip"
+        android:id="@+id/viewholder_trip_item"
+        android:layout_width="match_parent"
+        android:layout_height="120dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp">
+
+            <ImageView
+                android:layout_marginRight="5dp"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:padding="1dp"
+                android:id="@+id/trip_image"
+                android:src="@drawable/ic_noimg"
+                android:layout_alignParentRight="true"
+                android:layout_width="110dp"
+                android:layout_height="110dp" />
+
+            <LinearLayout
+                android:padding="5dp"
+                android:orientation="vertical"
+                android:layout_toLeftOf="@+id/trip_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ir.iraddress.www.extend.TextViewIranSansBold
+                    android:gravity="center"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/colorSecondary"
+                    android:text="نام دایرکتوری"
+                    android:id="@+id/trip_title"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp" />
+
+                <ir.iraddress.www.extend.TextViewIranSans
+                    android:gravity="center"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/colorGray"
+                    android:text="تاریخ"
+                    android:id="@+id/trip_date"
+                    android:layout_weight="1"
+                    android:maxLength="70"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp" />
+
+                <ir.iraddress.www.extend.TextViewIranSans
+                    android:gravity="center"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/colorGray"
+                    android:text="توسط"
+                    android:id="@+id/trip_owner"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp" />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

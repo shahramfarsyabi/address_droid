@@ -168,6 +168,9 @@
         <activity android:name=".new_directory.EditTripActivity"
             android:screenOrientation="portrait" />
 
+        <activity android:name=".profile.MyTripActivity"
+            android:screenOrientation="portrait" />
+
         <activity android:name=".new_directory.NewMapDirectory"
             android:screenOrientation="portrait" />
 

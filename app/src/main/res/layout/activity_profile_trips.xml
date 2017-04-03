@@ -39,14 +39,10 @@
 
     </android.support.v7.widget.Toolbar>
 
-    <LinearLayout
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/profile_trips_recyclerview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <ir.iraddress.www.extend.TextViewIranSansBold
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/mytrips"/>
-    </LinearLayout>
+        android:layout_height="match_parent" />
 
 
 </LinearLayout>

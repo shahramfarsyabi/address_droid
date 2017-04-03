@@ -12,6 +12,7 @@
         android:elevation="2dp">
 
         <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsingToolbarLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/colorLightGray"
@@ -21,6 +22,7 @@
             app:toolbarId="@+id/toolbar1">
 
             <com.daimajia.slider.library.SliderLayout
+                android:id="@+id/slider"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 custom:indicator_visibility="invisible" />
@@ -91,6 +93,7 @@
                     android:layout_height="80dp"
                     android:layout_weight="1">
                     <ir.iraddress.www.extend.AppButton
+                        android:id="@+id/trip_rate"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
@@ -114,7 +117,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
-                        android:text="تاریخ سفر:‌ 96/3/23"
+                        android:text="@string/trip_select_date"
+                        android:id="@+id/trip_date"
                         android:textSize="13sp"
                         android:paddingTop="15dp"
                         android:drawableTop="@drawable/ic_photo_camera_primary" />
@@ -124,10 +128,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:background="@color/borderGray"/>
-            <LinearLayout
+            <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:background="@color/colorAccent"/>
+                android:id="@+id/map"
+                tools:context=".MapsActivity"
+                android:name="com.google.android.gms.maps.SupportMapFragment" />
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
@@ -164,7 +171,8 @@
                         android:layout_width="0dp"
                         android:layout_height="1dp" />
                 </LinearLayout>
-                <TextView
+                <ir.iraddress.www.extend.TextViewIranSans
+                    android:id="@+id/trip_content"
                     android:layout_margin="16dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -203,7 +211,7 @@
                     android:layout_height="1dp" />
             </LinearLayout>
             <android.support.v7.widget.RecyclerView
-                android:id="@+id/directory_comments"
+                android:id="@+id/trip_comments"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <LinearLayout
@@ -215,7 +223,7 @@
 
                 <ir.iraddress.www.extend.AppButton
                     android:onClick="comments"
-                    android:id="@+id/directory_all_comments"
+                    android:id="@+id/trip_all_comments"
                     android:layout_margin="10dp"
                     android:elevation="3dp"
                     android:textColor="@color/colorWhite"
@@ -230,7 +238,7 @@
 
                 <ir.iraddress.www.extend.AppButton
                     android:onClick="btnWriteReview"
-                    android:id="@+id/directory_first_comment"
+                    android:id="@+id/trip_first_comment"
                     android:layout_margin="10dp"
                     android:elevation="3dp"
                     android:textColor="@color/colorWhite"

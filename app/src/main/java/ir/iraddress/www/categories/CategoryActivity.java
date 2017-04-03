@@ -55,7 +55,7 @@ public class CategoryActivity extends MainController {
 
     }
 
-    public void callback(JSONArray response, int statusCode) {
+    public void callback(JSONArray response, int statusCode, String method) {
         for(int n = 0; n < response.length(); n++){
             try {
                 collection.add(response.get(n));
