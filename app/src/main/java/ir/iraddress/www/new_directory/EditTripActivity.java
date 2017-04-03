@@ -9,7 +9,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-
 import com.loopj.android.http.RequestParams;
 import com.mohamadamin.persianmaterialdatetimepicker.date.DatePickerDialog;
 import com.mohamadamin.persianmaterialdatetimepicker.utils.PersianCalendar;
@@ -21,11 +20,15 @@ import org.json.JSONObject;
 import java.util.Iterator;
 
 import ir.iraddress.www.R;
+import ir.iraddress.www.directories.DirectoryActivity;
 import ir.iraddress.www.extend.TextViewIranSans;
 import ir.iraddress.www.profile.ProfileMainActivity;
 
+/**
+ * Created by shahram on 4/3/17.
+ */
 
-public class NewTripActivity extends ProfileMainActivity implements DatePickerDialog.OnDateSetListener {
+public class EditTripActivity extends ProfileMainActivity implements DatePickerDialog.OnDateSetListener {
 
     TextViewIranSans date;
     TextViewIranSans location;
@@ -42,7 +45,7 @@ public class NewTripActivity extends ProfileMainActivity implements DatePickerDi
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_trip);
+        setContentView(R.layout.activity_edit_trip);
 
         date = (TextViewIranSans) findViewById(R.id.trip_date);
         dateSelected = (ImageView) findViewById(R.id.date_selected);
@@ -50,6 +53,12 @@ public class NewTripActivity extends ProfileMainActivity implements DatePickerDi
         description = (EditText) findViewById(R.id.trip_description);
         title = (EditText) findViewById(R.id.trip_title);
         location = (TextViewIranSans) findViewById(R.id.trip_location);
+
+        try {
+            getRequest("users/"+user.getInt("id")+"/trips/"+extras.getInt("trip_id"), params);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -94,16 +103,25 @@ public class NewTripActivity extends ProfileMainActivity implements DatePickerDi
 
         switch (statusCode){
             case 200:
-//                Toast.makeText(context, response.toString(), Toast.LENGTH_LONG).show();
-                try {
 
-                    finish();
-                    Intent intent = new Intent(this, EditTripActivity.class);
-                    intent.putExtra("trip_id", response.getInt("id"));
-                    startActivity(intent);
+                switch(method){
+                    case "GET":
 
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                        try {
+
+                            title.setText(response.getString("title"));
+                            date.setText(response.getString("date"));
+                            description.setText(response.getString("content"));
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                        break;
+
+                    case "POST":
+
+                        break;
                 }
 
                 break;
@@ -187,4 +205,5 @@ public class NewTripActivity extends ProfileMainActivity implements DatePickerDi
             }
         }
     }
+
 }

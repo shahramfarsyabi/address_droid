@@ -51,7 +51,7 @@ public class ProfileEditActivity extends ProfileMainActivity {
 
     }
 
-    public void callback(JSONObject response, int statusCode){
+    public void callback(JSONObject response, int statusCode, String method){
 
     }
 }

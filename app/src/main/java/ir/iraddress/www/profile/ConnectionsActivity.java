@@ -3,15 +3,11 @@ package ir.iraddress.www.profile;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import ir.iraddress.www.MainController;
 import ir.iraddress.www.R;
-import ir.iraddress.www.extend.TextViewIranSans;
 import ir.iraddress.www.extend.TextViewIranSansBold;
 
 
@@ -51,7 +47,7 @@ public class ConnectionsActivity extends ProfileMainActivity {
 
     }
 
-    public void callback(JSONObject response, int statusCode) {
+    public void callback(JSONObject response, int statusCode, String method) {
         switch(statusCode){
             case 200:
 

@@ -1,7 +1,6 @@
 package ir.iraddress.www.profile;
 
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -13,7 +12,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-import ir.iraddress.www.MainController;
 import ir.iraddress.www.R;
 import ir.iraddress.www.extend.TextViewIranSans;
 
@@ -32,7 +30,7 @@ public class PublicProfileActivity extends ProfileMainActivity{
     }
 
     @Override
-    public void callback(JSONObject response, int statusCode) {
+    public void callback(JSONObject response, int statusCode, String method) {
 
         switch(statusCode){
 

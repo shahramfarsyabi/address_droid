@@ -21,7 +21,6 @@ import java.util.Iterator;
 
 import ir.iraddress.www.MainController;
 import ir.iraddress.www.R;
-import ir.iraddress.www.extend.AppButton;
 import ir.iraddress.www.helper.SharedPrefered;
 import ir.iraddress.www.profile.ProfileActivity;
 
@@ -74,7 +73,7 @@ public class SignUpActivity extends MainController {
     }
 
     @Override
-    public void callback(JSONObject response, int statusCode) {
+    public void callback(JSONObject response, int statusCode, String method) {
 
         switch(statusCode){
 

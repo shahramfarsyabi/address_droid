@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v7.widget.AppCompatEditText;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.iid.FirebaseInstanceId;
@@ -63,7 +62,7 @@ public class SignInActivity extends MainController {
     }
 
     @Override
-    public void callback(JSONObject response, int statusCode) {
+    public void callback(JSONObject response, int statusCode, String method) {
 
         System.out.println(statusCode);
         switch(statusCode){

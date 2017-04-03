@@ -7,7 +7,6 @@ import android.support.v7.widget.RecyclerView;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import ir.iraddress.www.MainController;
 import ir.iraddress.www.R;
 import ir.iraddress.www.directories.DirectoriesAdapter;
 
@@ -42,7 +41,7 @@ public class MyItemsActivity extends ProfileActivity {
 
     }
 
-    public void callback(JSONObject response, int statusCode){
+    public void callback(JSONObject response, int statusCode, String method){
         try {
 
             jsonArray = response.getJSONArray("data");

@@ -7,15 +7,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.provider.MediaStore;
-import android.provider.OpenableColumns;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatImageView;
@@ -26,7 +22,6 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ProgressBar;
-import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,15 +32,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
-import cz.msebera.android.httpclient.Header;
 import ir.iraddress.www.categories.AdapterFilterCategories;
 import ir.iraddress.www.extend.AppButton;
-import ir.iraddress.www.helper.ArrayUtil;
 import ir.iraddress.www.helper.ConnectionDetector;
 import ir.iraddress.www.helper.HttpRequest;
 import ir.iraddress.www.helper.MyLocationServiceManager;
@@ -283,7 +274,7 @@ public abstract class MainController extends AppCompatActivity {
         fetchData(++offset, "", params);
     }
 
-    public void callback(JSONObject response, int statusCode){
+    public void callback(JSONObject response, int statusCode, String method){
 
         switch (statusCode){
             case 200:
@@ -309,7 +300,7 @@ public abstract class MainController extends AppCompatActivity {
 //        mSwipeRefreshLayout.setRefreshing(false);
     }
 
-    public void callback(JSONArray response, int statusCode){
+    public void callback(JSONArray response, int statusCode, String method){
 
     }
 
@@ -335,7 +326,7 @@ public abstract class MainController extends AppCompatActivity {
             @Override
             public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, JSONObject response) {
                 pageLoading(false);
-                callback(response, statusCode);
+                callback(response, statusCode, "GET");
             }
 
             @Override
@@ -358,18 +349,18 @@ public abstract class MainController extends AppCompatActivity {
             @Override
             public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, JSONObject response) {
                 pageLoading(false);
-                callback(response, statusCode);
+                callback(response, statusCode, "GET");
             }
 
             @Override
             public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, JSONArray response) {
                 pageLoading(false);
-                callback(response, statusCode);
+                callback(response, statusCode, "GET");
             }
 
             @Override
             public void onFailure(int statusCode , cz.msebera.android.httpclient.Header[] headers, Throwable throwable , JSONObject response){
-                callback(response, statusCode);
+                callback(response, statusCode, "GET");
             }
         });
     }
@@ -380,14 +371,14 @@ public abstract class MainController extends AppCompatActivity {
             @Override
             public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, JSONObject response) {
                 pageLoading(false);
-                callback(response, statusCode);
+                callback(response, statusCode, "POST");
             }
 
             @Override
             public void onFailure(int statusCode , cz.msebera.android.httpclient.Header[] headers, Throwable throwable , JSONObject response){
                 pageLoading(false);
 //                Toast.makeText(MainController.this, response.toString(), Toast.LENGTH_LONG).show();
-                callback(response, statusCode);
+                callback(response, statusCode, "POST");
             }
 
             @Override

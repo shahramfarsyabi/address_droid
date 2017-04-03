@@ -4,22 +4,18 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
-import com.loopj.android.http.RequestParams;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-import ir.iraddress.www.MainController;
 import ir.iraddress.www.R;
 import ir.iraddress.www.extend.AppButton;
 import ir.iraddress.www.extend.TextViewIranSans;
 import ir.iraddress.www.extend.TextViewIranSansBold;
-import ir.iraddress.www.helper.SharedPrefered;
 
 
 public class ProfileActivity extends ProfileMainActivity {
@@ -72,7 +68,7 @@ public class ProfileActivity extends ProfileMainActivity {
     }
 
     @Override
-    public void callback(JSONObject response, int statusCode) {
+    public void callback(JSONObject response, int statusCode, String method) {
 
         switch(statusCode){
 

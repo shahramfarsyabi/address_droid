@@ -3,12 +3,10 @@ package ir.iraddress.www.profile;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import ir.iraddress.www.MainController;
 import ir.iraddress.www.R;
 
 /**
@@ -48,7 +46,7 @@ public class MyPhotosActivity extends ProfileMainActivity {
     }
 
     @Override
-    public void callback(JSONObject response, int statusCode) {
+    public void callback(JSONObject response, int statusCode, String method) {
 
         switch (statusCode){
             case 200:

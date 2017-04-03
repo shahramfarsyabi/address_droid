@@ -44,7 +44,7 @@ public class SearchResultActivity extends MainController {
 
     }
 
-    public void callback(JSONObject response, int statusCode){
+    public void callback(JSONObject response, int statusCode, String method){
 
         switch (statusCode){
             case 200:

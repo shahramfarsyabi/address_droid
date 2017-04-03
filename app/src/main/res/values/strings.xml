@@ -90,4 +90,6 @@
     <string name="trip_date_required">تاریخ سفر خود را وارد کنید .</string>
     <string name="trip_location_required">منطقه جغرافیایی سفر خود را مشخص کنید .</string>
     <string name="trip_descripton_required">تجربیات سفر خود را بنویسید .</string>
+    <string name="_continue_submit_trip">ثبت سفر و ارسال تصویر</string>
+    <string name="edit_trip">ویرایش سفر</string>
 </resources>

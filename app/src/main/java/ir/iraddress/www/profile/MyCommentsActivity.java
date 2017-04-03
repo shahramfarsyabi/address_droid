@@ -116,7 +116,7 @@ public class MyCommentsActivity extends ProfileMainActivity {
     }
 
     @Override
-    public void callback(JSONArray response, int statusCode) {
+    public void callback(JSONArray response, int statusCode, String method) {
 
         switch(statusCode){
 
