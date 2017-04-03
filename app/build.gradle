@@ -54,6 +54,7 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.alexvasilkov:gesture-views:2.2.0'
     compile 'uk.co.chrisjenx:calligraphy:2.2.0'
+    compile 'com.mohamadamin:persianmaterialdatetimepicker:1.2.1'
 }
 
 

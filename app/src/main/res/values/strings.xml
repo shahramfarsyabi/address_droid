@@ -81,4 +81,13 @@
     <string name="connection_pending">پندینگ</string>
     <string name="connection_accepted">کانکتد</string>
     <string name="connection_rejected">ریجکتد</string>
+    <string name="trip_title">عنوان سفر</string>
+    <string name="trip_select_date">تاریخ سفر</string>
+    <string name="trip_select_location">موقعیت مکانی سفر</string>
+    <string name="trip_location_selected">موقعیت جغرافیایی سفر انتخاب شد</string>
+    <string name="trip_description">تجربیات سفر شما</string>
+    <string name="trip_title_required">عنوان سفر خود را وارد کنید .</string>
+    <string name="trip_date_required">تاریخ سفر خود را وارد کنید .</string>
+    <string name="trip_location_required">منطقه جغرافیایی سفر خود را مشخص کنید .</string>
+    <string name="trip_descripton_required">تجربیات سفر خود را بنویسید .</string>
 </resources>

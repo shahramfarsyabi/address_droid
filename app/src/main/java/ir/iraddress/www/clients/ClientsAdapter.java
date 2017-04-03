@@ -47,7 +47,7 @@ public class ClientsAdapter extends RecyclerView.Adapter<ClientHolder> {
 
         try {
 
-            JSONObject client = (JSONObject) collection.get(position);
+            final JSONObject client = (JSONObject) collection.get(position);
 
             ImageView avatar = (ImageView) holder.linearLayout.findViewById(R.id.client_avatar);
             TextViewIranSansBold fullanem = (TextViewIranSansBold) holder.linearLayout.findViewById(R.id.client_fullname);
@@ -61,7 +61,7 @@ public class ClientsAdapter extends RecyclerView.Adapter<ClientHolder> {
             AppButton btnFollowUnFollow = (AppButton) holder.linearLayout.findViewById(R.id.btnSendRequestFollowUnFollow);
             btnFollowUnFollow.setTag(client);
 
-            if(client.get("connected_with_me") != null){
+            if(client.get("connected_with_me") instanceof JSONObject){
 
                 switch(client.getJSONObject("connected_with_me").getString("status")){
                     case "pending":
@@ -80,6 +80,8 @@ public class ClientsAdapter extends RecyclerView.Adapter<ClientHolder> {
                         btnFollowUnFollow.setText(R.string.follow);
                         break;
                 }
+            }else{
+                btnFollowUnFollow.setText(R.string.follow);
             }
 
 
