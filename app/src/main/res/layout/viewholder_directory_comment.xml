@@ -70,6 +70,15 @@
                             />
                     </LinearLayout>
                 </LinearLayout>
+                <ir.iraddress.www.extend.TextViewIranSansBold
+                    android:layout_gravity="end"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:text="78"
+                    android:textColor="@color/colorRed"
+                    android:textSize="14sp"
+                    android:paddingTop="5dp"/>
                 <Button
                     android:layout_gravity="end"
                     android:padding="1dp"

@@ -4,7 +4,6 @@
     android:background="@color/colorWhite"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <LinearLayout
         android:background="@drawable/toolbar_address_gradiant"
         android:layout_width="match_parent"
@@ -23,29 +22,23 @@
             android:id="@+id/notification_title"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-
     </LinearLayout>
-
     <LinearLayout
         android:padding="10dp"
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:minHeight="150dp"
         android:layout_height="match_parent">
-
         <TextView
             android:textColor="@color/colorBlack"
             android:id="@+id/notification_body"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-
     </LinearLayout>
-
     <LinearLayout
         android:gravity="end"
         android:layout_width="match_parent"
         android:layout_height="56dp">
-
         <Button
             android:id="@+id/btnCloseDialogFcm"
             android:layout_gravity="end"
@@ -54,7 +47,5 @@
             android:background="@color/colorWhite"
             android:layout_width="wrap_content"
             android:layout_height="match_parent" />
-
     </LinearLayout>
-
 </LinearLayout>
