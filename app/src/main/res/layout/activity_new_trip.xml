@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="56dp"
@@ -32,11 +31,10 @@
             android:textColor="@color/colorWhite"
             android:textStyle="bold"
             android:textSize="18sp"
-            android:text="@string/add_item_title"
+            android:text="@string/submit_trip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </android.support.v7.widget.Toolbar>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -86,14 +84,15 @@
                 android:paddingRight="15dp"/>
 
             <ImageView
+                android:contentDescription="@string/trip_select_date"
                 android:visibility="gone"
                 android:id="@+id/date_selected"
                 android:scaleY="0.5"
                 android:scaleX="0.5"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ticket"
+                android:src="@drawable/ic_checked_symbol"
                 android:layout_width="60dp"
-                android:layout_height="60dp" />
+                android:layout_height="60dp"/>
 
         </LinearLayout>
 
@@ -126,12 +125,13 @@
                 android:paddingRight="15dp"/>
 
             <ImageView
+                android:contentDescription="@string/trip_select_location"
                 android:id="@+id/location_selected"
                 android:visibility="gone"
                 android:scaleY="0.5"
                 android:scaleX="0.5"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ticket"
+                android:src="@drawable/ic_checked_symbol"
                 android:layout_width="60dp"
                 android:layout_height="60dp" />
 
@@ -160,7 +160,8 @@
             android:background="@color/borderGray" />
 
         <ir.iraddress.www.extend.AppButton
-            android:text="انتخاب عکس"
+            android:visibility="gone"
+            android:text="@string/photos"
             android:layout_width="match_parent"
             android:layout_height="56dp" />
 
@@ -171,12 +172,13 @@
         android:layout_height="wrap_content">
         <ir.iraddress.www.extend.AppButton
             android:onClick="btnSubmitTrip"
-            android:text="ثبت سفر"
+            android:text="@string/submit_trip"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:background="@drawable/rounded_corners_green"
             android:textSize="13sp"
             android:textColor="@color/colorWhite"
+            android:layout_marginTop="15dp"
             android:layout_marginBottom="15dp"
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
