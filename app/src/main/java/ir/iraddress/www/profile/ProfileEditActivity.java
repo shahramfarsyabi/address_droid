@@ -9,6 +9,7 @@ import android.support.design.widget.TextInputEditText;
 import android.view.View;
 
 import com.loopj.android.http.RequestParams;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -16,6 +17,7 @@ import org.json.JSONObject;
 import java.io.File;
 import java.io.FileNotFoundException;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import ir.iraddress.www.R;
 
 public class ProfileEditActivity extends ProfileMainActivity {
@@ -24,6 +26,7 @@ public class ProfileEditActivity extends ProfileMainActivity {
     TextInputEditText lastName;
     TextInputEditText mobile;
     TextInputEditText email;
+    CircleImageView profileImage;
 
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -33,12 +36,14 @@ public class ProfileEditActivity extends ProfileMainActivity {
         lastName = (TextInputEditText) findViewById(R.id.lastName);
         mobile = (TextInputEditText) findViewById(R.id.mobile);
         email = (TextInputEditText) findViewById(R.id.email);
+        profileImage = (CircleImageView) findViewById(R.id.profile_image);
 
         try {
             firstName.setText(user.getString("firstName"));
             lastName.setText(user.getString("lastName"));
             mobile.setText(user.getString("mobile"));
             email.setText(user.getString("email"));
+            Picasso.with(context).load(user.getString("avatar")).centerCrop().fit().into(profileImage);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -54,7 +59,7 @@ public class ProfileEditActivity extends ProfileMainActivity {
         profileEdit.put("mobile", firstName.getText().toString().trim());
         profileEdit.put("token", user.getString("token"));
 
-        postRequest("users/"+user.getInt("id")+"/profile", params);
+        putRequest("users/"+user.getInt("id")+"/profile", params);
 
     }
 

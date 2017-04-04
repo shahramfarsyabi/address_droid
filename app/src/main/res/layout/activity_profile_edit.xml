@@ -51,15 +51,6 @@
         android:elevation="2dp">
 
 
-        <ImageView
-            android:onClick="selectProfileImage"
-            android:id="@+id/no_profile_image"
-            android:contentDescription="@string/create_account"
-            android:src="@drawable/signup"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginBottom="20dp"/>
-
         <de.hdodenhof.circleimageview.CircleImageView
             android:onClick="selectProfileImage"
             android:layout_gravity="top|center"
