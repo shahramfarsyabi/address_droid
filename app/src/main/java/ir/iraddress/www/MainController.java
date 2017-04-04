@@ -435,9 +435,13 @@ public abstract class MainController extends AppCompatActivity {
     public void upload(String url, RequestParams params){
 
         final Button fileBrowser = (Button) findViewById(R.id.file_browser);
+        if(fileBrowser != null){
+            fileBrowser.setVisibility(View.GONE);
+            loading.setVisibility(View.VISIBLE);
+        }else{
+            pageLoading(true);
+        }
 
-        fileBrowser.setVisibility(View.GONE);
-        loading.setVisibility(View.VISIBLE);
 
         HttpRequest.post(url, params, new JsonHttpResponseHandler(){
             @Override
@@ -445,16 +449,24 @@ public abstract class MainController extends AppCompatActivity {
                 System.out.println(response);
                 Toast.makeText(context, "فایل با موفقیت ارسال شد.", Toast.LENGTH_LONG).show();
                 uploaded();
-                fileBrowser.setVisibility(View.VISIBLE);
-                loading.setVisibility(View.GONE);
+                if(fileBrowser != null) {
+                    fileBrowser.setVisibility(View.VISIBLE);
+                    loading.setVisibility(View.GONE);
+                }else{
+                    pageLoading(false);
+                }
             }
 
             @Override
             public void onFailure(int statusCode , cz.msebera.android.httpclient.Header[] headers, Throwable throwable , JSONObject response){
                 System.out.println(response);
                 Toast.makeText(context, "در ارسال فایل خطایی رخ داده است.", Toast.LENGTH_LONG).show();
-                fileBrowser.setVisibility(View.VISIBLE);
-                loading.setVisibility(View.GONE);
+                if(fileBrowser != null) {
+                    fileBrowser.setVisibility(View.VISIBLE);
+                    loading.setVisibility(View.GONE);
+                }else{
+                    pageLoading(false);
+                }
             }
         });
     }

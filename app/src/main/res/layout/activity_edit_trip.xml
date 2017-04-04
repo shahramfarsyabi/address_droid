@@ -194,9 +194,15 @@
             android:textColor="@color/colorWhite"
             android:layout_marginTop="15dp" />
 
+        <ProgressBar
+            android:visibility="gone"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/loading_file_uploader" />
+
         <ir.iraddress.www.extend.AppButton
             android:onClick="onClickTripImages"
-            android:id="@+id/file_browser"
             android:text="مشاهده تصاویر"
             android:layout_width="0dp"
             android:layout_weight="1"
@@ -206,12 +212,6 @@
             android:textColor="@color/colorWhite"
             android:layout_marginTop="15dp" />
 
-        <ProgressBar
-            android:visibility="gone"
-            style="?android:attr/progressBarStyleSmall"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/loading_file_uploader" />
 
     </LinearLayout>
 

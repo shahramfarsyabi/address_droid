@@ -52,16 +52,38 @@
 
 
         <ImageView
+            android:onClick="selectProfileImage"
+            android:id="@+id/no_profile_image"
             android:contentDescription="@string/create_account"
             android:src="@drawable/signup"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_marginBottom="20dp"/>
 
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:onClick="selectProfileImage"
+            android:layout_gravity="top|center"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:elevation="8dp"
+            app:civ_border_width="5dp"
+            app:civ_border_color="#FFFFFFFF"/>
+
+
+        <ProgressBar
+            android:visibility="gone"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/loading_file_uploader" />
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/borderGray" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
