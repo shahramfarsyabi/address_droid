@@ -92,4 +92,9 @@
     <string name="trip_descripton_required">تجربیات سفر خود را بنویسید .</string>
     <string name="_continue_submit_trip">ثبت سفر و ارسال تصویر</string>
     <string name="edit_trip">ویرایش سفر</string>
+    <string name="edit">ویرایش</string>
+    <string name="delete">حذف</string>
+    <string name="view">مشاهده</string>
+    <string name="unauthorized">دسترسی غیر مجاز</string>
+    <string name="unauthorized_text">برای تکمیل فرآیند باید وارد شوید , در صورتیکه حساب کاربری ندارید ثبت نام کنید</string>
 </resources>

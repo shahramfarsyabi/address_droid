@@ -50,7 +50,7 @@ public class MyTripActivity extends ProfileMainActivity implements OnMapReadyCal
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trip);
 
-        route = "trips/" + extras.get("trip_id");
+        route = "trips/" + extras.getInt("trip_id");
         date = (AppButton) findViewById(R.id.trip_date);
         rate = (AppButton) findViewById(R.id.trip_rate);
         content = (TextViewIranSans) findViewById(R.id.trip_content);
@@ -163,12 +163,16 @@ public class MyTripActivity extends ProfileMainActivity implements OnMapReadyCal
     public void comments(View view){
         Intent intent = new Intent(this, DirectoryCommentsActivity.class);
         intent.putExtra("route", route+"/comments");
+        intent.putExtra("type", "trip");
+        intent.putExtra("item_id", extras.getInt("trip_id"));
+
         startActivity(intent);
     }
 
     public void btnWriteReview(View view) throws JSONException {
         Intent intent = new Intent(this, DirectoryCommentActivity.class);
-        intent.putExtra("trip_id", trip.getInt("id"));
+        intent.putExtra("type", "trip");
+        intent.putExtra("item_id", trip.getInt("id"));
         startActivity(intent);
     }
 }

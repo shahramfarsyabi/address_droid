@@ -4,8 +4,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.squareup.picasso.Picasso;
 
@@ -15,12 +17,10 @@ import org.json.JSONObject;
 import java.util.List;
 
 import ir.iraddress.www.R;
+import ir.iraddress.www.extend.AppButton;
 import ir.iraddress.www.extend.TextViewIranSans;
 import ir.iraddress.www.extend.TextViewIranSansBold;
 
-/**
- * Created by shahram on 4/3/17.
- */
 
 class MyTripsAdapter extends RecyclerView.Adapter<MyTripHolder> {
 
@@ -28,12 +28,14 @@ class MyTripsAdapter extends RecyclerView.Adapter<MyTripHolder> {
     Context context;
     Activity activity;
     List collection;
+    Boolean owner;
 
-    public MyTripsAdapter(Context context, Activity activity, List collection) {
+    public MyTripsAdapter(Context context, Activity activity, List collection, Boolean owner) {
         inflater = LayoutInflater.from(context);
         this.context = context;
         this.activity = activity;
         this.collection = collection;
+        this.owner = owner;
     }
 
     @Override
@@ -47,16 +49,25 @@ class MyTripsAdapter extends RecyclerView.Adapter<MyTripHolder> {
 
         TextViewIranSansBold title = (TextViewIranSansBold) holder.cardView.findViewById(R.id.trip_title);
         TextViewIranSans date = (TextViewIranSans) holder.cardView.findViewById(R.id.trip_date);
-        TextViewIranSans owner = (TextViewIranSans) holder.cardView.findViewById(R.id.trip_owner);
         ImageView image = (ImageView) holder.cardView.findViewById(R.id.trip_image);
+        AppButton edit = (AppButton) holder.cardView.findViewById(R.id.edit);
+        AppButton view = (AppButton) holder.cardView.findViewById(R.id.view);
+        LinearLayout boxAction = (LinearLayout) holder.cardView.findViewById(R.id.box_action);
+
+        if(owner){
+            boxAction.setVisibility(View.VISIBLE);
+        }else{
+            boxAction.setVisibility(View.GONE);
+        }
 
         holder.cardView.setTag(trip);
+        view.setTag(trip);
 
         try {
 
             title.setText(trip.getString("title"));
             date.setText(trip.getString("date"));
-            owner.setText(trip.getJSONObject("owner").getString("fullName"));
+            edit.setTag(trip);
 
             if(trip.getString("image").trim().length() > 0){
                 Picasso.with(context).load(trip.getString("image")).fit().centerCrop().into(image);

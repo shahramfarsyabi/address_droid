@@ -176,7 +176,7 @@
                     android:layout_margin="16dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="@string/lorem"
+                    android:text="@string/description"
                     />
             </LinearLayout>
             <!--Description-->

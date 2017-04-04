@@ -3,6 +3,7 @@ package ir.iraddress.www.profile;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import ir.iraddress.www.R;
 
@@ -12,11 +13,11 @@ import ir.iraddress.www.R;
 
 public class MyPhotosHolder extends RecyclerView.ViewHolder {
 
-    public ImageView image;
+    public RelativeLayout image;
 
     public MyPhotosHolder(View itemView) {
         super(itemView);
 
-        image = (ImageView) itemView.findViewById(R.id.my_photo);
+        image = (RelativeLayout) itemView.findViewById(R.id.holder_photo);
     }
 }

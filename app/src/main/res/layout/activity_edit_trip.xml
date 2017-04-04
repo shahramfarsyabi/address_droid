@@ -91,7 +91,6 @@
 
             <ImageView
                 android:contentDescription="@string/trip_select_date"
-                android:visibility="gone"
                 android:id="@+id/date_selected"
                 android:scaleY="0.5"
                 android:scaleX="0.5"
@@ -115,7 +114,7 @@
 
             <ir.iraddress.www.extend.TextViewIranSans
                 android:id="@+id/trip_location"
-                android:text="@string/trip_select_location"
+                android:text="@string/trip_location_selected"
                 android:onClick="showMapDialog"
                 android:gravity="center|start"
                 android:tag="title"
@@ -133,7 +132,6 @@
             <ImageView
                 android:contentDescription="@string/trip_select_location"
                 android:id="@+id/location_selected"
-                android:visibility="gone"
                 android:scaleY="0.5"
                 android:scaleX="0.5"
                 android:scaleType="centerCrop"
@@ -154,7 +152,8 @@
             android:layout_width="match_parent"
             android:textSize="13sp"
             android:inputType="text"
-            android:layout_height="120dp"
+            android:layout_weight="1"
+            android:layout_height="0dp"
             android:background="@color/colorWhite"
             android:gravity="top"
             android:textDirection="rtl"
@@ -165,32 +164,54 @@
             android:layout_height="1dp"
             android:background="@color/borderGray" />
 
-        <ir.iraddress.www.extend.AppButton
-            android:visibility="gone"
-            android:text="@string/photos"
-            android:layout_width="match_parent"
-            android:layout_height="56dp" />
-
     </LinearLayout>
 
     <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <ir.iraddress.www.extend.AppButton
             android:onClick="btnSubmitTrip"
-            android:text="@string/_continue_submit_trip"
-            android:layout_width="match_parent"
+            android:text="ذخیره"
+            android:layout_weight="1"
+            android:layout_width="0dp"
             android:layout_height="56dp"
             android:background="@drawable/rounded_corners_green"
             android:textSize="13sp"
             android:textColor="@color/colorWhite"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="15dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"/>
+            android:layout_marginTop="15dp" />
+
+        <ir.iraddress.www.extend.AppButton
+            android:onClick="onClickSelectFromGallery"
+            android:id="@+id/file_browser"
+            android:text="ارسال تصویر"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="56dp"
+            android:background="@drawable/rounded_corners_green"
+            android:textSize="13sp"
+            android:textColor="@color/colorWhite"
+            android:layout_marginTop="15dp" />
+
+        <ir.iraddress.www.extend.AppButton
+            android:onClick="onClickTripImages"
+            android:id="@+id/file_browser"
+            android:text="مشاهده تصاویر"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="56dp"
+            android:background="@drawable/rounded_corners_green"
+            android:textSize="13sp"
+            android:textColor="@color/colorWhite"
+            android:layout_marginTop="15dp" />
+
+        <ProgressBar
+            android:visibility="gone"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/loading_file_uploader" />
 
     </LinearLayout>
 

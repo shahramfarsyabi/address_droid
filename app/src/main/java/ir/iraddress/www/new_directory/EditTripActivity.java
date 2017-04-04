@@ -1,12 +1,16 @@
 package ir.iraddress.www.new_directory;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.design.widget.TextInputEditText;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.loopj.android.http.RequestParams;
@@ -17,16 +21,15 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Iterator;
 
 import ir.iraddress.www.R;
 import ir.iraddress.www.directories.DirectoryActivity;
 import ir.iraddress.www.extend.TextViewIranSans;
+import ir.iraddress.www.profile.MyPhotosActivity;
 import ir.iraddress.www.profile.ProfileMainActivity;
-
-/**
- * Created by shahram on 4/3/17.
- */
 
 public class EditTripActivity extends ProfileMainActivity implements DatePickerDialog.OnDateSetListener {
 
@@ -36,6 +39,7 @@ public class EditTripActivity extends ProfileMainActivity implements DatePickerD
     ImageView locationSelected;
     EditText title;
     EditText description;
+    JSONObject trip;
 
     static final int PICKED_MARKER = 1;
     JSONObject selectedLocation = new JSONObject();
@@ -53,6 +57,7 @@ public class EditTripActivity extends ProfileMainActivity implements DatePickerD
         description = (EditText) findViewById(R.id.trip_description);
         title = (EditText) findViewById(R.id.trip_title);
         location = (TextViewIranSans) findViewById(R.id.trip_location);
+        loading = (ProgressBar) findViewById(R.id.loading_file_uploader);
 
         try {
             getRequest("users/"+user.getInt("id")+"/trips/"+extras.getInt("trip_id"), params);
@@ -95,7 +100,7 @@ public class EditTripActivity extends ProfileMainActivity implements DatePickerD
         trip.put("date", date.getText());
         trip.put("location", selectedLocation.toString());
 
-        postRequest("users/"+user.getInt("id")+"/trips", trip);
+        putRequest("users/"+user.getInt("id")+"/trips/"+extras.getInt("trip_id"), trip);
 
     }
 
@@ -108,10 +113,12 @@ public class EditTripActivity extends ProfileMainActivity implements DatePickerD
                     case "GET":
 
                         try {
+                            trip = response;
 
                             title.setText(response.getString("title"));
                             date.setText(response.getString("date"));
                             description.setText(response.getString("content"));
+                            selectedLocation = response.getJSONObject("location");
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -119,8 +126,8 @@ public class EditTripActivity extends ProfileMainActivity implements DatePickerD
 
                         break;
 
-                    case "POST":
-
+                    case "PUT":
+                        Toast.makeText(context, "تغییرات با موفقیت ثبت شد", Toast.LENGTH_LONG).show();
                         break;
                 }
 
@@ -184,8 +191,13 @@ public class EditTripActivity extends ProfileMainActivity implements DatePickerD
         dateSelected.setVisibility(View.VISIBLE);
     }
 
-    public void showMapDialog(View view){
+    public void showMapDialog(View view) throws JSONException {
         Intent intent = new Intent(this, NewMapDirectory.class);
+
+        if(trip != null){
+         intent.putExtra("location", trip.getJSONObject("location").toString());
+        }
+
         startActivityForResult(intent, PICKED_MARKER);
     }
 
@@ -197,13 +209,70 @@ public class EditTripActivity extends ProfileMainActivity implements DatePickerD
             if (resultCode == RESULT_OK) {
                 try {
                     selectedLocation = new JSONObject(data.getExtras().getString("point"));
-                    locationSelected.setVisibility(View.VISIBLE);
-                    location.setText(getString(R.string.trip_location_selected));
+
+                    if(selectedLocation.has("lat") && selectedLocation.has("lng")){
+                        locationSelected.setVisibility(View.VISIBLE);
+                        location.setText(getString(R.string.trip_location_selected));
+                    }
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             }
         }
+
+
+        if (requestCode == READ_REQUEST_CODE && resultCode == RESULT_OK) {
+            // The document selected by the user won't be returned in the intent.
+            // Instead, a URI to that document will be contained in the return intent
+            // provided to this method as a parameter.
+            // Pull that URI using resultData.getData().
+            Uri uri = null;
+            if (data != null) {
+                uri = data.getData();
+                System.out.println("Uri: " + uri.toString());
+                Uri selectedImage = data.getData();
+                String[] filePathColumn = { MediaStore.Images.Media.DATA };
+
+                Cursor cursor = getContentResolver().query(selectedImage, filePathColumn, null, null, null);
+                cursor.moveToFirst();
+
+                int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+                String picturePath = cursor.getString(columnIndex);
+                cursor.close();
+
+                System.out.println(picturePath);
+
+                RequestParams params = new RequestParams();
+                try {
+
+                    params.put("image", new File(picturePath));
+                    params.put("trip_id", extras.get("trip_id"));
+                    try {
+                        upload("users/"+user.getInt("id")+"/trips/"+extras.getInt("trip_id")+"/images", params);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
     }
+
+    public void onClickSelectFromGallery(View view){
+        Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(intent, READ_REQUEST_CODE);
+    }
+
+    public void onClickTripImages(View view){
+        Intent intent = new Intent(this, MyPhotosActivity.class);
+        intent.putExtra("type", "trip");
+        intent.putExtra("trip_id", extras.getInt("trip_id"));
+        startActivity(intent);
+    }
+
 
 }

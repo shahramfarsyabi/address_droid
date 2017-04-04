@@ -12,6 +12,7 @@ import org.json.JSONObject;
 import ir.iraddress.www.MainController;
 import ir.iraddress.www.R;
 import ir.iraddress.www.directories.DirectoriesAdapter;
+import ir.iraddress.www.new_directory.EditTripActivity;
 
 /**
  * Created by shahram on 2/16/17.
@@ -19,12 +20,16 @@ import ir.iraddress.www.directories.DirectoriesAdapter;
 
 public class MyTripsActivity extends ProfileMainActivity {
 
+    private Boolean owner;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_trips);
+        owner = Boolean.TRUE;
 
         if(extras != null && extras.containsKey("user_id")){
+            owner = Boolean.FALSE;
             route = "users/"+extras.getInt("user_id")+"/trips";
         }else{
             try {
@@ -37,7 +42,7 @@ public class MyTripsActivity extends ProfileMainActivity {
         fetchData(1, route, null);
 
         recyclerView = (RecyclerView) findViewById(R.id.profile_trips_recyclerview);
-        recyclerViewAdapter = new MyTripsAdapter(this, this, collection);
+        recyclerViewAdapter = new MyTripsAdapter(this, this, collection, owner);
         layoutManager = new LinearLayoutManager(this);
 
         recyclerView.setAdapter(recyclerViewAdapter);
@@ -68,5 +73,12 @@ public class MyTripsActivity extends ProfileMainActivity {
         intent.putExtra("trip_id", trip.getInt("id"));
         startActivity(intent);
 
+    }
+
+    public void onClickEditTrip(View view) throws JSONException {
+        JSONObject trip = (JSONObject) view.getTag();
+        Intent intent = new Intent(this, EditTripActivity.class);
+        intent.putExtra("trip_id", trip.getInt("id"));
+        startActivity(intent);
     }
 }

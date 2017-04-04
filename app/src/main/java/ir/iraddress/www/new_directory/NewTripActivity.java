@@ -187,4 +187,5 @@ public class NewTripActivity extends ProfileMainActivity implements DatePickerDi
             }
         }
     }
+
 }

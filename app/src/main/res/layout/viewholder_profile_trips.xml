@@ -61,16 +61,36 @@
                     android:layout_width="wrap_content"
                     android:layout_height="0dp" />
 
-                <ir.iraddress.www.extend.TextViewIranSans
-                    android:gravity="center"
-                    android:layout_gravity="right"
-                    android:layout_marginRight="10dp"
-                    android:textColor="@color/colorGray"
-                    android:text="توسط"
-                    android:id="@+id/trip_owner"
-                    android:layout_weight="1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp" />
+                <LinearLayout
+                    android:id="@+id/box_action"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp">
+
+                    <ir.iraddress.www.extend.AppButton
+                        android:onClick="onClickEditTrip"
+                        android:id="@+id/edit"
+                        android:text="@string/edit"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="56dp" />
+
+                    <ir.iraddress.www.extend.AppButton
+                        android:onClick="btnEditTrip"
+                        android:text="@string/delete"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="56dp" />
+
+                    <ir.iraddress.www.extend.AppButton
+                        android:id="@+id/view"
+                        android:onClick="btnShowTrip"
+                        android:text="@string/view"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="56dp" />
+
+                </LinearLayout>
 
             </LinearLayout>
 

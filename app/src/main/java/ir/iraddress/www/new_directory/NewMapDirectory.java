@@ -26,6 +26,7 @@ public class NewMapDirectory extends MainController implements OnMapReadyCallbac
 
     private GoogleMap mMap;
     JSONObject selectedPoint = new JSONObject();
+    JSONObject location = new JSONObject();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,25 @@ public class NewMapDirectory extends MainController implements OnMapReadyCallbac
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        myLocationServiceManager.connect();
+
+        if(extras != null && extras.containsKey("location")){
+
+            try {
+                location = new JSONObject(extras.getString("location"));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+        }else{
+
+            try {
+                location = myLocationServiceManager.getLocation();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+        }
     }
 
     @Override
@@ -42,11 +62,9 @@ public class NewMapDirectory extends MainController implements OnMapReadyCallbac
 
             mMap = googleMap;
 
-            myLocationServiceManager.connect();
-            JSONObject clientLocation = (JSONObject) myLocationServiceManager.getLocation();
-
-            LatLng sydney = new LatLng(clientLocation.getDouble("lat"), clientLocation.getDouble("lng"));
+            LatLng sydney = new LatLng(location.getDouble("lat"), location.getDouble("lng"));
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 16));
+            mMap.addMarker(new MarkerOptions().position(sydney));
 
             mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
                 @Override

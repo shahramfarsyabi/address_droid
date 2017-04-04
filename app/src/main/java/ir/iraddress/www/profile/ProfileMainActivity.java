@@ -1,10 +1,12 @@
 package ir.iraddress.www.profile;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.text.Html;
 import android.view.View;
+import android.view.Window;
 import android.widget.Toast;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -37,11 +39,28 @@ public class ProfileMainActivity extends MainController {
 
         try {
             sharedPrefered = new SharedPrefered(this, "user");
-            user = sharedPrefered.findByIndex(0);
+            if(sharedPrefered.count() > 0){
+                user = sharedPrefered.findByIndex(0);
+            }
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+
+    public Boolean checkAuthenticated(){
+        if(user == null){
+
+            Dialog dialogAuth = new Dialog(this, R.style.MyDialogSize);
+            dialogAuth.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            dialogAuth.setContentView(R.layout.dialog_authenticate);
+
+            dialogAuth.show();
+
+            return false;
+        }
+
+        return true;
     }
 
     public void requestFollowOrUnfollow(View view) throws JSONException {

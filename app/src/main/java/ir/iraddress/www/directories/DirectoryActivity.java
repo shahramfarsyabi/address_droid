@@ -399,6 +399,8 @@ public class DirectoryActivity extends MainController {
     public void comments(View view){
         Intent intent = new Intent(this, DirectoryCommentsActivity.class);
         intent.putExtra("route", route+"/comments");
+        intent.putExtra("type", "directory");
+        intent.putExtra("item_id", extras.getInt("directory_id"));
         startActivity(intent);
     }
 
@@ -424,7 +426,8 @@ public class DirectoryActivity extends MainController {
 
     public void btnWriteReview(View view) throws JSONException {
         Intent intent = new Intent(this, DirectoryCommentActivity.class);
-        intent.putExtra("directory_id", directory.getInt("id"));
+        intent.putExtra("type", "directory");
+        intent.putExtra("item_id", extras.getInt("directory_id"));
         startActivity(intent);
     }
 

@@ -407,6 +407,31 @@ public abstract class MainController extends AppCompatActivity {
         });
     }
 
+    public void putRequest(String url, RequestParams params){
+        pageLoading(true);
+        HttpRequest.put(url, params, new JsonHttpResponseHandler(){
+            @Override
+            public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, JSONObject response) {
+                pageLoading(false);
+                callback(response, statusCode, "PUT");
+            }
+
+            @Override
+            public void onFailure(int statusCode , cz.msebera.android.httpclient.Header[] headers, Throwable throwable , JSONObject response){
+                pageLoading(false);
+//                Toast.makeText(MainController.this, response.toString(), Toast.LENGTH_LONG).show();
+                callback(response, statusCode, "PUT");
+            }
+
+            @Override
+            public void onFailure(int statusCode, cz.msebera.android.httpclient.Header[] headers, String data, Throwable throwable) {
+                pageLoading(false);
+                System.out.println(data);
+//                Toast.makeText(context, data, Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
     public void upload(String url, RequestParams params){
 
         final Button fileBrowser = (Button) findViewById(R.id.file_browser);

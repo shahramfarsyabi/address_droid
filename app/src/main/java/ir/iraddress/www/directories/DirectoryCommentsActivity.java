@@ -39,6 +39,8 @@ public class DirectoryCommentsActivity extends MainController {
 
     public void sendComment(View view){
         Intent intent = new Intent(this, DirectoryCommentActivity.class);
+        intent.putExtra("type", extras.getString("type"));
+        intent.putExtra("item_id", extras.getInt("item_id"));
         startActivity(intent);
     }
 }
