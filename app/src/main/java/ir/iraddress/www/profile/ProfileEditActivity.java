@@ -19,6 +19,7 @@ import java.io.FileNotFoundException;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import ir.iraddress.www.R;
+import ir.iraddress.www.helper.SharedPrefered;
 
 public class ProfileEditActivity extends ProfileMainActivity {
 
@@ -53,13 +54,12 @@ public class ProfileEditActivity extends ProfileMainActivity {
     public void saveProfile(View view) throws JSONException {
 
         RequestParams profileEdit = new RequestParams();
-
+        profileEdit.put("_method", "put");
         profileEdit.put("firstName", firstName.getText().toString().trim());
-        profileEdit.put("lastName", firstName.getText().toString().trim());
-        profileEdit.put("mobile", firstName.getText().toString().trim());
-        profileEdit.put("token", user.getString("token"));
+        profileEdit.put("lastName", lastName.getText().toString().trim());
+        profileEdit.put("mobile", mobile.getText().toString().trim());
 
-        putRequest("users/"+user.getInt("id")+"/profile", params);
+        postRequest("users/"+user.getInt("id")+"/profile", profileEdit);
 
     }
 
@@ -95,6 +95,10 @@ public class ProfileEditActivity extends ProfileMainActivity {
                     params.put("avatar", new File(picturePath));
                     try {
                         upload("users/"+user.getInt("id")+"/avatar", params);
+
+                        Intent intent = getIntent();
+                        setResult(RESULT_OK, intent);
+
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -108,6 +112,39 @@ public class ProfileEditActivity extends ProfileMainActivity {
     }
 
     public void callback(JSONObject response, int statusCode, String method){
+
+        switch (statusCode){
+            case 200:
+                switch(method){
+                    case "POST":
+
+                        try {
+
+                            sharedPrefered.empty();
+
+                            sharedPrefered = new SharedPrefered(context, "user");
+                            sharedPrefered.store(response);
+
+                            if(sharedPrefered.count() > 0){
+                                user = sharedPrefered.findByIndex(0);
+                            }
+
+                            Intent intent = getIntent();
+                            setResult(RESULT_OK, intent);
+                            finish();
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+
+                        break;
+                }
+                break;
+            default:
+
+                break;
+        }
 
     }
 }

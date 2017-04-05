@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.CheckBox;
 import android.widget.ExpandableListView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -52,10 +53,13 @@ public class NewDirectoryActivity extends MainController {
 
         selectedCategories = new JSONArray();
         final Dialog expandableDialog = new Dialog(this);
+
         expandableDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         expandableDialog.setContentView(R.layout.dialog_expandable_categories);
 
         final AppButton btnSubmitCategories = (AppButton) expandableDialog.findViewById(R.id.btnSubmitCategories);
+        final ProgressBar progressBar = (ProgressBar) expandableDialog.findViewById(R.id.categories_loading);
+
         AppButton btnCancel = (AppButton) expandableDialog.findViewById(R.id.btnCancel);
 
         btnCancel.setOnClickListener(new View.OnClickListener() {
@@ -72,6 +76,7 @@ public class NewDirectoryActivity extends MainController {
             @Override
             public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, JSONArray response) {
 
+                progressBar.setVisibility(View.GONE);
                 ExpandableListAdapter expandableListAdapter = new ExpandableListAdapter(context, response);
                 ExpandableListView expandableListView = (ExpandableListView) expandableDialog.findViewById(R.id.lvExp);
                 expandableListView.setAdapter(expandableListAdapter);
@@ -83,24 +88,21 @@ public class NewDirectoryActivity extends MainController {
                             selectedCategories = new JSONArray();
                             findChecked((ViewGroup) expandableDialog.getWindow().getDecorView().getRootView(), selectedCategories);
                             expandableDialog.dismiss();
-//                            Toast.makeText(context, selectedCategories.toString(), Toast.LENGTH_LONG).show();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
                 });
 
-
-
-                expandableDialog.show();
-
             }
 
             @Override
             public void onFailure(int statusCode , cz.msebera.android.httpclient.Header[] headers, Throwable throwable , JSONObject response){
-
+                progressBar.setVisibility(View.GONE);
             }
         });
+
+        expandableDialog.show();
 
     }
 
@@ -161,6 +163,7 @@ public class NewDirectoryActivity extends MainController {
         facilitiesDialog.setContentView(R.layout.dialog_facilities);
 
         final RecyclerView recyclerViewFacilities = (RecyclerView) facilitiesDialog.findViewById(R.id.recycler_view_facilities);
+        final ProgressBar progressBar = (ProgressBar) facilitiesDialog.findViewById(R.id.facilities_loading);
 
         RequestParams requestParams = new RequestParams();
         requestParams.put("withSubCategories", Boolean.TRUE);
@@ -178,6 +181,7 @@ public class NewDirectoryActivity extends MainController {
             @Override
             public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, JSONArray response) {
 
+                progressBar.setVisibility(View.GONE);
                 FacilitiesAdapter facilitiesAdapter = new FacilitiesAdapter(context, response);
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
 
@@ -197,15 +201,17 @@ public class NewDirectoryActivity extends MainController {
                     }
                 });
 
-                facilitiesDialog.show();
-
             }
 
             @Override
             public void onFailure(int statusCode , cz.msebera.android.httpclient.Header[] headers, Throwable throwable , JSONObject response){
+                progressBar.setVisibility(View.GONE);
                 facilitiesDialog.cancel();
             }
         });
+
+        facilitiesDialog.show();
+
     }
 
     @Override
@@ -230,12 +236,12 @@ public class NewDirectoryActivity extends MainController {
         findFormText((ViewGroup) getWindow().getDecorView().getRootView(), formData);
 
         if(selectedCategories.length() <= 0) {
-            Toast.makeText(context, "لطفا دسته های مرتبط را انتخاب نمایید .", Toast.LENGTH_SHORT).show();
+            appToast("لطفا دسته های مرتبط را انتخاب نمایید .");
             return;
         }
 
         if(selectedLocation.length() <= 0) {
-            Toast.makeText(context, "لطفا موقعیت مکانی را مشخص کنید .", Toast.LENGTH_SHORT).show();
+            appToast("لطفا موقعیت مکانی را مشخص کنید .");
             return;
         }
 
@@ -250,7 +256,6 @@ public class NewDirectoryActivity extends MainController {
 
         switch (statusCode){
             case 200:
-//                Toast.makeText(context, response.toString(), Toast.LENGTH_LONG).show();
                 try {
 
                     finish();
@@ -293,7 +298,7 @@ public class NewDirectoryActivity extends MainController {
 
                     try {
                         JSONArray errorValidation = response.getJSONArray(key);
-                        Toast.makeText(context, errorValidation.get(0).toString(), Toast.LENGTH_SHORT).show();
+                        appToast(errorValidation.get(0).toString());
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

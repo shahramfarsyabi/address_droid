@@ -86,17 +86,17 @@ public class ProfileMainActivity extends MainController {
 
 //        HttpRequest.client.addHeader("Authorization", "Bearer "+user.getString("token"));
 
-        Toast.makeText(context, "/users/"+user.getInt("id")+"/checkforfollow/"+client.getInt("id"), Toast.LENGTH_LONG).show();
+
 
         HttpRequest.post("users/"+user.getInt("id")+"/checkforfollow/"+client.getInt("id"), params, new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, JSONObject response) {
-
+                appToast("درخواست شما برای کاربر مورد نظر ارسال گردید");
             }
 
             @Override
             public void onFailure(int statusCode, cz.msebera.android.httpclient.Header[] headers, String data, Throwable throwable) {
-
+                appToast("خطا در برقراری ارتباط با سرور");
             }
         });
 

@@ -81,6 +81,7 @@ public class SharedPrefered {
     public void empty() throws JSONException {
         JSONArray collection = new JSONArray();
         this.data = new JSONArray();
+
         getPreference(context).edit().remove(key).apply();
     }
 

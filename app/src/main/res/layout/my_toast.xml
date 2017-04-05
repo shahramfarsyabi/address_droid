@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/colorWhite"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ir.iraddress.www.extend.TextViewIranSans
+        android:textColor="@color/colorBlack"
+        android:text="@string/lorem"
+        android:textSize="13sp"
+        android:padding="10dp"
+        android:id="@+id/toast_text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

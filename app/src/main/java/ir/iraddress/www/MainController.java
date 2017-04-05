@@ -18,6 +18,8 @@ import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -37,6 +39,7 @@ import java.util.List;
 
 import ir.iraddress.www.categories.AdapterFilterCategories;
 import ir.iraddress.www.extend.AppButton;
+import ir.iraddress.www.extend.TextViewIranSans;
 import ir.iraddress.www.helper.ConnectionDetector;
 import ir.iraddress.www.helper.HttpRequest;
 import ir.iraddress.www.helper.MyLocationServiceManager;
@@ -184,8 +187,7 @@ public abstract class MainController extends AppCompatActivity {
                     myLocationServiceManager.connect();
                 } else {
                     // Permission Denied
-                    Toast.makeText(this, "Access Fine Location is Denied", Toast.LENGTH_SHORT)
-                            .show();
+                    appToast("Access Fine Location is Denied");
                 }
                 break;
             default:
@@ -195,16 +197,21 @@ public abstract class MainController extends AppCompatActivity {
 
     public void render(){
 
-//        mSwipeRefreshLayout = (SwipeRefreshLayout)findViewById(R.id.swifeRefresh);
-//        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-//            @Override
-//            public void onRefresh() {
-//                collection.clear();
-//                recyclerView.removeAllViewsInLayout();
-//                fetchData(1, "", params);
-//
-//            }
-//        });
+        mSwipeRefreshLayout = (SwipeRefreshLayout)findViewById(R.id.swifeRefresh);
+
+        if(mSwipeRefreshLayout != null){
+
+            mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+                @Override
+                public void onRefresh() {
+                    collection.clear();
+                    recyclerView.removeAllViewsInLayout();
+                    fetchData(1, "", params);
+
+                }
+            });
+        }
+
 
         EndlessRecyclerViewScrollListener endlessRecyclerViewScrollListener = new EndlessRecyclerViewScrollListener((LinearLayoutManager) layoutManager) {
             @Override
@@ -327,18 +334,26 @@ public abstract class MainController extends AppCompatActivity {
             public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, JSONObject response) {
                 pageLoading(false);
                 callback(response, statusCode, "GET");
+                if(mSwipeRefreshLayout != null){
+                    mSwipeRefreshLayout.setRefreshing(false);
+                }
             }
 
             @Override
             public void onFailure(int statusCode , cz.msebera.android.httpclient.Header[] headers, Throwable throwable , JSONObject response){
                 pageLoading(false);
+                if(mSwipeRefreshLayout != null){
+                    mSwipeRefreshLayout.setRefreshing(false);
+                }
 
             }
 
             @Override
             public void onFailure(int statusCode , cz.msebera.android.httpclient.Header[] headers, String data, Throwable throwable){
                 pageLoading(false);
-                System.out.println(data);
+                if(mSwipeRefreshLayout != null){
+                    mSwipeRefreshLayout.setRefreshing(false);
+                }
             }
         });
     }
@@ -377,7 +392,6 @@ public abstract class MainController extends AppCompatActivity {
             @Override
             public void onFailure(int statusCode , cz.msebera.android.httpclient.Header[] headers, Throwable throwable , JSONObject response){
                 pageLoading(false);
-//                Toast.makeText(MainController.this, response.toString(), Toast.LENGTH_LONG).show();
                 callback(response, statusCode, "POST");
             }
 
@@ -385,7 +399,6 @@ public abstract class MainController extends AppCompatActivity {
             public void onFailure(int statusCode, cz.msebera.android.httpclient.Header[] headers, String data, Throwable throwable) {
                 pageLoading(false);
                 System.out.println(data);
-//                Toast.makeText(context, data, Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -409,6 +422,7 @@ public abstract class MainController extends AppCompatActivity {
 
     public void putRequest(String url, RequestParams params){
         pageLoading(true);
+
         HttpRequest.put(url, params, new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, JSONObject response) {
@@ -419,7 +433,6 @@ public abstract class MainController extends AppCompatActivity {
             @Override
             public void onFailure(int statusCode , cz.msebera.android.httpclient.Header[] headers, Throwable throwable , JSONObject response){
                 pageLoading(false);
-//                Toast.makeText(MainController.this, response.toString(), Toast.LENGTH_LONG).show();
                 callback(response, statusCode, "PUT");
             }
 
@@ -427,7 +440,6 @@ public abstract class MainController extends AppCompatActivity {
             public void onFailure(int statusCode, cz.msebera.android.httpclient.Header[] headers, String data, Throwable throwable) {
                 pageLoading(false);
                 System.out.println(data);
-//                Toast.makeText(context, data, Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -446,9 +458,10 @@ public abstract class MainController extends AppCompatActivity {
         HttpRequest.post(url, params, new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, JSONObject response) {
-                System.out.println(response);
-                Toast.makeText(context, "فایل با موفقیت ارسال شد.", Toast.LENGTH_LONG).show();
+
+                appToast("فایل با موفقیت ارسال شد.");
                 uploaded();
+
                 if(fileBrowser != null) {
                     fileBrowser.setVisibility(View.VISIBLE);
                     loading.setVisibility(View.GONE);
@@ -459,8 +472,8 @@ public abstract class MainController extends AppCompatActivity {
 
             @Override
             public void onFailure(int statusCode , cz.msebera.android.httpclient.Header[] headers, Throwable throwable , JSONObject response){
-                System.out.println(response);
-                Toast.makeText(context, "در ارسال فایل خطایی رخ داده است.", Toast.LENGTH_LONG).show();
+                appToast("در ارسال فایل خطایی رخ داده است.");
+
                 if(fileBrowser != null) {
                     fileBrowser.setVisibility(View.VISIBLE);
                     loading.setVisibility(View.GONE);
@@ -475,7 +488,6 @@ public abstract class MainController extends AppCompatActivity {
 
     public boolean checkInternetConnection(){
 
-        System.out.println("CHECK INTERNET CONNECTION - me");
         Boolean check = new ConnectionDetector(this).isConnectedToInternet();
         System.out.println(check);
 
@@ -607,6 +619,21 @@ public abstract class MainController extends AppCompatActivity {
             broadcastReceiver = null;
         }
         super.onPause();
+    }
+
+    public void appToast(String content) {
+        LayoutInflater inflater=getLayoutInflater();
+
+        View customToastroot =inflater.inflate(R.layout.my_toast, null);
+        TextViewIranSans text = (TextViewIranSans ) customToastroot.findViewById(R.id.toast_text);
+        text.setText(content);
+
+        Toast customtoast = new Toast(context);
+
+        customtoast.setView(customToastroot);
+//        customtoast.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.CENTER_VERTICAL,0, 0);
+        customtoast.setDuration(Toast.LENGTH_LONG);
+        customtoast.show();
     }
 
 }

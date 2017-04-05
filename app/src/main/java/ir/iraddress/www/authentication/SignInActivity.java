@@ -70,7 +70,6 @@ public class SignInActivity extends MainController {
             case 200:
 
                 try {
-                    System.out.println(response);
                     SharedPrefered sharedPrefered = new SharedPrefered(context, "user");
                     sharedPrefered.empty();
                     sharedPrefered.store(response);

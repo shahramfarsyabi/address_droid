@@ -3,6 +3,9 @@ package ir.iraddress.www.profile;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.SubMenu;
 import android.view.View;
 import android.widget.TextView;
 
@@ -21,6 +24,9 @@ import ir.iraddress.www.extend.TextViewIranSansBold;
 public class ProfileActivity extends ProfileMainActivity {
 
     private static final int CODE_FOR_LOGOUT = 0;
+    private static final int CODE_FOR_UPDATE_PROFILE = 2;
+    private TextView clientName;
+    private CircleImageView avatar;
 
 
     public void onCreate(Bundle savedInstanceState){
@@ -30,12 +36,12 @@ public class ProfileActivity extends ProfileMainActivity {
 
         try {
 
-            CircleImageView avatar = (CircleImageView) findViewById(R.id.profile_image);
+            avatar = (CircleImageView) findViewById(R.id.profile_image);
             Picasso.with(context).load(user.getString("avatar")).fit().centerCrop().into(avatar);
 
             typeface = Typeface.createFromAsset(getAssets(), "fonts/ttf/IRANSansWeb.ttf");
 
-            TextView clientName = (TextView) findViewById(R.id.client_name);
+            clientName = (TextView) findViewById(R.id.client_name);
             clientName.setText(user.getString("fullName"));
             clientName.setTypeface(typeface);
 
@@ -59,11 +65,36 @@ public class ProfileActivity extends ProfileMainActivity {
         btnEditProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
                 Intent intent = new Intent(context, ProfileEditActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent, CODE_FOR_UPDATE_PROFILE);
             }
         });
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        switch(requestCode){
+            case CODE_FOR_UPDATE_PROFILE:
+                if (resultCode == RESULT_OK) {
+
+                    try {
+                        if(sharedPrefered.count() > 0){
+
+                            user = sharedPrefered.findByIndex(0);
+                            clientName.setText(user.getString("fullName"));
+                            Picasso.with(context).load(user.getString("avatar")).fit().centerCrop().into(avatar);
+
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    appToast("اطلاعات کاربری شما با موفقیت ویرایش شد");
+                }
+                break;
+
+        }
 
     }
 

@@ -56,22 +56,22 @@ public class NewTripActivity extends ProfileMainActivity implements DatePickerDi
     public void btnSubmitTrip(View view) throws JSONException {
 
         if(title.getText().equals(getString(R.string.trip_title))){
-            Toast.makeText(this, getString(R.string.trip_title_required), Toast.LENGTH_LONG).show();
+            appToast(getString(R.string.trip_title_required));
             return;
         }
 
         if(date.getText().equals(getString(R.string.trip_select_date))){
-            Toast.makeText(this, getString(R.string.trip_date_required), Toast.LENGTH_LONG).show();
+            appToast(getString(R.string.trip_date_required));
             return;
         }
 
         if(location.getText().equals(getString(R.string.trip_select_location))){
-            Toast.makeText(this, getString(R.string.trip_location_required), Toast.LENGTH_LONG).show();
+            appToast(getString(R.string.trip_location_required));
             return;
         }
 
         if(description.getText().equals(getString(R.string.trip_description))){
-            Toast.makeText(this, getString(R.string.trip_descripton_required), Toast.LENGTH_LONG).show();
+            appToast(getString(R.string.trip_descripton_required));
             return;
         }
 
@@ -129,7 +129,7 @@ public class NewTripActivity extends ProfileMainActivity implements DatePickerDi
 
                     try {
                         JSONArray errorValidation = response.getJSONArray(key);
-                        Toast.makeText(context, errorValidation.get(0).toString(), Toast.LENGTH_SHORT).show();
+                        appToast(errorValidation.get(0).toString());
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
