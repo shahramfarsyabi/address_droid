@@ -92,7 +92,11 @@ public abstract class MainController extends AppCompatActivity {
         loadingView.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
         loadingView.setContentView(R.layout.dialog_loading);
 
+        broadCastReceiver();
 
+    }
+
+    protected void broadCastReceiver(){
         broadcastReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, final Intent intent) {
@@ -167,7 +171,6 @@ public abstract class MainController extends AppCompatActivity {
         };
 
         intentFilter = new IntentFilter("OPEN_NEW_ACTIVITY");
-
     }
 
     @Override
@@ -616,7 +619,8 @@ public abstract class MainController extends AppCompatActivity {
     protected void onPause() {
         if(broadcastReceiver != null){
             unregisterReceiver(broadcastReceiver);
-            broadcastReceiver = null;
+//            broadcastReceiver = null;
+            registerReceiver(broadcastReceiver, intentFilter);
         }
         super.onPause();
     }
