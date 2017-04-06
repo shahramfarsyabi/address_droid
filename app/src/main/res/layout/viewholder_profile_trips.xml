@@ -65,7 +65,7 @@
                     android:id="@+id/box_action"
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="56dp">
+                    android:layout_height="40dp">
 
                     <ir.iraddress.www.extend.AppButton
                         android:onClick="onClickEditTrip"
@@ -73,14 +73,22 @@
                         android:text="@string/edit"
                         android:layout_width="0dp"
                         android:layout_weight="1"
-                        android:layout_height="56dp" />
+                        android:layout_height="35dp"
+                        android:background="@drawable/rounded_corners_blue"
+                        android:textColor="@color/colorWhite"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginEnd="5dp"/>
 
                     <ir.iraddress.www.extend.AppButton
                         android:onClick="btnEditTrip"
                         android:text="@string/delete"
                         android:layout_width="0dp"
                         android:layout_weight="1"
-                        android:layout_height="56dp" />
+                        android:layout_height="35dp"
+                        android:background="@drawable/rounded_corners_red"
+                        android:textColor="@color/colorWhite"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"/>
 
                     <ir.iraddress.www.extend.AppButton
                         android:id="@+id/view"
@@ -88,7 +96,11 @@
                         android:text="@string/view"
                         android:layout_width="0dp"
                         android:layout_weight="1"
-                        android:layout_height="56dp" />
+                        android:layout_height="35dp"
+                        android:background="@drawable/rounded_corners_green"
+                        android:textColor="@color/colorWhite"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="0dp"/>
 
                 </LinearLayout>
 

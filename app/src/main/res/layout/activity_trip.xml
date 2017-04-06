@@ -121,7 +121,7 @@
                         android:id="@+id/trip_date"
                         android:textSize="13sp"
                         android:paddingTop="15dp"
-                        android:drawableTop="@drawable/ic_photo_camera_primary" />
+                        android:drawableTop="@drawable/ic_calendar_with_spring_binder_and_date_blocks" />
                 </LinearLayout>
             </LinearLayout>
             <View

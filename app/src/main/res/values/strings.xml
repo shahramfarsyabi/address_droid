@@ -79,7 +79,7 @@
     <string name="action_settings">Settings</string>
     <string name="support">پشتیبانی</string>
     <string name="connection_pending">پندینگ</string>
-    <string name="connection_accepted">کانکتد</string>
+    <string name="connection_accepted">پروفایل</string>
     <string name="connection_rejected">ریجکتد</string>
     <string name="trip_title">عنوان سفر</string>
     <string name="trip_select_date">تاریخ سفر</string>
