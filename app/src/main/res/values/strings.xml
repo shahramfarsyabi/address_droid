@@ -97,4 +97,13 @@
     <string name="view">مشاهده</string>
     <string name="unauthorized">دسترسی غیر مجاز</string>
     <string name="unauthorized_text">برای تکمیل فرآیند باید وارد شوید , در صورتیکه حساب کاربری ندارید ثبت نام کنید</string>
+    <string name="no_connection">عدم اتصال به اینترنت</string>
+    <string name="no_connection_text">متاسفانه اتصال شما به شبکه اینترنت برقرار نیست. برای استفاده از اپلیکیشن آدرس، به اینترنت نیازمندیم. به یکی از روش های زیر، به اینترنت متصل شوید :</string>
+    <string name="simcard_network">اینترنت سیم کارت</string>
+    <string name="wifi_network">اینترنت Wi-Fi</string>
+    <string name="follow_request">درخواست دوستی جدید</string>
+    <string name="follow_request_text">شهرام فرسیابی درخواست دارد تا شما را دنبال کند. می توانید اکنون این درخواست را قبول یا رد کنید و یا بعدا در این مورد تصمیم بگیرید.</string>
+    <string name="accept_request">قبول درخواست</string>
+    <string name="reject_request">رد درخواست</string>
+    <string name="later">بعدا</string>
 </resources>

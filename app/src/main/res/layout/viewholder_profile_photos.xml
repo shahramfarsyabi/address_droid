@@ -4,31 +4,32 @@
     android:id="@+id/holder_photo"
     android:padding="1dp"
     android:layout_width="match_parent"
-    android:layout_height="200dp">
-
+    android:layout_height="150dp">
     <ImageView
+        android:contentDescription="@string/delete"
         android:scaleType="centerCrop"
         android:id="@+id/my_photo"
         android:src="@drawable/tehran"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-
     <View
         android:id="@+id/background_box_action"
         android:layout_alignParentBottom="true"
-        android:alpha="0.5"
+        android:alpha="0"
         android:background="@color/colorWhite"
         android:layout_width="match_parent"
-        android:layout_height="50dp" />
-
+        android:layout_height="40dp" />
     <ir.iraddress.www.extend.AppButton
         android:onClick="onClickRemovePhoto"
         android:layout_alignParentBottom="true"
         android:id="@+id/btn_delete"
         android:text="@string/delete"
-        android:layout_width="56dp"
-        android:layout_height="56dp" />
-
-
-
+        android:textSize="13sp"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:background="@drawable/rounded_corners_red"
+        android:textColor="@color/colorWhite"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"/>
 </RelativeLayout>
