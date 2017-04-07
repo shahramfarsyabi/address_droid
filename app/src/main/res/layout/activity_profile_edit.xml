@@ -43,12 +43,12 @@
     </android.support.v7.widget.Toolbar>
 
     <LinearLayout
-        android:gravity="center"
+        android:gravity="start"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:elevation="2dp">
+        android:paddingTop="15dp">
 
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -60,7 +60,8 @@
             android:layout_height="150dp"
             android:elevation="8dp"
             app:civ_border_width="5dp"
-            app:civ_border_color="#FFFFFFFF"/>
+            app:civ_border_color="#FFFFFFFF"
+            android:layout_marginBottom="15dp"/>
 
 
         <ProgressBar
