@@ -10,6 +10,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import ir.iraddress.www.R;
+import ir.iraddress.www.extend.TextViewIranSans;
+import ir.iraddress.www.extend.TextViewIranSansBold;
 
 /**
  * Created by shahram on 2/16/17.
@@ -25,6 +27,9 @@ public class MyPhotosActivity extends ProfileMainActivity {
         setContentView(R.layout.activity_profile_photos);
         owner = Boolean.TRUE;
 
+        TextViewIranSansBold toolbarTitle = (TextViewIranSansBold) findViewById(R.id.photos_toolbar_title);
+
+
         if(extras != null && extras.containsKey("user_id")){
             owner = Boolean.FALSE;
             route = "users/"+extras.getInt("user_id")+"/photos";
@@ -35,6 +40,7 @@ public class MyPhotosActivity extends ProfileMainActivity {
                 switch(extras.getString("type")){
                     case "trip":
                         try {
+                            toolbarTitle.setText(getString(R.string.trip_photos));
                             route = "users/"+user.getInt("id")+"/trips/"+extras.getInt("trip_id")+"/images";
                         } catch (JSONException e) {
                             e.printStackTrace();

@@ -27,6 +27,7 @@
             android:scaleY="0.5"/>
 
         <ir.iraddress.www.extend.TextViewIranSansBold
+            android:id="@+id/photos_toolbar_title"
             android:textColor="@color/colorWhite"
             android:gravity="center"
             android:textSize="18sp"
