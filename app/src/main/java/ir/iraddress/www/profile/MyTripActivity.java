@@ -2,6 +2,7 @@ package ir.iraddress.www.profile;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.widget.LinearLayoutManager;
@@ -54,6 +55,8 @@ public class MyTripActivity extends ProfileMainActivity implements OnMapReadyCal
         date = (AppButton) findViewById(R.id.trip_date);
         rate = (AppButton) findViewById(R.id.trip_rate);
         content = (TextViewIranSans) findViewById(R.id.trip_content);
+        typeface = Typeface.createFromAsset(context.getAssets(),"fonts/ttf/IRANSansWeb.ttf");
+
 
         getRequest(route, params);
     }
