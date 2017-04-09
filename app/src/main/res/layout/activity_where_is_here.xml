@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/toolbar_address_gradiant"
+        android:theme="?attr/actionBarTheme"
+        android:minHeight="?attr/actionBarSize"
+        android:id="@+id/toolbar_diractoris_list"
+        android:elevation="2dp">
+
+        <Button
+            android:onClick="onBackPressed"
+            android:layout_gravity="end"
+            android:background="@drawable/ic_arrow_pointing_to_right"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:scaleX="0.5"
+            android:scaleY="0.5"/>
+
+        <ir.iraddress.www.extend.TextViewIranSansBold
+            android:layout_gravity="end"
+            android:gravity="center"
+            android:textColor="@color/colorWhite"
+            android:textSize="18sp"
+            android:text="تا حالا اینجا بودین"
+            android:id="@+id/toolbar_title_page"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:onClick="advanceFilter"
+            android:layout_gravity="start"
+            android:background="@drawable/ic_filter_tool_black_shape"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:scaleX="0.5"
+            android:scaleY="0.5"/>
+
+
+    </android.support.v7.widget.Toolbar>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swifeRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview_where_is_here_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</LinearLayout>

@@ -1,6 +1,7 @@
 package ir.iraddress.www.mainMenu;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -10,6 +11,7 @@ import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -19,13 +21,22 @@ import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.DefaultSliderView;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import ir.iraddress.www.R;
+import ir.iraddress.www.authentication.SignInActivity;
+import ir.iraddress.www.authentication.SignUpActivity;
 import ir.iraddress.www.categories.CategoriesActivity;
 import ir.iraddress.www.directories.DirectoriesActivity;
 import ir.iraddress.www.directories.DirectoryActivity;
+import ir.iraddress.www.extend.AppButton;
 import ir.iraddress.www.festival.ImageFestivalActivity;
 import ir.iraddress.www.findsearch.SearchResultActivity;
+import ir.iraddress.www.helper.SharedPrefered;
 import ir.iraddress.www.lottory.LottoryActivity;
+import ir.iraddress.www.profile.MyTripsActivity;
+import ir.iraddress.www.whereIsHere.whereIsHereActivity;
 
 public class MainMenuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public LayoutInflater inflater;
@@ -193,14 +204,65 @@ public class MainMenuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                                 break;
 
                             case 6:
-                                intent = new Intent(context, DirectoryActivity.class);
-                                intent.putExtra("directory_id", "354730");
+                                intent = new Intent(context, whereIsHereActivity.class);
                                 context.startActivity(intent);
                                 break;
 
                             case 7:
                                 intent = new Intent(context, LottoryActivity.class);
                                 context.startActivity(intent);
+                                break;
+
+                            case 8:
+
+                                try {
+
+                                    SharedPrefered sharedPrefered = new SharedPrefered(context, "user");
+                                    JSONObject user = null;
+
+                                    if(sharedPrefered.count() > 0){
+                                        user = sharedPrefered.findByIndex(0);
+                                    }
+
+                                    if(user == null){
+
+                                        final Dialog dialogAuth = new Dialog(context, R.style.MyDialogSize);
+                                        dialogAuth.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                                        dialogAuth.setContentView(R.layout.dialog_authenticate);
+
+                                        AppButton signIn = (AppButton) dialogAuth.findViewById(R.id.btnSignInOnClick);
+                                        AppButton signUp = (AppButton) dialogAuth.findViewById(R.id.btnSignUpOnClick);
+
+                                        signIn.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+                                                Intent intent = new Intent(context, SignInActivity.class);
+                                                context.startActivity(intent);
+                                                dialogAuth.cancel();
+                                            }
+                                        });
+
+                                        signUp.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+                                                Intent intent = new Intent(context, SignUpActivity.class);
+                                                context.startActivity(intent);
+                                                dialogAuth.cancel();
+                                            }
+                                        });
+
+                                        dialogAuth.show();
+
+                                        return;
+                                    }
+
+                                    intent = new Intent(context, MyTripsActivity.class);
+                                    context.startActivity(intent);
+
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+
                                 break;
 
 

@@ -54,7 +54,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1">
                     <ir.iraddress.www.extend.AppButton
-                        android:id="@+id/yes"
+                        android:id="@+id/btnSignInOnClick"
                         android:gravity="center"
                         android:textSize="13sp"
                         android:text="@string/login"
@@ -74,7 +74,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1">
                     <ir.iraddress.www.extend.AppButton
-                        android:id="@+id/no"
+                        android:id="@+id/btnSignUpOnClick"
                         android:gravity="center"
                         android:textSize="13sp"
                         android:text="@string/signup"

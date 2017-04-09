@@ -93,9 +93,6 @@ public class DirectoriesActivity extends MainController {
         recyclerView.setAdapter(recyclerViewAdapter);
         recyclerView.setLayoutManager(layoutManager);
 
-
-
-
         render();
 
     }

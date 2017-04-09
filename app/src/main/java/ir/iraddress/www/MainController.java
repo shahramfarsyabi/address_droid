@@ -20,6 +20,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.SubMenu;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -37,6 +40,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import ir.iraddress.www.authentication.SignInActivity;
+import ir.iraddress.www.authentication.SignUpActivity;
 import ir.iraddress.www.categories.AdapterFilterCategories;
 import ir.iraddress.www.extend.AppButton;
 import ir.iraddress.www.extend.TextViewIranSans;
@@ -620,7 +625,7 @@ public abstract class MainController extends AppCompatActivity {
         if(broadcastReceiver != null){
             unregisterReceiver(broadcastReceiver);
 //            broadcastReceiver = null;
-            registerReceiver(broadcastReceiver, intentFilter);
+//            registerReceiver(broadcastReceiver, intentFilter);
         }
         super.onPause();
     }
@@ -638,6 +643,16 @@ public abstract class MainController extends AppCompatActivity {
 //        customtoast.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.CENTER_VERTICAL,0, 0);
         customtoast.setDuration(Toast.LENGTH_LONG);
         customtoast.show();
+    }
+
+    public void signIn(View view){
+        Intent intent = new Intent(this, SignInActivity.class);
+        startActivity(intent);
+    }
+
+    public void signUp(View view){
+        Intent intent = new Intent(this, SignUpActivity.class);
+        startActivity(intent);
     }
 
 }

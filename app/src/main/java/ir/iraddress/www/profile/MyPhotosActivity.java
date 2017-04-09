@@ -32,7 +32,7 @@ public class MyPhotosActivity extends ProfileMainActivity {
 
         if(extras != null && extras.containsKey("user_id")){
             owner = Boolean.FALSE;
-            route = "users/"+extras.getInt("user_id")+"/photos";
+            route = "public/users/"+extras.getInt("user_id")+"/photos";
         }else{
 
             if(extras != null && extras.containsKey("type")){

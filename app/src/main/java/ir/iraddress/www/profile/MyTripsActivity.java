@@ -30,7 +30,7 @@ public class MyTripsActivity extends ProfileMainActivity {
 
         if(extras != null && extras.containsKey("user_id")){
             owner = Boolean.FALSE;
-            route = "users/"+extras.getInt("user_id")+"/trips";
+            route = "public/users/"+extras.getInt("user_id")+"/trips";
         }else{
             try {
                 route = "users/"+user.getInt("id")+"/trips";

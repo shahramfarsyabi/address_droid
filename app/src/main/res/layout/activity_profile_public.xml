@@ -55,12 +55,11 @@
                     xmlns:app="http://schemas.android.com/apk/res-auto"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
-                    android:src="@drawable/tehran"
                     android:elevation="8dp"
                     app:civ_border_width="5dp"
                     app:civ_border_color="#FFFFFFFF"/>
 
-                <TextView
+                <ir.iraddress.www.extend.TextViewIranSans
                     android:id="@+id/client_name"
                     android:textSize="20sp"
                     android:padding="10dp"
@@ -185,6 +184,7 @@
 
                 <ir.iraddress.www.extend.AppButton
                     android:onClick="btnSendRequestForFollow"
+                    android:id="@+id/btnFollow"
                     android:layout_margin="10dp"
                     android:elevation="10dp"
                     android:textColor="@color/colorWhite"

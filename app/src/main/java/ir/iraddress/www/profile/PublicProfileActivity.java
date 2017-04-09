@@ -13,6 +13,7 @@ import org.json.JSONObject;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import ir.iraddress.www.R;
+import ir.iraddress.www.extend.AppButton;
 import ir.iraddress.www.extend.TextViewIranSans;
 
 /**
@@ -25,7 +26,7 @@ public class PublicProfileActivity extends ProfileMainActivity{
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_public);
-        getRequest("users/"+extras.getInt("user_id")+"/profile", params);
+        getRequest("public/users/"+extras.getInt("user_id")+"/profile", params);
 
     }
 
@@ -42,7 +43,32 @@ public class PublicProfileActivity extends ProfileMainActivity{
                     CircleImageView avatar = (CircleImageView) findViewById(R.id.profile_image);
                     Picasso.with(context).load(response.getString("avatar")).fit().centerCrop().into(avatar);
 
-                    TextView clientName = (TextView) findViewById(R.id.client_name);
+                    AppButton btnFollow = (AppButton) findViewById(R.id.btnFollow);
+
+                    if(client.get("connected_with_me") instanceof JSONObject){
+
+                        switch(client.getJSONObject("connected_with_me").getString("status")){
+                            case "pending":
+                                btnFollow.setText(R.string.connection_pending);
+                                break;
+
+                            case "accepted":
+                                btnFollow.setText(R.string.connection_accepted);
+                                break;
+
+                            case "rejected":
+                                btnFollow.setText(R.string.connection_rejected);
+                                break;
+
+                            default:
+                                btnFollow.setText(R.string.follow);
+                                break;
+                        }
+                    }else{
+                        btnFollow.setText(R.string.follow);
+                    }
+
+                    TextViewIranSans clientName = (TextViewIranSans) findViewById(R.id.client_name);
                     clientName.setText(response.getString("fullName"));
                     clientName.setTypeface(typeface);
 

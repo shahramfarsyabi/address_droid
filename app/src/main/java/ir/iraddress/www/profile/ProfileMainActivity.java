@@ -17,6 +17,8 @@ import org.json.JSONObject;
 
 import ir.iraddress.www.MainController;
 import ir.iraddress.www.R;
+import ir.iraddress.www.authentication.SignInActivity;
+import ir.iraddress.www.authentication.SignUpActivity;
 import ir.iraddress.www.extend.AppButton;
 import ir.iraddress.www.extend.TextViewIranSans;
 import ir.iraddress.www.helper.HttpRequest;
@@ -51,9 +53,32 @@ public class ProfileMainActivity extends MainController {
     public Boolean checkAuthenticated(){
         if(user == null){
 
-            Dialog dialogAuth = new Dialog(this, R.style.MyDialogSize);
+            final Dialog dialogAuth = new Dialog(this, R.style.MyDialogSize);
             dialogAuth.requestWindowFeature(Window.FEATURE_NO_TITLE);
             dialogAuth.setContentView(R.layout.dialog_authenticate);
+
+            AppButton signIn = (AppButton) dialogAuth.findViewById(R.id.btnSignInOnClick);
+            AppButton signUp = (AppButton) dialogAuth.findViewById(R.id.btnSignUpOnClick);
+
+            signIn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, SignInActivity.class);
+                    context.startActivity(intent);
+                    dialogAuth.cancel();
+
+                }
+            });
+
+            signUp.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, SignUpActivity.class);
+                    context.startActivity(intent);
+                    dialogAuth.cancel();
+
+                }
+            });
 
             dialogAuth.show();
 

@@ -22,7 +22,7 @@ public class MyItemsActivity extends ProfileActivity {
         setContentView(R.layout.activity_profile_items);
 
         if(extras != null && extras.containsKey("user_id")){
-            route = "directories";
+            route = "public/users/"+extras.get("user_id")+"/directories";
 
         }else{
             route = "directories";
