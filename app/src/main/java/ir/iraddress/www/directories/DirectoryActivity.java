@@ -2,7 +2,9 @@ package ir.iraddress.www.directories;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.Uri;
@@ -17,6 +19,7 @@ import android.view.Display;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RatingBar;
@@ -52,6 +55,7 @@ public class DirectoryActivity extends MainController {
     public SupportMapFragment mapFragment;
     public JSONObject directory;
     private MyLocationServiceManager myLocationServiceManager;
+    private Uri fileUri;
 
     public void onCreate(Bundle savedInstanceState) {
 
@@ -250,45 +254,106 @@ public class DirectoryActivity extends MainController {
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent resultData) {
+    public void onActivityResult(final int requestCode, final int resultCode, final Intent resultData) {
 
         // The ACTION_OPEN_DOCUMENT intent was sent with the request code
         // READ_REQUEST_CODE. If the request code seen here doesn't match, it's the
         // response to some other intent, and the code below shouldn't run at all.
+        if(resultCode == RESULT_OK){
 
-        if (requestCode == READ_REQUEST_CODE && resultCode == RESULT_OK) {
-            // The document selected by the user won't be returned in the intent.
-            // Instead, a URI to that document will be contained in the return intent
-            // provided to this method as a parameter.
-            // Pull that URI using resultData.getData().
-            Uri uri = null;
-            if (resultData != null) {
-                uri = resultData.getData();
-                System.out.println("Uri: " + uri.toString());
-                Uri selectedImage = resultData.getData();
-                String[] filePathColumn = { MediaStore.Images.Media.DATA };
+            final Dialog dialogApproveUploadImage = new Dialog(this);
+            dialogApproveUploadImage.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            dialogApproveUploadImage.setContentView(R.layout.dialog_upload_file_confirmation);
+            AppButton btnAccept = (AppButton) dialogApproveUploadImage.findViewById(R.id.approve);
+            AppButton btnDeny = (AppButton) dialogApproveUploadImage.findViewById(R.id.deny);
 
-                Cursor cursor = getContentResolver().query(selectedImage, filePathColumn, null, null, null);
-                cursor.moveToFirst();
-
-                int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-                String picturePath = cursor.getString(columnIndex);
-                cursor.close();
-
-                System.out.println(picturePath);
-
-                RequestParams params = new RequestParams();
-                try {
-
-                    params.put("image", new File(picturePath));
-                    params.put("directory_id", extras.get("directory_id"));
-                    upload("upload", params);
-
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
+            btnDeny.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialogApproveUploadImage.cancel();
                 }
-            }
+            });
+            btnAccept.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialogApproveUploadImage.cancel();
+
+                    if (requestCode == READ_REQUEST_CODE ) {
+                        // The document selected by the user won't be returned in the intent.
+                        // Instead, a URI to that document will be contained in the return intent
+                        // provided to this method as a parameter.
+                        // Pull that URI using resultData.getData().
+                        Uri uri = null;
+                        if (resultData != null) {
+                            uri = resultData.getData();
+                            System.out.println("Uri: " + uri.toString());
+                            Uri selectedImage = resultData.getData();
+                            String[] filePathColumn = { MediaStore.Images.Media.DATA };
+
+                            Cursor cursor = getContentResolver().query(selectedImage, filePathColumn, null, null, null);
+                            cursor.moveToFirst();
+
+                            int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+                            String picturePath = cursor.getString(columnIndex);
+                            cursor.close();
+
+                            System.out.println(picturePath);
+
+                            RequestParams params = new RequestParams();
+                            try {
+
+                                params.put("image", new File(picturePath));
+                                params.put("directory_id", extras.get("directory_id"));
+                                upload("upload", params);
+
+                            } catch (FileNotFoundException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+
+
+                    if (requestCode == 100) {
+
+                        Uri selectedImage = resultData.getData();
+                        Bitmap photo = (Bitmap) resultData.getExtras().get("data");
+
+                        // Cursor to get image uri to display
+
+                        String[] filePathColumn = {MediaStore.Images.Media.DATA};
+                        Cursor cursor = getContentResolver().query(selectedImage,
+                                filePathColumn, null, null, null);
+                        cursor.moveToFirst();
+
+                        int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+                        String picturePath = cursor.getString(columnIndex);
+                        cursor.close();
+
+                        RequestParams params = new RequestParams();
+                        try {
+
+                            params.put("image", new File(picturePath));
+                            params.put("directory_id", extras.get("directory_id"));
+                            upload("upload", params);
+
+                        } catch (FileNotFoundException e) {
+                            e.printStackTrace();
+                        }
+
+                        //            photo = (Bitmap) resultData.getExtras().get("data");
+                        //            Toast.makeText(context, picturePath, Toast.LENGTH_LONG).show();
+                        //            ImageView imageView = (ImageView) findViewById(R.id.Imageprev);
+                        //            imageView.setImageBitmap(photo);
+                    }
+
+                }
+            });
+
+            dialogApproveUploadImage.show();
         }
+
+
+
     }
 
     public void dumpImageMetaData(Uri uri) {
@@ -351,7 +416,19 @@ public class DirectoryActivity extends MainController {
             @Override
             public void onClick(View v) {
                 dialog.cancel();
-                Toast.makeText(context, "Camera work on next version", Toast.LENGTH_SHORT).show();
+
+                if (getApplicationContext().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA)) {
+                    // Open default camera
+                    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
+
+                    // start the image capture Intent
+                    startActivityForResult(intent, 100);
+
+                } else {
+                    Toast.makeText(getApplication(), "Camera not supported", Toast.LENGTH_LONG).show();
+                }
+
             }
         });
 

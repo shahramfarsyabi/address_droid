@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:id="@+id/directories_list_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@drawable/toolbar_address_gradiant"
+        android:theme="?attr/actionBarTheme"
+        android:minHeight="?attr/actionBarSize"
+        android:id="@+id/toolbar_diractoris_list"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:elevation="2dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        android:paddingEnd="0dp"
+        android:paddingStart="0dp">
+
+        <Button
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:onClick="onBackPressed"
+            android:layout_gravity="end"
+            android:rotation="180"
+            android:background="@drawable/ic_arrow_pointing_to_left"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:scaleX="0.5"
+            android:scaleY="0.5"/>
+
+        <ir.iraddress.www.extend.TextViewIranSansBold
+            android:id="@+id/toolbar_title_directories"
+            android:layout_gravity="end"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:text="@string/notifications"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </android.support.v7.widget.Toolbar>
+
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swifeRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/notifications_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+</LinearLayout>

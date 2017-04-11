@@ -35,5 +35,10 @@
             android:icon="@drawable/ic_magnifying_glass_dddddd"
             android:title="@string/search_user" />
 
+        <item
+            android:id="@+id/nav_notifications"
+            android:icon="@drawable/ic_magnifying_glass_dddddd"
+            android:title="@string/notifications" />
+
     </group>
 </menu>

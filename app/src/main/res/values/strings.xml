@@ -107,4 +107,6 @@
     <string name="reject_request">رد درخواست</string>
     <string name="later">بعدا</string>
     <string name="trip_photos">عکس های سفر</string>
+    <string name="notifications">پیام ها</string>
+    <string name="approve">موافقم</string>
 </resources>
