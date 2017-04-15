@@ -1,5 +1,7 @@
 package ir.iraddress.www;
 
+import android.*;
+import android.Manifest;
 import android.app.Dialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -12,6 +14,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatImageView;
@@ -69,6 +72,8 @@ public abstract class MainController extends AppCompatActivity {
     public Dialog loadingView;
     public MyLocationServiceManager myLocationServiceManager;
     public static final int PERMISSIONS_REQUEST_CODE_FOR_FINE_LOCATION = 1001;
+    public static final int PERMISSIONS_REQUEST_CODE_FOR_WRITE_EXTERNAL_STORAGE = 1002;
+    public static final int PERMISSIONS_REQUEST_CODE_FOR_CAMERA = 1003;
     public static final int CODE_FOR_LOGOUT = 0;
     public static final int CODE_FOR_LOGIN = 1;
     public final int READ_REQUEST_CODE = 42;
@@ -186,16 +191,49 @@ public abstract class MainController extends AppCompatActivity {
         }
     }
 
+
+    protected void checkPermissions(){
+
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, PERMISSIONS_REQUEST_CODE_FOR_FINE_LOCATION);
+            return;
+        }
+
+        if(ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_COARSE_LOCATION}, PERMISSIONS_REQUEST_CODE_FOR_FINE_LOCATION);
+            return;
+        }
+
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, PERMISSIONS_REQUEST_CODE_FOR_WRITE_EXTERNAL_STORAGE);
+            return;
+        }
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, PERMISSIONS_REQUEST_CODE_FOR_CAMERA);
+            return;
+        }
+    }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+
         switch (requestCode) {
             case PERMISSIONS_REQUEST_CODE_FOR_FINE_LOCATION:
                 if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     // Permission Granted
                     myLocationServiceManager.connect();
-                } else {
-                    // Permission Denied
-                    appToast("Access Fine Location is Denied");
+                    checkPermissions();
+                }
+                break;
+            case PERMISSIONS_REQUEST_CODE_FOR_WRITE_EXTERNAL_STORAGE:
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    checkPermissions();
+                }
+                break;
+            case PERMISSIONS_REQUEST_CODE_FOR_CAMERA:
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    checkPermissions();
                 }
                 break;
             default:

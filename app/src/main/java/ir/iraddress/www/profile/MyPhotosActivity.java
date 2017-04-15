@@ -21,6 +21,7 @@ public class MyPhotosActivity extends ProfileMainActivity {
 
     private JSONObject photo;
     private Boolean owner;
+
     public void onCreate(Bundle savedInstanceState){
 
         super.onCreate(savedInstanceState);

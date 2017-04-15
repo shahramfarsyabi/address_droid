@@ -132,20 +132,50 @@ public class ProfileMainActivity extends MainController {
         HttpRequest.put("users/"+user.getInt("id")+"/connection/"+connection.getInt("id")+"/accept", params, new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, JSONObject response) {
-
+                appToast(getString(R.string.connected));
             }
         });
 
     }
 
     public void onClickReject(View view) throws JSONException {
-        JSONObject connection = (JSONObject) view.getTag();
-        HttpRequest.put("users/"+user.getInt("id")+"/connection/"+connection.getInt("id")+"/reject", params, new JsonHttpResponseHandler(){
-            @Override
-            public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, JSONObject response) {
+        final JSONObject connection = (JSONObject) view.getTag();
 
+        final Dialog rejectFollow = new Dialog(this, R.style.MyDialogSize);
+        rejectFollow.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        rejectFollow.setContentView(R.layout.dialog_reject_follower);
+
+        AppButton yes = (AppButton) rejectFollow.findViewById(R.id.yes);
+        AppButton no = (AppButton) rejectFollow.findViewById(R.id.no);
+
+        yes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    HttpRequest.put("users/"+user.getInt("id")+"/connection/"+connection.getInt("id")+"/reject", params, new JsonHttpResponseHandler(){
+                        @Override
+                        public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, JSONObject response) {
+                            appToast(getString(R.string.rejected));
+                            rejectFollow.cancel();
+                        }
+                    });
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         });
+
+        no.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rejectFollow.cancel();
+            }
+        });
+
+        rejectFollow.show();
+
+
+
     }
 }
 

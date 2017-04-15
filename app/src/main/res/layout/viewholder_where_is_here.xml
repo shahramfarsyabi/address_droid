@@ -60,6 +60,7 @@
                     android:layout_height="0dp" />
 
                 <ir.iraddress.www.extend.TextViewIranSans
+                    android:id="@+id/comment_date_owner"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="2 ساعت پیش توسط خشایار پورادبی"

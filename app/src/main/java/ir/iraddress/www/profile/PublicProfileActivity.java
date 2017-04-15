@@ -70,7 +70,6 @@ public class PublicProfileActivity extends ProfileMainActivity{
 
                     TextViewIranSans clientName = (TextViewIranSans) findViewById(R.id.client_name);
                     clientName.setText(response.getString("fullName"));
-                    clientName.setTypeface(typeface);
 
                     TextViewIranSans itemsCount = (TextViewIranSans) findViewById(R.id.items_count);
                     itemsCount.setText(response.getInt("directories") + " آیتم");

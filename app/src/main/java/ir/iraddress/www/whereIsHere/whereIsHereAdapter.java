@@ -49,6 +49,9 @@ public class whereIsHereAdapter extends RecyclerView.Adapter<whereIsHereHolder> 
 
         ImageView image = (ImageView) holder.cardView.findViewById(R.id.directory_image);
         TextViewIranSansBold title = (TextViewIranSansBold) holder.cardView.findViewById(R.id.directory_title);
+        TextViewIranSans dateTimeOwner = (TextViewIranSans) holder.cardView.findViewById(R.id.comment_date_owner);
+
+
         final TextViewIranSans comment = (TextViewIranSans) holder.cardView.findViewById(R.id.directory_comment);
 
         try {
@@ -56,6 +59,9 @@ public class whereIsHereAdapter extends RecyclerView.Adapter<whereIsHereHolder> 
             Picasso.with(context).load(item.getJSONObject("parent").getString("image")).fit().centerCrop().into(image);
             title.setText(item.getJSONObject("parent").getString("title"));
             comment.setText(Html.fromHtml(item.getString("text")));
+            dateTimeOwner.setText(item.getString("created_at"));
+            dateTimeOwner.append(" توسط "+ item.getJSONObject("owner").getString("fullName"));
+
 
             holder.cardView.setOnClickListener(new View.OnClickListener() {
                 @Override

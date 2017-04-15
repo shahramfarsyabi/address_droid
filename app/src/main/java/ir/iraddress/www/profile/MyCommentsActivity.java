@@ -28,6 +28,7 @@ import ir.iraddress.www.extend.AppButton;
 public class MyCommentsActivity extends ProfileMainActivity {
 
     private JSONObject comment;
+    private Boolean owner;
 
     public void onCreate(Bundle savedInstanceState){
 
@@ -35,8 +36,10 @@ public class MyCommentsActivity extends ProfileMainActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_comments);
+        owner = Boolean.TRUE;
 
         if(extras != null && extras.containsKey("user_id")){
+            owner = Boolean.FALSE;
             route = "public/users/"+extras.getInt("user_id")+"/comments";
         }else{
 
@@ -50,7 +53,7 @@ public class MyCommentsActivity extends ProfileMainActivity {
         getRequest(route, params);
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view_comments);
-        recyclerViewAdapter = new MyCommentsAdapter(this, collection);
+        recyclerViewAdapter = new MyCommentsAdapter(this, collection, owner);
         layoutManager = new LinearLayoutManager(this);
 
         recyclerView.setAdapter(recyclerViewAdapter);

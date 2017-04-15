@@ -5,7 +5,9 @@ import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,10 +25,13 @@ public class MyCommentsAdapter extends RecyclerView.Adapter<MyCommentsHolder> {
     public LayoutInflater inflater;
     public Context context;
     public List collection;
-    public MyCommentsAdapter(Context context, List collection){
+    public Boolean owner;
+
+    public MyCommentsAdapter(Context context, List collection, Boolean owner){
         inflater = LayoutInflater.from(context);
         this.context = context;
         this.collection = collection;
+        this.owner = owner;
     }
 
     @Override
@@ -52,11 +57,18 @@ public class MyCommentsAdapter extends RecyclerView.Adapter<MyCommentsHolder> {
 
             TextViewIranSans directoryTitle = (TextViewIranSans) holder.comment.findViewById(R.id.comment_directory_title);
             TextViewIranSans commentContent = (TextViewIranSans) holder.comment.findViewById(R.id.comment_content);
+            Button removeBtn = (Button) holder.comment.findViewById(R.id.btn_remove_comment);
 
 
             directoryTitle.setText(object.getString("created_at"));
             directoryTitle.append(" برای "+object.getJSONObject("parent").getString("title"));
             commentContent.setText(Html.fromHtml(object.getString("text")));
+
+            if(owner){
+                removeBtn.setVisibility(View.VISIBLE);
+            }else{
+                removeBtn.setVisibility(View.GONE);
+            }
 
         } catch (JSONException e) {
             e.printStackTrace();

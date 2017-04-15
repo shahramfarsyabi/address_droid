@@ -109,4 +109,6 @@
     <string name="later">بعدا</string>
     <string name="trip_photos">عکس های سفر</string>
     <string name="approve">موافقم</string>
+    <string name="rejected">قطع ارتباط با کاربر انجام شد</string>
+    <string name="connected">ارتباط با کاربر با موفقیت انجام شد</string>
 </resources>
