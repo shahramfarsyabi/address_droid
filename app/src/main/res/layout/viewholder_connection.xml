@@ -41,24 +41,25 @@
 
 
         <Button
-            android:onClick="onClickReject"
-            android:id="@+id/btnOnClickRejectConnection"
-            android:background="@drawable/ic_garbage"
+            android:onClick="onClickAccept"
+            android:id="@+id/btnOnClickAcceptConnection"
+            android:background="@drawable/ic_correct_symbol"
             android:layout_width="50dp"
-            android:scaleY="0.4"
-            android:scaleX="0.4"
+            android:scaleY="0.5"
+            android:scaleX="0.5"
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:padding="1dp"
             />
 
+
         <Button
-            android:onClick="onClickAccept"
-            android:id="@+id/btnOnClickAcceptConnection"
-            android:background="@drawable/ticket"
+            android:onClick="onClickReject"
+            android:id="@+id/btnOnClickRejectConnection"
+            android:background="@drawable/ic_ban_circle_symbol"
             android:layout_width="50dp"
-            android:scaleY="0.4"
-            android:scaleX="0.4"
+            android:scaleY="0.5"
+            android:scaleX="0.5"
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:padding="1dp"

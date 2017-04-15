@@ -149,7 +149,7 @@
                     android:tag="description"
                     android:layout_width="match_parent"
                     android:textSize="13sp"
-                    android:inputType="text"
+                    android:inputType="textMultiLine"
                     android:layout_height="120dp"
                     android:background="@color/colorWhite"
                     android:gravity="top"

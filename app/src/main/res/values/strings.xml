@@ -1,4 +1,5 @@
 <resources>
+    <string name="notifications">پیام ها</string>
     <string name="best_of_address">بهترین های آدرس</string>
     <string name="search_title">جستجو</string>
     <string name="search_hint">جستجوی رستوران ، شهر ، باشگاه ورزشی یا . . .</string>
@@ -107,6 +108,5 @@
     <string name="reject_request">رد درخواست</string>
     <string name="later">بعدا</string>
     <string name="trip_photos">عکس های سفر</string>
-    <string name="notifications">پیام ها</string>
     <string name="approve">موافقم</string>
 </resources>
