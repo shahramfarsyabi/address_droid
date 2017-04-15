@@ -273,6 +273,7 @@ public class DirectoryActivity extends MainController {
                     dialogApproveUploadImage.cancel();
                 }
             });
+
             btnAccept.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

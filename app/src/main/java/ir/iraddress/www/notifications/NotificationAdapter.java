@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -49,9 +50,31 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationHolder
 
             TextViewIranSans title = (TextViewIranSans) holder.cardView.findViewById(R.id.notification_title);
             TextViewIranSans content = (TextViewIranSans) holder.cardView.findViewById(R.id.notification_content);
+            ImageView image = (ImageView) holder.cardView.findViewById(R.id.notification_image);
 
             title.setText(notif.getString("title"));
             content.setText(notif.getString("content"));
+
+            switch (notif.getString("type")){
+                case "comment_directory":
+                    image.setImageResource(R.drawable.ic_chat);
+
+                    break;
+
+                case "comment_trip":
+                    image.setImageResource(R.drawable.ic_chat);
+
+                    break;
+
+                case "follow_request":
+                    image.setImageResource(R.drawable.ic_user_shape);
+
+                    break;
+
+                default:
+                    image.setImageResource(R.drawable.ic_envelope);
+                    break;
+            }
 
             holder.cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
