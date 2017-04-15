@@ -57,7 +57,8 @@
                     android:layout_height="150dp"
                     android:elevation="8dp"
                     app:civ_border_width="5dp"
-                    app:civ_border_color="#FFFFFFFF"/>
+                    app:civ_border_color="#FFFFFFFF"
+                    android:scaleType="centerCrop" />
 
                 <ir.iraddress.www.extend.TextViewIranSans
                     android:id="@+id/client_name"
