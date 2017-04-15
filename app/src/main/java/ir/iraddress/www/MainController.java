@@ -85,7 +85,7 @@ public abstract class MainController extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-
+        checkPermissions();
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
                 .setDefaultFontPath("fonts/ttf/IRANSansWeb.ttf")
                 .setFontAttrId(R.attr.fontPath)
