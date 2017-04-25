@@ -66,6 +66,7 @@
     <string name="submit_trip">ثبت سفر</string>
     <string name="app_name">Address</string>
     <string name="lottery_welcome">به سیستم قرعه کشی آدرس خوش آمدید.</string>
+    <string name="festival_welcomw">به فستیوال عکس آدرس خوش آمدید.</string>
     <string name="delete_comment">حذف نظر</string>
     <string name="delete_comment_text">آیا از حذف این نظر اطمینان دارید ؟</string>
     <string name="delete_comment_yes">بلی حذف شود</string>
