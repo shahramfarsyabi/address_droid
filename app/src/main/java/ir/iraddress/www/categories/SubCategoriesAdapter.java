@@ -14,7 +14,9 @@ import android.widget.Button;
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.DefaultSliderView;
+import com.loopj.android.http.RequestParams;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -25,6 +27,8 @@ import ir.iraddress.www.R;
 import ir.iraddress.www.directories.DirectoriesActivity;
 import ir.iraddress.www.extend.TextViewIranSans;
 import ir.iraddress.www.extend.TextViewIranSansBold;
+import ir.iraddress.www.interfaces.SliderViewInterface;
+import ir.iraddress.www.models.SliderModel;
 
 public class SubCategoriesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
@@ -33,13 +37,15 @@ public class SubCategoriesAdapter extends RecyclerView.Adapter<RecyclerView.View
     List collection;
     Typeface typeface;
     Activity activity;
+    int mainCategoryId = 0;
 
-    public SubCategoriesAdapter(Context context, Activity activity, List collection){
+    public SubCategoriesAdapter(Context context, Activity activity, List collection, int main_category_id){
         inflater = LayoutInflater.from(context);
         this.context = context;
         this.collection = collection;
         typeface = Typeface.createFromAsset(context.getAssets(), "fonts/ttf/IRANSansWeb.ttf");
         this.activity = activity;
+        this.mainCategoryId = main_category_id;
     }
 
     @Override
@@ -70,25 +76,51 @@ public class SubCategoriesAdapter extends RecyclerView.Adapter<RecyclerView.View
                 Button nearOnMap = (Button) subCategoryHeaderHolder.linearLayout.findViewById(R.id.near_on_map);
                 nearOnMap.setTypeface(typeface);
 
-                SliderLayout sliderLayout = (SliderLayout) subCategoryHeaderHolder.linearLayout.findViewById(R.id.slider);
+                final SliderLayout sliderLayout = (SliderLayout) subCategoryHeaderHolder.linearLayout.findViewById(R.id.slider);
                 Display display = activity.getWindowManager().getDefaultDisplay();
                 android.view.ViewGroup.LayoutParams layoutParams = sliderLayout.getLayoutParams();
                 layoutParams.width = display.getWidth();
                 layoutParams.height = (int) ((display.getWidth()*56.25)/100);
                 sliderLayout.setLayoutParams(layoutParams);
-                String[] fakePhoto = {"http://www.iraddress.ir/files/sliders/Slide1.jpg", "http://www.iraddress.ir/files/sliders/Slide2.jpg", "http://www.iraddress.ir/files/sliders/Slide3.jpg", "http://www.iraddress.ir/files/sliders/Slide4.jpg"};
+                sliderLayout.setVisibility(View.GONE);
 
-                for(int n = 0; n < fakePhoto.length; n++){
+                SliderModel sliderModel = new SliderModel();
+                RequestParams params = new RequestParams();
 
-                    DefaultSliderView textSliderView = new DefaultSliderView(context);
-                    // initialize a SliderLayout
-                    textSliderView
-                            .image(fakePhoto[n])
-                            .setScaleType(BaseSliderView.ScaleType.Fit);
+                params.add("type", "category");
+                params.add("item_id", String.valueOf(this.mainCategoryId));
 
-                    sliderLayout.addSlider(textSliderView);
+                sliderModel.fetch(params, new SliderViewInterface(){
+                    @Override
+                    public void execute(JSONArray sliders) {
 
-                }
+                        if(sliders.length() > 0){
+                            sliderLayout.setVisibility(View.VISIBLE);
+                            for(int n = 0; n < sliders.length(); n++){
+
+                                DefaultSliderView textSliderView = new DefaultSliderView(context);
+                                // initialize a SliderLayout
+                                try {
+
+                                    JSONObject slider = (JSONObject) sliders.get(n);
+                                    System.out.println(slider.getString("src"));
+
+                                    textSliderView
+                                            .image(slider.getString("src"))
+                                            .setScaleType(BaseSliderView.ScaleType.Fit);
+                                    sliderLayout.addSlider(textSliderView);
+
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+
+
+                            }
+                        }
+
+                    }
+                });
+
 
                 break;
 

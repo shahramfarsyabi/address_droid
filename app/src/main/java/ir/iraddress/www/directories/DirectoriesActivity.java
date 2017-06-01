@@ -18,6 +18,7 @@ import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.DefaultSliderView;
 import com.loopj.android.http.RequestParams;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.w3c.dom.Text;
@@ -26,6 +27,8 @@ import ir.iraddress.www.MainController;
 import ir.iraddress.www.R;
 import ir.iraddress.www.extend.TextViewIranSans;
 import ir.iraddress.www.extend.TextViewIranSansBold;
+import ir.iraddress.www.interfaces.SliderViewInterface;
+import ir.iraddress.www.models.SliderModel;
 
 
 public class DirectoriesActivity extends MainController {
@@ -57,34 +60,62 @@ public class DirectoriesActivity extends MainController {
             }
         }
 
+        String toolbarPageTitle = "بهترین های آدرس";
         if(extras.containsKey("toolbar_title")){
 
             TextViewIranSansBold toolbarTitle = (TextViewIranSansBold) findViewById(R.id.toolbar_title_directories);
+            toolbarPageTitle = extras.getString("toolbar_title");
             toolbarTitle.setText(extras.getString("toolbar_title"));
+
         }
 
         fetchData(1, "", params);
 
-        SliderLayout sliderLayout = (SliderLayout) findViewById(R.id.sliderDirectories);
+        final SliderLayout sliderLayout = (SliderLayout) findViewById(R.id.sliderDirectories);
         sliderLayout.setVisibility(View.VISIBLE);
         Display display = getWindowManager().getDefaultDisplay();
         android.view.ViewGroup.LayoutParams layoutParams = sliderLayout.getLayoutParams();
         layoutParams.width = display.getWidth();
         layoutParams.height = (int) ((display.getWidth()*56.25)/100);
         sliderLayout.setLayoutParams(layoutParams);
-        String[] fakePhoto = {"http://www.iraddress.ir/files/sliders/Slide1.jpg", "http://www.iraddress.ir/files/sliders/Slide2.jpg", "http://www.iraddress.ir/files/sliders/Slide3.jpg", "http://www.iraddress.ir/files/sliders/Slide4.jpg"};
+        sliderLayout.setVisibility(View.GONE);
 
-        for(int i = 0; i < fakePhoto.length; i++){
-            System.out.println(fakePhoto[i]);
-            DefaultSliderView textSliderView = new DefaultSliderView(this);
-            // initialize a SliderLayout
-            textSliderView
-                    .image(fakePhoto[i])
-                    .setScaleType(BaseSliderView.ScaleType.Fit);
+        SliderModel sliderModel = new SliderModel();
+        RequestParams params = new RequestParams();
 
-            sliderLayout.addSlider(textSliderView);
+        params.add("type", "dynamic_page");
+        params.add("page_url", "/"+toolbarPageTitle.replaceAll(" ","-"));
 
-        }
+        sliderModel.fetch(params, new SliderViewInterface(){
+            @Override
+            public void execute(JSONArray sliders) {
+
+                if(sliders.length() > 0){
+                    sliderLayout.setVisibility(View.VISIBLE);
+                    for(int n = 0; n < sliders.length(); n++){
+
+                        DefaultSliderView textSliderView = new DefaultSliderView(context);
+                        // initialize a SliderLayout
+                        try {
+
+                            JSONObject slider = (JSONObject) sliders.get(n);
+                            System.out.println(slider.getString("src"));
+
+                            textSliderView
+                                    .image(slider.getString("src"))
+                                    .setScaleType(BaseSliderView.ScaleType.Fit);
+                            sliderLayout.addSlider(textSliderView);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+
+                    }
+                }
+
+            }
+        });
 
         recyclerView = (RecyclerView) findViewById(R.id.directories_recyclerview);
         recyclerViewAdapter = new DirectoriesAdapter(this, this, collection);

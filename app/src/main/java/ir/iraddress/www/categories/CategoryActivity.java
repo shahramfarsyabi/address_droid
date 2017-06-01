@@ -43,7 +43,7 @@ public class CategoryActivity extends MainController {
         toolbarTitle.setText(extras.getString("main_category_title"));
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view_sub_categories);
-        recyclerViewAdapter = new SubCategoriesAdapter(this, this, collection);
+        recyclerViewAdapter = new SubCategoriesAdapter(this, this, collection, extras.getInt("main_category_id"));
         layoutManager = new LinearLayoutManager(this);
 
         recyclerView.setAdapter(recyclerViewAdapter);

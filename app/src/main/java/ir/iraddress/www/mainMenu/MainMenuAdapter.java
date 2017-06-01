@@ -20,21 +20,22 @@ import android.widget.TextView;
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.DefaultSliderView;
+import com.loopj.android.http.RequestParams;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import ir.iraddress.www.R;
 import ir.iraddress.www.authentication.SignInActivity;
 import ir.iraddress.www.authentication.SignUpActivity;
-import ir.iraddress.www.categories.CategoriesActivity;
 import ir.iraddress.www.directories.DirectoriesActivity;
-import ir.iraddress.www.directories.DirectoryActivity;
 import ir.iraddress.www.extend.AppButton;
 import ir.iraddress.www.festival.ImageFestivalActivity;
-import ir.iraddress.www.findsearch.SearchResultActivity;
 import ir.iraddress.www.helper.SharedPrefered;
+import ir.iraddress.www.interfaces.SliderViewInterface;
 import ir.iraddress.www.lottory.LottoryActivity;
+import ir.iraddress.www.models.SliderModel;
 import ir.iraddress.www.profile.MyTripsActivity;
 import ir.iraddress.www.whereIsHere.whereIsHereActivity;
 
@@ -93,7 +94,6 @@ public class MainMenuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         }
     }
 
-
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
         switch (holder.getItemViewType()) {
@@ -103,26 +103,57 @@ public class MainMenuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 StaggeredGridLayoutManager.LayoutParams layoutParamsHeader = (StaggeredGridLayoutManager.LayoutParams) ((HomeTopSectionHolder) holder).linearLayout.getLayoutParams();
                 layoutParamsHeader.setFullSpan(true);
 
-                SliderLayout sliderLayout = (SliderLayout) homeTopSectionHolder.linearLayout.findViewById(R.id.slider);
+                final SliderLayout sliderLayout = (SliderLayout) homeTopSectionHolder.linearLayout.findViewById(R.id.slider);
 
                 Display display = activity.getWindowManager().getDefaultDisplay();
                 android.view.ViewGroup.LayoutParams layoutParams = sliderLayout.getLayoutParams();
                 layoutParams.width = display.getWidth();
                 layoutParams.height = (int) ((display.getWidth()*56.25)/100);
                 sliderLayout.setLayoutParams(layoutParams);
-                String[] fakePhoto = {"http://www.iraddress.ir/files/sliders/Slide1.jpg", "http://www.iraddress.ir/files/sliders/Slide2.jpg", "http://www.iraddress.ir/files/sliders/Slide3.jpg", "http://www.iraddress.ir/files/sliders/Slide4.jpg"};
+                sliderLayout.setVisibility(View.GONE);
+//                String[] fakePhoto = {"http://www.iraddress.ir/files/sliders/Slide1.jpg", "http://www.iraddress.ir/files/sliders/Slide2.jpg", "http://www.iraddress.ir/files/sliders/Slide3.jpg", "http://www.iraddress.ir/files/sliders/Slide4.jpg"};
 
-                for(int n = 0; n < fakePhoto.length; n++){
 
-                    DefaultSliderView textSliderView = new DefaultSliderView(context);
-                    // initialize a SliderLayout
-                    textSliderView
-                            .image(fakePhoto[n])
-                            .setScaleType(BaseSliderView.ScaleType.Fit);
 
-                    sliderLayout.addSlider(textSliderView);
 
-                }
+                SliderModel sliderModel = new SliderModel();
+                RequestParams params = new RequestParams();
+
+                params.add("type", "dynamic_page");
+                params.add("page_url", "/");
+
+                sliderModel.fetch(params, new SliderViewInterface(){
+                    @Override
+                    public void execute(JSONArray sliders) {
+
+                        if(sliders.length() > 0){
+                            sliderLayout.setVisibility(View.VISIBLE);
+                            for(int n = 0; n < sliders.length(); n++){
+
+                                DefaultSliderView textSliderView = new DefaultSliderView(context);
+                                // initialize a SliderLayout
+                                try {
+
+                                    JSONObject slider = (JSONObject) sliders.get(n);
+                                    System.out.println(slider.getString("src"));
+
+                                    textSliderView
+                                            .image(slider.getString("src"))
+                                            .setScaleType(BaseSliderView.ScaleType.Fit);
+                                    sliderLayout.addSlider(textSliderView);
+
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+
+
+                            }
+                        }
+
+                    }
+                });
+
+
                 break;
 
             default:
